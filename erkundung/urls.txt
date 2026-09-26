@@ -1,5 +1,7 @@
-# Runde 3: Card-Corner-Kategorien (Sprache / Neuheiten)
-cc https://www.card-corner.de/Pokemon-Karten-Deutsch
-cc https://www.card-corner.de/Pokemon-Karten-Englisch
-cc https://www.card-corner.de/Pokemon-Karten-Japanisch
+# Runde 4: ausverkaufte Vorbestellungen richtig erkennen
+gttg https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/
+gttg https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Booster-Bundle-deutsch
+gttg https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Display-36-Booster-deutsch
 cc https://www.card-corner.de/Neu-Eingetroffen
+cc https://www.card-corner.de/Pokemon-30th-Celebration-Display-Koreanisch
+cc https://www.card-corner.de/Pokemon-30th-Celebration-M6a-Display
