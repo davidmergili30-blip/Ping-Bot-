@@ -17,11 +17,13 @@ import requests
 UA = "PokemonPreisBot/0.1 (privater Preisalarm; +https://github.com/davidmergili30-blip/Ping-Bot-)"
 KOPF = {"User-Agent": UA, "Accept-Language": "de-DE,de;q=0.9"}
 PAUSE = 5
-ZIEL = pathlib.Path("erkundung/ergebnis")
+ZIEL = pathlib.Path("erkundung/ergebnis") / time.strftime("lauf-%Y%m%d-%H%M")
+# Games Island erlaubt höchstens 5 Anfragen in 5 Minuten -> dort 70 Sekunden Pause
+PAUSE_SPEZIAL = {"crawlme.games-island.eu": 70}
 
 SOZIAL = re.compile(
     r"https?://(?:www\.)?(?:discord\.gg|discord\.com/invite|whatsapp\.com/channel|chat\.whatsapp\.com|"
-    r"wa\.me|t\.me|instagram\.com|tiktok\.com|youtube\.com|facebook\.com|x\.com|twitter\.com)/[^\s\"'<>]*",
+    r"wa\.me|t\.me|instagram\.com|tiktok\.com|youtube\.com|facebook\.com|x\.com|twitter\.com)/[^\s\"'<>)]*",
     re.I,
 )
 SYSTEM = ["shopware", "shopify", "jtl", "woocommerce", "plentymarkets", "gambio", "oxid", "magento",
@@ -50,8 +52,12 @@ def robots_fuer(url: str) -> urllib.robotparser.RobotFileParser:
             (ZIEL / f"{teile.netloc}_robots.txt").write_text(f"FEHLER {type(f).__name__}", encoding="utf-8")
             rp.disallow_all = True
         robots[basis] = rp
-        time.sleep(PAUSE)
+        time.sleep(pause_fuer(url))
     return robots[basis]
+
+
+def pause_fuer(url: str) -> int:
+    return PAUSE_SPEZIAL.get(urllib.parse.urlsplit(url).netloc, PAUSE)
 
 
 def discord_info(link: str) -> dict:
@@ -70,6 +76,8 @@ def main():
     zeilen = [z.split() for z in pathlib.Path("erkundung/urls.txt").read_text(encoding="utf-8").splitlines()
               if z.strip() and not z.startswith("#")]
     uebersicht = []
+    extra_discord = [f"https://discord.gg/{url}" for kuerzel, url in zeilen if kuerzel == "discord"]
+    zeilen = [z for z in zeilen if z[0] != "discord"]
     for nr, (kuerzel, url) in enumerate(zeilen, start=1):
         eintrag = {"nr": nr, "kuerzel": kuerzel, "url": url}
         if not robots_fuer(url).can_fetch(UA, url):
@@ -81,9 +89,9 @@ def main():
         except requests.RequestException as f:
             eintrag["ergebnis"] = f"FEHLER {type(f).__name__}"
             uebersicht.append(eintrag)
-            time.sleep(PAUSE)
+            time.sleep(pause_fuer(url))
             continue
-        datei = ZIEL / f"{nr:02d}_{kuerzel}.html"
+        datei = ZIEL / f"{nr:02d}_{kuerzel}.{'json' if 'json' in r.headers.get('content-type', '') else 'html'}"
         datei.write_text(r.text, encoding="utf-8")
         klein = r.text.lower()
         eintrag.update({
@@ -99,9 +107,9 @@ def main():
             "newsletter_erwaehnt": "newsletter" in klein,
         })
         uebersicht.append(eintrag)
-        time.sleep(PAUSE)
+        time.sleep(pause_fuer(url))
 
-    discord_links = sorted({s for e in uebersicht for s in e.get("sozial", []) if "discord" in s.lower()})
+    discord_links = sorted({s for e in uebersicht for s in e.get("sozial", []) if "discord" in s.lower()} | set(extra_discord))
     discord = [discord_info(l) for l in discord_links]
     (ZIEL / "uebersicht.json").write_text(
         json.dumps({"seiten": uebersicht, "discord": discord}, ensure_ascii=False, indent=2), encoding="utf-8"
