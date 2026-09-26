@@ -1,0 +1,5 @@
+HTTP 200
+
+User-agent: *
+Disallow: 
+Sitemap: https://www.gate-to-the-games.de/sitemap_index.xml

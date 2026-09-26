@@ -1,0 +1,283 @@
+{
+  "seiten": [
+    {
+      "nr": 1,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Display-36-Booster-deutsch",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Display-36-Booster-deutsch",
+      "groesse": 405817,
+      "datei": "01_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 2,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Booster-deutsch",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Booster-deutsch",
+      "groesse": 402590,
+      "datei": "02_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 3,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/Pokemon-Karmesin-Purpur-Prismatische-Entwicklungen-Top-Trainer-Box-deutsch",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/Pokemon-Karmesin-Purpur-Prismatische-Entwicklungen-Top-Trainer-Box-deutsch",
+      "groesse": 422295,
+      "datei": "03_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 4,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/Pokemon-Karten/Kartenpacks/10-Pokemon-Holoshtml",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/Pokemon-Karten/Kartenpacks/10-Pokemon-Holoshtml",
+      "groesse": 434385,
+      "datei": "04_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 5,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Karmesin-Purpur-Paradoxrift-Display-36-Booster",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/Pokemon-Karten-Karmesin-Purpur-Paradoxrift-Display-36-Booster",
+      "groesse": 440771,
+      "datei": "05_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 6,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/Pokemon-Display",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/Pokemon-Display",
+      "groesse": 1030224,
+      "datei": "06_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 7,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/Pokemon-Destined-Rivals-Booster-Bundle",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/Pokemon-Destined-Rivals-Booster-Bundle",
+      "groesse": 776891,
+      "datei": "07_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.com/invite/6473u8x3Cs",
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 8,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/Pokemon-Gem-Pack-6-Display-CBB6C",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/Pokemon-Gem-Pack-6-Display-CBB6C",
+      "groesse": 767671,
+      "datei": "08_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.com/invite/6473u8x3Cs",
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 9,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/Card-Corner-Pokemon-Mystery-Box-Starter-Edition",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/Card-Corner-Pokemon-Mystery-Box-Starter-Edition",
+      "groesse": 722444,
+      "datei": "09_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 10,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/Pokemon-Crown-Zenith-Mini-Tin-Display-EN",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/Pokemon-Crown-Zenith-Mini-Tin-Display-EN",
+      "groesse": 721960,
+      "datei": "10_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 11,
+      "kuerzel": "gi",
+      "url": "https://crawlme.games-island.eu/categories",
+      "ergebnis": "VERBOTEN laut robots.txt – nicht abgerufen"
+    },
+    {
+      "nr": 12,
+      "kuerzel": "gi",
+      "url": "https://crawlme.games-island.eu/Pokemon",
+      "ergebnis": "VERBOTEN laut robots.txt – nicht abgerufen"
+    }
+  ],
+  "discord": [
+    {
+      "code": "6473u8x3Cs",
+      "http": 200,
+      "server": "Card-Corner TCG Discord",
+      "mitglieder": 10377,
+      "kanal": "🤝partnerschafts-anfragen"
+    },
+    {
+      "code": "6473u8x3Cs",
+      "http": 200,
+      "server": "Card-Corner TCG Discord",
+      "mitglieder": 10377,
+      "kanal": "🤝partnerschafts-anfragen"
+    },
+    {
+      "code": "rvBZKKqqU9",
+      "http": 200,
+      "server": "Games Island Hof",
+      "mitglieder": 3191,
+      "kanal": "❓│questions-and-answers"
+    }
+  ]
+}
