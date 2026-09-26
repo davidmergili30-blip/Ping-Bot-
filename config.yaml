@@ -1,0 +1,74 @@
+# =====================================================================
+#  Einstellungen für den Pokémon-TCG Preis- & Restock-Bot
+#
+#  So liest du diese Datei:
+#  - Alles hinter einem # ist ein Kommentar. Den liest der Bot nicht.
+#  - Die Einrückung (Leerzeichen am Zeilenanfang) ist wichtig!
+#    Bitte nur Leerzeichen benutzen, keine Tabs.
+#  - Nach jedem Doppelpunkt kommt ein Leerzeichen:  max_preis: 150
+#  - "null" bedeutet: nicht gesetzt / egal
+# =====================================================================
+
+allgemein:
+  # Zeitzone für Uhrzeiten und Ruhezeiten
+  zeitzone: Europe/Berlin
+
+  # Ehrlicher User-Agent: So sieht jeder Shop, wer da anfragt.
+  user_agent: "PokemonPreisBot/0.1 (privater Preisalarm; +https://github.com/davidmergili30-blip/Ping-Bot-)"
+
+  # Pause zwischen zwei Anfragen in Sekunden (höflich bleiben)
+  pause_zwischen_anfragen_sekunden: 5
+
+  # Jeden Shop höchstens alle X Minuten abfragen (mindestens 10)
+  min_minuten_pro_shop: 15
+
+
+# ---------------------------------------------------------------------
+#  Standard-Regeln für Pings
+#  Gelten für alle Produkte. Ab Phase 6 kannst du sie pro Produkt ändern.
+# ---------------------------------------------------------------------
+standard_regeln:
+  # Bei welchen Status soll der Bot dich anpingen?
+  # Möglich: BESTELLBAR, VORBESTELLBAR, NUR_EINLADUNG, NUR_MARKTPLATZ,
+  #          NUR_FILIALE, BALD, AUSVERKAUFT, UNBEKANNT
+  ping_bei_status: [BESTELLBAR, VORBESTELLBAR, NUR_EINLADUNG]
+
+  # Maximalpreis in Euro, z. B. 150. null = egal
+  max_preis: null
+
+  # Mindest-Marge in Prozent (nach Gebühren und Versand). null = egal
+  min_marge_prozent: null
+
+  # Sprache der Produkte: DE, EN, JP oder egal
+  sprache: egal
+
+  # Auch Angebote von Marktplatz-Händlern (Drittanbietern) melden?
+  marktplatz_angebote: false
+
+  # Nur Shops aus der Liste unten melden?
+  nur_vertrauenswuerdige_shops: false
+
+  # Ruhezeit, z. B. "22:00-06:00" (mit Anführungszeichen). null = keine
+  ruhezeit: null
+
+  # true  = in der Ruhezeit nur dringende Pings (z. B. BESTELLBAR unter Maximalpreis)
+  # false = in der Ruhezeit gar keine Pings
+  in_ruhezeit_nur_dringend: true
+
+
+# ---------------------------------------------------------------------
+#  Vertrauenswürdige Shops (Whitelist gegen Fake-Shops)
+#  Unbekannte Shops bekommen später im Ping eine ⚠️ Warnung.
+# ---------------------------------------------------------------------
+vertrauenswuerdige_shops:
+  - mediamarkt.de
+  - saturn.de
+  - mueller.de
+  - smythstoys.com
+
+
+# ---------------------------------------------------------------------
+#  Watchlist: die Produkte, die der Bot beobachten soll
+#  Die Einträge kommen in Phase 2 dazu.
+# ---------------------------------------------------------------------
+watchlist: []

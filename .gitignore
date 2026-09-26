@@ -1,0 +1,9 @@
+# Geheime Werte – niemals hochladen!
+.env
+
+# Von Python erzeugte Dateien
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/

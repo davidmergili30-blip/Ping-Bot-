@@ -1,0 +1,97 @@
+"""Tests für das Laden von config.yaml."""
+
+import pytest
+
+from bot.einstellungen import ConfigFehler, lade_einstellungen
+from bot.status import Status
+
+
+def schreibe(tmp_path, inhalt: str):
+    """Legt eine Test-config.yaml in einem Temp-Ordner an."""
+    pfad = tmp_path / "config.yaml"
+    pfad.write_text(inhalt, encoding="utf-8")
+    return pfad
+
+
+def test_echte_config_ist_gueltig():
+    einstellungen = lade_einstellungen()
+    assert einstellungen.allgemein.zeitzone == "Europe/Berlin"
+    assert Status.BESTELLBAR in einstellungen.standard_regeln.ping_bei_status
+    assert "mediamarkt.de" in einstellungen.vertrauenswuerdige_shops
+
+
+def test_leere_datei_nutzt_standardwerte(tmp_path):
+    einstellungen = lade_einstellungen(schreibe(tmp_path, ""))
+    assert einstellungen.allgemein.min_minuten_pro_shop == 15
+    assert einstellungen.standard_regeln.sprache == "egal"
+    assert einstellungen.watchlist == []
+
+
+def test_fehlende_datei(tmp_path):
+    with pytest.raises(ConfigFehler, match="fehlt"):
+        lade_einstellungen(tmp_path / "gibt-es-nicht.yaml")
+
+
+def test_kaputtes_yaml_nennt_zeile(tmp_path):
+    with pytest.raises(ConfigFehler, match="Zeile"):
+        lade_einstellungen(schreibe(tmp_path, "allgemein:\n  zeitzone: [kaputt\n"))
+
+
+def test_tippfehler_wird_erkannt(tmp_path):
+    with pytest.raises(ConfigFehler, match="max_pries"):
+        lade_einstellungen(schreibe(tmp_path, "standard_regeln:\n  max_pries: 100\n"))
+
+
+def test_unbekannter_status(tmp_path):
+    with pytest.raises(ConfigFehler, match="VERFUEGBAR"):
+        lade_einstellungen(schreibe(tmp_path, "standard_regeln:\n  ping_bei_status: [VERFUEGBAR]\n"))
+
+
+def test_status_klein_geschrieben_ist_ok(tmp_path):
+    einstellungen = lade_einstellungen(
+        schreibe(tmp_path, "standard_regeln:\n  ping_bei_status: [bestellbar]\n")
+    )
+    assert einstellungen.standard_regeln.ping_bei_status == [Status.BESTELLBAR]
+
+
+@pytest.mark.parametrize("ruhezeit", ["22-6", "25:00-06:00", "22:00"])
+def test_falsche_ruhezeit(tmp_path, ruhezeit):
+    with pytest.raises(ConfigFehler, match="ruhezeit"):
+        lade_einstellungen(schreibe(tmp_path, f'standard_regeln:\n  ruhezeit: "{ruhezeit}"\n'))
+
+
+def test_richtige_ruhezeit(tmp_path):
+    einstellungen = lade_einstellungen(
+        schreibe(tmp_path, 'standard_regeln:\n  ruhezeit: "22:00-06:00"\n')
+    )
+    assert einstellungen.standard_regeln.ruhezeit == "22:00-06:00"
+
+
+def test_max_preis_muss_zahl_sein(tmp_path):
+    with pytest.raises(ConfigFehler, match="Zahl"):
+        lade_einstellungen(schreibe(tmp_path, "standard_regeln:\n  max_preis: billig\n"))
+
+
+def test_zu_haeufige_abfragen_verboten(tmp_path):
+    # Höflichkeitsregel: höchstens alle 10 Minuten pro Shop
+    with pytest.raises(ConfigFehler, match="mindestens 10"):
+        lade_einstellungen(schreibe(tmp_path, "allgemein:\n  min_minuten_pro_shop: 2\n"))
+
+
+def test_falsche_zeitzone(tmp_path):
+    with pytest.raises(ConfigFehler, match="Zeitzone"):
+        lade_einstellungen(schreibe(tmp_path, "allgemein:\n  zeitzone: Mars/Olympus\n"))
+
+
+def test_sprache(tmp_path):
+    einstellungen = lade_einstellungen(schreibe(tmp_path, "standard_regeln:\n  sprache: de\n"))
+    assert einstellungen.standard_regeln.sprache == "DE"
+    with pytest.raises(ConfigFehler, match="sprache"):
+        lade_einstellungen(schreibe(tmp_path, "standard_regeln:\n  sprache: FR\n"))
+
+
+def test_shops_werden_vereinheitlicht(tmp_path):
+    einstellungen = lade_einstellungen(
+        schreibe(tmp_path, "vertrauenswuerdige_shops:\n  - https://www.Mueller.de/\n")
+    )
+    assert einstellungen.vertrauenswuerdige_shops == ["mueller.de"]

@@ -1,0 +1,51 @@
+# Startet den Bot automatisch alle 15 Minuten – oder per Knopfdruck
+# (GitHub-App: Actions → Preis-Bot → Run workflow).
+name: Preis-Bot
+
+on:
+  schedule:
+    # Alle 15 Minuten (Uhrzeit in UTC). Absichtlich nicht zur vollen Stunde:
+    # Dann hat GitHub besonders viel zu tun und Läufe verspäten sich.
+    - cron: "4,19,34,49 * * * *"
+  workflow_dispatch:
+    inputs:
+      aktion:
+        description: "Was soll der Bot tun?"
+        type: choice
+        default: normaler-lauf
+        options:
+          - normaler-lauf
+          - test-nachricht
+
+# Nie zwei Läufe gleichzeitig (sonst gibt es doppelte Pings)
+concurrency:
+  group: preis-bot
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Code holen
+        uses: actions/checkout@v5
+
+      - name: Python einrichten
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Pakete installieren
+        run: pip install -r requirements.txt
+
+      - name: Bot starten
+        env:
+          # Bei automatischen Läufen gibt es keine Auswahl → normaler Lauf
+          AKTION: ${{ inputs.aktion || 'normaler-lauf' }}
+          WHATSAPP_NUMMER: ${{ secrets.WHATSAPP_NUMMER }}
+          CALLMEBOT_APIKEY: ${{ secrets.CALLMEBOT_APIKEY }}
+        run: python -m bot "$AKTION"

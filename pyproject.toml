@@ -1,0 +1,4 @@
+[tool.pytest.ini_options]
+# Damit die Tests den Ordner "bot" finden
+pythonpath = ["."]
+testpaths = ["tests"]
