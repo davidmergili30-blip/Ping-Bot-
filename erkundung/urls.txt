@@ -1,15 +1,5 @@
-# Seiten, die das Erkundungs-Werkzeug abrufen soll: <kürzel> <adresse>
-# Runde 2: Produktseiten in verschiedenen Zuständen + Games-Island-Schnittstelle
-gttg https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Display-36-Booster-deutsch
-gttg https://www.gate-to-the-games.de/Pokemon-30-Jahre-Booster-deutsch
-gttg https://www.gate-to-the-games.de/Pokemon-Karmesin-Purpur-Prismatische-Entwicklungen-Top-Trainer-Box-deutsch
-gttg https://www.gate-to-the-games.de/Pokemon-Karten/Kartenpacks/10-Pokemon-Holoshtml
-gttg https://www.gate-to-the-games.de/Pokemon-Karten-Karmesin-Purpur-Paradoxrift-Display-36-Booster
-cc https://www.card-corner.de/Pokemon-Display
-cc https://www.card-corner.de/Pokemon-Destined-Rivals-Booster-Bundle
-cc https://www.card-corner.de/Pokemon-Gem-Pack-6-Display-CBB6C
-cc https://www.card-corner.de/Card-Corner-Pokemon-Mystery-Box-Starter-Edition
-cc https://www.card-corner.de/Pokemon-Crown-Zenith-Mini-Tin-Display-EN
-gi https://crawlme.games-island.eu/categories
-gi https://crawlme.games-island.eu/Pokemon
-discord rvBZKKqqU9
+# Runde 3: Card-Corner-Kategorien (Sprache / Neuheiten)
+cc https://www.card-corner.de/Pokemon-Karten-Deutsch
+cc https://www.card-corner.de/Pokemon-Karten-Englisch
+cc https://www.card-corner.de/Pokemon-Karten-Japanisch
+cc https://www.card-corner.de/Neu-Eingetroffen
