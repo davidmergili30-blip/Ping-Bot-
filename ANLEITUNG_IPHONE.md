@@ -1,36 +1,43 @@
 # 📱 Einrichtung komplett vom iPhone aus
 
-Du brauchst nur **WhatsApp**, die **GitHub-App** und **Safari**. Das dauert ungefähr 5 Minuten.
+Du brauchst nur **Discord**, die **GitHub-App** und **Safari**. Das dauert ungefähr 10 Minuten.
 
-> 🔒 **Wichtig:** Der CallMeBot-API-Key ist wie ein Passwort. Schick ihn niemandem und
-> schreib ihn nie in eine Datei im Repo. Er gehört **nur** in die GitHub Secrets.
-
----
-
-## Schritt 1: WhatsApp mit CallMeBot verbinden
-
-CallMeBot ist ein kostenloser Dienst, über den der Bot dir WhatsApp-Nachrichten schicken kann.
-
-1. Speichere diese Nummer in deinen iPhone-Kontakten, z. B. unter dem Namen **CallMeBot**:
-   **+34 623 78 64 49**
-
-   > Die Nummer kann sich ändern. Die aktuelle steht immer hier:
-   > https://www.callmebot.com/blog/free-api-whatsapp-messages/
-2. Öffne **WhatsApp** und starte einen Chat mit **CallMeBot**.
-   Falls der Kontakt nicht auftaucht, zieh die Chat-Liste einmal nach unten, damit sie sich aktualisiert.
-3. Schick genau diesen Text:
-   ```
-   I allow callmebot to send me messages
-   ```
-4. Nach kurzer Zeit antwortet CallMeBot ungefähr so:
-   *„API Activated for your phone number. Your APIKEY is 123456“*.
-   Die Zahl am Ende ist dein **API-Key**. Merk sie dir oder kopier sie.
-
-   > Keine Antwort nach 2 Minuten? Laut CallMeBot sollst du es dann nach 24 Stunden nochmal versuchen.
+> 🔒 **Wichtig:** Der Webhook-Link (Schritt 2) ist wie ein Passwort. Wer ihn kennt, kann in deinen
+> Kanal schreiben. Schick ihn niemandem und schreib ihn nie in eine Datei im Repo.
+> Er gehört **nur** in die GitHub Secrets.
 
 ---
 
-## Schritt 2: Nummer und API-Key bei GitHub speichern (Secrets)
+## Schritt 1: Eigenen Discord-Server anlegen
+
+1. Installiere **Discord** aus dem App Store und melde dich an (oder registriere dich).
+2. Tipp in der Server-Leiste links auf **„+“** (Server hinzufügen) und dann auf **„Eigenen erstellen“**
+   und **„Für mich und meine Freunde“**.
+3. Gib dem Server einen Namen, z. B. `Pokémon-Alarm`, und tipp auf **Server erstellen**.
+4. Leg zwei Textkanäle an. Tipp dazu neben **Textkanäle** auf **„+“**:
+   - `preis-pings` → hier schreibt dein Bot hinein
+   - `shop-news` → hier landen später die Ankündigungen der Shops (Schritt 6)
+
+Den Server siehst nur du, solange du niemanden einlädst.
+
+---
+
+## Schritt 2: Webhook anlegen (der Link, über den der Bot schreibt)
+
+1. Tipp oben auf den **Servernamen** und dann auf **Einstellungen** (Zahnrad).
+2. Tipp auf **Integrationen** → **Webhooks** → **Neuer Webhook** (oder „Webhook erstellen“).
+3. Tipp den neuen Webhook an:
+   - **Name:** z. B. `Preis-Bot`
+   - **Kanal:** `preis-pings`
+   - Speichern
+4. Tipp auf **Webhook-URL kopieren**. Der Link beginnt mit `https://discord.com/api/webhooks/…`
+
+> Findest du das in der App nicht? Dann öffne in Safari **https://discord.com/app**, tipp in der
+> Adressleiste auf **„aA“** und dann auf **„Desktop-Website anfordern“**. Dort findest du denselben Weg über die Server-Einstellungen.
+
+---
+
+## Schritt 3: Webhook bei GitHub speichern (Secret)
 
 Secrets kann man in der GitHub-App nicht bearbeiten, deshalb nehmen wir hier **Safari**.
 
@@ -39,48 +46,63 @@ Secrets kann man in der GitHub-App nicht bearbeiten, deshalb nehmen wir hier **S
 
    > Sieht die Seite komisch aus? Tipp in der Adressleiste auf **„aA“** und dann auf
    > **„Desktop-Website anfordern“**.
-2. Erstes Secret:
-   - **Name:** `WHATSAPP_NUMMER`
-   - **Secret:** deine Handynummer **mit Ländervorwahl**, also `+49` statt der ersten `0`.
-     Beispiel: Aus `0170 1234567` wird `+491701234567`.
-   - Dann auf **Add secret** tippen.
-3. Öffne den Link von oben nochmal und leg das zweite Secret an:
-   - **Name:** `CALLMEBOT_APIKEY`
-   - **Secret:** der API-Key aus Schritt 1 (nur die Zahl)
-   - Dann auf **Add secret** tippen.
+2. **Name:** `DISCORD_WEBHOOK_URL` (genau so, mit Großbuchstaben und Unterstrichen)
+3. **Secret:** Halte den Finger lange gedrückt, tipp auf **Einsetzen** und füg den Webhook-Link ein.
+4. Tipp auf **Add secret**.
 
-Die Namen müssen genau so geschrieben sein, mit Großbuchstaben und Unterstrich.
+> Hattest du vorher schon `WHATSAPP_NUMMER` oder `CALLMEBOT_APIKEY` angelegt? Die brauchst du nicht mehr.
+> Du kannst sie auf https://github.com/davidmergili30-blip/Ping-Bot-/settings/secrets/actions über das
+> Mülleimer-Symbol löschen.
 
 ---
 
-## Schritt 3: Test-Nachricht ans iPhone 🎉
+## Schritt 4: Test-Nachricht 🎉
 
 1. Öffne die **GitHub-App** und dann dein Repo **Ping-Bot-**.
-2. Scroll nach unten und tipp auf **Actions**.
-3. Tipp auf den Workflow **Preis-Bot**.
-4. Tipp auf **Run workflow**. Je nach App-Version steht das oben rechts oder hinter den drei Punkten **⋯**.
-5. Bei „Was soll der Bot tun?“ wählst du **test-nachricht** und tippst auf **Run workflow**.
-6. Nach ungefähr 1 Minute bekommst du diese WhatsApp-Nachricht von CallMeBot:
-
-   ```
-   ✅ Dein Pokémon-Preis-Bot läuft!
-   Test gestartet am 27.09.2026 um 10:15 Uhr.
-
-   Wenn du das liest, ist Phase 1 geschafft. 🎉
-
-   👉 GitHub: https://github.com/davidmergili30-blip/Ping-Bot-/actions
-   ```
+2. Scroll nach unten und tipp auf **Actions** → **Preis-Bot**.
+3. Tipp auf **Run workflow**. Je nach App-Version steht das oben rechts oder hinter den drei Punkten **⋯**.
+4. Wähl **test-nachricht** und tipp auf **Run workflow**.
+5. Nach ungefähr 1 Minute erscheint im Kanal `preis-pings` ein grüner Kasten
+   **„✅ Dein Pokémon-Preis-Bot läuft!“**.
 
 > Findest du „Run workflow“ in der App nicht? Dann geht es auch in Safari:
 > **https://github.com/davidmergili30-blip/Ping-Bot-/actions/workflows/bot.yml**
-> Dort tippst du auf **Run workflow**.
 
 ---
 
-## Schritt 4: Läuft der Zeitplan?
+## Schritt 5: Mitteilungen aufs iPhone
+
+Damit dein iPhone bei jedem Ping Bescheid gibt:
+
+1. **In Discord:** Tipp auf den Servernamen → **Benachrichtigungen** → **Alle Nachrichten**.
+2. **Im iPhone:** Öffne **Einstellungen** → **Mitteilungen** → **Discord** → **Mitteilungen erlauben**.
+
+---
+
+## Schritt 6: Ankündigungen der Shops
+
+Viele Shops kündigen Vorbestellungen zuerst auf Discord an. Tritt diesen Servern bei:
+
+| Shop | Discord |
+|---|---|
+| **Card-Corner** | https://discord.gg/card-corner („Card-Corner TCG Discord“, ca. 10.400 Mitglieder) |
+| **Games Island** | https://discord.gg/rvBZKKqqU9 („Games Island Hof“, ca. 3.200 Mitglieder) |
+| **Gate to the Games** | kein Discord gefunden. Folge ihnen stattdessen auf Instagram (**@gatetothegames**) oder abonniere den Newsletter auf gate-to-the-games.de |
+
+**Ankündigungen in deinen eigenen Server holen (empfohlen):**
+1. Öffne im Shop-Server den **Ankündigungskanal**. Du erkennst ihn am Megafon-Symbol 📢.
+2. Tipp oben auf **„Folgen“**. Wähl deinen Server **Pokémon-Alarm** und den Kanal `shop-news`.
+3. Ab jetzt landen neue Ankündigungen automatisch in deinem Kanal `shop-news`.
+
+> Gibt es keinen „Folgen“-Knopf? Dann halt den Kanal lange gedrückt → **Benachrichtigungen** →
+> **Alle Nachrichten**. So meldet dein iPhone neue Posts direkt aus dem Shop-Server.
+
+---
+
+## Schritt 7: Läuft der Zeitplan?
 
 Unter **Actions** sollten jetzt ungefähr alle 15 Minuten neue Läufe von **Preis-Bot** mit einem
-grünen Haken ✅ erscheinen. Bis Phase 2 tun diese Läufe noch nichts Sichtbares.
+grünen Haken ✅ erscheinen.
 
 > ⏱️ GitHub startet geplante Läufe manchmal 5–30 Minuten zu spät, vor allem wenn gerade viel los ist.
 > Das ist normal und lässt sich bei der Gratis-Version nicht ändern.
@@ -94,14 +116,10 @@ Tipp den Lauf an, dann **bot** und dann **Bot starten**. Dort steht auf Deutsch,
 
 | Meldung | Lösung |
 |---|---|
-| „brauchst du beide Secrets“ | Schritt 2 wiederholen. Hast du die Namen genau so geschrieben? |
-| „muss mit Ländervorwahl anfangen“ | Secret `WHATSAPP_NUMMER` ändern: `+49…` statt `0…` |
-| „CallMeBot lehnt den API-Key ab“ | Secret `CALLMEBOT_APIKEY` prüfen (nur die Zahl, ohne Leerzeichen) |
-| „CallMeBot-Limit erreicht“ | Es wurden mehr als 25 Nachrichten in 4 Stunden geschickt. Einfach warten. |
-| „CallMeBot ist gerade nicht erreichbar“ | Der Dienst hat eine Störung. Später nochmal versuchen. |
-
-Ein vorhandenes Secret änderst du über das Stift-Symbol auf dieser Seite:
-https://github.com/davidmergili30-blip/Ping-Bot-/settings/secrets/actions
+| „brauchst du das Secret DISCORD_WEBHOOK_URL“ | Schritt 3 wiederholen. Ist der Name genau richtig geschrieben? |
+| „sieht nicht wie ein Discord-Webhook aus“ | Du hast etwas anderes kopiert. Kopier den Link nochmal wie in Schritt 2. |
+| „Webhook-Link ist ungültig oder wurde gelöscht“ | Leg einen neuen Webhook an (Schritt 2) und ändere das Secret über das Stift-Symbol auf https://github.com/davidmergili30-blip/Ping-Bot-/settings/secrets/actions |
+| „Discord ist gerade nicht erreichbar“ | Discord hat eine Störung. Beim nächsten Lauf klappt es meistens wieder. |
 
 Bei einem roten ✗ schickt GitHub dir außerdem eine E-Mail. Das ist normal.
 
@@ -109,18 +127,12 @@ Bei einem roten ✗ schickt GitHub dir außerdem eine E-Mail. Das ist normal.
 
 ## Gut zu wissen
 
-**Zu CallMeBot:**
-- Kostenlos, aber nur für private Nutzung.
-- Höchstens **25 Nachrichten in 4 Stunden**. Deshalb fasst der Bot alle Neuigkeiten eines Laufs in **einer** Nachricht zusammen.
-- Der Bot kann dir nur **schreiben**. Buttons gibt es nicht, aber Links in der Nachricht kannst du antippen.
-- CallMeBot ist ein fremder Dienst. Er sieht die Texte der Pings, also nur Produktinfos und keine Passwörter. Er kann auch mal ausfallen.
-
 **Zur Steuerung:**
-- Den Bot steuerst du über die **GitHub-App**, über **Actions → Preis-Bot → Run workflow**. Ab Phase 3 kommen dort weitere Knöpfe dazu, z. B. Watchlist anzeigen, Produkt hinzufügen, Pause oder Scan.
-- Nur du kannst diese Knöpfe drücken, weil nur du Schreibrechte am Repo hast. Andere können den Bot also nicht steuern.
+- Den Bot steuerst du über die **GitHub-App**, über **Actions → Preis-Bot → Run workflow**. Ab Phase 3 kommen weitere Knöpfe dazu.
+- Nur du kannst diese Knöpfe drücken, weil nur du Schreibrechte am Repo hast.
 
 **Zum öffentlichen Repo:**
 - Jeder kann den **Code**, die **config.yaml** (also deine Watchlist) und die **Protokolle** der Läufe sehen.
-- **Secrets sieht niemand**, auch nicht in den Protokollen. Deine Nummer und deinen API-Key schreibt der Bot nie ins Protokoll.
+- **Secrets sieht niemand**, auch nicht in den Protokollen. Der Bot schreibt den Webhook-Link nie ins Protokoll.
 - Wenn im Repo 60 Tage lang nichts passiert, pausiert GitHub den Zeitplan. Du bekommst dann eine E-Mail
   und kannst ihn unter **Actions → Preis-Bot → Enable workflow** mit einem Tipp wieder einschalten.

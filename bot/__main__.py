@@ -4,7 +4,7 @@ Aufruf:  python -m bot <aktion>
 
 Aktionen:
   normaler-lauf   – der regelmäßige Lauf (alle 15 Minuten über GitHub Actions)
-  test-nachricht  – schickt eine Test-Nachricht per WhatsApp an dein iPhone
+  test-nachricht  – schickt eine Test-Nachricht in deinen Discord-Kanal
 """
 
 from __future__ import annotations
@@ -18,8 +18,8 @@ from zoneinfo import ZoneInfo
 
 from dotenv import load_dotenv
 
+from bot.discord import DiscordFehler, DiscordWebhook, Kasten
 from bot.einstellungen import ConfigFehler, Einstellungen, lade_einstellungen
-from bot.whatsapp import WhatsApp, WhatsAppFehler
 
 log = logging.getLogger("bot")
 
@@ -47,7 +47,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.aktion == "test-nachricht":
             return test_nachricht(einstellungen)
         return normaler_lauf(einstellungen)
-    except WhatsAppFehler as fehler:
+    except DiscordFehler as fehler:
         log.error("%s", fehler)
         return 1
 
@@ -59,34 +59,31 @@ def normaler_lauf(einstellungen: Einstellungen) -> int:
         len(einstellungen.watchlist),
         len(einstellungen.vertrauenswuerdige_shops),
     )
-    if not (_geheimnis("WHATSAPP_NUMMER") and _geheimnis("CALLMEBOT_APIKEY")):
-        log.warning("WhatsApp ist noch nicht fertig eingerichtet (Secrets fehlen). Siehe ANLEITUNG_IPHONE.md")
+    if not _geheimnis("DISCORD_WEBHOOK_URL"):
+        log.warning("Discord ist noch nicht fertig eingerichtet (Secret fehlt). Siehe ANLEITUNG_IPHONE.md")
     log.info("Die Shop-Checks kommen in Phase 2. Bis dahin gibt es nichts zu tun.")
     return 0
 
 
 def test_nachricht(einstellungen: Einstellungen) -> int:
-    nummer = _geheimnis("WHATSAPP_NUMMER")
-    apikey = _geheimnis("CALLMEBOT_APIKEY")
-    if not nummer or not apikey:
-        log.error(
-            "Für die Test-Nachricht brauchst du beide Secrets: WHATSAPP_NUMMER und "
-            "CALLMEBOT_APIKEY. Siehe ANLEITUNG_IPHONE.md, Schritt 2."
-        )
+    webhook = _geheimnis("DISCORD_WEBHOOK_URL")
+    if not webhook:
+        log.error("Für die Test-Nachricht brauchst du das Secret DISCORD_WEBHOOK_URL. Siehe ANLEITUNG_IPHONE.md")
         return 1
 
     jetzt = datetime.now(ZoneInfo(einstellungen.allgemein.zeitzone))
-    text = (
-        "✅ *Dein Pokémon-Preis-Bot läuft!*\n"
-        f"Test gestartet am {jetzt:%d.%m.%Y} um {jetzt:%H:%M} Uhr.\n\n"
-        "Wenn du das liest, ist Phase 1 geschafft. 🎉"
+    kasten = Kasten(
+        titel="✅ Dein Pokémon-Preis-Bot läuft!",
+        text=(
+            f"Test gestartet am {jetzt:%d.%m.%Y} um {jetzt:%H:%M} Uhr.\n\n"
+            "Wenn du das liest, klappt die Verbindung zu Discord. 🎉"
+            + ("\nTipp auf die Überschrift, um GitHub zu öffnen." if _github_link() else "")
+        ),
+        link=_github_link(),
+        farbe=0x2ECC71,
     )
-    link = _github_link()
-    if link:
-        text += f"\n\n👉 GitHub: {link}"
-
-    WhatsApp(nummer, apikey).sende(text)
-    log.info("Test-Nachricht wurde an CallMeBot übergeben. Sie kommt in ein paar Sekunden auf deinem iPhone an.")
+    DiscordWebhook(webhook).sende(kaesten=[kasten])
+    log.info("Test-Nachricht wurde an Discord geschickt. Schau in deinen Kanal!")
     return 0
 
 

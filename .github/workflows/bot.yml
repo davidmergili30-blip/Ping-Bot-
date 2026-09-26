@@ -46,6 +46,5 @@ jobs:
         env:
           # Bei automatischen Läufen gibt es keine Auswahl → normaler Lauf
           AKTION: ${{ inputs.aktion || 'normaler-lauf' }}
-          WHATSAPP_NUMMER: ${{ secrets.WHATSAPP_NUMMER }}
-          CALLMEBOT_APIKEY: ${{ secrets.CALLMEBOT_APIKEY }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python -m bot "$AKTION"

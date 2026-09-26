@@ -2,7 +2,7 @@
 
 Ein privater Bot, der Online-Shops auf versiegelte Pokémon-TCG-Produkte prüft. Dazu gehören Displays,
 Elite-/Top-Trainer-Boxen, Premium-Kollektionen und Special Sets auf Deutsch, Englisch und Japanisch.
-Sobald etwas nach deinen Regeln interessant ist, schickt er dir eine **WhatsApp-Nachricht** (über CallMeBot).
+Sobald etwas nach deinen Regeln interessant ist, schickt er dir eine Nachricht in deinen **Discord**-Kanal.
 Der Bot läuft kostenlos über **GitHub Actions** und lässt sich komplett vom **iPhone** aus bedienen.
 
 ➡️ **Einrichtung:** [ANLEITUNG_IPHONE.md](ANLEITUNG_IPHONE.md)
@@ -14,7 +14,7 @@ Der Bot läuft kostenlos über **GitHub Actions** und lässt sich komplett vom *
 - ❌ Amazon wird nicht gescrapt, nur über erlaubte Schnittstellen abgefragt
 - ✅ Höfliche Abfragen mit ehrlichem User-Agent, jeder Shop höchstens alle 10–30 Minuten
 - ✅ Wenn eine Seite blockt, heißt der Status `UNBEKANNT`. Die Sperre wird nicht umgangen.
-- ✅ Nummer und API-Key stehen nur in den GitHub Secrets, nie im Code
+- ✅ Der Discord-Webhook-Link steht nur in den GitHub Secrets, nie im Code
 
 ## Status eines Produkts
 
@@ -36,7 +36,7 @@ In der GitHub-App: **Actions → Preis-Bot → Run workflow**. Dort wählst du e
 | Aktion | Was passiert |
 |---|---|
 | `normaler-lauf` | Der normale Lauf. Er startet automatisch alle 15 Minuten. |
-| `test-nachricht` | Schickt eine Test-Nachricht per WhatsApp an dein iPhone |
+| `test-nachricht` | Schickt eine Test-Nachricht in deinen Discord-Kanal |
 
 Weitere Knöpfe wie Watchlist anzeigen, Produkt hinzufügen, Pause oder Scan kommen in Phase 3.
 
@@ -48,7 +48,7 @@ Ping-Bot-/
 ├── bot/
 │   ├── __main__.py          ← Startpunkt: python -m bot <aktion>
 │   ├── einstellungen.py     ← liest und prüft config.yaml
-│   ├── whatsapp.py          ← schickt WhatsApp-Nachrichten über CallMeBot
+│   ├── discord.py           ← schickt Nachrichten über einen Discord-Webhook
 │   └── status.py            ← die 8 möglichen Status
 ├── tests/                   ← automatische Tests
 ├── .github/workflows/
@@ -60,7 +60,7 @@ Ping-Bot-/
 
 ## Fortschritt
 
-- [x] **Phase 1:** Grundgerüst, config.yaml, WhatsApp-Test, GitHub Actions
+- [x] **Phase 1:** Grundgerüst, config.yaml, Discord-Test, GitHub Actions
 - [ ] **Phase 2:** Erster Shop, Status-Erkennung, SQLite, Ping nur bei Änderung
 - [ ] **Phase 3:** Steuerung über die GitHub-App (Watchlist, Pause, Ruhezeit, Status)
 - [ ] **Phase 4:** Mehr Quellen, Whitelist, Fake-Warnung

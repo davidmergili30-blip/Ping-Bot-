@@ -3,31 +3,32 @@
 import pytest
 
 from bot import __main__ as start
-from bot import whatsapp as whatsapp_modul
+from bot import discord as discord_modul
+
+WEBHOOK = "https://discord.com/api/webhooks/123456789012345678/abcDEF"
 
 
 class FalscheAntwort:
-    status_code = 200
-    text = "Message queued. You will receive it in a few seconds."
+    status_code = 204
 
 
 @pytest.fixture
 def gesendet(monkeypatch):
-    """Ersetzt CallMeBot durch eine Attrappe und merkt sich die Nachrichten."""
+    """Ersetzt Discord durch eine Attrappe und merkt sich die Nachrichten."""
     liste = []
 
-    def falsches_get(url, params, timeout):
-        liste.append(params)
+    def falsches_post(url, json, params, timeout):
+        liste.append(json)
         return FalscheAntwort()
 
-    monkeypatch.setattr(whatsapp_modul.requests, "get", falsches_get)
+    monkeypatch.setattr(discord_modul.requests, "post", falsches_post)
     return liste
 
 
 @pytest.fixture(autouse=True)
 def keine_secrets(monkeypatch):
     """Jeder Test startet ohne Secrets (leere Werte überschreibt auch keine .env)."""
-    for name in ("WHATSAPP_NUMMER", "CALLMEBOT_APIKEY", "GITHUB_SERVER_URL", "GITHUB_REPOSITORY"):
+    for name in ("DISCORD_WEBHOOK_URL", "GITHUB_SERVER_URL", "GITHUB_REPOSITORY"):
         monkeypatch.setenv(name, "")
 
 
@@ -39,28 +40,25 @@ def test_ohne_aktion_ist_es_ein_normaler_lauf():
     assert start.main([]) == 0
 
 
-def test_test_nachricht_ohne_secrets_schlaegt_fehl(gesendet):
+def test_test_nachricht_ohne_secret_schlaegt_fehl(gesendet):
     assert start.main(["test-nachricht"]) == 1
     assert gesendet == []
 
 
 def test_test_nachricht_wird_gesendet(monkeypatch, gesendet):
-    monkeypatch.setenv("WHATSAPP_NUMMER", "+49 170 1234567")
-    monkeypatch.setenv("CALLMEBOT_APIKEY", "123456")
+    monkeypatch.setenv("DISCORD_WEBHOOK_URL", WEBHOOK)
     monkeypatch.setenv("GITHUB_SERVER_URL", "https://github.com")
     monkeypatch.setenv("GITHUB_REPOSITORY", "ich/Ping-Bot-")
 
     assert start.main(["test-nachricht"]) == 0
 
-    nachricht = gesendet[0]
-    assert nachricht["phone"] == "+491701234567"
-    assert "Bot läuft" in nachricht["text"]
-    assert "https://github.com/ich/Ping-Bot-/actions" in nachricht["text"]
+    kasten = gesendet[0]["embeds"][0]
+    assert "Bot läuft" in kasten["title"]
+    assert kasten["url"] == "https://github.com/ich/Ping-Bot-/actions"
 
 
-def test_falsche_nummer_gibt_fehlercode(monkeypatch, gesendet):
-    monkeypatch.setenv("WHATSAPP_NUMMER", "0170 1234567")
-    monkeypatch.setenv("CALLMEBOT_APIKEY", "123456")
+def test_falscher_webhook_gibt_fehlercode(monkeypatch, gesendet):
+    monkeypatch.setenv("DISCORD_WEBHOOK_URL", "https://example.com/nicht-discord")
     assert start.main(["test-nachricht"]) == 1
     assert gesendet == []
 
