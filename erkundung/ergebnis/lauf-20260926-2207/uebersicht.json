@@ -1,0 +1,101 @@
+{
+  "seiten": [
+    {
+      "nr": 1,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/Pokemon-Karten-Deutsch",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/Pokemon-Karten-Deutsch",
+      "groesse": 1007176,
+      "datei": "01_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 2,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/Pokemon-Karten-Englisch",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/Pokemon-Karten-Englisch",
+      "groesse": 1049910,
+      "datei": "02_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 3,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/Pokemon-Karten-Japanisch",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/Pokemon-Karten-Japanisch",
+      "groesse": 1206059,
+      "datei": "03_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 4,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/Neu-Eingetroffen",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/Neu-Eingetroffen",
+      "groesse": 953440,
+      "datei": "04_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    }
+  ],
+  "discord": [
+    {
+      "code": "6473u8x3Cs",
+      "http": 200,
+      "server": "Card-Corner TCG Discord",
+      "mitglieder": 10377,
+      "kanal": "🤝partnerschafts-anfragen"
+    }
+  ]
+}
