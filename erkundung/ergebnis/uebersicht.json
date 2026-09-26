@@ -1,0 +1,180 @@
+{
+  "seiten": [
+    {
+      "nr": 1,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/",
+      "groesse": 513764,
+      "datei": "01_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 2,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/",
+      "groesse": 755498,
+      "datei": "02_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 3,
+      "kuerzel": "gi",
+      "url": "https://games-island.eu/",
+      "http": 200,
+      "end_url": "https://games-island.eu/",
+      "groesse": 749432,
+      "datei": "03_gi.html",
+      "kopfzeilen": {
+        "Server": "Apache/2.4.67 (Debian)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "sw-"
+      ],
+      "sozial": [
+        "https://discord.gg/rvBZKKqqU9)",
+        "https://discord.gg/rvBZKKqqU9).",
+        "https://www.facebook.com/privacy/policy/",
+        "https://www.instagram.com/gamesisland_eu/"
+      ],
+      "newsletter_erwaehnt": false
+    },
+    {
+      "nr": 4,
+      "kuerzel": "gi",
+      "url": "https://games-island.eu/m/Pokemon",
+      "http": 200,
+      "end_url": "https://games-island.eu/m/Pokemon",
+      "groesse": 28435,
+      "datei": "04_gi.html",
+      "kopfzeilen": {
+        "Server": "games-island.eu",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "system_hinweise": [
+        "captcha"
+      ],
+      "sozial": [
+        "https://discord.gg/rvBZKKqqU9)",
+        "https://discord.gg/rvBZKKqqU9)."
+      ],
+      "newsletter_erwaehnt": false
+    },
+    {
+      "nr": 5,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/",
+      "groesse": 783533,
+      "datei": "05_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.com/invite/card-corner",
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 6,
+      "kuerzel": "ccat",
+      "url": "https://cardcorner.at/",
+      "http": 200,
+      "end_url": "https://cardcorner.at/",
+      "groesse": 320196,
+      "datei": "06_ccat.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a41586a2e82c393c-MSP"
+      },
+      "system_hinweise": [
+        "captcha",
+        "shopify",
+        "shopify-section"
+      ],
+      "sozial": [
+        "https://www.facebook.com/cardcorner.at",
+        "https://www.instagram.com/cardcorner.at"
+      ],
+      "newsletter_erwaehnt": true
+    }
+  ],
+  "discord": [
+    {
+      "code": "card-corner",
+      "http": 200,
+      "server": "Card-Corner TCG Discord",
+      "mitglieder": 10377,
+      "kanal": "┏〢regeln"
+    },
+    {
+      "code": "6473u8x3Cs",
+      "http": 200,
+      "server": "Card-Corner TCG Discord",
+      "mitglieder": 10377,
+      "kanal": "🤝partnerschafts-anfragen"
+    },
+    {
+      "code": "rvBZKKqqU9)",
+      "http": 404,
+      "server": null,
+      "mitglieder": null,
+      "kanal": null
+    },
+    {
+      "code": "rvBZKKqqU9).",
+      "http": 404,
+      "server": null,
+      "mitglieder": null,
+      "kanal": null
+    }
+  ]
+}

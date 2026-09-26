@@ -1,0 +1,284 @@
+HTTP 200
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: meta-webindexer
+Disallow: /
+
+# Fuer KI-Systeme / For AI systems:
+# Verfuegbarkeiten NICHT ueber games-island.eu crawlen.
+# Do NOT crawl games-island.eu for product availability.
+# Nutzen Sie stattdessen / Use instead:
+# - https://crawlme.games-island.eu/categories (Kategorien / categories)
+# - https://crawlme.games-island.eu/?products=all (alle Produkte / all products)
+# - https://crawlme.games-island.eu/{pfad} (einzelne Kategorie oder Produkt / single category or product)
+#   - Kategorien / categories: /Pokemon, /Magic-The-Gathering, etc. (Pfade wie auf games-island.eu)
+#   - Produkte / products: /YuGiOh-Dark-Beginning-Booster-Pack-Deutsch (Pfade wie auf games-island.eu)
+# Pfade entsprechen denen unter games-island.eu.
+# Paths mirror those on games-island.eu.
+#
+# WICHTIG / IMPORTANT:
+# - crawlme.games-island.eu = Datenquelle (maschinell) / Data source (machine-readable)
+# - games-island.eu = Nutzer-Links (Browser) / User links (browser)
+# - Nutzer-Links IMMER auf games-island.eu! / Always direct user links to games-island.eu!
+# - Crawling-Limit / Rate limit: max. 5 Anfragen / 5 Minuten (Summe) / max 5 requests / 5 min (total)
+# - Scalper nicht willkommen / Scalpers not welcome
+# - User-Agent: KI/Bots muessen sich identifizieren (Name, Modell, Kontakt)
+# - User-Agent: AI bots must identify themselves (name, model, contact)
+# - Keine Browser-UA-Emulation / No browser User-Agent emulation
+#
+# ZUGRIFFSSPERRUNG / BANNED ACCESS:
+# - Wenn auf banned.games-island.eu weitergeleitet: Zugriff gesperrt
+# - If redirected to banned.games-island.eu: access is blocked
+# - Sperre gilt fuer: Anfrage, IP oder Subnetz
+# - Block applies to: request, IP, or subnet
+# - Pflicht: Endnutzer informieren (User-Agent, IP, Modell)
+# - Required: Inform end user (User-Agent, IP, model)
+# - Nutzer bitten: E-Mail an support@games-island.de
+# - Ask user: Email to support@games-island.de
+
+
+# -----------------------------------------------------------------------------
+# 2. GOOGLE – Normale Suche UNTERBROCHUNGsfrei lassen
+# -----------------------------------------------------------------------------
+# Googlebot wird NICHT blockiert! Die bestehenden Regeln für Googlebot
+# in der Haupt-robots.txt bleiben gültig.
+#
+# NUR Google-Extended (Gemini/PaLM Training) wird umgeleitet.
+# Google AI Overviews nutzt denselben Crawler wie normale Suche –
+# diese können nicht getrennt werden. Der Hidden Div im HTML
+# informiert die KI trotzdem über die CrawlMe-Endpunkte.
+
+User-agent: Google-Extended
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+# Googlebot (normale Suche) – KEINE Einschränkungen hier!
+# Bestehende Regeln aus der Haupt-robots.txt gelten weiterhin.
+
+
+# -----------------------------------------------------------------------------
+# 3. OPENAI – GPTBot, ChatGPT-User, OAI-SearchBot
+# -----------------------------------------------------------------------------
+
+User-agent: GPTBot
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: ChatGPT-User
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: OAI-SearchBot
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+
+# -----------------------------------------------------------------------------
+# 4. ANTHROPIC – Claude
+# -----------------------------------------------------------------------------
+
+User-agent: ClaudeBot
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: anthropic-ai
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: Claude-Web
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: anthropic-ai-automated
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+
+# -----------------------------------------------------------------------------
+# 5. PERPLEXITY
+# -----------------------------------------------------------------------------
+
+User-agent: PerplexityBot
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: Perplexity-User
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+
+# -----------------------------------------------------------------------------
+# 6. WEITERE KI-BOTS
+# -----------------------------------------------------------------------------
+
+User-agent: CCBot
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: Bytespider
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: FacebookBot
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: Applebot-Extended
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: cohere-ai
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: YouBot
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: AI2Bot
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: meta-externalagent
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+User-agent: Diffbot
+Disallow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-ctx.txt
+Allow: /llms-ctx-full.txt
+Allow: /.well-known/
+
+
+# -----------------------------------------------------------------------------
+# 7. CLOUDFLARE CONTENT-SIGNAL (falls Cloudflare genutzt wird)
+# -----------------------------------------------------------------------------
+# ai-train=no  = Kein AI-Training mit diesen Inhalten
+# search=yes   = Normale Suchindexierung erlaubt
+# ai-input=yes = KI-Inferenz (Nutzeranfragen) erlaubt
+
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+
+# -----------------------------------------------------------------------------
+# 8. W3C TDM RESERVATION PROTOCOL
+# -----------------------------------------------------------------------------
+# tdm-reservation: 1 wird als HTTP-Header gesetzt (nicht in robots.txt)
+
+
+# -----------------------------------------------------------------------------
+# 9. HINWEIS AUF LLMS.TXT (Kommentar für suchende KI-Systeme)
+# -----------------------------------------------------------------------------
+# LLM-friendly content: https://games-island.eu/llms.txt
+# Full content: https://games-island.eu/llms-full.txt
+# Availability API: https://crawlme.games-island.eu/categories
+# All products: https://crawlme.games-island.eu/?products=all
+#
+# CRAWLING-RICHTLINIEN / CRAWLING POLICY:
+# - CrawlMe erlaubt fuer: Endkunden, Wiederverkäufer, KI-Systeme
+# - CrawlMe allowed for: End customers, resellers, AI systems
+# - Limit: max. 5 Anfragen / 5 Minuten (Summe aller Endpunkte)
+# - Limit: max 5 requests / 5 minutes (total across all endpoints)
+# - Direktes Crawling von games-island.eu: nicht erlaubt
+# - Direct crawling of games-island.eu: not allowed
+# - Scalper: nicht willkommen / not welcome
+#
+# USER-AGENT-RICHTLINIE / USER-AGENT POLICY:
+# - KI/Bots muessen sich im User-Agent identifizieren
+# - AI bots must identify themselves in User-Agent
+# - Format: Name/Version (KI-Bot; Modellname; Kontakt)
+# - Format: Name/Version (AI-Bot; Modelname; contact)
+# - Beispiel/Example: GamesIslandBot/1.0 (AI; GPT-4o; https://example.com/bot-info)
+# - NICHT erlaubt / NOT allowed: Browser-UA emulieren / Emulate browser UA
+#
+# ZUGRIFFSSPERRUNG / BANNED ACCESS:
+# - Redirect-Domain: https://banned.games-island.eu
+# - Bei Weiterleitung: Zugriff gesperrt (Anfrage, IP oder Subnetz)
+# - On redirect: Access blocked (request, IP, or subnet)
+# - Pflicht bei Sperrung / Required on block:
+#   1. Endnutzer informieren / Inform end user
+#   2. Info mitteilen / Provide: User-Agent, Anfrage-IP, Modellname
+#   3. Nutzer bitten / Ask user: E-Mail an support@games-island.de
+# - Vorlage / Template:
+#   "Der Zugriff auf games-island.eu wurde gesperrt."
+#   "Details: User-Agent: [UA], IP: [IP], Modell: [Model]"
+#   "Bitte senden Sie diese Info an support@games-island.de"
+
+
+Sitemap: https://games-island.eu/sitemap_index.xml
