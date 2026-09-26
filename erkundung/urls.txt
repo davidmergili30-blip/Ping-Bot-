@@ -1,0 +1,7 @@
+# Seiten, die das Erkundungs-Werkzeug abrufen soll: <kürzel> <adresse>
+gttg https://www.gate-to-the-games.de/
+gttg https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/
+gi https://games-island.eu/
+gi https://games-island.eu/m/Pokemon
+cc https://www.card-corner.de/
+ccat https://cardcorner.at/

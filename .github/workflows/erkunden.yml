@@ -1,0 +1,33 @@
+# Hilfs-Werkzeug (nur auf dem Branch "erkundung"): holt Shop-Seiten ab,
+# damit wir die Status-Erkennung mit echten Beispielen bauen können.
+name: Erkundung
+
+on:
+  push:
+    branches: [erkundung]
+    paths: ["erkundung/urls.txt", "erkundung/holen.py"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: erkundung
+
+jobs:
+  holen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+      - run: python erkundung/holen.py
+      - name: Ergebnisse speichern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add erkundung/ergebnis
+          git commit -m "Erkundung: Ergebnisse" || echo "Nichts Neues"
+          git push
