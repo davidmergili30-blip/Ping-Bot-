@@ -1,0 +1,168 @@
+{
+  "seiten": [
+    {
+      "nr": 1,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/",
+      "groesse": 755498,
+      "datei": "01_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 2,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Booster-Bundle-deutsch",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Booster-Bundle-deutsch",
+      "groesse": 405598,
+      "datei": "02_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 3,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Display-36-Booster-deutsch",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Display-36-Booster-deutsch",
+      "groesse": 405817,
+      "datei": "03_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 4,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/Neu-Eingetroffen",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/Neu-Eingetroffen",
+      "groesse": 953440,
+      "datei": "04_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 5,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Display-Koreanisch",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/Pokemon-30th-Celebration-Display-Koreanisch",
+      "groesse": 689498,
+      "datei": "05_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.com/invite/6473u8x3Cs",
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/",
+        "https://www.instagram.com/cardcornerinside"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 6,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/Pokemon-30th-Celebration-M6a-Display",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/Pokemon-30th-Celebration-M6a-Display",
+      "groesse": 750089,
+      "datei": "06_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.com/invite/6473u8x3Cs",
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    }
+  ],
+  "discord": [
+    {
+      "code": "6473u8x3Cs",
+      "http": 200,
+      "server": "Card-Corner TCG Discord",
+      "mitglieder": 10373,
+      "kanal": "🤝partnerschafts-anfragen"
+    },
+    {
+      "code": "6473u8x3Cs",
+      "http": 200,
+      "server": "Card-Corner TCG Discord",
+      "mitglieder": 10373,
+      "kanal": "🤝partnerschafts-anfragen"
+    }
+  ]
+}
