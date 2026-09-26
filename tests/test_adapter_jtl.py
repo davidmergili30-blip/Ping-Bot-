@@ -12,6 +12,7 @@ import pytest
 from bot.adapter import NICHT_ERLAUBT, adapter_fuer
 from bot.adapter.basis import datum_aus_text, preis_als_zahl, schema_status
 from bot.status import Status
+from tests.hilfen import ohne_ausverkauft_markierung
 
 BEISPIELE = Path(__file__).parent / "beispiele"
 HEUTE = date(2026, 9, 26)  # Tag, an dem die Beispielseiten gespeichert wurden
@@ -26,8 +27,9 @@ def lies(name: str) -> str:
 @pytest.mark.parametrize(
     "datei, url, status, preis, extra",
     [
-        ("gate_to_the_games/produkt_vorbestellbar.html", GTTG, Status.VORBESTELLBAR, 199.90,
-         {"liefertermin": "06.11.2026"}),
+        # Ausverkaufte Vorbestellung: „Verfügbar ab …“ + schema.org PreOrder, aber Banner „Ausverkauft“
+        ("gate_to_the_games/produkt_vorbestellung_ausverkauft.html", GTTG, Status.AUSVERKAUFT, 199.90,
+         {"liefertermin": None}),
         ("gate_to_the_games/produkt_ausverkauft.html", GTTG, Status.AUSVERKAUFT, 7.99, {}),
         ("gate_to_the_games/produkt_bestellbar_mengenlimit.html", GTTG, Status.BESTELLBAR, 229.95,
          {"mengenlimit": 1}),
@@ -35,6 +37,8 @@ def lies(name: str) -> str:
         ("card_corner/produkt_bestellbar.html", CC, Status.BESTELLBAR, 74.99, {}),
         # Auf dieser Seite steht in den Empfehlungen ein Vorbestell-Produkt – das darf nicht zählen
         ("card_corner/produkt_wenig_auf_lager.html", CC, Status.BESTELLBAR, 599.99, {}),
+        # schema.org PreOrder, aber rote Ampel „Ausverkauft – Benachrichtigen wenn verfügbar“
+        ("card_corner/produkt_vorbestellung_ausverkauft.html", CC, Status.AUSVERKAUFT, None, {}),
     ],
 )
 def test_produktseiten(datei, url, status, preis, extra):
@@ -47,12 +51,12 @@ def test_produktseiten(datei, url, status, preis, extra):
         assert getattr(ergebnis, feld) == wert
 
 
-def test_vorbestellung_wird_nach_erscheinen_nicht_mehr_als_vorbestellung_gemeldet():
-    # schema.org sagt weiterhin PreOrder → bleibt VORBESTELLBAR (der Shop entscheidet)
-    ergebnis = adapter_fuer(GTTG).erkenne_produkt(
-        lies("gate_to_the_games/produkt_vorbestellbar.html"), GTTG, date(2026, 12, 1)
-    )
+def test_echte_vorbestellung_ohne_ausverkauft_banner():
+    html = ohne_ausverkauft_markierung(lies("gate_to_the_games/produkt_vorbestellung_ausverkauft.html"))
+    ergebnis = adapter_fuer(GTTG).erkenne_produkt(html, GTTG, HEUTE)
     assert ergebnis.status == Status.VORBESTELLBAR
+    assert ergebnis.liefertermin == "06.11.2026"
+    assert ergebnis.preis == 199.90
 
 
 def test_liste_gate_to_the_games():
@@ -61,10 +65,12 @@ def test_liste_gate_to_the_games():
     assert len(liste) == 25
     nach_url = {e.url: e.ergebnis for e in liste}
     display = nach_url["https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Display-36-Booster-deutsch"]
-    assert display.status == Status.VORBESTELLBAR
+    # Steht dort mit „Verfügbar ab: 06.11.2026“, ist aber als „Ausverkauft“ markiert
+    assert display.status == Status.AUSVERKAUFT
     assert display.preis == 199.90
-    assert display.liefertermin == "06.11.2026"
     assert "Display" in display.titel
+    # Zum Zeitpunkt der Aufnahme war im Vorverkauf alles ausverkauft
+    assert {e.ergebnis.status for e in liste} == {Status.AUSVERKAUFT}
     booster = nach_url["https://www.gate-to-the-games.de/Pokemon-30-Jahre-Booster-deutsch"]
     assert booster.status == Status.AUSVERKAUFT
     # Keine Links mit '#tab-votes' und keine Dubletten
@@ -81,13 +87,25 @@ def test_liste_card_corner():
     assert gem.ergebnis.preis == 33.99
 
 
-def test_liste_card_corner_neu_eingetroffen_mit_vorbestellungen():
+def test_liste_card_corner_ausverkaufte_vorbestellungen():
     url = "https://www.card-corner.de/Neu-Eingetroffen"
     liste = adapter_fuer(url).erkenne_liste(lies("card_corner/liste_neu_eingetroffen.html"), url, HEUTE)
-    vorbestellbar = [e for e in liste if e.ergebnis.status == Status.VORBESTELLBAR]
-    assert len(vorbestellbar) == 2
+    # Diese beiden stehen mit schema.org „PreOrder“ in der Liste, sind aber als „Ausverkauft“ markiert
+    koreanisch = [e for e in liste if "30th-Celebration" in e.url and "Koreanisch" in e.url]
+    assert len(koreanisch) == 2
+    assert all(e.ergebnis.status == Status.AUSVERKAUFT for e in koreanisch)
     # Preis steht noch nicht fest (0 €) → kein Preis statt 0 €
-    assert all(e.ergebnis.preis is None for e in vorbestellbar)
+    assert all(e.ergebnis.preis is None for e in koreanisch)
+    assert not any(e.ergebnis.status == Status.VORBESTELLBAR for e in liste)
+
+
+def test_liste_vorbestellung_ohne_ausverkauft_banner():
+    url = "https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+    html = ohne_ausverkauft_markierung(lies("gate_to_the_games/liste_vorverkauf.html"))
+    liste = adapter_fuer(url).erkenne_liste(html, url, HEUTE)
+    display = next(e.ergebnis for e in liste if "Delta-Herrschaft-Display" in e.url)
+    assert display.status == Status.VORBESTELLBAR
+    assert display.liefertermin == "06.11.2026"
 
 
 def test_seite_ohne_produktdaten_ist_unbekannt():

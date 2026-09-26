@@ -22,6 +22,7 @@ from bot.einstellungen import (
 from bot.lauf import Lauf
 from bot.speicher import Speicher
 from bot.status import Status
+from tests.hilfen import ohne_ausverkauft_markierung
 
 BEISPIELE = Path(__file__).parent / "beispiele"
 HEUTE = date(2026, 9, 26)
@@ -36,7 +37,9 @@ def html(name: str) -> str:
     return (BEISPIELE / name).read_text(encoding="utf-8")
 
 
-VORBESTELLBAR = html("gate_to_the_games/produkt_vorbestellbar.html")
+# Echte Seite einer (inzwischen ausverkauften) Vorbestellung – ohne Banner = noch bestellbar
+VORBESTELLUNG_AUSVERKAUFT = html("gate_to_the_games/produkt_vorbestellung_ausverkauft.html")
+VORBESTELLBAR = ohne_ausverkauft_markierung(VORBESTELLUNG_AUSVERKAUFT)
 AUSVERKAUFT = html("gate_to_the_games/produkt_ausverkauft.html")
 
 
@@ -194,14 +197,34 @@ def test_kategorie_erster_blick_schickt_uebersicht(speicher):
     melder = FalscherMelder()
     e = einstellungen(kategorien=[("GTTG Vorverkauf", GTTG_LISTE)],
                       filter_=KategorieFilter(nur_mit=["Display", "Top Trainer"]))
-    lauf(e, speicher, {GTTG_LISTE: html("gate_to_the_games/liste_vorverkauf.html")}, melder)
+    liste = ohne_ausverkauft_markierung(html("gate_to_the_games/liste_vorverkauf.html"))
+    lauf(e, speicher, {GTTG_LISTE: liste}, melder)
     assert melder.titel == ["📋 Neu überwacht: GTTG Vorverkauf"]
     text = melder.nachrichten[0]["kaesten"][0].text
     assert "Delta Herrschaft Display" in text
     assert "Booster (deutsch)" not in text  # vom Filter aussortiert
     # Zweiter Lauf, nichts Neues → still
-    lauf(e, speicher, {GTTG_LISTE: html("gate_to_the_games/liste_vorverkauf.html")}, melder, minuten=15)
+    lauf(e, speicher, {GTTG_LISTE: liste}, melder, minuten=15)
     assert len(melder.nachrichten) == 1
+
+
+def test_ausverkaufte_vorbestellungen_tauchen_nicht_in_der_uebersicht_auf(speicher):
+    melder = FalscherMelder()
+    e = einstellungen(kategorien=[("GTTG Vorverkauf", GTTG_LISTE)],
+                      filter_=KategorieFilter(nur_mit=["Display", "Top Trainer"]))
+    lauf(e, speicher, {GTTG_LISTE: html("gate_to_the_games/liste_vorverkauf.html")}, melder)
+    text = melder.nachrichten[0]["kaesten"][0].text
+    assert "davon 0 gerade interessant" in text
+    assert "Delta Herrschaft Display" not in text
+
+
+def test_ausverkaufte_vorbestellung_pingt_nicht(speicher):
+    melder = FalscherMelder()
+    lauf(einstellungen(DELTA), speicher, {GTTG_PRODUKT: VORBESTELLUNG_AUSVERKAUFT}, melder)
+    assert melder.nachrichten == []
+    # Wird das Kontingent wieder aufgestockt, kommt der Ping
+    lauf(einstellungen(DELTA), speicher, {GTTG_PRODUKT: VORBESTELLBAR}, melder, minuten=15)
+    assert melder.titel == ["🔵 VORBESTELLBAR – Delta Display"]
 
 
 def test_kategorie_neues_produkt_wird_gemeldet(speicher):
@@ -209,14 +232,14 @@ def test_kategorie_neues_produkt_wird_gemeldet(speicher):
     e = einstellungen(kategorien=[("CC Neu", CC_NEU)], filter_=KategorieFilter(nur_mit=["Display"]))
     seiten = {CC_NEU: html("card_corner/liste_neu_eingetroffen.html")}
     lauf(e, speicher, seiten, melder)
-    # So tun, als wäre die koreanische Display-Vorbestellung beim ersten Mal noch nicht da gewesen
-    speicher._db.execute("DELETE FROM stand WHERE url LIKE '%30th-Celebration-Display-Koreanisch'")
+    # So tun, als wäre dieses Display beim ersten Mal noch nicht im Shop gewesen
+    speicher._db.execute("DELETE FROM stand WHERE url LIKE '%Pokemon-Abyss-Eye-Display-Koreanisch'")
     speicher._db.commit()
     lauf(e, speicher, seiten, melder, minuten=15)
     neu = melder.nachrichten[-1]["kaesten"]
-    assert [k.titel for k in neu] == ["🔵 VORBESTELLBAR – Pokemon 30th Celebration Display (Koreanisch)"]
+    assert [k.titel for k in neu] == ["🟢 BESTELLBAR – Pokemon Abyss Eye Display (Koreanisch)"]
     assert "Neu im Shop" in neu[0].text
-    assert "Preis noch offen" in neu[0].text
+    assert "45,99 €" in neu[0].text
 
 
 def test_kategorie_filter_ohne(speicher):
