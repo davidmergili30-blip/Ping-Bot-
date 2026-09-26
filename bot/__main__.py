@@ -13,13 +13,16 @@ import argparse
 import logging
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
 from dotenv import load_dotenv
 
+from bot.abruf import Abrufer
 from bot.discord import DiscordFehler, DiscordWebhook, Kasten
 from bot.einstellungen import ConfigFehler, Einstellungen, lade_einstellungen
+from bot.lauf import Lauf
+from bot.speicher import STANDARD_PFAD, Speicher
 
 log = logging.getLogger("bot")
 
@@ -53,16 +56,20 @@ def main(argv: list[str] | None = None) -> int:
 
 
 def normaler_lauf(einstellungen: Einstellungen) -> int:
-    log.info("Normaler Lauf gestartet.")
-    log.info(
-        "Watchlist: %d Produkt(e), vertrauenswürdige Shops: %d",
-        len(einstellungen.watchlist),
-        len(einstellungen.vertrauenswuerdige_shops),
-    )
-    if not _geheimnis("DISCORD_WEBHOOK_URL"):
+    webhook = _geheimnis("DISCORD_WEBHOOK_URL")
+    if not webhook:
         log.warning("Discord ist noch nicht fertig eingerichtet (Secret fehlt). Siehe ANLEITUNG_IPHONE.md")
-    log.info("Die Shop-Checks kommen in Phase 2. Bis dahin gibt es nichts zu tun.")
-    return 0
+    melder = DiscordWebhook(webhook) if webhook else None
+    speicher = Speicher(os.environ.get("BOT_DATENBANK") or STANDARD_PFAD)
+    abrufer = Abrufer(einstellungen.allgemein.user_agent, einstellungen.allgemein.pause_zwischen_anfragen_sekunden)
+    try:
+        return Lauf(
+            einstellungen, speicher, abrufer, melder,
+            jetzt=datetime.now(timezone.utc),
+            heute=datetime.now(ZoneInfo(einstellungen.allgemein.zeitzone)).date(),
+        ).starten()
+    finally:
+        speicher.schliessen()
 
 
 def test_nachricht(einstellungen: Einstellungen) -> int:

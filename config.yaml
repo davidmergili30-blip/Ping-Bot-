@@ -14,9 +14,9 @@ allgemein:
   zeitzone: Europe/Berlin
 
   # Ehrlicher User-Agent: So sieht jeder Shop, wer da anfragt.
-  user_agent: "PokemonPreisBot/0.1 (privater Preisalarm; +https://github.com/davidmergili30-blip/Ping-Bot-)"
+  user_agent: "PokemonPreisBot/0.2 (privater Preisalarm, einfaches Skript ohne KI; +https://github.com/davidmergili30-blip/Ping-Bot-)"
 
-  # Pause zwischen zwei Anfragen in Sekunden (höflich bleiben)
+  # Pause zwischen zwei Anfragen an denselben Shop in Sekunden (höflich bleiben)
   pause_zwischen_anfragen_sekunden: 5
 
   # Jeden Shop höchstens alle X Minuten abfragen (mindestens 10)
@@ -25,7 +25,8 @@ allgemein:
 
 # ---------------------------------------------------------------------
 #  Standard-Regeln für Pings
-#  Gelten für alle Produkte. Ab Phase 6 kannst du sie pro Produkt ändern.
+#  Gelten für alle Produkte. Bei einem Produkt der Watchlist kannst du
+#  jede Regel überschreiben (siehe Beispiel unten bei der Watchlist).
 # ---------------------------------------------------------------------
 standard_regeln:
   # Bei welchen Status soll der Bot dich anpingen?
@@ -36,19 +37,22 @@ standard_regeln:
   # Maximalpreis in Euro, z. B. 150. null = egal
   max_preis: null
 
-  # Mindest-Marge in Prozent (nach Gebühren und Versand). null = egal
+  # Ping, wenn der Preis um mindestens so viel Prozent fällt. null = nie
+  preissturz_prozent: 10
+
+  # Mindest-Marge in Prozent (nach Gebühren und Versand). null = egal  (kommt in Phase 6)
   min_marge_prozent: null
 
-  # Sprache der Produkte: DE, EN, JP oder egal
+  # Sprache der Produkte: DE, EN, JP oder egal  (kommt in Phase 6)
   sprache: egal
 
   # Auch Angebote von Marktplatz-Händlern (Drittanbietern) melden?
   marktplatz_angebote: false
 
-  # Nur Shops aus der Liste unten melden?
+  # Nur Shops aus der Vertrauensliste unten melden?
   nur_vertrauenswuerdige_shops: false
 
-  # Ruhezeit, z. B. "22:00-06:00" (mit Anführungszeichen). null = keine
+  # Ruhezeit, z. B. "22:00-06:00" (mit Anführungszeichen). null = keine  (kommt in Phase 6)
   ruhezeit: null
 
   # true  = in der Ruhezeit nur dringende Pings (z. B. BESTELLBAR unter Maximalpreis)
@@ -57,10 +61,13 @@ standard_regeln:
 
 
 # ---------------------------------------------------------------------
-#  Vertrauenswürdige Shops (Whitelist gegen Fake-Shops)
-#  Unbekannte Shops bekommen später im Ping eine ⚠️ Warnung.
+#  Vertrauenswürdige Shops (Schutz vor Fake-Shops)
+#  Pings von Shops, die hier NICHT stehen, bekommen eine ⚠️ Warnung.
 # ---------------------------------------------------------------------
 vertrauenswuerdige_shops:
+  - gate-to-the-games.de
+  - card-corner.de
+  - games-island.eu
   - mediamarkt.de
   - saturn.de
   - mueller.de
@@ -68,7 +75,79 @@ vertrauenswuerdige_shops:
 
 
 # ---------------------------------------------------------------------
-#  Watchlist: die Produkte, die der Bot beobachten soll
-#  Die Einträge kommen in Phase 2 dazu.
+#  Watchlist: bestimmte Produkte, die der Bot genau beobachten soll
+#
+#  So fügst du ein Produkt hinzu (in der GitHub-App oder in Safari):
+#    - name: "So soll es im Ping heißen"
+#      links:
+#        - https://link-zum-produkt-im-shop-1
+#        - https://link-zum-produkt-im-shop-2
+#      max_preis: 180          # optional: eigene Regel nur für dieses Produkt
+#
+#  Unterstützte Shops: gate-to-the-games.de, card-corner.de
+#  (games-island.eu verbietet automatisches Abfragen – dafür gibt es ihren Discord)
 # ---------------------------------------------------------------------
-watchlist: []
+watchlist:
+  - name: "Delta Herrschaft Display, 36 Booster (DE)"
+    links:
+      - https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Display-36-Booster-deutsch
+
+  - name: "Delta Herrschaft Top-Trainer-Box (DE)"
+    links:
+      - https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Top-Trainer-Box-deutsch
+
+  - name: "Prismatische Entwicklungen Top-Trainer-Box (DE)"
+    links:
+      - https://www.gate-to-the-games.de/Pokemon-Karmesin-Purpur-Prismatische-Entwicklungen-Top-Trainer-Box-deutsch
+
+
+# ---------------------------------------------------------------------
+#  Kategorien: Shop-Seiten, auf denen der Bot nach NEUEN Produkten und
+#  VORBESTELLUNGEN sucht – auch für Produkte, die nicht auf der Watchlist stehen.
+#  Beim ersten Mal kommt eine Übersicht, danach nur noch Neuigkeiten.
+# ---------------------------------------------------------------------
+kategorien:
+  - name: "Gate to the Games – Pokémon Vorverkauf"
+    link: https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/
+
+  - name: "Card-Corner – Neu eingetroffen"
+    link: https://www.card-corner.de/Neu-Eingetroffen
+
+  - name: "Card-Corner – Pokémon Deutsch"
+    link: https://www.card-corner.de/Pokemon-Karten-Deutsch
+
+  - name: "Card-Corner – Pokémon Englisch"
+    link: https://www.card-corner.de/Pokemon-Karten-Englisch
+
+  - name: "Card-Corner – Pokémon Japanisch"
+    link: https://www.card-corner.de/Pokemon-Karten-Japanisch
+
+
+# ---------------------------------------------------------------------
+#  Filter für Kategorien: Welche Produkte interessieren dich?
+#  (gilt NICHT für die Watchlist – dort entscheidest du selbst)
+# ---------------------------------------------------------------------
+kategorie_filter:
+  # Nur Produkte, deren Name mindestens eins dieser Wörter enthält (leer = alle)
+  nur_mit:
+    - Display
+    - Top-Trainer
+    - Top Trainer
+    - Elite Trainer
+    - Elite-Trainer
+    - ETB
+    - Booster Bundle
+    - Booster-Bundle
+    - Premium
+    - Kollektion
+    - Collection
+    - Special
+
+  # Produkte mit diesen Wörtern im Namen werden ignoriert
+  ohne:
+    - Chinesisch
+    - CN
+    - Koreanisch
+    - KR
+    - Mystery
+    - Einzelkarten

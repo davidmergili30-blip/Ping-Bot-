@@ -42,9 +42,25 @@ jobs:
       - name: Pakete installieren
         run: pip install -r requirements.txt
 
+      # Die Datenbank (Preis- und Statusverlauf) wird zwischen den Läufen im
+      # GitHub-Cache aufbewahrt – jeder Lauf startet sonst auf einem frischen Server.
+      - name: Datenbank vom letzten Lauf holen
+        uses: actions/cache/restore@v5
+        with:
+          path: daten/bot.db
+          key: datenbank-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: datenbank-
+
       - name: Bot starten
         env:
           # Bei automatischen Läufen gibt es keine Auswahl → normaler Lauf
           AKTION: ${{ inputs.aktion || 'normaler-lauf' }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python -m bot "$AKTION"
+
+      - name: Datenbank für den nächsten Lauf sichern
+        if: always() && hashFiles('daten/bot.db') != ''
+        uses: actions/cache/save@v5
+        with:
+          path: daten/bot.db
+          key: datenbank-${{ github.run_id }}-${{ github.run_attempt }}

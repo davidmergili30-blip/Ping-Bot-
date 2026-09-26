@@ -4,6 +4,7 @@ import pytest
 
 from bot import __main__ as start
 from bot import discord as discord_modul
+from bot.abruf import Seite
 
 WEBHOOK = "https://discord.com/api/webhooks/123456789012345678/abcDEF"
 
@@ -25,11 +26,23 @@ def gesendet(monkeypatch):
     return liste
 
 
+class OfflineAbrufer:
+    """Statt ins Internet zu gehen: jede Seite ist „nicht erreichbar“."""
+
+    def __init__(self, *args, **kwargs):
+        pass
+
+    def hole(self, url):
+        return Seite(url, problem="offline (Test)")
+
+
 @pytest.fixture(autouse=True)
-def keine_secrets(monkeypatch):
-    """Jeder Test startet ohne Secrets (leere Werte überschreibt auch keine .env)."""
+def keine_secrets(monkeypatch, tmp_path):
+    """Jeder Test startet ohne Secrets, mit eigener Datenbank und ohne Internet."""
     for name in ("DISCORD_WEBHOOK_URL", "GITHUB_SERVER_URL", "GITHUB_REPOSITORY"):
         monkeypatch.setenv(name, "")
+    monkeypatch.setenv("BOT_DATENBANK", str(tmp_path / "bot.db"))
+    monkeypatch.setattr(start, "Abrufer", OfflineAbrufer)
 
 
 def test_normaler_lauf_klappt_auch_ohne_secrets():

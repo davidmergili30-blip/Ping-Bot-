@@ -102,10 +102,40 @@ Viele Shops kündigen Vorbestellungen zuerst auf Discord an. Tritt diesen Server
 ## Schritt 7: Läuft der Zeitplan?
 
 Unter **Actions** sollten jetzt ungefähr alle 15 Minuten neue Läufe von **Preis-Bot** mit einem
-grünen Haken ✅ erscheinen.
+grünen Haken ✅ erscheinen. Beim ersten Lauf nach dem Einrichten bekommst du für jede Kategorie eine
+Übersicht, danach nur noch Neuigkeiten.
 
 > ⏱️ GitHub startet geplante Läufe manchmal 5–30 Minuten zu spät, vor allem wenn gerade viel los ist.
 > Das ist normal und lässt sich bei der Gratis-Version nicht ändern.
+
+---
+
+## Watchlist bearbeiten
+
+Alle Einstellungen stehen in der Datei **config.yaml**. So änderst du sie vom iPhone aus:
+
+1. Öffne in Safari: **https://github.com/davidmergili30-blip/Ping-Bot-/edit/main/config.yaml**
+   (falls nötig: **„aA“** → **„Desktop-Website anfordern“**)
+2. Scroll zu **watchlist:** und füg ein Produkt hinzu. Achte genau auf die Leerzeichen am Zeilenanfang:
+   ```yaml
+     - name: "Mein Produkt (DE)"
+       links:
+         - https://www.gate-to-the-games.de/...
+         - https://www.card-corner.de/...
+       max_preis: 180
+   ```
+   Den Link bekommst du, indem du das Produkt im Shop öffnest und die Adresse kopierst
+   (Teilen-Symbol → **Kopieren**). `max_preis` ist optional.
+3. Tipp oben rechts auf **Commit changes…** und dann nochmal auf **Commit changes**.
+4. Ab dem nächsten Lauf gilt die neue Watchlist.
+
+> Hast du dich vertippt? Kein Problem: Beim nächsten Lauf gibt es ein rotes ✗, und im Protokoll steht
+> auf Deutsch, in welcher Zeile der Fehler ist.
+
+**Kategorien** (weiter unten in derselben Datei) sind Shop-Seiten wie „Vorverkauf“ oder „Neu eingetroffen“.
+Dort meldet der Bot neue Produkte und Vorbestellungen, auch wenn sie nicht auf deiner Watchlist stehen.
+Beim ersten Mal bekommst du eine **Übersicht** („📋 Neu überwacht …“), danach nur noch Neuigkeiten.
+Mit **kategorie_filter** legst du fest, welche Produkte dich interessieren (z. B. nur Displays und Trainer-Boxen).
 
 ---
 
@@ -119,7 +149,8 @@ Tipp den Lauf an, dann **bot** und dann **Bot starten**. Dort steht auf Deutsch,
 | „brauchst du das Secret DISCORD_WEBHOOK_URL“ | Schritt 3 wiederholen. Ist der Name genau richtig geschrieben? |
 | „sieht nicht wie ein Discord-Webhook aus“ | Du hast etwas anderes kopiert. Kopier den Link nochmal wie in Schritt 2. |
 | „Webhook-Link ist ungültig oder wurde gelöscht“ | Leg einen neuen Webhook an (Schritt 2) und ändere das Secret über das Stift-Symbol auf https://github.com/davidmergili30-blip/Ping-Bot-/settings/secrets/actions |
-| „Discord ist gerade nicht erreichbar“ | Discord hat eine Störung. Beim nächsten Lauf klappt es meistens wieder. |
+| „Discord ist gerade nicht erreichbar“ | Discord hat eine Störung. Beim nächsten Lauf klappt es meistens wieder. Es geht kein Ping verloren. |
+| „Fehler in config.yaml“ | Du hast dich beim Bearbeiten vertippt. Die Meldung sagt, wo. |
 
 Bei einem roten ✗ schickt GitHub dir außerdem eine E-Mail. Das ist normal.
 

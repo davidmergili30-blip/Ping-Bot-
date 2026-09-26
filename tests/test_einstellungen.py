@@ -95,3 +95,59 @@ def test_shops_werden_vereinheitlicht(tmp_path):
         schreibe(tmp_path, "vertrauenswuerdige_shops:\n  - https://www.Mueller.de/\n")
     )
     assert einstellungen.vertrauenswuerdige_shops == ["mueller.de"]
+
+
+def test_watchlist_mit_eigenen_regeln(tmp_path):
+    einstellungen = lade_einstellungen(schreibe(tmp_path, """
+standard_regeln:
+  max_preis: 200
+  ping_bei_status: [BESTELLBAR]
+watchlist:
+  - name: "Display"
+    links:
+      - https://www.gate-to-the-games.de/display
+    max_preis: 150
+  - name: "ETB"
+    links:
+      - https://www.card-corner.de/etb
+"""))
+    display, etb = einstellungen.watchlist
+    assert display.links == ["https://www.gate-to-the-games.de/display"]
+    assert display.regeln.max_preis == 150                      # eigene Regel
+    assert display.regeln.ping_bei_status == [Status.BESTELLBAR]  # vom Standard geerbt
+    assert etb.regeln.max_preis == 200
+
+
+def test_watchlist_ohne_links(tmp_path):
+    with pytest.raises(ConfigFehler, match="links"):
+        lade_einstellungen(schreibe(tmp_path, "watchlist:\n  - name: X\n"))
+
+
+def test_watchlist_link_muss_link_sein(tmp_path):
+    with pytest.raises(ConfigFehler, match="kein Link"):
+        lade_einstellungen(schreibe(tmp_path, "watchlist:\n  - name: X\n    links:\n      - www.shop.de\n"))
+
+
+def test_watchlist_tippfehler_bei_regel(tmp_path):
+    with pytest.raises(ConfigFehler, match="max_pries"):
+        lade_einstellungen(schreibe(tmp_path, "watchlist:\n  - name: X\n    links: [https://a.de]\n    max_pries: 1\n"))
+
+
+def test_kategorien_und_filter(tmp_path):
+    einstellungen = lade_einstellungen(schreibe(tmp_path, """
+kategorien:
+  - name: "Vorverkauf"
+    link: https://www.gate-to-the-games.de/liste/
+kategorie_filter:
+  nur_mit: [Display, ETB]
+  ohne: [Koreanisch]
+"""))
+    assert einstellungen.kategorien[0].link == "https://www.gate-to-the-games.de/liste/"
+    assert einstellungen.kategorie_filter.nur_mit == ["Display", "ETB"]
+    assert einstellungen.kategorie_filter.ohne == ["Koreanisch"]
+
+
+def test_echte_config_hat_watchlist_und_kategorien():
+    einstellungen = lade_einstellungen()
+    assert einstellungen.watchlist and einstellungen.kategorien
+    assert einstellungen.standard_regeln.preissturz_prozent == 10

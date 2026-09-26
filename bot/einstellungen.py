@@ -47,6 +47,30 @@ class Regeln:
     nur_vertrauenswuerdige_shops: bool = False
     ruhezeit: str | None = None
     in_ruhezeit_nur_dringend: bool = True
+    preissturz_prozent: float | None = 10
+
+
+@dataclass
+class Produkt:
+    """Ein Eintrag der Watchlist: ein Produkt mit Links zu einem oder mehreren Shops."""
+
+    name: str
+    links: list[str]
+    regeln: Regeln
+
+
+@dataclass
+class Kategorie:
+    """Eine Shop-Kategorie, die auf neue Produkte und Vorbestellungen überwacht wird."""
+
+    name: str
+    link: str
+
+
+@dataclass
+class KategorieFilter:
+    nur_mit: list[str] = field(default_factory=list)  # mindestens eins dieser Wörter im Namen
+    ohne: list[str] = field(default_factory=list)     # keins dieser Wörter im Namen
 
 
 @dataclass
@@ -54,7 +78,9 @@ class Einstellungen:
     allgemein: Allgemein
     standard_regeln: Regeln
     vertrauenswuerdige_shops: list[str]
-    watchlist: list[dict]
+    watchlist: list[Produkt] = field(default_factory=list)
+    kategorien: list[Kategorie] = field(default_factory=list)
+    kategorie_filter: KategorieFilter = field(default_factory=KategorieFilter)
 
 
 def lade_einstellungen(pfad: Path | str = STANDARD_PFAD) -> Einstellungen:
@@ -78,15 +104,19 @@ def lade_einstellungen(pfad: Path | str = STANDARD_PFAD) -> Einstellungen:
         raise ConfigFehler("config.yaml muss aus Abschnitten wie 'allgemein:' bestehen.")
     _nur_bekannte(
         daten,
-        {"allgemein", "standard_regeln", "vertrauenswuerdige_shops", "watchlist"},
+        {"allgemein", "standard_regeln", "vertrauenswuerdige_shops", "watchlist", "kategorien",
+         "kategorie_filter"},
         "config.yaml",
     )
 
+    standard_regeln = _lese_regeln(daten.get("standard_regeln") or {}, "standard_regeln")
     return Einstellungen(
         allgemein=_lese_allgemein(daten.get("allgemein") or {}),
-        standard_regeln=_lese_regeln(daten.get("standard_regeln") or {}, "standard_regeln"),
+        standard_regeln=standard_regeln,
         vertrauenswuerdige_shops=_lese_shops(daten.get("vertrauenswuerdige_shops") or []),
-        watchlist=_lese_watchlist(daten.get("watchlist") or []),
+        watchlist=_lese_watchlist(daten.get("watchlist") or [], standard_regeln),
+        kategorien=_lese_kategorien(daten.get("kategorien") or []),
+        kategorie_filter=_lese_filter(daten.get("kategorie_filter") or {}),
     )
 
 
@@ -162,9 +192,10 @@ def _lese_allgemein(daten) -> Allgemein:
     )
 
 
-def _lese_regeln(daten, bereich: str) -> Regeln:
+def _lese_regeln(daten, bereich: str, basis: Regeln | None = None) -> Regeln:
+    """Liest Regeln. Was fehlt, kommt aus 'basis' (bei Produkten: den Standard-Regeln)."""
     daten = _abschnitt(daten, bereich)
-    standard = Regeln()
+    standard = basis or Regeln()
     _nur_bekannte(daten, set(vars(standard)), bereich)
 
     # Welche Status sollen einen Ping auslösen?
@@ -198,9 +229,11 @@ def _lese_regeln(daten, bereich: str) -> Regeln:
 
     return Regeln(
         ping_bei_status=ping_bei_status,
-        max_preis=_zahl(daten.get("max_preis"), "max_preis", bereich, minimum=0, leer_erlaubt=True),
+        max_preis=_zahl(daten.get("max_preis", standard.max_preis), "max_preis", bereich,
+                        minimum=0, leer_erlaubt=True),
         min_marge_prozent=_zahl(
-            daten.get("min_marge_prozent"), "min_marge_prozent", bereich, leer_erlaubt=True
+            daten.get("min_marge_prozent", standard.min_marge_prozent), "min_marge_prozent", bereich,
+            leer_erlaubt=True,
         ),
         sprache=sprache,
         marktplatz_angebote=_ja_nein(
@@ -214,6 +247,10 @@ def _lese_regeln(daten, bereich: str) -> Regeln:
         in_ruhezeit_nur_dringend=_ja_nein(
             daten.get("in_ruhezeit_nur_dringend", standard.in_ruhezeit_nur_dringend),
             "in_ruhezeit_nur_dringend", bereich,
+        ),
+        preissturz_prozent=_zahl(
+            daten.get("preissturz_prozent", standard.preissturz_prozent), "preissturz_prozent", bereich,
+            minimum=1, leer_erlaubt=True,
         ),
     )
 
@@ -231,8 +268,59 @@ def _lese_shops(daten) -> list[str]:
     return shops
 
 
-def _lese_watchlist(daten) -> list[dict]:
-    # Die genauen Felder pro Produkt kommen in Phase 2 dazu.
+def _link(wert, wo: str) -> str:
+    if not isinstance(wert, str) or not wert.strip().startswith(("https://", "http://")):
+        raise ConfigFehler(f"{wo}: '{wert}' ist kein Link. Links beginnen mit https://")
+    return wert.strip()
+
+
+def _name(eintrag: dict, wo: str) -> str:
+    name = eintrag.get("name")
+    if not isinstance(name, str) or not name.strip():
+        raise ConfigFehler(f"{wo} braucht einen 'name', z. B.  name: \"Display Set XY (DE)\"")
+    return name.strip()
+
+
+def _lese_watchlist(daten, standard_regeln: Regeln) -> list[Produkt]:
     if not isinstance(daten, list) or not all(isinstance(p, dict) for p in daten):
-        raise ConfigFehler("'watchlist' muss eine Liste von Produkten sein (jedes beginnt mit '- ').")
-    return daten
+        raise ConfigFehler("'watchlist' muss eine Liste von Produkten sein (jedes beginnt mit '- name: ').")
+    regel_felder = set(vars(standard_regeln))
+    produkte = []
+    for nr, eintrag in enumerate(daten, start=1):
+        name = _name(eintrag, f"Produkt Nr. {nr} der watchlist")
+        wo = f"watchlist '{name}'"
+        _nur_bekannte(eintrag, {"name", "links"} | regel_felder, wo)
+        links = eintrag.get("links")
+        if not isinstance(links, list) or not links:
+            raise ConfigFehler(f"{wo} braucht 'links:' mit mindestens einem Link (jede Zeile mit '- ').")
+        # Alles außer name/links sind Regeln, die nur für dieses Produkt gelten
+        eigene_regeln = {k: v for k, v in eintrag.items() if k in regel_felder}
+        produkte.append(Produkt(
+            name=name,
+            links=[_link(link, wo) for link in links],
+            regeln=_lese_regeln(eigene_regeln, wo, basis=standard_regeln),
+        ))
+    return produkte
+
+
+def _lese_kategorien(daten) -> list[Kategorie]:
+    if not isinstance(daten, list) or not all(isinstance(k, dict) for k in daten):
+        raise ConfigFehler("'kategorien' muss eine Liste sein (jeder Eintrag beginnt mit '- name: ').")
+    kategorien = []
+    for nr, eintrag in enumerate(daten, start=1):
+        name = _name(eintrag, f"Kategorie Nr. {nr}")
+        _nur_bekannte(eintrag, {"name", "link"}, f"Kategorie '{name}'")
+        kategorien.append(Kategorie(name=name, link=_link(eintrag.get("link"), f"Kategorie '{name}'")))
+    return kategorien
+
+
+def _lese_filter(daten) -> KategorieFilter:
+    daten = _abschnitt(daten, "kategorie_filter")
+    _nur_bekannte(daten, {"nur_mit", "ohne"}, "kategorie_filter")
+    woerter = {}
+    for feld in ("nur_mit", "ohne"):
+        liste = daten.get(feld) or []
+        if not isinstance(liste, list) or not all(isinstance(w, (str, int)) for w in liste):
+            raise ConfigFehler(f"'{feld}' in kategorie_filter muss eine Liste von Wörtern sein.")
+        woerter[feld] = [str(w).strip() for w in liste if str(w).strip()]
+    return KategorieFilter(**woerter)

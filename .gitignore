@@ -7,3 +7,6 @@ __pycache__/
 .pytest_cache/
 .venv/
 venv/
+
+# Datenbank des Bots (liegt auf GitHub im Cache, nicht im Repo)
+daten/

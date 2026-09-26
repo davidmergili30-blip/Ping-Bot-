@@ -29,7 +29,26 @@ Der Bot läuft kostenlos über **GitHub Actions** und lässt sich komplett vom *
 | `AUSVERKAUFT` | Nicht verfügbar |
 | `UNBEKANNT` | Nicht sicher erkannt oder die Seite blockt |
 
-## Bedienung (Stand Phase 1)
+## Was der Bot gerade kann (Stand Phase 2)
+
+Alle 15 Minuten prüft der Bot:
+
+1. **Deine Watchlist:** bestimmte Produkte in bestimmten Shops. Du bekommst einen Ping, wenn sich der Status
+   ändert (z. B. `AUSVERKAUFT → BESTELLBAR`), wenn der Preis um mindestens 10 % fällt oder unter deinen
+   Maximalpreis sinkt.
+2. **Kategorien:** z. B. „Vorverkauf“ oder „Neu eingetroffen“. Hier meldet der Bot **neue Produkte und
+   Vorbestellungen**, auch wenn sie nicht auf deiner Watchlist stehen. Ein Filter sorgt dafür, dass nur
+   Displays, Trainer-Boxen, Kollektionen usw. gemeldet werden.
+
+Alle Neuigkeiten eines Laufs kommen gebündelt in **einer** Discord-Nachricht.
+
+| Shop | Status |
+|---|---|
+| Gate to the Games | ✅ wird geprüft (robots.txt erlaubt es) |
+| Card-Corner | ✅ wird geprüft (robots.txt erlaubt es) |
+| Games Island | 🚫 verbietet automatisches Abfragen → ihr Discord „Games Island Hof“ nutzen |
+
+## Bedienung
 
 In der GitHub-App: **Actions → Preis-Bot → Run workflow**. Dort wählst du eine Aktion:
 
@@ -38,7 +57,9 @@ In der GitHub-App: **Actions → Preis-Bot → Run workflow**. Dort wählst du e
 | `normaler-lauf` | Der normale Lauf. Er startet automatisch alle 15 Minuten. |
 | `test-nachricht` | Schickt eine Test-Nachricht in deinen Discord-Kanal |
 
-Weitere Knöpfe wie Watchlist anzeigen, Produkt hinzufügen, Pause oder Scan kommen in Phase 3.
+Watchlist, Kategorien und Regeln änderst du in der [config.yaml](config.yaml). Wie das vom iPhone aus
+geht, steht in der [Anleitung](ANLEITUNG_IPHONE.md#watchlist-bearbeiten). Weitere Knöpfe wie Watchlist
+anzeigen, Produkt hinzufügen, Pause oder Scan kommen in Phase 3.
 
 ## Projektstruktur
 
@@ -47,10 +68,18 @@ Ping-Bot-/
 ├── config.yaml              ← deine Einstellungen (Regeln, Shops, Watchlist)
 ├── bot/
 │   ├── __main__.py          ← Startpunkt: python -m bot <aktion>
+│   ├── lauf.py              ← der normale Lauf: prüfen, vergleichen, melden
+│   ├── abruf.py             ← lädt Seiten höflich (robots.txt, Pausen, Sperren erkennen)
+│   ├── adapter/             ← ein „Übersetzer“ pro Shop-System
+│   │   ├── basis.py         ← gemeinsame Bausteine (Preis, Datum, schema.org)
+│   │   └── jtl.py           ← JTL-Shops: Gate to the Games, Card-Corner
+│   ├── pings.py             ← wann gepingt wird und wie der Ping aussieht
+│   ├── speicher.py          ← SQLite-Datenbank (Preis- und Statusverlauf)
 │   ├── einstellungen.py     ← liest und prüft config.yaml
 │   ├── discord.py           ← schickt Nachrichten über einen Discord-Webhook
 │   └── status.py            ← die 8 möglichen Status
 ├── tests/                   ← automatische Tests
+│   └── beispiele/           ← echte, gespeicherte Shop-Seiten für die Tests
 ├── .github/workflows/
 │   ├── bot.yml              ← Zeitplan (alle 15 Min.) und Knopf zum Starten
 │   └── tests.yml            ← führt bei jeder Änderung die Tests aus
@@ -61,13 +90,21 @@ Ping-Bot-/
 ## Fortschritt
 
 - [x] **Phase 1:** Grundgerüst, config.yaml, Discord-Test, GitHub Actions
-- [ ] **Phase 2:** Erster Shop, Status-Erkennung, SQLite, Ping nur bei Änderung
+- [x] **Phase 2:** Gate to the Games + Card-Corner, Status-Erkennung, SQLite, Ping nur bei Änderung,
+      neue Vorbestellungen in Kategorien
 - [ ] **Phase 3:** Steuerung über die GitHub-App (Watchlist, Pause, Ruhezeit, Status)
 - [ ] **Phase 4:** Mehr Quellen, Whitelist, Fake-Warnung
 - [ ] **Phase 5:** Amazon und Einladungen
 - [ ] **Phase 6:** Regeln, Ruhezeiten, Marge
 - [ ] **Phase 7:** Neuheiten-Suche
 - [ ] **Phase 8:** Deep-Scan
+
+## Neuen Shop einbauen (für später)
+
+1. Beispielseiten holen: Auf dem Branch `erkundung` die Datei `erkundung/urls.txt` anpassen.
+   GitHub ruft die Seiten dann höflich ab (mit robots.txt-Prüfung) und speichert sie.
+2. Seiten mit `tests/beispiele/verkleinern.py` verkleinern und nach `tests/beispiele/` legen.
+3. Adapter schreiben (oder `JtlShop` wiederverwenden) und in `bot/adapter/__init__.py` eintragen.
 
 ## Tests (für später, am Computer)
 

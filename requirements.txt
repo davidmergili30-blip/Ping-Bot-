@@ -1,5 +1,6 @@
 # Pakete, die der Bot braucht (werden auf GitHub automatisch installiert)
 requests>=2.32
+beautifulsoup4>=4.12
 PyYAML>=6.0
 python-dotenv>=1.0
 tzdata>=2024.1
