@@ -318,3 +318,20 @@ def test_set_suche_nur_treffer_mit_dem_namen(speicher):
     text = melder.nachrichten[0]["kaesten"][1].text
     assert "Pitch Black Elite Trainer Box" in text
     assert "B-Ware" not in text
+
+
+def test_viele_neue_eintraege_auf_einmal_ergeben_eine_sammelnachricht(speicher):
+    melder = FalscherMelder()
+    e = einstellungen(kategorien=[("CC Neu", CC_NEU)])
+    seiten = {CC_NEU: html("card_corner/liste_neu_eingetroffen.html")}
+    lauf(e, speicher, seiten, melder)
+    # So tun, als wäre die Liste plötzlich viel länger geworden (alle Produkte „unbekannt“)
+    speicher._db.execute("DELETE FROM stand")
+    speicher._db.commit()
+    lauf(e, speicher, seiten, melder, minuten=15)
+    neu = melder.nachrichten[-1]["kaesten"]
+    assert [k.titel for k in neu] == ["🗂️ Viele neue Einträge: CC Neu"]
+    assert "Vermutlich hat der Shop die Liste umgestellt" in neu[0].text
+    # Danach sind die Produkte bekannt → beim nächsten Lauf Ruhe
+    lauf(e, speicher, seiten, melder, minuten=30)
+    assert len(melder.nachrichten) == 2

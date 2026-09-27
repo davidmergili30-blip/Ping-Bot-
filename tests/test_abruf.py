@@ -122,3 +122,9 @@ def test_netzwerkfehler():
     seite = a.hole("https://www.shop.de/p")
     assert seite.text is None and not seite.gesperrt
     assert "nicht erreichbar" in seite.problem
+
+
+def test_abrufer_speichert_keine_cookies():
+    # Sonst merkt sich ein Shop z. B. „50 Treffer pro Seite“ und Listen werden plötzlich länger
+    a = Abrufer(UA, pause_sekunden=5)
+    assert a._sitzung.cookies._policy.allowed_domains() == []  # keine Domain darf Cookies setzen

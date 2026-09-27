@@ -9,6 +9,7 @@
 
 from __future__ import annotations
 
+import http.cookiejar
 import time
 import urllib.parse
 import urllib.robotparser
@@ -46,7 +47,7 @@ class Abrufer:
         self._kopf = {"User-Agent": user_agent, "Accept-Language": "de-DE,de;q=0.9"}
         self._user_agent = user_agent
         self._pause = pause_sekunden
-        self._sitzung = sitzung or requests.Session()
+        self._sitzung = sitzung or _sitzung_ohne_cookies()
         self._schlafen = schlafen
         self._uhr = uhr
         self._robots: dict[str, urllib.robotparser.RobotFileParser | None] = {}
@@ -110,6 +111,17 @@ class Abrufer:
         else:
             return None                  # Serverfehler → diesmal nicht abrufen
         return regeln
+
+
+def _sitzung_ohne_cookies() -> requests.Session:
+    """Jeder Abruf startet „frisch“: Shops sollen sich nichts zwischen zwei Anfragen merken.
+
+    Sonst merkt sich z. B. ein JTL-Shop „50 Treffer pro Seite“ aus einer Suche und zeigt danach
+    auch Kategorien länger an – dann hielte der Bot bekannte Produkte für neu.
+    """
+    sitzung = requests.Session()
+    sitzung.cookies.set_policy(http.cookiejar.DefaultCookiePolicy(allowed_domains=[]))
+    return sitzung
 
 
 def sperre_erkennen(antwort) -> str | None:

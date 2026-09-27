@@ -36,6 +36,7 @@ def enthaelt_wort(text: str | None, wort: str) -> bool:
 
 MAX_ZEILEN_UEBERSICHT = 10
 MAX_SUCHSEITEN = 3   # höchstens so viele Ergebnisseiten pro Suchbegriff und Shop
+MAX_NEU_EINZELN = 5  # mehr „neue“ Produkte auf einmal → eine Sammelnachricht statt vieler Pings
 TOLERANZ_MINUTEN = 3  # GitHub startet Läufe manchmal etwas zu früh/spät
 
 
@@ -162,6 +163,14 @@ class Lauf:
         if self.speicher.meta(schluessel) is None:
             self._erster_blick(neu_in_diesem_lauf, shop, regeln, schluessel, ueberschrift, link)
             return
+
+        # Sicherung gegen eine Flut: Tauchen auf einmal viele unbekannte Produkte auf, hat meist
+        # der Shop seine Liste umgestellt. Dann lieber EINE Sammelnachricht statt vieler Pings.
+        unbekannt = [e for e in neu_in_diesem_lauf if self.speicher.stand(e.url) is None]
+        if len(unbekannt) > MAX_NEU_EINZELN:
+            self._sammelnachricht(unbekannt, shop, regeln, ueberschrift, link)
+            neu_in_diesem_lauf = [e for e in neu_in_diesem_lauf if e not in unbekannt]
+
         for eintrag in neu_in_diesem_lauf:
             e = eintrag.ergebnis
             alt = self.speicher.stand(eintrag.url)
@@ -169,6 +178,27 @@ class Lauf:
                 # Verlauf für Listen-Produkte nur bei Änderungen speichern (spart Platz)
                 self.speicher.speichere_check(eintrag.url, shop, e.titel, e, self.jetzt)
             self._vergleiche(eintrag.url, shop, e.titel or "Unbekanntes Produkt", e, regeln, aus_kategorie=True)
+
+    def _sammelnachricht(self, unbekannt: list[ListenEintrag], shop: str, regeln: Regeln, ueberschrift: str,
+                         link: str | None) -> None:
+        verfuegbar = [e for e in unbekannt if e.ergebnis.status in regeln.ping_bei_status]
+        for eintrag in unbekannt:
+            e = eintrag.ergebnis
+            self.bestaetigungen.append(partial(self.speicher.setze_stand, eintrag.url, shop, e.titel, e.status,
+                                               e.preis, self.jetzt))
+        log.info("%s: %d unbekannte Produkte auf einmal – Sammelnachricht statt Einzel-Pings",
+                 ueberschrift, len(unbekannt))
+        if not verfuegbar:
+            return
+        zeilen = [f"{len(unbekannt)} Produkte tauchen neu in der Liste auf, davon {len(verfuegbar)} verfügbar. "
+                  "Vermutlich hat der Shop die Liste umgestellt – deshalb nur diese eine Nachricht:"]
+        for eintrag in verfuegbar[:MAX_ZEILEN_UEBERSICHT]:
+            e = eintrag.ergebnis
+            zeilen.append(f"{EMOJI[e.status]} [{e.titel}]({eintrag.url}) – {euro(e.preis)}")
+        if len(verfuegbar) > MAX_ZEILEN_UEBERSICHT:
+            zeilen.append(f"… und {len(verfuegbar) - MAX_ZEILEN_UEBERSICHT} weitere")
+        self.kaesten.append(Kasten(titel=f"🗂️ Viele neue Einträge: {ueberschrift}", text="\n".join(zeilen),
+                                   link=link, farbe=FARBE_INFO))
 
     def _erster_blick(self, passende: list[ListenEintrag], shop: str, regeln: Regeln, schluessel: str,
                       ueberschrift: str, link: str | None) -> None:
@@ -284,6 +314,8 @@ class Lauf:
     def _senden(self) -> int:
         self.speicher.setze_meta("letzter_lauf", self.jetzt.isoformat())
         if not self.kaesten:
+            for bestaetigen in self.bestaetigungen:  # z. B. still gemerkte Produkte
+                bestaetigen()
             log.info("Keine Neuigkeiten.")
             return 0
         if self.melder is None:
@@ -294,5 +326,7 @@ class Lauf:
         self.melder.sende(text=zusammenfassung(self.kaesten), kaesten=self.kaesten)
         for bestaetigen in self.bestaetigungen:
             bestaetigen()
-        log.info("%d Neuigkeit(en) an Discord geschickt.", len(self.kaesten))
+        log.info("%d Neuigkeit(en) an Discord geschickt:", len(self.kaesten))
+        for kasten in self.kaesten:
+            log.info("  • %s", kasten.titel)
         return 0
