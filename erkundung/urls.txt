@@ -1,9 +1,7 @@
-# Runde 5: Set-Seiten und Suche (für die Set-Watchlist)
-cc https://www.card-corner.de/pokemon-dunkelnacht
-cc https://www.card-corner.de/pokemon-optimale-ordnung
-cc https://www.card-corner.de/pokemon-30-jahre
-cc https://www.card-corner.de/?qs=Dunkelnacht
-cc https://www.card-corner.de/?qs=Pitch+Black
-gttg https://www.gate-to-the-games.de/?qs=Dunkelnacht
-gttg https://www.gate-to-the-games.de/?qs=Pitch+Black
-gttg https://www.gate-to-the-games.de/?qs=Optimale+Ordnung
+# Runde 6: Suche mit mehr Treffern pro Seite
+gttg https://www.gate-to-the-games.de/?suche=Dunkelnacht&af=100
+gttg https://www.gate-to-the-games.de/?suche=Dunkelnacht+deutsch&af=100
+gttg https://www.gate-to-the-games.de/?suche=Fatale+Flammen&af=100
+gttg https://www.gate-to-the-games.de/?suche=Phantasmal+Flames&af=100
+cc https://www.card-corner.de/?suche=Fatale+Flammen&af=50
+cc https://www.card-corner.de/Pokemon-Nihil-Zero-M3-Display
