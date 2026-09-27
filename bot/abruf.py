@@ -29,6 +29,7 @@ SPERR_MERKMALE = (
     "px-captcha",
     "_incapsula_resource",
     "pardon our interruption",
+    "<title>client challenge",
 )
 
 

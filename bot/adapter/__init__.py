@@ -20,6 +20,12 @@ NICHT_ERLAUBT: dict[str, str] = {
         "Games Island verbietet automatisches Abfragen (robots.txt – auch für crawlme.games-island.eu). "
         "Tipp: Tritt ihrem Discord „Games Island Hof“ bei (siehe Anleitung)."
     ),
+    # Geprüft am 27.09.2026 – diese Shops sperren automatische Abfragen. Der Bot umgeht das nicht.
+    "rossmann.de": (
+        "Rossmann verbietet die Suche in der robots.txt und zeigt Bot-Schutz („Client Challenge“)."
+    ),
+    "smythstoys.com": "Smyths Toys blockt automatische Abfragen (HTTP 403).",
+    "netto-online.de": "Netto blockt automatische Abfragen (Access Denied – sogar für die robots.txt).",
 }
 
 

@@ -48,6 +48,12 @@ Alle Neuigkeiten eines Laufs kommen gebündelt in **einer** Discord-Nachricht.
 | Gate to the Games | ✅ wird geprüft (robots.txt erlaubt es) |
 | Card-Corner | ✅ wird geprüft (robots.txt erlaubt es) |
 | Games Island | 🚫 verbietet automatisches Abfragen → ihr Discord „Games Island Hof“ nutzen |
+| Rossmann | 🚫 robots.txt verbietet die Suche, dazu Bot-Schutz („Client Challenge“) |
+| Smyths Toys | 🚫 blockt automatische Abfragen (HTTP 403) |
+| Netto | 🚫 blockt automatische Abfragen (Access Denied) |
+| Müller | ➖ erlaubt, verkauft online aber keine versiegelten Pokémon-Produkte (nur Zubehör) – Tipp: Müller-WhatsApp-Kanal |
+
+*Stand der Prüfung: 27.09.2026. Gesperrte Shops werden nicht abgefragt – Sperren werden nie umgangen.*
 
 ## Bedienung (GitHub-App)
 

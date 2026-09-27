@@ -94,6 +94,7 @@ def test_pause_zwischen_anfragen_beim_selben_shop():
         (Antwort(status_code=429), "429"),
         (Antwort("<html><title>Just a moment...</title></html>", 503), "Bot-Schutz"),
         (Antwort("<div id='px-captcha'></div>"), "Bot-Schutz"),
+        (Antwort("<html><head><title>Client Challenge</title></head></html>"), "Bot-Schutz"),
         (Antwort("gesperrt", url="https://banned.games-island.eu/"), "gesperrt"),
     ],
 )
