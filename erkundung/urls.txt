@@ -1,12 +1,5 @@
-# Runde 10: UVP-Shops + Games-Island-Schnittstelle (robots.txt wird nur notiert)
-mydealz https://www.mydealz.de/magazin/rss-feeds
-mydealz https://www.mydealz.de/rss/gruppe/pokemon
-pkc https://www.pokemoncenter.com/de-de
-kaufland https://www.kaufland.de/s/?search_value=pokemon+top+trainer+box
-thalia https://www.thalia.de/suche?sq=pokemon+top+trainer+box
-otto https://www.otto.de/suche/pokemon%20top%20trainer%20box/
-mediamarkt https://www.mediamarkt.de/de/search.html?query=pokemon%20top%20trainer%20box
-elbenwald https://www.elbenwald.de/suche?q=pokemon+top+trainer+box
-galaxus https://www.galaxus.de/de/search?q=pokemon%20top%20trainer%20box
-gi https://crawlme.games-island.eu/categories
-gi https://crawlme.games-island.eu/Pokemon
+# Runde 11: Games Island (Format), Elbenwald (Shopify-Suche)
+gi https://crawlme.games-island.eu/?products=all
+gi https://crawlme.games-island.eu/c/Pokemon/Booster-Displays
+elbenwald https://elbenwald.com/search?q=pokemon+top+trainer+box&type=product
+elbenwald https://elbenwald.com/search/suggest.json?q=pokemon%20top%20trainer%20box&resources[type]=product&resources[limit]=10
