@@ -42,7 +42,7 @@ def titel(umgebung):
 def test_set_hinzufuegen(umgebung):
     code = start.main(["set-hinzufuegen", "--name", "Stellarkrone", "--suchbegriffe", "Stellar Crown, Stella Miracle"])
     assert code == 0
-    produkt = lade_einstellungen(umgebung["config"]).watchlist[-1]
+    produkt = lade_einstellungen(umgebung["config"]).watchlist[0]
     assert produkt.name == "Stellarkrone"
     assert produkt.suche == ["Stellarkrone", "Stellar Crown", "Stella Miracle"]
     assert titel(umgebung) == ["✅ Set hinzugefügt: Stellarkrone"]
@@ -147,3 +147,22 @@ def test_max_preis_wirkt_auf_pings():
     regeln = Regeln(ping_bei_status=[Status.BESTELLBAR], max_preis=180)
     assert ping_grund(None, CheckErgebnis(Status.BESTELLBAR, 199.9), regeln, True) is None
     assert ping_grund(None, CheckErgebnis(Status.BESTELLBAR, 179.9), regeln, True) == "neu"
+
+
+def test_neues_set_und_preis_landen_an_der_richtigen_stelle(umgebung):
+    start.main(["set-hinzufuegen", "--name", "Stellarkrone"])
+    start.main(["max-preis", "--name", "Dunkelnacht", "--preis", "180"])
+    zeilen = umgebung["config"].read_text(encoding="utf-8").splitlines()
+    # Neues Set direkt unter „watchlist:“ – nicht unter dem Kommentar der Kategorien
+    watch = zeilen.index("watchlist:")
+    assert zeilen[watch + 1] == "  - name: Stellarkrone"
+    # Maximalpreis direkt unter dem Set-Namen
+    dunkel = zeilen.index('  - name: "Dunkelnacht"')
+    assert zeilen[dunkel + 1] == "    max_preis: 180"
+
+
+def test_set_in_leere_watchlist(umgebung):
+    umgebung["config"].write_text("watchlist: []\n", encoding="utf-8")
+    assert start.main(["set-hinzufuegen", "--name", "Dunkelnacht", "--suchbegriffe", "Pitch Black"]) == 0
+    text = umgebung["config"].read_text(encoding="utf-8")
+    assert "  - name: Dunkelnacht\n    suche:\n      - Dunkelnacht\n      - Pitch Black" in text

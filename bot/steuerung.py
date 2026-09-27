@@ -72,7 +72,10 @@ class ConfigBearbeiter:
         eintrag = CommentedMap()
         eintrag["name"] = name
         eintrag["suche"] = CommentedSeq(begriffe)
-        self.watchlist.append(eintrag)
+        eintrag["suche"].fa.set_block_style()
+        # Ganz oben einfügen: Am Ende der Liste würde es unter den Kommentar der Kategorien rutschen
+        self.watchlist.fa.set_block_style()
+        self.watchlist.insert(0, eintrag)
         return eintrag
 
     def set_entfernen(self, name: str) -> dict:
@@ -84,8 +87,12 @@ class ConfigBearbeiter:
         eintrag = self._finde(name)
         if preis is None:
             eintrag.pop("max_preis", None)
+            return eintrag
+        wert = int(preis) if float(preis).is_integer() else preis
+        if "max_preis" in eintrag:
+            eintrag["max_preis"] = wert
         else:
-            eintrag["max_preis"] = int(preis) if float(preis).is_integer() else preis
+            eintrag.insert(1, "max_preis", wert)  # direkt unter den Namen
         return eintrag
 
     def pause(self, an: bool) -> None:
