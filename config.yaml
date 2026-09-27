@@ -107,7 +107,6 @@ watchlist:
       - Pitch Black
       - Abyss Eye          # japanisch (sehr wahrscheinlich dasselbe Set)
 
-    max_preis: 9999
   - name: "Erhabene Helden"
     suche:
       - Erhabene Helden
