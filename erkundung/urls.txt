@@ -1,3 +1,12 @@
-# Runde 9: Müller – gibt es dort Sammelkarten online?
-mueller https://www.mueller.de/search/?q=pokemon+sammelkarten
-mueller https://www.mueller.de/search/?q=pokemon+top+trainer+box
+# Runde 10: UVP-Shops + Games-Island-Schnittstelle (robots.txt wird nur notiert)
+mydealz https://www.mydealz.de/magazin/rss-feeds
+mydealz https://www.mydealz.de/rss/gruppe/pokemon
+pkc https://www.pokemoncenter.com/de-de
+kaufland https://www.kaufland.de/s/?search_value=pokemon+top+trainer+box
+thalia https://www.thalia.de/suche?sq=pokemon+top+trainer+box
+otto https://www.otto.de/suche/pokemon%20top%20trainer%20box/
+mediamarkt https://www.mediamarkt.de/de/search.html?query=pokemon%20top%20trainer%20box
+elbenwald https://www.elbenwald.de/suche?q=pokemon+top+trainer+box
+galaxus https://www.galaxus.de/de/search?q=pokemon%20top%20trainer%20box
+gi https://crawlme.games-island.eu/categories
+gi https://crawlme.games-island.eu/Pokemon

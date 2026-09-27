@@ -96,10 +96,8 @@ def main():
     zeilen = [z for z in zeilen if z[0] != "discord"]
     for nr, (kuerzel, url) in enumerate(zeilen, start=1):
         eintrag = {"nr": nr, "kuerzel": kuerzel, "url": url}
-        if not robots_fuer(url).can_fetch(UA, url):
-            eintrag["ergebnis"] = "VERBOTEN laut robots.txt – nicht abgerufen"
-            uebersicht.append(eintrag)
-            continue
+        # Auf Wunsch des Nutzers wird die robots.txt nicht mehr befolgt – nur notiert
+        eintrag["robots_erlaubt"] = robots_fuer(url).can_fetch(UA, url)
         try:
             r = requests.get(url, headers=KOPF, timeout=30)
         except requests.RequestException as f:
