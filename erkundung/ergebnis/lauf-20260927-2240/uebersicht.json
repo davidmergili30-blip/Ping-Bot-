@@ -1,0 +1,314 @@
+{
+  "seiten": [
+    {
+      "nr": 1,
+      "kuerzel": "mydealz",
+      "url": "https://www.mydealz.de/magazin/rss-feeds",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.mydealz.de/magazin/rss-feeds",
+      "groesse": 398825,
+      "datei": "01_mydealz.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "CF-Ray": "a41e0337df1bacdb-MSP",
+        "Server": "cloudflare"
+      },
+      "system_hinweise": [
+        "captcha",
+        "woocommerce"
+      ],
+      "sozial": [
+        "https://whatsapp.com/channel/0029VaCUdpq4SpkMZTAeMi2T",
+        "https://www.facebook.com/mydealz.de",
+        "https://www.facebook.com/mydealzDE/",
+        "https://www.instagram.com/mydealz.de/",
+        "https://www.tiktok.com/@mydealz.de",
+        "https://www.youtube.com/c/mydealzTV",
+        "https://x.com/intent/user?screen_name=mydealz"
+      ],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [
+        "https://www.mydealz.de/gruppe/pokemon"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 2,
+      "kuerzel": "mydealz",
+      "url": "https://www.mydealz.de/rss/gruppe/pokemon",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.mydealz.de/rss/gruppe/pokemon",
+      "groesse": 80734,
+      "datei": "02_mydealz.html",
+      "kopfzeilen": {
+        "Content-Type": "text/xml; charset=utf-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a41e035d48c4a1e5-MSP"
+      },
+      "system_hinweise": [],
+      "sozial": [
+        "https://www.instagram.com/reel/DdJsFEvoVbm"
+      ],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [
+        "https://www.german-toys.com/spielzeug/elektronikspielzeug/529033/tonies-pokemon-pikachu",
+        "https://www.german-toys.com/spielzeug/elektronikspielzeug/529034/tonies-pokemon-shiggy",
+        "https://www.german-toys.com/spielzeug/elektronikspielzeug/529035/tonies-pokemon-bisasam",
+        "https://www.german-toys.com/spielzeug/elektronikspielzeug/529036/tonies-pokemon-glumanda",
+        "https://www.idealo.de/preisvergleich/OffersOfProduct/203384599_-waldspass-pokemon-center-hnt93-mega-bloks.html",
+        "https://www.idealo.de/preisvergleich/OffersOfProduct/210720012_-switch-2-pokemon-pokopia-nintendo.html",
+        "https://www.idealo.de/preisvergleich/OffersOfProduct/211390562_-first-partner-illustration-collection-series-2-3-promo-karten-2-booster-packs-1-stickerbogen-pokemon.html",
+        "https://www.idealo.de/preisvergleich/OffersOfProduct/211612227_-pokemon-celebration-journey-40000-teile-ravensburger.html",
+        "https://www.mydealz.de/deals/pokemon-sammelkartenspiel-dunkelnacht-sammeldeal-amazon-einladung-2809399?session_id=101A44C0-062F-4484-B7CF-40108ECFE660&amp;device_id=12220335&amp;user_id=2517492",
+        "https://www.mydealz.de/deals/pokemon-sammelkartenspiel-liga-kampfdeck-mew-vmax-prime-ohne-einladung-2840073#comment-59335410",
+        "https://www.mydealz.de/deals/pokemon-tin-box-mega-glurak-mega-glurak-y-ex-4-boosterpacks-und-1-holografische-promokarte-prime-einladung-2796792?UATypeId=7",
+        "https://www.mydealz.de/deals/sb-luning-ab-1409-app-pokemon-mega-entwickung-tin-boxen-in-verschausfuhrungen-fur-19eur-eventuell-mit-5eur-wilkommensbonus-kombinierbar-2837823",
+        "https://www.mydealz.de/deals/sb-luning-app-ab-0310pokemon-30-jahre-tech-sticker-kollektion-ab-14eur-2843878",
+        "https://www.mydealz.de/rss/gruppe/pokemon"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 3,
+      "kuerzel": "pkc",
+      "url": "https://www.pokemoncenter.com/de-de",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.pokemoncenter.com/de-de",
+      "groesse": 1048,
+      "datei": "03_pkc.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html"
+      },
+      "system_hinweise": [],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 4,
+      "kuerzel": "kaufland",
+      "url": "https://www.kaufland.de/s/?search_value=pokemon+top+trainer+box",
+      "robots_erlaubt": false,
+      "http": 403,
+      "end_url": "https://www.kaufland.de/s/?search_value=pokemon+top+trainer+box",
+      "groesse": 11194,
+      "datei": "04_kaufland.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a41e03e29d315114-MSP"
+      },
+      "system_hinweise": [
+        "captcha",
+        "cloudflare"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 5,
+      "kuerzel": "thalia",
+      "url": "https://www.thalia.de/suche?sq=pokemon+top+trainer+box",
+      "robots_erlaubt": false,
+      "http": 403,
+      "end_url": "https://www.thalia.de/suche?sq=pokemon+top+trainer+box",
+      "groesse": 9763,
+      "datei": "05_thalia.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a41e0423cba09e4c-ORD"
+      },
+      "system_hinweise": [],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 6,
+      "kuerzel": "otto",
+      "url": "https://www.otto.de/suche/pokemon%20top%20trainer%20box/",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.otto.de/suche/pokemon%20top%20trainer%20box/",
+      "groesse": 562489,
+      "datei": "06_otto.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html;charset=UTF-8",
+        "Server": "Edge Proxy"
+      },
+      "system_hinweise": [],
+      "sozial": [],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [
+        "/p/amigo-sammelkarte-pokemon-sleeves-evoli-prismatische-entwicklungen-65-kartenhuellen-S0LDN0FI/",
+        "/p/amigo-sammelkarte-pokemon-weg-des-champs-top-trainer-box-deutsch-CS04280F6/",
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-30-jahre-top-trainer-box-deutsch-CS00KD0EV/",
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-illustrations-kollektion-erste-partner-serie-1-CS05JM0DU/",
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-me01-top-trainer-box-mega-guardevoir-de-CS00FF0P9/",
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-mega-entwicklung-ex-kollektion-3-fach-sortiert-CS02K30DV/",
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-premium-poster-kollektion-mega-entwicklung-erhabene-helden-CS0CGP0MF/",
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-reisegefaehrten-build-battle-box-deutsch-S00JV0YW/",
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-wachsendes-chaos-booster-deutsch-CS08J10DU/",
+        "/p/cardcosmos-sammelkarte-cardcosmos-booster-box-acrylic-case-schutz-fuer-pokemon-display-S01CR0L1/",
+        "/p/dragoncollect-aufbewahrungsbox-acryl-case-fuer-pokemon-top-elite-trainer-box-premium-schutzbox-ttb-etb-made-in-germany-S0SF30SE/",
+        "/p/dragoncollect-sammelkarte-acryl-case-fuer-pokemon-display-booster-box-36er-schutz-made-in-germany-S0WF30EO/",
+        "/p/holly-box-sammelfigur-pokemon-blind-box-sleeping-eevee-figuren-1-von-9-zufall-box-S0OGR0HO/",
+        "/p/lego-smart-playtm-ultimativer-showdown-zwischen-glurak-und-blitza-72167-konstruktionsspielsteine-751-st-lego-pokemon-inklusive-smart-brick-mit-licht-und-soundeffekten-2079370131/",
+        "/p/odisey-sammelkarte-50-original-pokemon-karten-deutsch-mit-1-ex-v-vmax-oder-vstar-S0DCT0VR/",
+        "/p/odisey-sammelkarte-50-verschiedene-original-pokemon-karten-und-1-holo-garantiert-S0S9T06I/",
+        "/p/odisey-sammelkarte-50-verschiedene-original-pokemon-karten-und-10-holos-garantiert-S0S9T0EG/",
+        "/p/odisey-sammelkarte-50-verschiedene-original-pokemon-karten-und-3-holos-garantiert-S0S9T0BA/",
+        "/p/odisey-sammelkarte-50-verschiedene-original-pokemon-karten-und-5-holos-garantiert-S0S9T0BV/",
+        "/p/pokemon-pokopia-code-in-a-box-nintendo-switch-2-C2042915245/",
+        "/p/pokemon-sammelkarte-booster-bundle-pokemon-sammel-karten-deutsch-dunkelnacht-CS03JM0WZ/",
+        "/p/pokemon-sammelkarte-booster-bundle-pokemon-sammel-karten-deutsch-erhabene-helden-CS00JG0ZA/",
+        "/p/pokemon-sammelkarte-dunkelnacht-3-booster-packs-pokemon-sammel-karten-deutsch-CS01K20DP/",
+        "/p/pokemon-sammelkarte-einzelbooster-japanisch-zufaellige-auswahl-S0E3P07T/",
+        "/p/pokemon-sammelkarte-erste-partner-pokemon-serie-2-illustrations-kollektion-deutsch-CS05JD0XT/",
+        "/p/pokemon-sammelkarte-erste-partner-pokemon-serie-3-illustrations-kollektion-deutsch-CS02JT0C5/",
+        "/p/pokemon-sammelkarte-festtagskalender-pokemon-sammel-karten-edition-deutsch-25-tage-CS078D0Q2/",
+        "/p/pokemon-sammelkarte-glurak-ex-spezial-kollektion-pokemon-sammel-karten-deutsch-CS00FW0T5/",
+        "/p/pokemon-sammelkarte-glurak-ex-super-premium-kollektion-pokemon-figur-karten-deutsch-CS02FF03W/",
+        "/p/pokemon-sammelkarte-karmesin-purpur-entwicklungen-in-paldea-top-trainer-box-deutsch-inkl-9-boosterpacks-CS0GDS0RV/",
+        "/p/pokemon-sammelkarte-karmesin-purpur-prismatische-entwicklungen-booster-bundle-deutsch-enthaelt-6-booster-packs-CS00DY0OB/",
+        "/p/pokemon-sammelkarte-karmesin-purpur-prismatische-entwicklungen-top-trainer-box-deutsch-enthaelt-9-booster-packs-CS02DF0RY/",
+        "/p/pokemon-sammelkarte-mega-latias-ex-kollektion-pokemon-sammel-karten-edition-deutsch-CS03K001A/",
+        "/p/pokemon-sammelkarte-mega-lucario-figuren-kollektion-pokemon-sammel-karten-deutsch-CS06GN0ZI/",
+        "/p/pokemon-sammelkarte-pokemon-day-2026-kollektion-pokemon-3-booster-packs-deutsch-CS03GE0K5/",
+        "/p/pokemon-sammelkarte-pokemon-go-top-trainer-box-CS0FF80PE/",
+        "/p/pokemon-sammelkarte-pokemon-pokeball-art-illustration-celebration-gift-box-rot-CS08H80QB/",
+        "/p/pokemon-sammelkarte-pokemon-tcg-30th-anniversary-elite-trainer-box-englisch-30-jahre-en-jubilaeumsbox-mit-9-boostern-nidorina-promokarte-und-zubehoer-S09KI0C1/",
+        "/p/pokemon-sammelkarte-pokemon-tcg-scarlet-violet-151-elite-top-trainer-box-eng-CS0EKF0ZR/",
+        "/p/pokemon-sammelkarte-poster-kollektion-einall-pokemon-schwarz-weiss-karten-deutsch-CS03F607G/"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 7,
+      "kuerzel": "mediamarkt",
+      "url": "https://www.mediamarkt.de/de/search.html?query=pokemon%20top%20trainer%20box",
+      "robots_erlaubt": true,
+      "http": 403,
+      "end_url": "https://www.mediamarkt.de/de/search.html?query=pokemon%20top%20trainer%20box",
+      "groesse": 13515,
+      "datei": "07_mediamarkt.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a41e04b07d71a464-VIE"
+      },
+      "system_hinweise": [
+        "captcha"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 8,
+      "kuerzel": "elbenwald",
+      "url": "https://www.elbenwald.de/suche?q=pokemon+top+trainer+box",
+      "robots_erlaubt": true,
+      "http": 404,
+      "end_url": "https://elbenwald.com/suche?q=pokemon+top+trainer+box&shpxid=a1185f52-1509-4c25-914b-51e0af2f3a49",
+      "groesse": 1090596,
+      "datei": "08_elbenwald.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a41e04fbc97afeda-ORD"
+      },
+      "system_hinweise": [
+        "captcha",
+        "shopify",
+        "shopify-section"
+      ],
+      "sozial": [
+        "https://www.facebook.com/elbenwald/",
+        "https://www.instagram.com/elbenwald/",
+        "https://www.tiktok.com/@elbenwald_official",
+        "https://www.youtube.com/elbenwald"
+      ],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [
+        "/collections/pokemon"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 9,
+      "kuerzel": "galaxus",
+      "url": "https://www.galaxus.de/de/search?q=pokemon%20top%20trainer%20box",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.galaxus.de/de/search?q=pokemon%20top%20trainer%20box",
+      "groesse": 72250,
+      "datei": "09_galaxus.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha"
+      ],
+      "sozial": [
+        "https://www.facebook.com/galaxusDE",
+        "https://www.instagram.com/galaxus.de/",
+        "https://www.youtube.com/@galaxusdeutschland"
+      ],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 10,
+      "kuerzel": "gi",
+      "url": "https://crawlme.games-island.eu/categories",
+      "robots_erlaubt": false,
+      "http": 200,
+      "end_url": "https://crawlme.games-island.eu/categories",
+      "groesse": 247997,
+      "datei": "10_gi.html",
+      "kopfzeilen": {
+        "Server": "Apache/2.4.68 (Debian)",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "system_hinweise": [
+        "oxid"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 11,
+      "kuerzel": "gi",
+      "url": "https://crawlme.games-island.eu/Pokemon",
+      "robots_erlaubt": false,
+      "http": 200,
+      "end_url": "https://crawlme.games-island.eu/Pokemon",
+      "groesse": 7971,
+      "datei": "11_gi.html",
+      "kopfzeilen": {
+        "Server": "Apache/2.4.68 (Debian)",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "system_hinweise": [],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    }
+  ],
+  "discord": []
+}
