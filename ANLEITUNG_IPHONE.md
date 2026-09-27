@@ -101,12 +101,11 @@ Viele Shops kündigen Vorbestellungen zuerst auf Discord an. Tritt diesen Server
 
 ## Schritt 7: Läuft der Zeitplan?
 
-Unter **Actions** sollten jetzt ungefähr alle 15 Minuten neue Läufe von **Preis-Bot** mit einem
-grünen Haken ✅ erscheinen. Beim ersten Lauf nach dem Einrichten bekommst du für jede Kategorie eine
-Übersicht, danach nur noch Neuigkeiten.
+Unter **Actions** erscheinen automatisch Läufe von **Preis-Bot** mit dem Hinweis **„Scheduled“**.
 
-> ⏱️ GitHub startet geplante Läufe manchmal 5–30 Minuten zu spät, vor allem wenn gerade viel los ist.
-> Das ist normal und lässt sich bei der Gratis-Version nicht ändern.
+> ⏱️ Geplant ist alle 15 Minuten. GitHub startet geplante Läufe zurzeit aber oft nur alle paar Stunden
+> (bekanntes Problem bei GitHub, nicht bei deinem Bot). Wenn du sofort wissen willst, was los ist:
+> **Actions → Preis-Bot → Run workflow → normaler-lauf**.
 
 ---
 

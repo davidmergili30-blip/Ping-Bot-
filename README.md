@@ -31,7 +31,8 @@ Der Bot läuft kostenlos über **GitHub Actions** und lässt sich komplett vom *
 
 ## Was der Bot gerade kann (Stand Phase 2)
 
-Alle 15 Minuten prüft der Bot:
+Der Bot prüft automatisch (geplant alle 15 Minuten – GitHub startet ihn zurzeit aber oft nur alle paar
+Stunden, ein bekanntes GitHub-Problem). Per **Run workflow** kannst du jederzeit sofort prüfen lassen:
 
 1. **Deine Watchlist:** ganze Sets per Suchbegriff (z. B. „Dunkelnacht“, „Pitch Black“) oder einzelne
    Produkte per Link. Du bekommst einen Ping, sobald etwas verfügbar wird (z. B. `AUSVERKAUFT → BESTELLBAR`)
@@ -54,7 +55,7 @@ In der GitHub-App: **Actions → Preis-Bot → Run workflow**. Dort wählst du e
 
 | Aktion | Was passiert |
 |---|---|
-| `normaler-lauf` | Der normale Lauf. Er startet automatisch alle 15 Minuten. |
+| `normaler-lauf` | Prüft sofort alle Sets und Kategorien. Startet außerdem automatisch (siehe oben). |
 | `test-nachricht` | Schickt eine Test-Nachricht in deinen Discord-Kanal |
 
 Watchlist, Kategorien und Regeln änderst du in der [config.yaml](config.yaml). Wie das vom iPhone aus
@@ -81,7 +82,7 @@ Ping-Bot-/
 ├── tests/                   ← automatische Tests
 │   └── beispiele/           ← echte, gespeicherte Shop-Seiten für die Tests
 ├── .github/workflows/
-│   ├── bot.yml              ← Zeitplan (alle 15 Min.) und Knopf zum Starten
+│   ├── bot.yml              ← Zeitplan und Knopf zum Starten
 │   └── tests.yml            ← führt bei jeder Änderung die Tests aus
 ├── requirements.txt         ← benötigte Python-Pakete
 └── ANLEITUNG_IPHONE.md      ← Einrichtung Schritt für Schritt
