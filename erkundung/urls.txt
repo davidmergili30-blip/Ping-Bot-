@@ -1,4 +1,3 @@
-# Runde 8: neue Shops (mit Aufräumen) – Smyths blockt (403), wird nicht erneut angefragt
-ross https://www.rossmann.de/de/search?text=pokemon
-mueller https://www.mueller.de/search/?q=pokemon+dunkelnacht
-netto https://www.netto-online.de/
+# Runde 9: Müller – gibt es dort Sammelkarten online?
+mueller https://www.mueller.de/search/?q=pokemon+sammelkarten
+mueller https://www.mueller.de/search/?q=pokemon+top+trainer+box
