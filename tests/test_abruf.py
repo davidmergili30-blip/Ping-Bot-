@@ -129,3 +129,23 @@ def test_abrufer_speichert_keine_cookies():
     # Sonst merkt sich ein Shop z. B. „50 Treffer pro Seite“ und Listen werden plötzlich länger
     a = Abrufer(UA, pause_sekunden=5)
     assert a._sitzung.cookies._policy.allowed_domains() == ()  # keine Domain darf Cookies setzen
+
+
+def test_robots_txt_kann_abgeschaltet_werden():
+    # Auf Wunsch wird die robots.txt nicht gefragt – Sperren (403, Captcha) bleiben trotzdem Sperren
+    sitzung = FalscheSitzung({"https://www.shop.de/p": Antwort("ok"),
+                              "https://www.shop.de/robots.txt": Antwort("User-agent: *\nDisallow: /\n")})
+    a = Abrufer(UA, pause_sekunden=5, sitzung=sitzung, schlafen=lambda s: None, robots_beachten=False)
+    assert a.hole("https://www.shop.de/p").text == "ok"
+    assert [x["url"] for x in sitzung.anfragen] == ["https://www.shop.de/p"]
+
+
+def test_eigene_pause_fuer_einzelne_shops():
+    sitzung = FalscheSitzung({"https://langsam.de/a": Antwort("a"), "https://langsam.de/b": Antwort("b")})
+    gewartet = []
+    zeiten = iter([0.0, 1.0, 1.0, 70.0])
+    a = Abrufer(UA, pause_sekunden=5, sitzung=sitzung, schlafen=gewartet.append, uhr=lambda: next(zeiten),
+                robots_beachten=False, pausen={"langsam.de": 65})
+    a.hole("https://langsam.de/a")
+    a.hole("https://langsam.de/b")
+    assert gewartet == [64.0]

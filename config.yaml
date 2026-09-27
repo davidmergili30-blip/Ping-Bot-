@@ -10,6 +10,9 @@
 # =====================================================================
 
 allgemein:
+  # Bot angehalten? true = pausiert. Am einfachsten über die GitHub-App: Aktion „pause“ / „weiter“
+  pausiert: false
+
   # Zeitzone für Uhrzeiten und Ruhezeiten
   zeitzone: Europe/Berlin
 
@@ -21,6 +24,10 @@ allgemein:
 
   # Jeden Shop höchstens alle X Minuten abfragen (mindestens 10)
   min_minuten_pro_shop: 15
+
+  # robots.txt der Shops beachten? Auf deinen Wunsch: false (= ignorieren).
+  # Sperren (403, Captcha, Bot-Schutz) werden trotzdem NIE umgangen.
+  robots_txt_beachten: false
 
 
 # ---------------------------------------------------------------------

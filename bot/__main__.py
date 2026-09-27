@@ -26,6 +26,7 @@ from zoneinfo import ZoneInfo
 from dotenv import load_dotenv
 
 from bot.abruf import Abrufer
+from bot.adapter import ADAPTER
 from bot.discord import DiscordFehler, DiscordWebhook, Kasten
 from bot.einstellungen import STANDARD_PFAD as CONFIG_PFAD
 from bot.einstellungen import ConfigFehler, Einstellungen, lade_einstellungen
@@ -91,7 +92,12 @@ def normaler_lauf(einstellungen: Einstellungen) -> int:
     if melder is None:
         log.warning("Discord ist noch nicht fertig eingerichtet (Secret fehlt). Siehe ANLEITUNG_IPHONE.md")
     speicher = _speicher()
-    abrufer = Abrufer(einstellungen.allgemein.user_agent, einstellungen.allgemein.pause_zwischen_anfragen_sekunden)
+    abrufer = Abrufer(
+        einstellungen.allgemein.user_agent,
+        einstellungen.allgemein.pause_zwischen_anfragen_sekunden,
+        robots_beachten=einstellungen.allgemein.robots_txt_beachten,
+        pausen={d: a.min_abstand_sekunden for a in ADAPTER if a.min_abstand_sekunden for d in a.abruf_domains()},
+    )
     try:
         return Lauf(
             einstellungen, speicher, abrufer, melder,

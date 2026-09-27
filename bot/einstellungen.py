@@ -34,6 +34,7 @@ class Allgemein:
     pause_zwischen_anfragen_sekunden: float = 5
     min_minuten_pro_shop: int = 15
     pausiert: bool = False  # true = der Bot prüft nichts und schickt keine Pings
+    robots_txt_beachten: bool = True  # false = robots.txt wird ignoriert (Sperren werden trotzdem nie umgangen)
 
 
 @dataclass
@@ -196,6 +197,8 @@ def _lese_allgemein(daten) -> Allgemein:
             "min_minuten_pro_shop", bereich, minimum=10,
         ),
         pausiert=_ja_nein(daten.get("pausiert", standard.pausiert), "pausiert", bereich),
+        robots_txt_beachten=_ja_nein(daten.get("robots_txt_beachten", standard.robots_txt_beachten),
+                                     "robots_txt_beachten", bereich),
     )
 
 

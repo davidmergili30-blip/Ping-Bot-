@@ -42,6 +42,11 @@ class ShopAdapter(ABC):
     name: str
     domains: tuple[str, ...]
     treffer_pro_seite: int = 0  # 0 = dieser Shop kann (noch) nicht durchsucht werden
+    min_abstand_sekunden: float = 0  # > 0 = längere Pause zwischen Anfragen (Wunsch des Shops)
+
+    def abruf_domains(self) -> tuple[str, ...]:
+        """Adressen, von denen tatsächlich geladen wird (kann von der Shop-Adresse abweichen)."""
+        return self.domains
 
     def passt_zu(self, url: str) -> bool:
         return domain_von(url) in self.domains

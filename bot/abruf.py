@@ -1,6 +1,6 @@
 """Lädt Shop-Seiten herunter – höflich und ehrlich.
 
-- prüft vorher die robots.txt (verbotene Seiten werden NICHT abgerufen)
+- prüft vorher die robots.txt – außer sie ist in config.yaml abgeschaltet (robots_txt_beachten: false)
 - ehrlicher User-Agent aus config.yaml, kein Vortäuschen eines Browsers
 - Pause zwischen zwei Anfragen an denselben Shop
 - erkennt Sperren (403, 429, Captcha, Cloudflare & Co.) und umgeht sie NICHT:
@@ -44,7 +44,8 @@ class Seite:
 
 class Abrufer:
     def __init__(self, user_agent: str, pause_sekunden: float, sitzung=None,
-                 schlafen=time.sleep, uhr=time.monotonic):
+                 schlafen=time.sleep, uhr=time.monotonic, robots_beachten: bool = True,
+                 pausen: dict[str, float] | None = None):
         self._kopf = {"User-Agent": user_agent, "Accept-Language": "de-DE,de;q=0.9"}
         self._user_agent = user_agent
         self._pause = pause_sekunden
@@ -53,13 +54,16 @@ class Abrufer:
         self._uhr = uhr
         self._robots: dict[str, urllib.robotparser.RobotFileParser | None] = {}
         self._letzte_anfrage: dict[str, float] = {}
+        self._robots_beachten = robots_beachten
+        self._pausen = pausen or {}  # z. B. {"crawlme.games-island.eu": 65} – längere Pause für einzelne Shops
 
     def hole(self, url: str) -> Seite:
-        erlaubt = self._robots_erlaubt(url)
-        if erlaubt is None:
-            return Seite(url, problem="robots.txt nicht erreichbar – zur Sicherheit nicht abgerufen")
-        if not erlaubt:
-            return Seite(url, problem="robots.txt verbietet den Abruf", gesperrt=True)
+        if self._robots_beachten:
+            erlaubt = self._robots_erlaubt(url)
+            if erlaubt is None:
+                return Seite(url, problem="robots.txt nicht erreichbar – zur Sicherheit nicht abgerufen")
+            if not erlaubt:
+                return Seite(url, problem="robots.txt verbietet den Abruf", gesperrt=True)
 
         try:
             antwort = self._anfrage(url)
@@ -80,7 +84,7 @@ class Abrufer:
         domain = domain_von(url)
         letzte = self._letzte_anfrage.get(domain)
         if letzte is not None:
-            rest = self._pause - (self._uhr() - letzte)
+            rest = self._pausen.get(domain, self._pause) - (self._uhr() - letzte)
             if rest > 0:
                 self._schlafen(rest)
         try:

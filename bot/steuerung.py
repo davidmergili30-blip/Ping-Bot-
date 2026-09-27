@@ -96,7 +96,11 @@ class ConfigBearbeiter:
         return eintrag
 
     def pause(self, an: bool) -> None:
-        self.daten["allgemein"]["pausiert"] = an
+        allgemein = self.daten["allgemein"]
+        if "pausiert" in allgemein:
+            allgemein["pausiert"] = an
+        else:
+            allgemein.insert(0, "pausiert", an)  # oben, damit es nicht unter fremde Kommentare rutscht
 
     # --- Speichern ------------------------------------------------------------------------
 

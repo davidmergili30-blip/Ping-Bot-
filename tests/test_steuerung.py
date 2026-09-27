@@ -166,3 +166,11 @@ def test_set_in_leere_watchlist(umgebung):
     assert start.main(["set-hinzufuegen", "--name", "Dunkelnacht", "--suchbegriffe", "Pitch Black"]) == 0
     text = umgebung["config"].read_text(encoding="utf-8")
     assert "  - name: Dunkelnacht\n    suche:\n      - Dunkelnacht\n      - Pitch Black" in text
+
+
+def test_pause_aendert_nur_eine_zeile(umgebung):
+    vorher = umgebung["config"].read_text(encoding="utf-8").splitlines()
+    start.main(["pause"])
+    nachher = umgebung["config"].read_text(encoding="utf-8").splitlines()
+    assert [z for z in nachher if z not in vorher] == ["  pausiert: true"]
+    assert len(nachher) == len(vorher)
