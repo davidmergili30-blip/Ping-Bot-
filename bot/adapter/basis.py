@@ -28,6 +28,7 @@ class CheckErgebnis:
     mengenlimit: int | None = None
     liefertermin: str | None = None   # z. B. "06.11.2026" bei Vorbestellungen
     hinweis: str | None = None        # z. B. warum der Status UNBEKANNT ist
+    ohne_preis: bool = False          # Quelle nennt keine Preise → im Ping steht „Preis im Shop“
 
 
 @dataclass
@@ -47,6 +48,10 @@ class ShopAdapter(ABC):
     def abruf_domains(self) -> tuple[str, ...]:
         """Adressen, von denen tatsächlich geladen wird (kann von der Shop-Adresse abweichen)."""
         return self.domains
+
+    def abruf_url(self, url: str) -> str:
+        """Adresse, die wirklich geladen wird. Normalerweise dieselbe wie der Link im Shop."""
+        return url
 
     def passt_zu(self, url: str) -> bool:
         return domain_von(url) in self.domains

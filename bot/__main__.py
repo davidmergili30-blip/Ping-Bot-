@@ -206,7 +206,8 @@ def status(einstellungen: Einstellungen) -> int:
                       else "**Gerade ist nichts Passendes verfügbar.**")
         for zeile in verfuegbar[:MAX_ZEILEN]:
             zeilen.append(f"{EMOJI.get(_status_von(zeile['status']), '•')} [{zeile['produkt']}]({zeile['url']}) – "
-                          f"{euro(zeile['preis'])} ({zeile['shop']})")
+                          f"{euro(zeile['preis']) if zeile['preis'] is not None else 'Preis im Shop'} "
+                          f"({zeile['shop']})")
         if len(verfuegbar) > MAX_ZEILEN:
             zeilen.append(f"… und {len(verfuegbar) - MAX_ZEILEN} weitere")
     finally:

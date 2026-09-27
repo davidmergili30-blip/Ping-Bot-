@@ -55,6 +55,13 @@ def euro(preis: float | None) -> str:
     return f"{preis:,.2f} €".replace(",", "X").replace(".", ",").replace("X", ".")
 
 
+def preis_text(e: CheckErgebnis) -> str:
+    """Preis für die Nachricht. Manche Quellen nennen keine Preise (z. B. Games Island)."""
+    if e.preis is None and e.ohne_preis:
+        return "Preis im Shop"
+    return euro(e.preis)
+
+
 def ping_grund(alt: tuple[Status, float | None] | None, neu: CheckErgebnis, regeln: Regeln,
                shop_vertraut: bool) -> str | None:
     """Gibt zurück, WARUM gepingt werden soll – oder None.
@@ -95,7 +102,7 @@ def ping_kasten(produkt: str, shop: str, url: str, neu: CheckErgebnis, alt: tupl
     else:
         titel = f"{EMOJI[neu.status]} {lesbar(neu.status)} – {produkt}"
 
-    zeilen = [f"**{shop}** · {euro(neu.preis)}" + (" (Verkauf durch Shop)" if neu.verkaeufer == "Shop" else "")]
+    zeilen = [f"**{shop}** · {preis_text(neu)}" + (" (Verkauf durch Shop)" if neu.verkaeufer == "Shop" else "")]
     if neu.liefertermin:
         zeilen.append(f"📅 Liefertermin: {neu.liefertermin}")
     if neu.mengenlimit:

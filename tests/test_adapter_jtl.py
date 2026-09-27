@@ -116,7 +116,7 @@ def test_seite_ohne_produktdaten_ist_unbekannt():
 
 def test_unbekannter_shop_hat_keinen_adapter():
     assert adapter_fuer("https://www.beispiel-shop.de/produkt") is None
-    assert "games-island.eu" in NICHT_ERLAUBT
+    assert "netto-online.de" in NICHT_ERLAUBT
 
 
 @pytest.mark.parametrize(

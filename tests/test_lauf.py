@@ -185,11 +185,11 @@ def test_shop_wird_nicht_zu_oft_abgefragt(speicher):
 
 def test_verbotener_shop_wird_nie_abgefragt(speicher):
     melder = FalscherMelder()
-    e = einstellungen([("GI", ["https://games-island.eu/Pokemon-Display"]),
-                       ("GI 2", ["https://games-island.eu/Pokemon-ETB"])])
+    e = einstellungen([("Netto", ["https://www.netto-online.de/pokemon-display"]),
+                       ("Netto 2", ["https://www.netto-online.de/pokemon-etb"])])
     _, abrufer = lauf(e, speicher, {}, melder)
     assert abrufer.abgerufen == []
-    assert melder.titel == ["🚫 games-island.eu wird nicht automatisch geprüft"]
+    assert melder.titel == ["🚫 netto-online.de wird nicht automatisch geprüft"]
     lauf(e, speicher, {}, melder, minuten=15)
     assert len(melder.nachrichten) == 1  # Hinweis nur einmal
 

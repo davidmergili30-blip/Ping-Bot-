@@ -22,8 +22,10 @@ from bot.abruf import Abrufer, Seite
 from bot.adapter import ADAPTER, NICHT_ERLAUBT, adapter_fuer
 from bot.adapter.basis import CheckErgebnis, ListenEintrag, domain_von
 from bot.discord import DiscordWebhook, Kasten
+from bot.feeds import Deal, FeedFehler, lies_rss
 from bot.einstellungen import Einstellungen, Kategorie, Produkt, Regeln
-from bot.pings import EMOJI, FARBE_INFO, FARBE_WARNUNG, euro, ping_grund, ping_kasten, zusammenfassung
+from bot.pings import (EMOJI, FARBE_INFO, FARBE_WARNUNG, euro, ping_grund, ping_kasten, preis_text,
+                       zusammenfassung)
 from bot.speicher import Speicher
 from bot.status import Status
 
@@ -37,6 +39,7 @@ def enthaelt_wort(text: str | None, wort: str) -> bool:
 MAX_ZEILEN_UEBERSICHT = 10
 MAX_SUCHSEITEN = 3   # höchstens so viele Ergebnisseiten pro Suchbegriff und Shop
 MAX_NEU_EINZELN = 5  # mehr „neue“ Produkte auf einmal → eine Sammelnachricht statt vieler Pings
+MAX_DEALS_EINZELN = 8  # mehr neue Deals auf einmal → Rest als Liste in einem Kasten
 TOLERANZ_MINUTEN = 3  # GitHub startet Läufe manchmal etwas zu früh/spät
 
 
@@ -68,6 +71,8 @@ class Lauf:
                 self._pruefe_suche(produkt)
         for kategorie in self.e.kategorien:
             self._pruefe_kategorie(kategorie)
+        for feed in self.e.feeds:
+            self._pruefe_feed(feed)
         return self._senden()
 
     # --- Watchlist: feste Links ----------------------------------------------------
@@ -145,6 +150,61 @@ class Lauf:
         self._verarbeite(passende, shop=adapter.name, regeln=self.e.standard_regeln,
                          schluessel=f"kategorie:{kategorie.link}", ueberschrift=kategorie.name, link=kategorie.link)
 
+    # --- Deal-Feeds (mydealz) --------------------------------------------------------------
+
+    def _pruefe_feed(self, feed: Kategorie) -> None:
+        seite = self._hole(feed.link)
+        if seite is None or seite.text is None:
+            if seite is not None:
+                log.warning("Feed %s: %s", feed.name, seite.problem)
+            return
+        try:
+            deals = lies_rss(seite.text)
+        except FeedFehler as fehler:
+            log.warning("Feed %s: %s", feed.name, fehler)
+            return
+        passende = [d for d in deals if self._passt_filter(d.titel)]
+        log.info("Feed %s: %d Deals, %d passen zum Filter", feed.name, len(deals), len(passende))
+
+        schluessel = f"feed:{feed.link}"
+        if self.speicher.meta(schluessel) is None:
+            # Beim ersten Mal: alles als bekannt merken und nur eine Übersicht schicken
+            zeilen = [f"{len(passende)} aktuelle Deals passen zu deinem Filter. Ab jetzt meldet der Bot "
+                      "neue Deals, sobald sie gepostet werden."]
+            for deal in passende[:MAX_ZEILEN_UEBERSICHT]:
+                zeilen.append(f"• [{deal.titel}]({deal.link}) – {deal.haendler or '?'}"
+                              + (f", {euro(deal.preis)}" if deal.preis else ""))
+            self.kaesten.append(Kasten(titel=f"📋 Neu überwacht: {feed.name}", text="\n".join(zeilen),
+                                       link=feed.link, farbe=FARBE_INFO))
+            for deal in deals:
+                self.bestaetigungen.append(partial(self.speicher.setze_meta, f"deal:{deal.guid}", "1"))
+            self.bestaetigungen.append(partial(self.speicher.setze_meta, schluessel, self.jetzt.isoformat()))
+            return
+
+        neue = [d for d in passende if self.speicher.meta(f"deal:{d.guid}") is None]
+        for deal in neue[:MAX_DEALS_EINZELN]:
+            regeln = self._regeln_fuer(deal.titel)
+            if regeln.max_preis is not None and deal.preis is not None and deal.preis > regeln.max_preis:
+                log.info("Deal über Maximalpreis, kein Ping: %s", deal.titel)
+            else:
+                self.kaesten.append(_deal_kasten(deal, feed.name))
+        if len(neue) > MAX_DEALS_EINZELN:
+            rest = neue[MAX_DEALS_EINZELN:]
+            self.kaesten.append(Kasten(
+                titel=f"📰 {len(rest)} weitere neue Deals: {feed.name}",
+                text="\n".join(f"• [{d.titel}]({d.link})" for d in rest[:MAX_ZEILEN_UEBERSICHT]),
+                link=feed.link, farbe=FARBE_INFO))
+        for deal in deals:  # auch unpassende merken, damit sie nie wieder geprüft werden
+            if self.speicher.meta(f"deal:{deal.guid}") is None:
+                self.bestaetigungen.append(partial(self.speicher.setze_meta, f"deal:{deal.guid}", "1"))
+
+    def _regeln_fuer(self, titel: str) -> Regeln:
+        """Regeln des Sets, zu dem der Titel passt (z. B. dessen Maximalpreis) – sonst die Standard-Regeln."""
+        for produkt in self.e.watchlist:
+            if any(enthaelt_wort(titel, begriff) for begriff in produkt.suche):
+                return produkt.regeln
+        return self.e.standard_regeln
+
     # --- Gemeinsam für Suche und Kategorien ---------------------------------------------
 
     def _nur_passende(self, eintraege: list[ListenEintrag]) -> list[ListenEintrag]:
@@ -194,7 +254,7 @@ class Lauf:
                   "Vermutlich hat der Shop die Liste umgestellt – deshalb nur diese eine Nachricht:"]
         for eintrag in verfuegbar[:MAX_ZEILEN_UEBERSICHT]:
             e = eintrag.ergebnis
-            zeilen.append(f"{EMOJI[e.status]} [{e.titel}]({eintrag.url}) – {euro(e.preis)}")
+            zeilen.append(f"{EMOJI[e.status]} [{e.titel}]({eintrag.url}) – {preis_text(e)}")
         if len(verfuegbar) > MAX_ZEILEN_UEBERSICHT:
             zeilen.append(f"… und {len(verfuegbar) - MAX_ZEILEN_UEBERSICHT} weitere")
         self.kaesten.append(Kasten(titel=f"🗂️ Viele neue Einträge: {ueberschrift}", text="\n".join(zeilen),
@@ -215,7 +275,7 @@ class Lauf:
         for eintrag in interessant[:MAX_ZEILEN_UEBERSICHT]:
             e = eintrag.ergebnis
             termin = f" · ab {e.liefertermin}" if e.liefertermin else ""
-            zeilen.append(f"{EMOJI[e.status]} [{e.titel}]({eintrag.url}) – {euro(e.preis)}{termin}")
+            zeilen.append(f"{EMOJI[e.status]} [{e.titel}]({eintrag.url}) – {preis_text(e)}{termin}")
         if len(interessant) > MAX_ZEILEN_UEBERSICHT:
             zeilen.append(f"… und {len(interessant) - MAX_ZEILEN_UEBERSICHT} weitere")
         zeilen.append("Ab jetzt bekommst du hier nur noch Neuigkeiten.")
@@ -276,11 +336,12 @@ class Lauf:
 
     def _hole(self, url: str) -> Seite | None:
         """Holt eine Seite – oder None, wenn der Shop gerade nicht abgefragt werden soll."""
-        domain = domain_von(url)
+        adapter = adapter_fuer(url)
+        abruf = adapter.abruf_url(url) if adapter else url  # z. B. Games Island: crawlme-Adresse
+        domain = domain_von(abruf)
         if domain in self._gesperrt or not self._shop_ist_frei(domain):
             return None
-        seite = self.abrufer.hole(url)
-        adapter = adapter_fuer(url)
+        seite = self.abrufer.hole(abruf)
         shop = adapter.name if adapter else domain
         if seite.gesperrt:
             # Nicht weiter anfragen und NICHT umgehen – nur einmal Bescheid geben
@@ -335,3 +396,12 @@ class Lauf:
         for kasten in self.kaesten:
             log.info("  • %s", kasten.titel)
         return 0
+
+
+def _deal_kasten(deal: Deal, quelle: str) -> Kasten:
+    zeilen = [f"**{deal.haendler or 'Händler unbekannt'}** · " + (euro(deal.preis) if deal.preis else "Preis im Deal")]
+    if deal.mit_einladung:
+        zeilen.append("🟡 Nur auf Einladung (z. B. bei Amazon „Einladung anfordern“)")
+    zeilen.append(f"Gefunden über {quelle} – tipp auf die Überschrift, dort steht der Link zum Shop.")
+    return Kasten(titel=f"📰 {deal.titel}"[:256], text="\n".join(zeilen), link=deal.link,
+                  farbe=0xF1C40F if deal.mit_einladung else 0x2ECC71)

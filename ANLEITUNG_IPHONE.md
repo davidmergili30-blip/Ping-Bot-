@@ -198,6 +198,15 @@ Bei einem roten ✗ schickt GitHub dir außerdem eine E-Mail. Das ist normal.
 
 ## Gut zu wissen
 
+**Zu den Quellen:**
+- 📰 **Kästen mit Zeitungs-Symbol** kommen vom **mydealz-Feed**. Dort posten Leute Angebote aus allen
+  möglichen Shops (auch Amazon, Netto, MediaMarkt). Tipp auf die Überschrift: Du landest beim Deal auf
+  mydealz, dort steht der Link zum Shop. 🟡 heißt „nur auf Einladung“ (z. B. bei Amazon).
+- **Games Island** zeigt dem Bot keine Preise (das wünscht sich der Shop so). Im Ping steht dann
+  „Preis im Shop“ – tipp auf die Überschrift, um ihn zu sehen.
+- Beim ersten Lauf nach einer Änderung bekommst du pro neuer Liste **einen** Übersichts-Kasten
+  („📋 Neu überwacht …“). Danach kommen nur noch Neuigkeiten.
+
 **Zur Steuerung:**
 - Den Bot steuerst du über die **GitHub-App**, über **Actions → Preis-Bot → Run workflow** (siehe „Den Bot steuern“).
 - Nur du kannst diese Knöpfe drücken, weil nur du Schreibrechte am Repo hast.

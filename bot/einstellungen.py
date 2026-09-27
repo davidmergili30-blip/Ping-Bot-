@@ -88,6 +88,7 @@ class Einstellungen:
     watchlist: list[Produkt] = field(default_factory=list)
     kategorien: list[Kategorie] = field(default_factory=list)
     kategorie_filter: KategorieFilter = field(default_factory=KategorieFilter)
+    feeds: list[Kategorie] = field(default_factory=list)  # Deal-Feeds (RSS), z. B. mydealz
 
 
 def lade_einstellungen(pfad: Path | str = STANDARD_PFAD) -> Einstellungen:
@@ -112,7 +113,7 @@ def lade_einstellungen(pfad: Path | str = STANDARD_PFAD) -> Einstellungen:
     _nur_bekannte(
         daten,
         {"allgemein", "standard_regeln", "vertrauenswuerdige_shops", "watchlist", "kategorien",
-         "kategorie_filter"},
+         "kategorie_filter", "feeds"},
         "config.yaml",
     )
 
@@ -124,6 +125,7 @@ def lade_einstellungen(pfad: Path | str = STANDARD_PFAD) -> Einstellungen:
         watchlist=_lese_watchlist(daten.get("watchlist") or [], standard_regeln),
         kategorien=_lese_kategorien(daten.get("kategorien") or []),
         kategorie_filter=_lese_filter(daten.get("kategorie_filter") or {}),
+        feeds=_lese_kategorien(daten.get("feeds") or [], abschnitt="feeds", art="Feed"),
     )
 
 
@@ -320,14 +322,14 @@ def _lese_watchlist(daten, standard_regeln: Regeln) -> list[Produkt]:
     return produkte
 
 
-def _lese_kategorien(daten) -> list[Kategorie]:
+def _lese_kategorien(daten, abschnitt: str = "kategorien", art: str = "Kategorie") -> list[Kategorie]:
     if not isinstance(daten, list) or not all(isinstance(k, dict) for k in daten):
-        raise ConfigFehler("'kategorien' muss eine Liste sein (jeder Eintrag beginnt mit '- name: ').")
+        raise ConfigFehler(f"'{abschnitt}' muss eine Liste sein (jeder Eintrag beginnt mit '- name: ').")
     kategorien = []
     for nr, eintrag in enumerate(daten, start=1):
-        name = _name(eintrag, f"Kategorie Nr. {nr}")
-        _nur_bekannte(eintrag, {"name", "link"}, f"Kategorie '{name}'")
-        kategorien.append(Kategorie(name=name, link=_link(eintrag.get("link"), f"Kategorie '{name}'")))
+        name = _name(eintrag, f"{art} Nr. {nr}")
+        _nur_bekannte(eintrag, {"name", "link"}, f"{art} '{name}'")
+        kategorien.append(Kategorie(name=name, link=_link(eintrag.get("link"), f"{art} '{name}'")))
     return kategorien
 
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:pepper="http://www.pepper.com/rss" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+<title>mydealz: Pokémon Angebote</title>
+<item>
+  <category>Family &amp; Kids</category>
+  <pepper:merchant name="Netto Marken-Discount" price="37,99€"/>
+  <title><![CDATA[Pokémon First Partner Illustration Collection Series 2 Englische Edition ohne Einladung / gratis Versand]]></title>
+  <link>https://www.mydealz.de/deals/pokemon-first-partner-illustration-collection-series-2-2841115</link>
+  <pubDate>Sat, 26 Sep 2026 10:38:52 +0200</pubDate>
+  <guid>https://www.mydealz.de/deals/pokemon-first-partner-illustration-collection-series-2-2841115</guid>
+</item>
+<item>
+  <pepper:merchant name="Amazon" price="54,99€"/>
+  <title><![CDATA[Pokémon Dunkelnacht Top-Trainer-Box [Prime Einladung]]]></title>
+  <link>https://www.mydealz.de/deals/pokemon-dunkelnacht-top-trainer-box-2844001</link>
+  <guid>https://www.mydealz.de/deals/pokemon-dunkelnacht-top-trainer-box-2844001</guid>
+</item>
+<item>
+  <pepper:merchant name="Coolblue" price="38,99€"/>
+  <title><![CDATA[LEGO Pokémon Evoli (72151) für 38,99 Euro [Coolblue]]]></title>
+  <link>https://www.mydealz.de/deals/lego-pokemon-evoli-2844002</link>
+  <guid>https://www.mydealz.de/deals/lego-pokemon-evoli-2844002</guid>
+</item>
+<item>
+  <pepper:merchant name="Proshop" price="203,90€"/>
+  <title><![CDATA[Pokémon Fatale Flammen Display (36 Booster) deutsch]]></title>
+  <link>https://www.mydealz.de/deals/pokemon-fatale-flammen-display-2844003</link>
+  <guid>https://www.mydealz.de/deals/pokemon-fatale-flammen-display-2844003</guid>
+</item>
+</channel>
+</rss>

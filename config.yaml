@@ -150,6 +150,28 @@ kategorien:
   - name: "Card-Corner – Neu eingetroffen"
     link: https://www.card-corner.de/Neu-Eingetroffen
 
+  # Games Island: Der Bot liest deren offizielle Datenliste für Programme
+  # (crawlme.games-island.eu). Die zeigt keine Preise – im Ping steht dann „Preis im Shop“.
+  - name: "Games Island – Booster Displays & Bundles"
+    link: https://games-island.eu/c/Pokemon/Booster-Displays
+
+  - name: "Games Island – Top-Trainer-Boxen"
+    link: https://games-island.eu/c/Pokemon/Elite-Trainer-Box
+
+  - name: "Games Island – Boxen & Kollektionen"
+    link: https://games-island.eu/c/Pokemon/Boxen-Sets
+
+
+# ---------------------------------------------------------------------
+#  Deal-Feeds: Hier posten Leute Angebote, sobald sie irgendwo auftauchen –
+#  auch bei Shops, die der Bot selbst nicht abfragen kann (Amazon, Netto,
+#  MediaMarkt, Kaufland …). Es gilt derselbe Filter wie unten.
+#  Liegt ein Deal über dem Maximalpreis seines Sets, kommt kein Ping.
+# ---------------------------------------------------------------------
+feeds:
+  - name: "mydealz – Pokémon"
+    link: https://www.mydealz.de/rss/gruppe/pokemon
+
 
 # ---------------------------------------------------------------------
 #  Filter: Welche Produkte interessieren dich?
