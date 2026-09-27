@@ -181,7 +181,7 @@ class Lauf:
 
     def _sammelnachricht(self, unbekannt: list[ListenEintrag], shop: str, regeln: Regeln, ueberschrift: str,
                          link: str | None) -> None:
-        verfuegbar = [e for e in unbekannt if e.ergebnis.status in regeln.ping_bei_status]
+        verfuegbar = [e for e in unbekannt if self._wuerde_pingen(e, regeln)]
         for eintrag in unbekannt:
             e = eintrag.ergebnis
             self.bestaetigungen.append(partial(self.speicher.setze_stand, eintrag.url, shop, e.titel, e.status,
@@ -207,7 +207,7 @@ class Lauf:
             if self.speicher.stand(eintrag.url) is None:
                 self.speicher.setze_stand(eintrag.url, shop, eintrag.ergebnis.titel, eintrag.ergebnis.status,
                                           eintrag.ergebnis.preis, self.jetzt)
-        interessant = [e for e in passende if e.ergebnis.status in regeln.ping_bei_status]
+        interessant = [e for e in passende if self._wuerde_pingen(e, regeln)]
         if passende:
             zeilen = [f"{len(passende)} passende Produkte, davon {len(interessant)} gerade verfügbar."]
         else:
@@ -222,6 +222,11 @@ class Lauf:
         self.kaesten.append(Kasten(titel=f"📋 Neu überwacht: {ueberschrift}", text="\n".join(zeilen),
                                    link=link, farbe=FARBE_INFO))
         self.bestaetigungen.append(partial(self.speicher.setze_meta, schluessel, self.jetzt.isoformat()))
+
+    def _wuerde_pingen(self, eintrag: ListenEintrag, regeln: Regeln) -> bool:
+        """Gleiche Regeln wie beim Ping (Status, Maximalpreis, Vertrauensliste …)."""
+        vertraut = domain_von(eintrag.url) in self.e.vertrauenswuerdige_shops
+        return ping_grund(None, eintrag.ergebnis, regeln, vertraut) is not None
 
     def _passt_filter(self, titel: str | None) -> bool:
         filter_ = self.e.kategorie_filter

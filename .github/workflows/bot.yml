@@ -1,11 +1,11 @@
-# Startet den Bot automatisch alle 15 Minuten – oder per Knopfdruck
-# (GitHub-App: Actions → Preis-Bot → Run workflow).
+# Startet den Bot automatisch – oder per Knopfdruck in der GitHub-App:
+# Actions → Preis-Bot → Run workflow → Aktion auswählen (und ggf. Felder ausfüllen).
 name: Preis-Bot
 
 on:
   schedule:
-    # Alle 15 Minuten (Uhrzeit in UTC). Absichtlich nicht zur vollen Stunde:
-    # Dann hat GitHub besonders viel zu tun und Läufe verspäten sich.
+    # Geplant alle 15 Minuten (Uhrzeit in UTC). GitHub startet geplante Läufe
+    # zurzeit aber oft nur alle paar Stunden – „Run workflow“ geht jederzeit sofort.
     - cron: "4,19,34,49 * * * *"
   workflow_dispatch:
     inputs:
@@ -15,7 +15,26 @@ on:
         default: normaler-lauf
         options:
           - normaler-lauf
+          - status
+          - watchlist
+          - set-hinzufuegen
+          - set-entfernen
+          - max-preis
+          - pause
+          - weiter
           - test-nachricht
+      name:
+        description: "Set-Name (für set-hinzufuegen, set-entfernen, max-preis), z. B. Dunkelnacht"
+        type: string
+        required: false
+      suchbegriffe:
+        description: "Nur set-hinzufuegen: weitere Namen mit Komma, z. B. Pitch Black, Abyss Eye"
+        type: string
+        required: false
+      preis:
+        description: "Nur max-preis: Preis in Euro, z. B. 180 – oder aus"
+        type: string
+        required: false
 
 # Nie zwei Läufe gleichzeitig (sonst gibt es doppelte Pings)
 concurrency:
@@ -23,15 +42,17 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: read
+  contents: write  # nötig, damit Steuer-Aktionen die config.yaml speichern können
 
 jobs:
   bot:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Code holen
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0  # ganze Geschichte – nötig, um geänderte Einstellungen sicher zu speichern
 
       - name: Python einrichten
         uses: actions/setup-python@v6
@@ -55,8 +76,27 @@ jobs:
         env:
           # Bei automatischen Läufen gibt es keine Auswahl → normaler Lauf
           AKTION: ${{ inputs.aktion || 'normaler-lauf' }}
+          NAME: ${{ inputs.name }}
+          SUCHBEGRIFFE: ${{ inputs.suchbegriffe }}
+          PREIS: ${{ inputs.preis }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: python -m bot "$AKTION"
+        run: python -m bot "$AKTION" --name "$NAME" --suchbegriffe "$SUCHBEGRIFFE" --preis "$PREIS"
+
+      - name: Geänderte config.yaml speichern
+        env:
+          AKTION: ${{ inputs.aktion || 'normaler-lauf' }}
+          NAME: ${{ inputs.name }}
+        run: |
+          if git diff --quiet -- config.yaml; then
+            echo "config.yaml unverändert."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add config.yaml
+          git commit -m "Steuerung: $AKTION $NAME"
+          git pull --rebase origin main
+          git push origin HEAD:main
 
       - name: Datenbank für den nächsten Lauf sichern
         if: always() && hashFiles('daten/bot.db') != ''

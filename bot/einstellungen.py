@@ -33,6 +33,7 @@ class Allgemein:
     user_agent: str = "PokemonPreisBot/0.1 (privater Preisalarm)"
     pause_zwischen_anfragen_sekunden: float = 5
     min_minuten_pro_shop: int = 15
+    pausiert: bool = False  # true = der Bot prüft nichts und schickt keine Pings
 
 
 @dataclass
@@ -194,6 +195,7 @@ def _lese_allgemein(daten) -> Allgemein:
             daten.get("min_minuten_pro_shop", standard.min_minuten_pro_shop),
             "min_minuten_pro_shop", bereich, minimum=10,
         ),
+        pausiert=_ja_nein(daten.get("pausiert", standard.pausiert), "pausiert", bereich),
     )
 
 

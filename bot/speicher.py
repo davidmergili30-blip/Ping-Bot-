@@ -107,6 +107,17 @@ class Speicher:
         )
         self._db.commit()
 
+    def verfuegbare(self, statusse: list[Status]) -> list[sqlite3.Row]:
+        """Alle Produkte, deren letzter bekannter Status einer der genannten ist."""
+        if not statusse:
+            return []
+        platzhalter = ",".join("?" * len(statusse))
+        return self._db.execute(
+            f"SELECT url, shop, produkt, status, preis FROM stand WHERE status IN ({platzhalter})"
+            " ORDER BY shop, produkt",
+            [s.value for s in statusse],
+        ).fetchall()
+
     # --- Shops: letzter Abruf und Blockaden ----------------------------------------
 
     def letzter_abruf(self, domain: str) -> datetime | None:
@@ -125,6 +136,9 @@ class Speicher:
         """Grund der gemeldeten Blockade – oder None, wenn der Shop nicht als blockiert gilt."""
         zeile = self._db.execute("SELECT blockiert, grund FROM shops WHERE domain = ?", (domain,)).fetchone()
         return zeile["grund"] if zeile and zeile["blockiert"] else None
+
+    def blockierte(self) -> list[sqlite3.Row]:
+        return self._db.execute("SELECT domain, grund FROM shops WHERE blockiert = 1").fetchall()
 
     def setze_blockade(self, domain: str, grund: str | None) -> None:
         """grund=None hebt die Blockade wieder auf."""

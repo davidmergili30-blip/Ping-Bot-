@@ -4,4 +4,5 @@ beautifulsoup4>=4.12
 PyYAML>=6.0
 python-dotenv>=1.0
 tzdata>=2024.1
+ruamel.yaml>=0.18
 pytest>=8.0

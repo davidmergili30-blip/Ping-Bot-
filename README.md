@@ -49,18 +49,24 @@ Alle Neuigkeiten eines Laufs kommen gebündelt in **einer** Discord-Nachricht.
 | Card-Corner | ✅ wird geprüft (robots.txt erlaubt es) |
 | Games Island | 🚫 verbietet automatisches Abfragen → ihr Discord „Games Island Hof“ nutzen |
 
-## Bedienung
+## Bedienung (GitHub-App)
 
-In der GitHub-App: **Actions → Preis-Bot → Run workflow**. Dort wählst du eine Aktion:
+**Actions → Preis-Bot → Run workflow**, Aktion auswählen, ggf. Felder ausfüllen, **Run workflow**.
+Die Antwort kommt in deinen Discord-Kanal.
 
-| Aktion | Was passiert |
-|---|---|
-| `normaler-lauf` | Prüft sofort alle Sets und Kategorien. Startet außerdem automatisch (siehe oben). |
-| `test-nachricht` | Schickt eine Test-Nachricht in deinen Discord-Kanal |
+| Aktion | Felder | Was passiert |
+|---|---|---|
+| `normaler-lauf` | – | Prüft sofort alle Sets und Kategorien |
+| `status` | – | Letzter Lauf, blockierte Shops, was gerade verfügbar ist |
+| `watchlist` | – | Zeigt deine Sets mit Suchbegriffen und Maximalpreisen |
+| `set-hinzufuegen` | **name**, optional **suchbegriffe** | Neues Set beobachten, z. B. name `Stellarkrone`, suchbegriffe `Stellar Crown` |
+| `set-entfernen` | **name** | Set nicht mehr beobachten |
+| `max-preis` | **name**, **preis** | Maximalpreis für ein Set, z. B. `180` – mit `aus` wieder aufheben |
+| `pause` / `weiter` | – | Alle Prüfungen und Pings anhalten / wieder starten |
+| `test-nachricht` | – | Test-Nachricht in deinen Discord-Kanal |
 
-Watchlist, Kategorien und Regeln änderst du in der [config.yaml](config.yaml). Wie das vom iPhone aus
-geht, steht in der [Anleitung](ANLEITUNG_IPHONE.md#watchlist-bearbeiten). Weitere Knöpfe wie Watchlist
-anzeigen, Produkt hinzufügen, Pause oder Scan kommen in Phase 3.
+Geänderte Einstellungen speichert der Bot selbst in der [config.yaml](config.yaml). Du kannst die Datei
+aber auch weiterhin von Hand bearbeiten ([Anleitung](ANLEITUNG_IPHONE.md#watchlist-bearbeiten)).
 
 ## Projektstruktur
 
@@ -69,6 +75,7 @@ Ping-Bot-/
 ├── config.yaml              ← deine Einstellungen (Regeln, Shops, Watchlist)
 ├── bot/
 │   ├── __main__.py          ← Startpunkt: python -m bot <aktion>
+│   ├── steuerung.py         ← Knöpfe in der GitHub-App: Sets, Maximalpreise, Pause
 │   ├── lauf.py              ← der normale Lauf: prüfen, vergleichen, melden
 │   ├── abruf.py             ← lädt Seiten höflich (robots.txt, Pausen, Sperren erkennen)
 │   ├── adapter/             ← ein „Übersetzer“ pro Shop-System
@@ -92,8 +99,8 @@ Ping-Bot-/
 
 - [x] **Phase 1:** Grundgerüst, config.yaml, Discord-Test, GitHub Actions
 - [x] **Phase 2:** Gate to the Games + Card-Corner, Status-Erkennung, SQLite, Ping nur bei Änderung,
-      neue Vorbestellungen in Kategorien
-- [ ] **Phase 3:** Steuerung über die GitHub-App (Watchlist, Pause, Ruhezeit, Status)
+      neue Vorbestellungen in Kategorien, Sets per Suchbegriff
+- [x] **Phase 3:** Steuerung über die GitHub-App (Status, Watchlist, Sets, Maximalpreise, Pause)
 - [ ] **Phase 4:** Mehr Quellen, Whitelist, Fake-Warnung
 - [ ] **Phase 5:** Amazon und Einladungen
 - [ ] **Phase 6:** Regeln, Ruhezeiten, Marge

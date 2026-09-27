@@ -335,3 +335,12 @@ def test_viele_neue_eintraege_auf_einmal_ergeben_eine_sammelnachricht(speicher):
     # Danach sind die Produkte bekannt → beim nächsten Lauf Ruhe
     lauf(e, speicher, seiten, melder, minuten=30)
     assert len(melder.nachrichten) == 2
+
+
+def test_uebersicht_beachtet_maximalpreis(speicher):
+    melder = FalscherMelder()
+    e = einstellungen(suche=FATALE, filter_=SET_FILTER, max_preis=200)
+    lauf(e, speicher, suchseiten(), melder)
+    gttg = melder.nachrichten[0]["kaesten"][0].text
+    assert "Top Trainer Box (deutsch)" in gttg          # 149,90 € → unter 200 €
+    assert "Display (36 Booster) (deutsch)" not in gttg  # 399,90 € → zu teuer

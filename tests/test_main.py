@@ -79,6 +79,5 @@ def test_falscher_webhook_gibt_fehlercode(monkeypatch, gesendet):
 def test_config_fehler_beendet_mit_fehlercode(monkeypatch, tmp_path):
     kaputt = tmp_path / "config.yaml"
     kaputt.write_text("standard_regeln:\n  max_pries: 1\n", encoding="utf-8")
-    original = start.lade_einstellungen
-    monkeypatch.setattr(start, "lade_einstellungen", lambda: original(kaputt))
+    monkeypatch.setenv("BOT_CONFIG", str(kaputt))
     assert start.main(["normaler-lauf"]) == 1

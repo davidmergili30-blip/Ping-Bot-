@@ -109,6 +109,31 @@ Unter **Actions** erscheinen automatisch Läufe von **Preis-Bot** mit dem Hinwei
 
 ---
 
+## Den Bot steuern (GitHub-App)
+
+1. Öffne die **GitHub-App** → dein Repo **Ping-Bot-** → **Actions** → **Preis-Bot**.
+2. Tipp auf **Run workflow**.
+3. Wähl bei „Was soll der Bot tun?“ eine Aktion und füll – falls nötig – die Felder darunter aus.
+4. Tipp auf **Run workflow**. Nach ca. 1 Minute kommt die Antwort in Discord.
+
+| Du willst … | Aktion | Felder |
+|---|---|---|
+| sehen, was gerade verfügbar ist | `status` | – |
+| deine Sets und Maximalpreise sehen | `watchlist` | – |
+| ein neues Set beobachten | `set-hinzufuegen` | **name**: z. B. `Stellarkrone` · **suchbegriffe** (optional): `Stellar Crown, Stella Miracle` |
+| ein Set nicht mehr beobachten | `set-entfernen` | **name**: z. B. `30 Jahre` |
+| einen Maximalpreis setzen | `max-preis` | **name**: z. B. `Dunkelnacht` · **preis**: z. B. `180` |
+| den Maximalpreis wieder aufheben | `max-preis` | **name** · **preis**: `aus` |
+| den Bot kurz anhalten | `pause` | – |
+| den Bot wieder starten | `weiter` | – |
+| sofort prüfen lassen | `normaler-lauf` | – |
+
+> Beim Namen ist Groß-/Kleinschreibung egal. Du kannst auch einen Suchbegriff angeben,
+> z. B. `Pitch Black` statt `Dunkelnacht`. Tippst du etwas falsch, sagt dir der Bot in Discord,
+> welche Sets es gibt.
+
+---
+
 ## Watchlist bearbeiten
 
 Alle Einstellungen stehen in der Datei **config.yaml**. So änderst du sie vom iPhone aus:
@@ -174,7 +199,7 @@ Bei einem roten ✗ schickt GitHub dir außerdem eine E-Mail. Das ist normal.
 ## Gut zu wissen
 
 **Zur Steuerung:**
-- Den Bot steuerst du über die **GitHub-App**, über **Actions → Preis-Bot → Run workflow**. Ab Phase 3 kommen weitere Knöpfe dazu.
+- Den Bot steuerst du über die **GitHub-App**, über **Actions → Preis-Bot → Run workflow** (siehe „Den Bot steuern“).
 - Nur du kannst diese Knöpfe drücken, weil nur du Schreibrechte am Repo hast.
 
 **Zum öffentlichen Repo:**
