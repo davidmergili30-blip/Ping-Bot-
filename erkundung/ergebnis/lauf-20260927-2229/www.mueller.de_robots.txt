@@ -1,0 +1,8 @@
+HTTP 200
+
+# 1st section
+User-agent: *
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /my-account/
+Sitemap: https://www.mueller.de/sitemaps/sitemap.xml
