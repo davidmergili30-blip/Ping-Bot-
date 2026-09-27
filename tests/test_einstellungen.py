@@ -118,9 +118,22 @@ watchlist:
     assert etb.regeln.max_preis == 200
 
 
-def test_watchlist_ohne_links(tmp_path):
-    with pytest.raises(ConfigFehler, match="links"):
+def test_watchlist_ohne_links_und_ohne_suche(tmp_path):
+    with pytest.raises(ConfigFehler, match="suche"):
         lade_einstellungen(schreibe(tmp_path, "watchlist:\n  - name: X\n"))
+
+
+def test_watchlist_mit_suchbegriffen(tmp_path):
+    einstellungen = lade_einstellungen(schreibe(tmp_path, """
+watchlist:
+  - name: "Dunkelnacht"
+    suche:
+      - Dunkelnacht
+      - Pitch Black
+"""))
+    produkt = einstellungen.watchlist[0]
+    assert produkt.suche == ["Dunkelnacht", "Pitch Black"]
+    assert produkt.links == []
 
 
 def test_watchlist_link_muss_link_sein(tmp_path):
@@ -150,4 +163,6 @@ kategorie_filter:
 def test_echte_config_hat_watchlist_und_kategorien():
     einstellungen = lade_einstellungen()
     assert einstellungen.watchlist and einstellungen.kategorien
-    assert einstellungen.standard_regeln.preissturz_prozent == 10
+    sets = {p.name for p in einstellungen.watchlist}
+    assert {"Dunkelnacht", "Fatale Flammen", "Optimale Ordnung"} <= sets
+    assert all(p.suche for p in einstellungen.watchlist)

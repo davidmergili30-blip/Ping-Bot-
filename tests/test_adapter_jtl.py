@@ -135,3 +135,28 @@ def test_datum_und_schema():
     assert schema_status("http://schema.org/InStock") == Status.BESTELLBAR
     assert schema_status("https://schema.org/SoldOut") == Status.AUSVERKAUFT
     assert schema_status("https://schema.org/Irgendwas") is None
+
+
+def test_such_adressen():
+    gttg = adapter_fuer(GTTG)
+    cc = adapter_fuer(CC)
+    assert gttg.such_url("Fatale Flammen") == "https://www.gate-to-the-games.de/?suche=Fatale+Flammen&af=100"
+    assert gttg.such_url("Fatale Flammen", 2) == "https://www.gate-to-the-games.de/?suche=Fatale+Flammen&af=100&seite=2"
+    assert cc.such_url("Pitch Black") == "https://www.card-corner.de/?suche=Pitch+Black&af=50"
+
+
+def test_suchergebnisse_gate_to_the_games():
+    url = adapter_fuer(GTTG).such_url("Fatale Flammen")
+    liste = adapter_fuer(GTTG).erkenne_liste(lies("gate_to_the_games/suche_fatale_flammen.html"), url, HEUTE)
+    assert len(liste) == 100  # volle Seite → der Bot holt auch Seite 2
+    nach_titel = {e.ergebnis.titel: e.ergebnis for e in liste}
+    display = nach_titel["Mega-Entwicklung Fatale Flammen Display (36 Booster) (deutsch)"]
+    assert display.status == Status.BESTELLBAR and display.preis == 399.90
+    assert nach_titel["Mega-Entwicklung Fatale Flammen Booster Bundle (deutsch)"].status == Status.AUSVERKAUFT
+
+
+def test_banner_auf_lager_wenn_die_lieferampel_fehlt():
+    url = "https://www.card-corner.de/pokemon-optimale-ordnung"
+    liste = adapter_fuer(url).erkenne_liste(lies("card_corner/liste_set_optimale_ordnung.html"), url, HEUTE)
+    nihil = next(e.ergebnis for e in liste if e.ergebnis.titel == "Pokemon Nihil Zero (M3) Display")
+    assert nihil.status == Status.BESTELLBAR

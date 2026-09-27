@@ -69,13 +69,14 @@ class FalscherMelder:
         return [k.titel for n in self.nachrichten for k in n["kaesten"]]
 
 
-def einstellungen(watchlist=None, kategorien=None, filter_=None, **regeln):
+def einstellungen(watchlist=None, kategorien=None, filter_=None, suche=None, **regeln):
     standard = Regeln(**regeln)
     return Einstellungen(
         allgemein=Allgemein(),
         standard_regeln=standard,
         vertrauenswuerdige_shops=["gate-to-the-games.de", "card-corner.de"],
-        watchlist=[Produkt(name, links, standard) for name, links in (watchlist or [])],
+        watchlist=[Produkt(name, links, standard) for name, links in (watchlist or [])]
+                  + [Produkt(name, [], standard, suche=begriffe) for name, begriffe in (suche or [])],
         kategorien=[Kategorie(name, link) for name, link in (kategorien or [])],
         kategorie_filter=filter_ or KategorieFilter(),
     )
@@ -214,7 +215,7 @@ def test_ausverkaufte_vorbestellungen_tauchen_nicht_in_der_uebersicht_auf(speich
                       filter_=KategorieFilter(nur_mit=["Display", "Top Trainer"]))
     lauf(e, speicher, {GTTG_LISTE: html("gate_to_the_games/liste_vorverkauf.html")}, melder)
     text = melder.nachrichten[0]["kaesten"][0].text
-    assert "davon 0 gerade interessant" in text
+    assert "davon 0 gerade verfügbar" in text
     assert "Delta Herrschaft Display" not in text
 
 
@@ -254,3 +255,66 @@ def test_ohne_discord_wird_nichts_als_gemeldet_gespeichert(speicher):
     e = einstellungen(DELTA)
     lauf(e, speicher, {GTTG_PRODUKT: VORBESTELLBAR}, melder=None)
     assert speicher.stand(GTTG_PRODUKT) is None  # kommt, sobald Discord eingerichtet ist
+
+
+# --- Watchlist per Suchbegriff (Sets) -------------------------------------------------
+
+LEER = "<html><body>Keine Treffer</body></html>"
+SET_FILTER = KategorieFilter(
+    nur_mit=["Display", "Top Trainer", "Elite Trainer", "Booster Bundle", "Collection", "Kollektion"],
+    ohne=["Blister", "Illustration Rare", "B-Ware"],
+)
+FATALE = [("Fatale Flammen", ["Fatale Flammen", "Phantasmal Flames"])]
+GTTG_SUCHE = "https://www.gate-to-the-games.de/?suche={}&af=100"
+CC_SUCHE = "https://www.card-corner.de/?suche={}&af=50"
+
+
+def suchseiten():
+    return {
+        GTTG_SUCHE.format("Fatale+Flammen"): html("gate_to_the_games/suche_fatale_flammen.html"),
+        GTTG_SUCHE.format("Fatale+Flammen") + "&seite=2": LEER,
+        GTTG_SUCHE.format("Phantasmal+Flames"): html("gate_to_the_games/suche_phantasmal_flames.html"),
+        CC_SUCHE.format("Fatale+Flammen"): LEER,
+        CC_SUCHE.format("Phantasmal+Flames"): LEER,
+    }
+
+
+def test_set_suche_schickt_beim_ersten_mal_eine_uebersicht(speicher):
+    melder = FalscherMelder()
+    _, abrufer = lauf(einstellungen(suche=FATALE, filter_=SET_FILTER), speicher, suchseiten(), melder)
+    assert melder.titel == ["📋 Neu überwacht: Fatale Flammen bei Gate to the Games",
+                            "📋 Neu überwacht: Fatale Flammen bei Card-Corner"]
+    gttg, cc = (k.text for k in melder.nachrichten[0]["kaesten"])
+    assert "Fatale Flammen Display (36 Booster) (deutsch)" in gttg      # bestellbar → steht drin
+    assert "Fatale Flammen Top Trainer Box (deutsch)" in gttg
+    assert "Booster Bundle" not in gttg                                  # ausverkauft → nicht in der Liste
+    assert "Illustration Rare" not in gttg                               # Einzelkarte → vom Filter aussortiert
+    assert "Gerade keine passenden Produkte" in cc
+    # Seite 1 war voll (100 Treffer) → Seite 2 wurde auch geholt; bei 11 Treffern nicht
+    assert GTTG_SUCHE.format("Fatale+Flammen") + "&seite=2" in abrufer.abgerufen
+    assert GTTG_SUCHE.format("Phantasmal+Flames") + "&seite=2" not in abrufer.abgerufen
+
+
+def test_set_suche_meldet_restock(speicher):
+    melder = FalscherMelder()
+    e = einstellungen(suche=FATALE, filter_=SET_FILTER)
+    lauf(e, speicher, suchseiten(), melder)
+    # So tun, als wäre das Display beim letzten Mal ausverkauft gewesen
+    display = "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Fatale-Flammen-Display-36-Booster-deutsch"
+    assert speicher.stand(display) is not None
+    speicher.setze_stand(display, "Gate to the Games", "Display", Status.AUSVERKAUFT, 399.90)
+    lauf(e, speicher, suchseiten(), melder, minuten=15)
+    kasten = melder.nachrichten[-1]["kaesten"][0]
+    assert kasten.titel == "🟢 BESTELLBAR – Mega-Entwicklung Fatale Flammen Display (36 Booster) (deutsch)"
+    assert "Vorher: AUSVERKAUFT" in kasten.text
+
+
+def test_set_suche_nur_treffer_mit_dem_namen(speicher):
+    melder = FalscherMelder()
+    e = einstellungen(suche=[("Dunkelnacht", ["Pitch Black"])], filter_=SET_FILTER)
+    seiten = {GTTG_SUCHE.format("Pitch+Black"): LEER,
+              CC_SUCHE.format("Pitch+Black"): html("card_corner/suche_pitch_black.html")}
+    lauf(e, speicher, seiten, melder)
+    text = melder.nachrichten[0]["kaesten"][1].text
+    assert "Pitch Black Elite Trainer Box" in text
+    assert "B-Ware" not in text

@@ -37,8 +37,8 @@ standard_regeln:
   # Maximalpreis in Euro, z. B. 150. null = egal
   max_preis: null
 
-  # Ping, wenn der Preis um mindestens so viel Prozent fällt. null = nie
-  preissturz_prozent: 10
+  # Ping, wenn der Preis um mindestens so viel Prozent fällt, z. B. 10. null = nie
+  preissturz_prozent: null
 
   # Mindest-Marge in Prozent (nach Gebühren und Versand). null = egal  (kommt in Phase 6)
   min_marge_prozent: null
@@ -75,30 +75,60 @@ vertrauenswuerdige_shops:
 
 
 # ---------------------------------------------------------------------
-#  Watchlist: bestimmte Produkte, die der Bot genau beobachten soll
+#  Watchlist: was der Bot genau beobachten soll
 #
-#  So fügst du ein Produkt hinzu (in der GitHub-App oder in Safari):
-#    - name: "So soll es im Ping heißen"
-#      links:
-#        - https://link-zum-produkt-im-shop-1
-#        - https://link-zum-produkt-im-shop-2
-#      max_preis: 180          # optional: eigene Regel nur für dieses Produkt
+#  Variante A – ganze Sets per Suchbegriff (empfohlen):
+#    Der Bot sucht in allen unterstützten Shops nach den Begriffen und beobachtet
+#    JEDES passende Produkt (Displays, Trainer-Boxen, Bundles, Kollektionen – siehe
+#    kategorie_filter unten). Tipp: deutschen, englischen und japanischen Namen eintragen.
+#      - name: "Dunkelnacht"
+#        suche:
+#          - Dunkelnacht
+#          - Pitch Black
+#
+#  Variante B – einzelne Produkte per Link:
+#      - name: "So soll es im Ping heißen"
+#        links:
+#          - https://link-zum-produkt
+#        max_preis: 180          # optional: eigene Regel nur für dieses Produkt
 #
 #  Unterstützte Shops: gate-to-the-games.de, card-corner.de
 #  (games-island.eu verbietet automatisches Abfragen – dafür gibt es ihren Discord)
 # ---------------------------------------------------------------------
 watchlist:
-  - name: "Delta Herrschaft Display, 36 Booster (DE)"
-    links:
-      - https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Display-36-Booster-deutsch
+  - name: "30 Jahre"
+    suche:
+      - 30 Jahre
+      - 30th Celebration
 
-  - name: "Delta Herrschaft Top-Trainer-Box (DE)"
-    links:
-      - https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Top-Trainer-Box-deutsch
+  - name: "Dunkelnacht"
+    suche:
+      - Dunkelnacht
+      - Pitch Black
+      - Abyss Eye          # japanisch (sehr wahrscheinlich dasselbe Set)
 
-  - name: "Prismatische Entwicklungen Top-Trainer-Box (DE)"
-    links:
-      - https://www.gate-to-the-games.de/Pokemon-Karmesin-Purpur-Prismatische-Entwicklungen-Top-Trainer-Box-deutsch
+  - name: "Erhabene Helden"
+    suche:
+      - Erhabene Helden
+      - Ascended Heroes
+
+  - name: "Wachsendes Chaos"
+    suche:
+      - Wachsendes Chaos
+      - Chaos Rising
+      - Ninja Spinner      # japanisch (sehr wahrscheinlich dasselbe Set)
+
+  - name: "Fatale Flammen"
+    suche:
+      - Fatale Flammen
+      - Phantasmal Flames
+      - Inferno X          # japanisch
+
+  - name: "Optimale Ordnung"
+    suche:
+      - Optimale Ordnung
+      - Perfect Order
+      - Nihil Zero         # japanisch
 
 
 # ---------------------------------------------------------------------
@@ -124,8 +154,9 @@ kategorien:
 
 
 # ---------------------------------------------------------------------
-#  Filter für Kategorien: Welche Produkte interessieren dich?
-#  (gilt NICHT für die Watchlist – dort entscheidest du selbst)
+#  Filter: Welche Produkte interessieren dich?
+#  Gilt für die Kategorien UND für die Set-Suche der Watchlist
+#  (nicht für Produkte, die du per Link einträgst).
 # ---------------------------------------------------------------------
 kategorie_filter:
   # Nur Produkte, deren Name mindestens eins dieser Wörter enthält (leer = alle)
@@ -138,10 +169,8 @@ kategorie_filter:
     - ETB
     - Booster Bundle
     - Booster-Bundle
-    - Premium
     - Kollektion
     - Collection
-    - Special
 
   # Produkte mit diesen Wörtern im Namen werden ignoriert
   ohne:
@@ -150,4 +179,9 @@ kategorie_filter:
     - Koreanisch
     - KR
     - Mystery
+    - Einzelkarte
     - Einzelkarten
+    - Illustration Rare
+    - Blister
+    - B-Ware
+    - Sleeves

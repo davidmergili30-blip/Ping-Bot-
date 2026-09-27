@@ -7,6 +7,7 @@ Woran der Status erkannt wird (in dieser Reihenfolge):
 2. schema.org-Angabe des Hauptprodukts (maschinenlesbar, z. B. „PreOrder“)
 3. „Verfügbar ab: 06.11.2026“ → Vorbestellung bzw. bald verfügbar
 4. Lieferstatus-Ampel: status-2 (grün) / status-1 (knapp) = bestellbar, status-0 = ausverkauft
+5. Banner „Auf Lager“ bzw. „Vorbestellen“ (manche Listen haben keine Lieferampel)
 Passt nichts davon, heißt das Ergebnis UNBEKANNT – lieber ehrlich als falsch geraten.
 
 Wichtig: Auf Produktseiten stehen auch Empfehlungen („Kunden kauften auch“) mit
@@ -15,6 +16,7 @@ eigenen Preisen. Die liegen in verschachtelten Produkt-Blöcken und werden über
 
 from __future__ import annotations
 
+import urllib.parse
 from datetime import date
 
 from bs4 import BeautifulSoup, Tag
@@ -37,9 +39,15 @@ AUSVERKAUFT_BANNER = "ribbon-7"  # Standard-Banner „Ausverkauft“ im JTL-Shop
 
 
 class JtlShop(ShopAdapter):
-    def __init__(self, name: str, domains: tuple[str, ...]):
+    def __init__(self, name: str, domains: tuple[str, ...], treffer_pro_seite: int = 50):
         self.name = name
         self.domains = domains
+        self.treffer_pro_seite = treffer_pro_seite
+
+    def such_url(self, begriff: str, seite: int = 1) -> str | None:
+        """z. B. https://www.card-corner.de/?suche=Dunkelnacht&af=50 (af = Treffer pro Seite)"""
+        url = f"https://www.{self.domains[0]}/?suche={urllib.parse.quote_plus(begriff)}&af={self.treffer_pro_seite}"
+        return url + (f"&seite={seite}" if seite > 1 else "")
 
     # --- Produktseite ------------------------------------------------------------
 
@@ -65,6 +73,7 @@ class JtlShop(ShopAdapter):
             termin=termin,
             heute=heute,
             ausverkauft_markiert=_ausverkauft_markiert(banner, lieferstatus),
+            banner_text=_text(banner),
         )
         return CheckErgebnis(
             status=status,
@@ -88,12 +97,14 @@ class JtlShop(ShopAdapter):
                 continue
             lieferstatus = box.select_one(".delivery-status")
             termin = datum_aus_text(lieferstatus.get_text(" ") if lieferstatus else None)
+            banner = box.select_one(BANNER)
             status = _status(
                 schema=schema_status(_wert(box.select_one("[itemprop=availability]"))),
                 klassen=_klassen(lieferstatus),
                 termin=termin,
                 heute=heute,
-                ausverkauft_markiert=_ausverkauft_markiert(box.select_one(BANNER), lieferstatus),
+                ausverkauft_markiert=_ausverkauft_markiert(banner, lieferstatus),
+                banner_text=_text(banner),
             )
             name_el = box.select_one("[itemprop=name]")
             eintraege[link] = ListenEintrag(
@@ -112,7 +123,7 @@ class JtlShop(ShopAdapter):
 # --- Hilfsfunktionen -------------------------------------------------------------
 
 def _status(schema: Status | None, klassen: set[str], termin: date | None, heute: date,
-            ausverkauft_markiert: bool = False) -> Status:
+            ausverkauft_markiert: bool = False, banner_text: str | None = None) -> Status:
     """Entscheidet den Status aus allen Hinweisen der Seite."""
     if ausverkauft_markiert:
         return Status.AUSVERKAUFT
@@ -134,6 +145,12 @@ def _status(schema: Status | None, klassen: set[str], termin: date | None, heute
         return Status.BESTELLBAR
     if "status-0" in klassen:
         return Status.AUSVERKAUFT
+    # Letzter Hinweis: Banner am Produkt (z. B. bei Artikeln mit Varianten ohne Lieferampel)
+    banner = (banner_text or "").lower()
+    if "vorbestell" in banner:
+        return Status.VORBESTELLBAR
+    if "auf lager" in banner:
+        return Status.BESTELLBAR
     return Status.UNBEKANNT
 
 

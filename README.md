@@ -33,9 +33,9 @@ Der Bot läuft kostenlos über **GitHub Actions** und lässt sich komplett vom *
 
 Alle 15 Minuten prüft der Bot:
 
-1. **Deine Watchlist:** bestimmte Produkte in bestimmten Shops. Du bekommst einen Ping, wenn sich der Status
-   ändert (z. B. `AUSVERKAUFT → BESTELLBAR`), wenn der Preis um mindestens 10 % fällt oder unter deinen
-   Maximalpreis sinkt.
+1. **Deine Watchlist:** ganze Sets per Suchbegriff (z. B. „Dunkelnacht“, „Pitch Black“) oder einzelne
+   Produkte per Link. Du bekommst einen Ping, sobald etwas verfügbar wird (z. B. `AUSVERKAUFT → BESTELLBAR`)
+   oder ein neues Produkt des Sets auftaucht. Optional: Maximalpreis und Preissturz-Ping.
 2. **Kategorien:** z. B. „Vorverkauf“ oder „Neu eingetroffen“. Hier meldet der Bot **neue Produkte und
    Vorbestellungen**, auch wenn sie nicht auf deiner Watchlist stehen. Ein Filter sorgt dafür, dass nur
    Displays, Trainer-Boxen, Kollektionen usw. gemeldet werden.

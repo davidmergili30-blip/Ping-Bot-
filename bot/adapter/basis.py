@@ -41,9 +41,14 @@ class ListenEintrag:
 class ShopAdapter(ABC):
     name: str
     domains: tuple[str, ...]
+    treffer_pro_seite: int = 0  # 0 = dieser Shop kann (noch) nicht durchsucht werden
 
     def passt_zu(self, url: str) -> bool:
         return domain_von(url) in self.domains
+
+    def such_url(self, begriff: str, seite: int = 1) -> str | None:
+        """Adresse der Suchergebnisse im Shop – oder None, wenn Suchen nicht geht."""
+        return None
 
     @abstractmethod
     def erkenne_produkt(self, html: str, url: str, heute: date | None = None) -> CheckErgebnis:

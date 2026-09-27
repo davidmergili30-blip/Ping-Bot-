@@ -52,11 +52,16 @@ class Regeln:
 
 @dataclass
 class Produkt:
-    """Ein Eintrag der Watchlist: ein Produkt mit Links zu einem oder mehreren Shops."""
+    """Ein Eintrag der Watchlist.
+
+    Entweder feste Links zu Produktseiten, oder Suchbegriffe (z. B. ein Set-Name):
+    Dann durchsucht der Bot alle unterstützten Shops und beobachtet jedes passende Produkt.
+    """
 
     name: str
     links: list[str]
     regeln: Regeln
+    suche: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -289,16 +294,23 @@ def _lese_watchlist(daten, standard_regeln: Regeln) -> list[Produkt]:
     for nr, eintrag in enumerate(daten, start=1):
         name = _name(eintrag, f"Produkt Nr. {nr} der watchlist")
         wo = f"watchlist '{name}'"
-        _nur_bekannte(eintrag, {"name", "links"} | regel_felder, wo)
-        links = eintrag.get("links")
-        if not isinstance(links, list) or not links:
-            raise ConfigFehler(f"{wo} braucht 'links:' mit mindestens einem Link (jede Zeile mit '- ').")
-        # Alles außer name/links sind Regeln, die nur für dieses Produkt gelten
+        _nur_bekannte(eintrag, {"name", "links", "suche"} | regel_felder, wo)
+        links = eintrag.get("links") or []
+        suche = eintrag.get("suche") or []
+        if not isinstance(links, list) or not isinstance(suche, list) or not (links or suche):
+            raise ConfigFehler(
+                f"{wo} braucht 'links:' (Produkt-Links) oder 'suche:' (Suchbegriffe, z. B. Set-Namen), "
+                "jeweils als Liste mit '- ' am Zeilenanfang."
+            )
+        if not all(isinstance(s, (str, int)) and str(s).strip() for s in suche):
+            raise ConfigFehler(f"{wo}: Jeder Suchbegriff muss ein Text sein, z. B.  - Dunkelnacht")
+        # Alles außer name/links/suche sind Regeln, die nur für dieses Produkt gelten
         eigene_regeln = {k: v for k, v in eintrag.items() if k in regel_felder}
         produkte.append(Produkt(
             name=name,
             links=[_link(link, wo) for link in links],
             regeln=_lese_regeln(eigene_regeln, wo, basis=standard_regeln),
+            suche=[str(s).strip() for s in suche],
         ))
     return produkte
 

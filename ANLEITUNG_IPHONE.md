@@ -116,12 +116,23 @@ Alle Einstellungen stehen in der Datei **config.yaml**. So änderst du sie vom i
 
 1. Öffne in Safari: **https://github.com/davidmergili30-blip/Ping-Bot-/edit/main/config.yaml**
    (falls nötig: **„aA“** → **„Desktop-Website anfordern“**)
-2. Scroll zu **watchlist:** und füg ein Produkt hinzu. Achte genau auf die Leerzeichen am Zeilenanfang:
+2. Scroll zu **watchlist:**. Es gibt zwei Arten von Einträgen. Achte genau auf die Leerzeichen am Zeilenanfang.
+
+   **Ein ganzes Set beobachten (empfohlen):** Der Bot sucht in den Shops nach dem Namen und beobachtet
+   alle Displays, Trainer-Boxen, Bundles und Kollektionen dieses Sets. Trag am besten den deutschen,
+   englischen und japanischen Namen ein:
+   ```yaml
+     - name: "Dunkelnacht"
+       suche:
+         - Dunkelnacht
+         - Pitch Black
+   ```
+
+   **Ein einzelnes Produkt per Link:**
    ```yaml
      - name: "Mein Produkt (DE)"
        links:
          - https://www.gate-to-the-games.de/...
-         - https://www.card-corner.de/...
        max_preis: 180
    ```
    Den Link bekommst du, indem du das Produkt im Shop öffnest und die Adresse kopierst
@@ -136,6 +147,11 @@ Alle Einstellungen stehen in der Datei **config.yaml**. So änderst du sie vom i
 Dort meldet der Bot neue Produkte und Vorbestellungen, auch wenn sie nicht auf deiner Watchlist stehen.
 Beim ersten Mal bekommst du eine **Übersicht** („📋 Neu überwacht …“), danach nur noch Neuigkeiten.
 Mit **kategorie_filter** legst du fest, welche Produkte dich interessieren (z. B. nur Displays und Trainer-Boxen).
+Der Filter gilt für die Kategorien und für die Set-Suche.
+
+Auch bei jedem **neuen Set** auf der Watchlist bekommst du beim ersten Mal eine Übersicht pro Shop
+(„📋 Neu überwacht: Dunkelnacht bei Card-Corner“). Danach meldet der Bot nur noch, wenn ein Produkt
+**wieder verfügbar** wird oder **neu** dazukommt.
 
 ---
 

@@ -10,8 +10,8 @@ from bot.adapter.basis import CheckErgebnis, ListenEintrag, ShopAdapter, domain_
 from bot.adapter.jtl import JtlShop
 
 ADAPTER: list[ShopAdapter] = [
-    JtlShop("Gate to the Games", ("gate-to-the-games.de",)),
-    JtlShop("Card-Corner", ("card-corner.de",)),
+    JtlShop("Gate to the Games", ("gate-to-the-games.de",), treffer_pro_seite=100),
+    JtlShop("Card-Corner", ("card-corner.de",), treffer_pro_seite=50),
 ]
 
 # Shops, die automatisches Abfragen ausdrücklich verbieten – hier fragt der Bot nie an.

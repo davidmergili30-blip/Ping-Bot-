@@ -1,7 +1,8 @@
 """Der normale Lauf (alle 15 Minuten): Produkte und Kategorien prüfen, Änderungen melden.
 
 Ablauf:
-1. Jedes Produkt der Watchlist in jedem eingetragenen Shop prüfen
+1. Watchlist: feste Produkt-Links prüfen und Suchbegriffe (z. B. Set-Namen) in allen
+   unterstützten Shops suchen – jedes passende Produkt wird beobachtet
 2. Jede überwachte Kategorie nach neuen Produkten und Vorbestellungen durchsuchen
 3. Alle Neuigkeiten in EINER Discord-Nachricht schicken
 
@@ -18,8 +19,8 @@ from datetime import date, datetime, timedelta
 from functools import partial
 
 from bot.abruf import Abrufer, Seite
-from bot.adapter import NICHT_ERLAUBT, adapter_fuer
-from bot.adapter.basis import CheckErgebnis, domain_von
+from bot.adapter import ADAPTER, NICHT_ERLAUBT, adapter_fuer
+from bot.adapter.basis import CheckErgebnis, ListenEintrag, domain_von
 from bot.discord import DiscordWebhook, Kasten
 from bot.einstellungen import Einstellungen, Kategorie, Produkt, Regeln
 from bot.pings import EMOJI, FARBE_INFO, FARBE_WARNUNG, euro, ping_grund, ping_kasten, zusammenfassung
@@ -28,7 +29,13 @@ from bot.status import Status
 
 log = logging.getLogger("bot")
 
+
+def enthaelt_wort(text: str | None, wort: str) -> bool:
+    """True, wenn 'wort' als eigenes Wort im Text steht (Groß-/Kleinschreibung egal)."""
+    return re.search(rf"(?<!\w){re.escape(wort)}(?!\w)", text or "", re.IGNORECASE) is not None
+
 MAX_ZEILEN_UEBERSICHT = 10
+MAX_SUCHSEITEN = 3   # höchstens so viele Ergebnisseiten pro Suchbegriff und Shop
 TOLERANZ_MINUTEN = 3  # GitHub startet Läufe manchmal etwas zu früh/spät
 
 
@@ -51,15 +58,18 @@ class Lauf:
         self._watchlist_links = {link for p in self.e.watchlist for link in p.links}
 
     def starten(self) -> int:
-        log.info("Normaler Lauf: %d Produkt(e), %d Kategorie(n)", len(self.e.watchlist), len(self.e.kategorien))
+        log.info("Normaler Lauf: %d Watchlist-Eintrag/-Einträge, %d Kategorie(n)",
+                 len(self.e.watchlist), len(self.e.kategorien))
         for produkt in self.e.watchlist:
             for link in produkt.links:
                 self._pruefe_produkt(produkt, link)
+            if produkt.suche:
+                self._pruefe_suche(produkt)
         for kategorie in self.e.kategorien:
             self._pruefe_kategorie(kategorie)
         return self._senden()
 
-    # --- Watchlist ----------------------------------------------------------------
+    # --- Watchlist: feste Links ----------------------------------------------------
 
     def _pruefe_produkt(self, produkt: Produkt, url: str) -> None:
         adapter = adapter_fuer(url)
@@ -69,6 +79,7 @@ class Lauf:
         seite = self._hole(url)
         if seite is None:
             return
+        self._gesehen.add(url)
         if seite.text is None:
             ergebnis = CheckErgebnis(Status.UNBEKANNT, hinweis=seite.problem)
             if seite.http == 404:
@@ -82,6 +93,35 @@ class Lauf:
         log.info("%s | %s | %s | %s%s", adapter.name, produkt.name, ergebnis.status.value, euro(ergebnis.preis),
                  f" | {ergebnis.hinweis}" if ergebnis.hinweis else "")
         self._vergleiche(url, adapter.name, produkt.name, ergebnis, produkt.regeln, aus_kategorie=False)
+
+    # --- Watchlist: Suchbegriffe (z. B. Set-Namen) ------------------------------------
+
+    def _pruefe_suche(self, produkt: Produkt) -> None:
+        """Sucht in jedem unterstützten Shop nach den Begriffen und beobachtet alle Treffer."""
+        for adapter in ADAPTER:
+            if not adapter.treffer_pro_seite:
+                continue
+            gefunden: dict[str, ListenEintrag] = {}
+            for begriff in produkt.suche:
+                for nummer in range(1, MAX_SUCHSEITEN + 1):
+                    url = adapter.such_url(begriff, nummer)
+                    seite = self._hole(url)
+                    if seite is None or seite.text is None:
+                        break
+                    eintraege = adapter.erkenne_liste(seite.text, url, self.heute)
+                    for eintrag in eintraege:
+                        # Der Begriff muss im Produktnamen stehen – die Shop-Suche findet sonst auch
+                        # Produkte, in deren Beschreibung er nur vorkommt.
+                        if enthaelt_wort(eintrag.ergebnis.titel, begriff):
+                            gefunden[eintrag.url] = eintrag
+                    if len(eintraege) < adapter.treffer_pro_seite:
+                        break  # keine weitere Seite
+            passende = self._nur_passende(list(gefunden.values()))
+            log.info("Suche %s bei %s: %d Treffer mit dem Namen, %d passen zum Filter",
+                     produkt.name, adapter.name, len(gefunden), len(passende))
+            self._verarbeite(passende, shop=adapter.name, regeln=produkt.regeln,
+                             schluessel=f"suche:{produkt.name}:{adapter.name}",
+                             ueberschrift=f"{produkt.name} bei {adapter.name}", link=adapter.such_url(produkt.suche[0]))
 
     # --- Kategorien -----------------------------------------------------------------
 
@@ -99,60 +139,65 @@ class Lauf:
         if not eintraege:
             log.warning("Kategorie %s: keine Produkte erkannt – hat der Shop sein Layout geändert?", kategorie.name)
             return
-
-        passende = [e for e in eintraege
-                    if self._passt_filter(e.ergebnis.titel)
-                    and e.url not in self._watchlist_links
-                    and e.ergebnis.status != Status.UNBEKANNT]
+        passende = self._nur_passende(eintraege)
         log.info("Kategorie %s: %d Produkte, %d passen zum Filter", kategorie.name, len(eintraege), len(passende))
+        self._verarbeite(passende, shop=adapter.name, regeln=self.e.standard_regeln,
+                         schluessel=f"kategorie:{kategorie.link}", ueberschrift=kategorie.name, link=kategorie.link)
 
-        schluessel = f"kategorie:{kategorie.link}"
+    # --- Gemeinsam für Suche und Kategorien ---------------------------------------------
+
+    def _nur_passende(self, eintraege: list[ListenEintrag]) -> list[ListenEintrag]:
+        """Filter anwenden, UNBEKANNT und schon (woanders) geprüfte Produkte weglassen."""
+        return [e for e in eintraege
+                if self._passt_filter(e.ergebnis.titel)
+                and e.url not in self._watchlist_links
+                and e.ergebnis.status != Status.UNBEKANNT]
+
+    def _verarbeite(self, passende: list[ListenEintrag], shop: str, regeln: Regeln, schluessel: str,
+                    ueberschrift: str, link: str | None) -> None:
+        # Steht ein Produkt in mehreren Listen (z. B. Suche UND Kategorie), zählt nur das erste Vorkommen
+        neu_in_diesem_lauf = [e for e in passende if e.url not in self._gesehen]
+        self._gesehen.update(e.url for e in neu_in_diesem_lauf)
+
         if self.speicher.meta(schluessel) is None:
-            self._erster_blick(kategorie, adapter.name, passende, schluessel)
+            self._erster_blick(neu_in_diesem_lauf, shop, regeln, schluessel, ueberschrift, link)
             return
-
-        for eintrag in passende:
-            if eintrag.url in self._gesehen:
-                continue  # steht auch in einer anderen Kategorie – nur einmal melden
-            self._gesehen.add(eintrag.url)
+        for eintrag in neu_in_diesem_lauf:
             e = eintrag.ergebnis
             alt = self.speicher.stand(eintrag.url)
             if alt is None or alt != (e.status, e.preis):
-                # Verlauf für Kategorie-Produkte nur bei Änderungen speichern (spart Platz)
-                self.speicher.speichere_check(eintrag.url, adapter.name, e.titel, e, self.jetzt)
-            self._vergleiche(eintrag.url, adapter.name, e.titel or "Unbekanntes Produkt", e,
-                             self.e.standard_regeln, aus_kategorie=True)
+                # Verlauf für Listen-Produkte nur bei Änderungen speichern (spart Platz)
+                self.speicher.speichere_check(eintrag.url, shop, e.titel, e, self.jetzt)
+            self._vergleiche(eintrag.url, shop, e.titel or "Unbekanntes Produkt", e, regeln, aus_kategorie=True)
 
-    def _erster_blick(self, kategorie: Kategorie, shop: str, passende: list, schluessel: str) -> None:
+    def _erster_blick(self, passende: list[ListenEintrag], shop: str, regeln: Regeln, schluessel: str,
+                      ueberschrift: str, link: str | None) -> None:
         """Beim ersten Mal nicht jedes Produkt einzeln melden – nur eine Übersicht schicken."""
         for eintrag in passende:
-            self._gesehen.add(eintrag.url)
             if self.speicher.stand(eintrag.url) is None:
                 self.speicher.setze_stand(eintrag.url, shop, eintrag.ergebnis.titel, eintrag.ergebnis.status,
                                           eintrag.ergebnis.preis, self.jetzt)
-        interessant = [e for e in passende if e.ergebnis.status in self.e.standard_regeln.ping_bei_status]
-        zeilen = [f"{len(passende)} passende Produkte, davon {len(interessant)} gerade interessant."]
+        interessant = [e for e in passende if e.ergebnis.status in regeln.ping_bei_status]
+        if passende:
+            zeilen = [f"{len(passende)} passende Produkte, davon {len(interessant)} gerade verfügbar."]
+        else:
+            zeilen = ["Gerade keine passenden Produkte. Du bekommst Bescheid, sobald welche auftauchen."]
         for eintrag in interessant[:MAX_ZEILEN_UEBERSICHT]:
             e = eintrag.ergebnis
             termin = f" · ab {e.liefertermin}" if e.liefertermin else ""
             zeilen.append(f"{EMOJI[e.status]} [{e.titel}]({eintrag.url}) – {euro(e.preis)}{termin}")
         if len(interessant) > MAX_ZEILEN_UEBERSICHT:
             zeilen.append(f"… und {len(interessant) - MAX_ZEILEN_UEBERSICHT} weitere")
-        zeilen.append("Ab jetzt bekommst du nur noch Neuigkeiten aus dieser Kategorie.")
-        self.kaesten.append(Kasten(titel=f"📋 Neu überwacht: {kategorie.name}", text="\n".join(zeilen),
-                                   link=kategorie.link, farbe=FARBE_INFO))
+        zeilen.append("Ab jetzt bekommst du hier nur noch Neuigkeiten.")
+        self.kaesten.append(Kasten(titel=f"📋 Neu überwacht: {ueberschrift}", text="\n".join(zeilen),
+                                   link=link, farbe=FARBE_INFO))
         self.bestaetigungen.append(partial(self.speicher.setze_meta, schluessel, self.jetzt.isoformat()))
 
     def _passt_filter(self, titel: str | None) -> bool:
         filter_ = self.e.kategorie_filter
-        text = titel or ""
-
-        def enthaelt(wort: str) -> bool:
-            return re.search(rf"(?<!\w){re.escape(wort)}(?!\w)", text, re.IGNORECASE) is not None
-
-        if filter_.nur_mit and not any(enthaelt(w) for w in filter_.nur_mit):
+        if filter_.nur_mit and not any(enthaelt_wort(titel, w) for w in filter_.nur_mit):
             return False
-        return not any(enthaelt(w) for w in filter_.ohne)
+        return not any(enthaelt_wort(titel, w) for w in filter_.ohne)
 
     # --- Vergleichen und Melden -------------------------------------------------------
 
