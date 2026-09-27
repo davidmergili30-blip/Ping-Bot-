@@ -127,4 +127,4 @@ def test_netzwerkfehler():
 def test_abrufer_speichert_keine_cookies():
     # Sonst merkt sich ein Shop z. B. „50 Treffer pro Seite“ und Listen werden plötzlich länger
     a = Abrufer(UA, pause_sekunden=5)
-    assert a._sitzung.cookies._policy.allowed_domains() == []  # keine Domain darf Cookies setzen
+    assert a._sitzung.cookies._policy.allowed_domains() == ()  # keine Domain darf Cookies setzen
