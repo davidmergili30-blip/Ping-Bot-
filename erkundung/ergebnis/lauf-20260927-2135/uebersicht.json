@@ -1,0 +1,202 @@
+{
+  "seiten": [
+    {
+      "nr": 1,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/pokemon-dunkelnacht",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/pokemon-dunkelnacht",
+      "groesse": 703269,
+      "datei": "01_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 2,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/pokemon-optimale-ordnung",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/pokemon-optimale-ordnung",
+      "groesse": 693214,
+      "datei": "02_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 3,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/pokemon-30-jahre",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/pokemon-30-jahre",
+      "groesse": 813844,
+      "datei": "03_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 4,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/?qs=Dunkelnacht",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/?qs=Dunkelnacht",
+      "groesse": 783104,
+      "datei": "04_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 5,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/?qs=Pitch+Black",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/?qs=Pitch+Black",
+      "groesse": 751673,
+      "datei": "05_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 6,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/?qs=Dunkelnacht",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/?qs=Dunkelnacht",
+      "groesse": 731715,
+      "datei": "06_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 7,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/?qs=Pitch+Black",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/?qs=Pitch+Black",
+      "groesse": 422881,
+      "datei": "07_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 8,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/?qs=Optimale+Ordnung",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/?qs=Optimale+Ordnung",
+      "groesse": 435137,
+      "datei": "08_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    }
+  ],
+  "discord": [
+    {
+      "code": "6473u8x3Cs",
+      "http": 200,
+      "server": "Card-Corner TCG Discord",
+      "mitglieder": 10387,
+      "kanal": "🤝partnerschafts-anfragen"
+    }
+  ]
+}
