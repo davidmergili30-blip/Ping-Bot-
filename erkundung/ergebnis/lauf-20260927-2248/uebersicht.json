@@ -1,0 +1,140 @@
+{
+  "seiten": [
+    {
+      "nr": 1,
+      "kuerzel": "gi",
+      "url": "https://crawlme.games-island.eu/?products=all",
+      "robots_erlaubt": false,
+      "http": 200,
+      "end_url": "https://crawlme.games-island.eu/?products=all",
+      "groesse": 3870099,
+      "datei": "01_gi.html",
+      "kopfzeilen": {
+        "Server": "Apache/2.4.68 (Debian)",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "system_hinweise": [
+        "oxid",
+        "sw-"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 2,
+      "kuerzel": "gi",
+      "url": "https://crawlme.games-island.eu/c/Pokemon/Booster-Displays",
+      "robots_erlaubt": false,
+      "http": 200,
+      "end_url": "https://crawlme.games-island.eu/c/Pokemon/Booster-Displays",
+      "groesse": 77261,
+      "datei": "02_gi.html",
+      "kopfzeilen": {
+        "Server": "Apache/2.4.68 (Debian)",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "system_hinweise": [],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 3,
+      "kuerzel": "elbenwald",
+      "url": "https://elbenwald.com/search?q=pokemon+top+trainer+box&type=product",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://elbenwald.com/search?q=pokemon+top+trainer+box&type=product",
+      "groesse": 1988393,
+      "datei": "03_elbenwald.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a41e1367de0490f9-IAD"
+      },
+      "system_hinweise": [
+        "captcha",
+        "shopify",
+        "shopify-section"
+      ],
+      "sozial": [
+        "https://www.facebook.com/elbenwald/",
+        "https://www.instagram.com/elbenwald/",
+        "https://www.tiktok.com/@elbenwald_official",
+        "https://www.youtube.com/elbenwald"
+      ],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [
+        "/collections/pokemon",
+        "/products/pokemon-charizard-alcove-flip-deck-box-for-trading-cards-elite-series?_pos=19&_sid=574dbc071&_ss=r",
+        "/products/pokemon-crimson-haze-trading-card-booster-korean-version-30-pack-display-e1095749?_pos=17&_sid=574dbc071&_ss=r",
+        "/products/pokemon-crimson-purple-stellar-crown-collectible-cards-booster?_pos=13&_sid=574dbc071&_ss=r",
+        "/products/pokemon-darkest-night-mega-evolution-collector-booster?_pos=10&_sid=574dbc071&_ss=r",
+        "/products/pokemon-dream-crystal-mystery-snow-globe?_pos=22&_sid=574dbc071&_ss=r",
+        "/products/pokemon-gengar-alcove-flip-card-deck-box-elite-series?_pos=20&_sid=574dbc071&_ss=r",
+        "/products/pokemon-glaceon-and-vulpix-winter-handbag?_pos=16&_sid=574dbc071&_ss=r",
+        "/products/pokemon-japanese-plate-set?_pos=24&_sid=574dbc071&_ss=r",
+        "/products/pokemon-mega-darkrai-ex-trading-card-box?_pos=5&_sid=574dbc071&_ss=r",
+        "/products/pokemon-mega-dragonite-ex-trading-card-box?_pos=1&_sid=574dbc071&_ss=r",
+        "/products/pokemon-mega-evolution-dark-night-3-pack-blister?_pos=12&_sid=574dbc071&_ss=r",
+        "/products/pokemon-mega-evolution-optimal-order-booster-bundle?_pos=8&_sid=574dbc071&_ss=r",
+        "/products/pokemon-mega-evolution-phantom-forces-booster-box-36-packs?_pos=9&_sid=574dbc071&_ss=r",
+        "/products/pokemon-mega-evolution-xy-ancient-origins-36-booster-display?_pos=3&_sid=574dbc071&_ss=r",
+        "/products/pokemon-mega-zeraora-ex-card-storage-box?_pos=4&_sid=574dbc071&_ss=r",
+        "/products/pokemon-mystery-poke-ball-cards-tin-box-autumn-2025?_pos=7&_sid=574dbc071&_ss=r",
+        "/products/pokemon-paradise-dragona-trading-cards-booster-korean-version-30-pack-display-e1095766?_pos=15&_sid=574dbc071&_ss=r",
+        "/products/pokemon-pikachu-and-friends-funko-bitty-pop-12-figure-set?_pos=11&_sid=574dbc071&_ss=r",
+        "/products/pokemon-pikachu-bento-lunchbox?_pos=21&_sid=574dbc071&_ss=r",
+        "/products/pokemon-rockets-mewtwo-ex-league-battle-deck-trading-card-game-box?_pos=2&_sid=574dbc071&_ss=r",
+        "/products/pokemon-super-electric-breaker-trading-cards-booster-korean-version-30-display-e1096210?_pos=6&_sid=574dbc071&_ss=r",
+        "/products/pokemon-trainer-toolkit-2025?_pos=14&_sid=574dbc071&_ss=r",
+        "/products/pokemon-ultra-pro-mega-charizard-x-100-deck-protector-sleeves-box?_pos=23&_sid=574dbc071&_ss=r",
+        "/products/pokemon-ultra-pro-mega-charizard-y-100-deck-protector-box?_pos=18&_sid=574dbc071&_ss=r",
+        "/search?page=2&q=pokemon+top+trainer+box&type=product",
+        "/search?page=3&q=pokemon+top+trainer+box&type=product",
+        "/search?page=42&q=pokemon+top+trainer+box&type=product",
+        "https://elbenwald.at/en/search?q=pokemon+top+trainer+box&amp;type=product",
+        "https://elbenwald.at/search?q=pokemon+top+trainer+box&amp;type=product",
+        "https://elbenwald.be/de/search?q=pokemon+top+trainer+box&amp;type=product",
+        "https://elbenwald.be/en/search?q=pokemon+top+trainer+box&amp;type=product",
+        "https://elbenwald.be/nl/search?q=pokemon+top+trainer+box&amp;type=product",
+        "https://elbenwald.be/search?q=pokemon+top+trainer+box&amp;type=product",
+        "https://elbenwald.ch/en/search?q=pokemon+top+trainer+box&amp;type=product",
+        "https://elbenwald.ch/fr/search?q=pokemon+top+trainer+box&amp;type=product",
+        "https://elbenwald.ch/it/search?q=pokemon+top+trainer+box&amp;type=product",
+        "https://elbenwald.ch/search?q=pokemon+top+trainer+box&amp;type=product",
+        "https://elbenwald.co.uk/search?q=pokemon+top+trainer+box&amp;type=product",
+        "https://elbenwald.com/search?q=pokemon+top+trainer+box&amp;type=product"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 4,
+      "kuerzel": "elbenwald",
+      "url": "https://elbenwald.com/search/suggest.json?q=pokemon%20top%20trainer%20box&resources[type]=product&resources[limit]=10",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://elbenwald.com/search/suggest.json?q=pokemon%20top%20trainer%20box&resources%5Btype%5D=product&resources%5Blimit%5D=10",
+      "groesse": 15907,
+      "datei": "04_elbenwald.json",
+      "kopfzeilen": {
+        "Content-Type": "application/json; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a41e13915e25073c-IAD"
+      },
+      "system_hinweise": [
+        "shopify"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    }
+  ],
+  "discord": []
+}
