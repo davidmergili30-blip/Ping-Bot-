@@ -1,0 +1,171 @@
+{
+  "seiten": [
+    {
+      "nr": 1,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/?suche=Dunkelnacht&af=100",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/?suche=Dunkelnacht&af=100",
+      "groesse": 1741806,
+      "datei": "01_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 2,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/?suche=Dunkelnacht+deutsch&af=100",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/?suche=Dunkelnacht+deutsch&af=100",
+      "groesse": 1742102,
+      "datei": "02_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 3,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/?suche=Fatale+Flammen&af=100",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/?suche=Fatale+Flammen&af=100",
+      "groesse": 1767571,
+      "datei": "03_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 4,
+      "kuerzel": "gttg",
+      "url": "https://www.gate-to-the-games.de/?suche=Phantasmal+Flames&af=100",
+      "http": 200,
+      "end_url": "https://www.gate-to-the-games.de/?suche=Phantasmal+Flames&af=100",
+      "groesse": 487808,
+      "datei": "04_gttg.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "LiteSpeed"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/GatetotheGames",
+        "https://wa.me/",
+        "https://www.facebook.com/tr?id=211411479204644&amp;ev=PageView&amp;noscript=1",
+        "https://www.instagram.com/gatetothegames/",
+        "https://www.youtube.com/channel/UCHMQPWAPD1NdMMGhWdvsPZA"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 5,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/?suche=Fatale+Flammen&af=50",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/?suche=Fatale+Flammen&af=50",
+      "groesse": 874092,
+      "datei": "05_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde/"
+      ],
+      "newsletter_erwaehnt": true
+    },
+    {
+      "nr": 6,
+      "kuerzel": "cc",
+      "url": "https://www.card-corner.de/Pokemon-Nihil-Zero-M3-Display",
+      "http": 200,
+      "end_url": "https://www.card-corner.de/Pokemon-Nihil-Zero-M3-Display",
+      "groesse": 795002,
+      "datei": "06_cc.html",
+      "kopfzeilen": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl"
+      ],
+      "sozial": [
+        "https://discord.com/invite/6473u8x3Cs",
+        "https://discord.gg/6473u8x3Cs",
+        "https://www.instagram.com/cardcornerde",
+        "https://www.instagram.com/cardcornerde/",
+        "https://www.youtube.com/watch?v=1MNirJDPlEo"
+      ],
+      "newsletter_erwaehnt": true
+    }
+  ],
+  "discord": [
+    {
+      "code": "6473u8x3Cs",
+      "http": 200,
+      "server": "Card-Corner TCG Discord",
+      "mitglieder": 10387,
+      "kanal": "🤝partnerschafts-anfragen"
+    },
+    {
+      "code": "6473u8x3Cs",
+      "http": 200,
+      "server": "Card-Corner TCG Discord",
+      "mitglieder": 10387,
+      "kanal": "🤝partnerschafts-anfragen"
+    }
+  ]
+}
