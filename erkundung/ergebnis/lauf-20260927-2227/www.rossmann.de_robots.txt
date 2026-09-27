@@ -1,0 +1,28 @@
+HTTP 200
+
+# For all robots
+User-agent: *
+# Block access to specific groups of pages
+Disallow: /de/cart
+Disallow: /de/checkout
+Disallow: /de/my-account
+Disallow: /de/datenschutzerklaerung
+Disallow: /de/agb
+Disallow: /de/verbraucherschlichtung
+Disallow: /de/search/*
+Disallow: /*?*
+Allow: /*?q=%3Arelevance%3A&page=*&pageSize=*
+Allow: /*?pageIndex=*
+Allow: /*.jpg
+Allow: /*.svg
+Allow: /*.png
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Allow search crawlers to discover the sitemap
+Sitemap: https://www.rossmann.de/de/sitemap_index.xml
+Sitemap: https://www.rossmann.de/de/filialen/sitemap.xml

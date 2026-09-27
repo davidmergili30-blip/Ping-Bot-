@@ -1,0 +1,99 @@
+{
+  "seiten": [
+    {
+      "nr": 1,
+      "kuerzel": "ross",
+      "url": "https://www.rossmann.de/de/search?text=pokemon",
+      "http": 200,
+      "end_url": "https://www.rossmann.de/de/search?text=pokemon",
+      "groesse": 3036,
+      "datei": "01_ross.html",
+      "kopfzeilen": {
+        "content-type": "text/html; charset=utf-8",
+        "X-Cache": "MISS, MISS"
+      },
+      "system_hinweise": [],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 2,
+      "kuerzel": "mueller",
+      "url": "https://www.mueller.de/search/?q=pokemon+dunkelnacht",
+      "http": 200,
+      "end_url": "https://www.mueller.de/search/?q=pokemon+dunkelnacht",
+      "groesse": 995429,
+      "datei": "02_mueller.html",
+      "kopfzeilen": {
+        "content-type": "text/html; charset=utf-8",
+        "X-Cache": "MISS, MISS"
+      },
+      "system_hinweise": [
+        "captcha",
+        "oxid"
+      ],
+      "sozial": [
+        "https://www.facebook.com/mueller.deutschland/",
+        "https://www.facebook.com/mueller.deutschland/\\",
+        "https://www.instagram.com/mueller_deutschland/\\",
+        "https://www.instagram.com/mueller_deutschland/|",
+        "https://www.whatsapp.com/channel/0029VbCapCZ0gcfA8wszQl1A\\",
+        "https://www.youtube.com/channel/UCX8vaOzD27094ZkQokZUZ1g",
+        "https://www.youtube.com/channel/UCX8vaOzD27094ZkQokZUZ1g\\"
+      ],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [
+        "/p/4d-build-pokemon-bisasam-detailreicher-3d-modellbausatz-PPN3120871/",
+        "/p/4d-build-pokemon-glumanda-detailreicher-3d-modellbausatz-PPN3120869/",
+        "/p/4d-build-pokemon-pikachu-detailreicher-3d-modellbausatz-PPN3120865/",
+        "/p/4d-build-pokemon-schiggy-detailreicher-3d-modellbausatz-PPN3120867/",
+        "/p/funko-bitty-pop-pokemon-advent-countdown-calendar-PPN3192515/",
+        "/p/funko-pop-pokemon-jumbo-ninetales-jumbo-vinyl-25-4-cm-PPN3160983/",
+        "/p/funko-pop-pokemon-pikachu-anime-figur-2621471/",
+        "/p/pokemon-1001-sticker-IPN2889746/",
+        "/p/pokemon-ash-pikachu-5er-multipack-battle-figuren-nur-bei-mueller-PPN3084043/",
+        "/p/pokemon-battle-feature-figur-turtok-PPN2934504/",
+        "/p/pokemon-battle-figuren-mewtwo-und-mew-2er-set-PPN3000368/",
+        "/p/pokemon-battle-spinner-arena-set-PPN3037949/",
+        "/p/pokemon-bettwaesche-70x90cm-140x200cm-PPN3154025/",
+        "/p/pokemon-center-spielset-mit-squish-a-longs-figuren-PPN3171375/",
+        "/p/pokemon-clipngo-guertel-set-1-stueck-sortiert-2794599/",
+        "/p/pokemon-evoli-fruehlings-edition-20-cm-PPN3094400/",
+        "/p/pokemon-figuren-4er-set-squish-a-longs-sortiert-keine-auswahl-moeglich-PPN3171371/",
+        "/p/pokemon-glurak-evolution-3er-set-select-series-IPN3068729/",
+        "/p/pokemon-junior-mein-grosser-sticker-und-raetselspass-PPN3103983/",
+        "/p/pokemon-kinderbettwaesche-80x80cm-135x200cm-PPN3127241/",
+        "/p/pokemon-kuscheltier-gengar-30-cm-PPN3147510/",
+        "/p/pokemon-kuscheltier-glurak-30-cm-2765409/",
+        "/p/pokemon-kuscheltier-mew-20-cm-PPN3119116/",
+        "/p/pokemon-kuscheltier-nachtara-20-cm-PPN3160486/",
+        "/p/pokemon-kuscheltier-schlafendes-evoli-45-cm-IPN2866389/",
+        "/p/pokemon-mewtwo-PPN3133377/",
+        "/p/pokemon-select-mega-glurak-x-bewegliche-figur-15cm-PPN3094890/",
+        "/p/pokemon-select-mega-glurak-y-bewegliche-figur-15cm-PPN3160487/",
+        "/p/pokemon-snorlax-PPN3133376/",
+        "/p/pokemon-turtok-pluesch-30cm-PPN3119117/",
+        "/p/procos-pokemon-folienballon-PPN3152729/",
+        "/p/procos-pokemon-huete-6-stueck-PPN3152734/",
+        "/p/procos-pokemon-latex-ballons-8-stueck-PPN3152740/",
+        "/p/procos-pokemon-papierbecher-8-stueck-PPN3152720/",
+        "/p/procos-pokemon-papierteller-8-stueck-PPN3152715/",
+        "/p/procos-pokemon-servietten-33x33cm-20-stueck-PPN3152727/",
+        "/p/ravensburger-beschaeftigung-creart-malen-nach-zahlen-20298-pokemon-abenteuer-kinder-ab-7-jahren-IPN2883651/",
+        "/p/ravensburger-kinderpuzzle-12004062-pokemon-puzzle-fuer-kinder-ab-5-jahren-mit-3x49-teilen-IPN3077408/",
+        "/p/ravensburger-malen-nach-zahlen-20084-pikachu-pokemon-motiv-fuer-kinder-ab-7-jahren-IPN3079962/",
+        "/p/ravensburger-puzzle-3d-puzzles-aufbewahrungsbox-pokemon-216-teile-praktischer-organizer-fuer-pokemon-fans-IPN2883626/"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 3,
+      "kuerzel": "netto",
+      "url": "https://www.netto-online.de/",
+      "ergebnis": "VERBOTEN laut robots.txt – nicht abgerufen"
+    }
+  ],
+  "discord": []
+}
