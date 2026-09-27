@@ -1,5 +1,4 @@
-# Runde 7: neue Shops – robots.txt, Bot-Schutz, Suche
+# Runde 8: neue Shops (mit Aufräumen) – Smyths blockt (403), wird nicht erneut angefragt
 ross https://www.rossmann.de/de/search?text=pokemon
-smyths https://www.smythstoys.com/de/de-de/search?text=pokemon
-mueller https://www.mueller.de/search/?q=pokemon
-netto https://www.netto-online.de/search?query=pokemon
+mueller https://www.mueller.de/search/?q=pokemon+dunkelnacht
+netto https://www.netto-online.de/

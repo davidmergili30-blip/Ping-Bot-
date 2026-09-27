@@ -13,6 +13,10 @@ import urllib.parse
 import urllib.robotparser
 
 import requests
+from bs4 import BeautifulSoup, Comment
+
+# Zugangsschlüssel, die Shops in ihre Seiten einbauen (z. B. für Karten) – nie ins Repo übernehmen
+SCHLUESSEL = re.compile(r"\b(?:pk|sk|tk)\.eyJ[\w.-]+|AIza[0-9A-Za-z_-]{35}|\b[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}")
 
 UA = "PokemonPreisBot/0.1 (privater Preisalarm; +https://github.com/davidmergili30-blip/Ping-Bot-)"
 KOPF = {"User-Agent": UA, "Accept-Language": "de-DE,de;q=0.9"}
@@ -60,6 +64,18 @@ def pause_fuer(url: str) -> int:
     return PAUSE_SPEZIAL.get(urllib.parse.urlsplit(url).netloc, PAUSE)
 
 
+def aufraeumen(html: str) -> str:
+    """Skripte, Styles & Co. entfernen (JSON-LD bleibt) und Schlüssel unkenntlich machen."""
+    soup = BeautifulSoup(html, "html.parser")
+    for el in soup.find_all(["script", "style", "svg", "noscript", "iframe", "img", "picture", "link", "meta"]):
+        if el.decomposed or el.get("itemprop") or el.get("type") == "application/ld+json":
+            continue
+        el.decompose()
+    for kommentar in soup.find_all(string=lambda s: isinstance(s, Comment)):
+        kommentar.extract()
+    return SCHLUESSEL.sub("[entfernt]", str(soup))
+
+
 def discord_info(link: str) -> dict:
     code = link.rstrip("/").split("/")[-1].split("?")[0]
     try:
@@ -92,7 +108,9 @@ def main():
             time.sleep(pause_fuer(url))
             continue
         datei = ZIEL / f"{nr:02d}_{kuerzel}.{'json' if 'json' in r.headers.get('content-type', '') else 'html'}"
-        datei.write_text(r.text, encoding="utf-8")
+        # Kleine Seiten roh speichern (um zu sehen, was da ist), große aufgeräumt
+        roh = len(r.text) < 20000
+        datei.write_text(SCHLUESSEL.sub("[entfernt]", r.text) if roh else aufraeumen(r.text), encoding="utf-8")
         klein = r.text.lower()
         eintrag.update({
             "http": r.status_code,
@@ -105,6 +123,8 @@ def main():
             "system_hinweise": sorted({s for s in SYSTEM if s in klein}),
             "sozial": sorted(set(SOZIAL.findall(r.text))),
             "newsletter_erwaehnt": "newsletter" in klein,
+            "pokemon_links": sorted({a for a in re.findall(r'href="([^"]+)"', r.text) if "pokemon" in a.lower()})[:40],
+            "roh_gespeichert": roh,
         })
         uebersicht.append(eintrag)
         time.sleep(pause_fuer(url))
