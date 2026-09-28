@@ -41,13 +41,13 @@ Stunden, ein bekanntes GitHub-Problem). Per **Run workflow** kannst du jederzeit
    oder ein neues Produkt des Sets auftaucht. Optional: Maximalpreis und Preissturz-Ping.
 2. **Kategorien:** z. B. „Vorverkauf“ oder „Neu eingetroffen“. Hier meldet der Bot **neue Produkte und
    Vorbestellungen**, auch wenn sie nicht auf deiner Watchlist stehen. Ein Filter sorgt dafür, dass nur
-   Displays, Trainer-Boxen, Kollektionen usw. gemeldet werden.
+   Displays, Trainer-Boxen, Booster Bundles, Kollektionen und Mini-Tins gemeldet werden.
 3. **Deal-Feed von mydealz:** Dort posten Leute Angebote, sobald sie irgendwo auftauchen – auch bei
    Shops, die der Bot selbst nicht abfragen kann (Amazon, Netto, MediaMarkt, Kaufland …). Neue Deals,
    die zum Filter passen, kommen als 📰-Kasten. Liegt ein Deal über dem Maximalpreis seines Sets, kommt
    kein Ping.
 
-Alle Neuigkeiten eines Laufs kommen gebündelt in **einer** Discord-Nachricht.
+Die Neuigkeiten eines Laufs kommen gebündelt, getrennt nach Art: 🛒 **Jetzt kaufbar**, 🟡 **Nur auf Einladung** und ℹ️ **Übersicht & Hinweise** – jede Art als eigene Discord-Nachricht.
 
 | Shop | Status |
 |---|---|

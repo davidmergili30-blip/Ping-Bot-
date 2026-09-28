@@ -10,7 +10,7 @@ from bot.discord import Kasten
 from bot.einstellungen import KategorieFilter
 from bot.pings import ping_kasten
 from bot.status import Status
-from tests.test_lauf import FalscherMelder, einstellungen, lauf, speicher  # noqa: F401 (speicher = Fixture)
+from tests.test_lauf import FalscherMelder, einstellungen, lauf
 
 BEISPIELE = Path(__file__).parent / "beispiele" / "games_island"
 HEUTE = date(2026, 9, 27)
@@ -106,7 +106,7 @@ def test_ping_zeigt_keinen_preis():
     assert kasten.link == PITCH_BLACK  # Link für Menschen zeigt auf games-island.eu
 
 
-def test_lauf_holt_kategorie_ueber_crawlme(speicher):  # noqa: F811
+def test_lauf_holt_kategorie_ueber_crawlme(speicher):
     melder = FalscherMelder()
     e = einstellungen(kategorien=[("Games Island – Booster Displays", KATEGORIE)],
                       filter_=KategorieFilter(nur_mit=["Display", "Booster Bundle"], ohne=["Koreanisch"]))

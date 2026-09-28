@@ -19,7 +19,7 @@ import argparse
 import logging
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -31,7 +31,7 @@ from bot.discord import DiscordFehler, DiscordWebhook, Kasten
 from bot.einstellungen import STANDARD_PFAD as CONFIG_PFAD
 from bot.einstellungen import ConfigFehler, Einstellungen, lade_einstellungen
 from bot.lauf import Lauf
-from bot.pings import EMOJI, FARBE_INFO, euro
+from bot.pings import EMOJI, FARBE_INFO, als_link, euro
 from bot.speicher import STANDARD_PFAD, Speicher
 from bot.status import Status
 from bot.steuerung import ConfigBearbeiter, SteuerFehler, beschreibe_max_preis, preis_aus_eingabe
@@ -200,12 +200,15 @@ def status(einstellungen: Einstellungen) -> int:
         else:
             zeilen.append("✅ Kein Shop blockt den Bot.")
 
-        verfuegbar = speicher.verfuegbare(einstellungen.standard_regeln.ping_bei_status)
+        # Nur, was der Bot in den letzten 24 Stunden noch gesehen hat – ältere Stände könnten veraltet sein
+        verfuegbar = speicher.verfuegbare(einstellungen.standard_regeln.ping_bei_status,
+                                          gesehen_seit=datetime.now(timezone.utc) - timedelta(hours=24))
         zeilen.append("")
         zeilen.append(f"**Gerade verfügbar ({len(verfuegbar)}):**" if verfuegbar
                       else "**Gerade ist nichts Passendes verfügbar.**")
         for zeile in verfuegbar[:MAX_ZEILEN]:
-            zeilen.append(f"{EMOJI.get(_status_von(zeile['status']), '•')} [{zeile['produkt']}]({zeile['url']}) – "
+            zeilen.append(f"{EMOJI.get(_status_von(zeile['status']), '•')} "
+                          f"{als_link(zeile['produkt'], zeile['url'])} – "
                           f"{euro(zeile['preis']) if zeile['preis'] is not None else 'Preis im Shop'} "
                           f"({zeile['shop']})")
         if len(verfuegbar) > MAX_ZEILEN:

@@ -160,3 +160,42 @@ def test_banner_auf_lager_wenn_die_lieferampel_fehlt():
     liste = adapter_fuer(url).erkenne_liste(lies("card_corner/liste_set_optimale_ordnung.html"), url, HEUTE)
     nihil = next(e.ergebnis for e in liste if e.ergebnis.titel == "Pokemon Nihil Zero (M3) Display")
     assert nihil.status == Status.BESTELLBAR
+
+
+# --- Zusätzliche Sicherungen gegen „ausverkauft, aber als verfügbar gemeldet“ ---------------
+
+def _mit_zweitem_banner(html: str) -> str:
+    """Setzt vor jeden „Ausverkauft“-Banner noch einen harmlosen „Neu“-Banner."""
+    return html.replace('<div class="ribbon ribbon-7 productbox-ribbon">',
+                        '<div class="ribbon ribbon-1 productbox-ribbon">Neu</div>'
+                        '<div class="ribbon ribbon-7 productbox-ribbon">')
+
+
+def test_zweiter_banner_ausverkauft_zaehlt_auf_produktseite():
+    html = _mit_zweitem_banner(lies("gate_to_the_games/produkt_vorbestellung_ausverkauft.html"))
+    assert html.count("ribbon-1") >= 1
+    assert adapter_fuer(GTTG).erkenne_produkt(html, GTTG, HEUTE).status == Status.AUSVERKAUFT
+
+
+def test_zweiter_banner_ausverkauft_zaehlt_in_liste():
+    url = "https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+    original = lies("gate_to_the_games/liste_vorverkauf.html")
+    vorher = {e.url: e.ergebnis.status for e in adapter_fuer(url).erkenne_liste(original, url, HEUTE)}
+    nachher = {e.url: e.ergebnis.status
+               for e in adapter_fuer(url).erkenne_liste(_mit_zweitem_banner(original), url, HEUTE)}
+    assert nachher == vorher  # nichts wird durch den zusätzlichen Banner verfügbar
+    assert Status.AUSVERKAUFT in vorher.values()
+
+
+@pytest.mark.parametrize("text", ["Momentan nicht verfügbar", "Derzeit nicht lieferbar", "Leider vergriffen"])
+def test_lieferstatus_text_nicht_verfuegbar_heisst_ausverkauft(text):
+    # Bestellbare Seite, nur der Lieferstatus-Text wird ausgetauscht (ohne rote Ampel)
+    html = lies("card_corner/produkt_bestellbar.html").replace(
+        '<div class="delivery-status">', f'<div class="delivery-status"><span>{text}</span>', 1)
+    assert adapter_fuer(CC).erkenne_produkt(html, CC, HEUTE).status == Status.AUSVERKAUFT
+
+
+def test_sofort_verfuegbar_bleibt_bestellbar():
+    html = lies("card_corner/produkt_bestellbar.html").replace(
+        '<div class="delivery-status">', '<div class="delivery-status"><span>Sofort verfügbar</span>', 1)
+    assert adapter_fuer(CC).erkenne_produkt(html, CC, HEUTE).status == Status.BESTELLBAR

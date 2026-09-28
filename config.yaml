@@ -161,6 +161,9 @@ kategorien:
   - name: "Games Island – Boxen & Kollektionen"
     link: https://games-island.eu/c/Pokemon/Boxen-Sets
 
+  - name: "Games Island – Tins & Mini-Tins"
+    link: https://games-island.eu/c/Pokemon/Tins
+
 
 # ---------------------------------------------------------------------
 #  Deal-Feeds: Hier posten Leute Angebote, sobald sie irgendwo auftauchen –
@@ -191,6 +194,10 @@ kategorie_filter:
     - Booster-Bundle
     - Kollektion
     - Collection
+    - Mini-Tin
+    - Mini-Tins
+    - Mini Tin
+    - Mini Tins
 
   # Produkte mit diesen Wörtern im Namen werden ignoriert
   ohne:

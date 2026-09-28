@@ -20,7 +20,6 @@ from bot.einstellungen import (
     Regeln,
 )
 from bot.lauf import Lauf
-from bot.speicher import Speicher
 from bot.status import Status
 from tests.hilfen import ohne_ausverkauft_markierung
 
@@ -82,13 +81,6 @@ def einstellungen(watchlist=None, kategorien=None, filter_=None, suche=None, **r
     )
 
 
-@pytest.fixture
-def speicher(tmp_path):
-    s = Speicher(tmp_path / "bot.db")
-    yield s
-    s.schliessen()
-
-
 def lauf(e, speicher, seiten, melder, minuten=0):
     """Führt einen Lauf aus – 'minuten' nach dem ersten Lauf."""
     abrufer = FalscherAbrufer(seiten)
@@ -109,7 +101,7 @@ def test_erster_check_meldet_vorbestellung(speicher):
     assert "06.11.2026" in kasten.text
     assert kasten.link == GTTG_PRODUKT
     # Kurztext für die iPhone-Mitteilung
-    assert melder.nachrichten[0]["text"] == "🔵 VORBESTELLBAR – Delta Display"
+    assert melder.nachrichten[0]["text"] == "🛒 JETZT KAUFBAR – 🔵 VORBESTELLBAR – Delta Display"
 
 
 def test_kein_spam_bei_gleichem_stand(speicher):
@@ -344,3 +336,103 @@ def test_uebersicht_beachtet_maximalpreis(speicher):
     gttg = melder.nachrichten[0]["kaesten"][0].text
     assert "Top Trainer Box (deutsch)" in gttg          # 149,90 € → unter 200 €
     assert "Display (36 Booster) (deutsch)" not in gttg  # 399,90 € → zu teuer
+
+
+def test_kaufbares_und_infos_kommen_getrennt(speicher):
+    melder = FalscherMelder()
+    e = einstellungen(DELTA, kategorien=[("GTTG Vorverkauf", GTTG_LISTE)],
+                      filter_=KategorieFilter(nur_mit=["Display"]))
+    liste = html("gate_to_the_games/liste_vorverkauf.html")
+    lauf(e, speicher, {GTTG_PRODUKT: VORBESTELLBAR, GTTG_LISTE: liste}, melder)
+    # Zwei Nachrichten = zwei Mitteilungen: zuerst das Kaufbare, dann die Übersicht
+    assert [n["text"].split(" – ")[0] for n in melder.nachrichten] == ["🛒 JETZT KAUFBAR", "ℹ️ Übersicht & Hinweise"]
+    assert [k.titel for k in melder.nachrichten[0]["kaesten"]] == ["🔵 VORBESTELLBAR – Delta Display"]
+    assert melder.nachrichten[1]["kaesten"][0].titel == "📋 Neu überwacht: GTTG Vorverkauf"
+
+
+def test_neues_set_verschluckt_kein_wieder_da(speicher):
+    """Ein Produkt ist schon bekannt (ausverkauft). Dann kommt sein Set neu auf die Watchlist, und beim
+    ersten Blick ist es wieder bestellbar → das muss trotz Übersicht einzeln gemeldet werden."""
+    melder = FalscherMelder()
+    display = "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Fatale-Flammen-Display-36-Booster-deutsch"
+    speicher.setze_stand(display, "Gate to the Games", "Display", Status.AUSVERKAUFT, 399.90, START)
+    lauf(einstellungen(suche=FATALE, filter_=SET_FILTER), speicher, suchseiten(), melder)
+    titel = melder.titel
+    assert "🟢 BESTELLBAR – Mega-Entwicklung Fatale Flammen Display (36 Booster) (deutsch)" in titel
+    assert any(t.startswith("📋 Neu überwacht: Fatale Flammen") for t in titel)
+    assert melder.nachrichten[0]["text"].startswith("🛒 JETZT KAUFBAR")  # Kaufbares zuerst
+
+
+def test_status_zeigt_nur_kuerzlich_gesehene_produkte(speicher):
+    alt, neu = "https://www.card-corner.de/alt", "https://www.card-corner.de/neu"
+    speicher.setze_stand(alt, "Card-Corner", "Altes Display", Status.BESTELLBAR, 100.0, START - timedelta(days=3))
+    speicher.setze_stand(neu, "Card-Corner", "Neues Display", Status.BESTELLBAR, 100.0, START)
+    speicher.setze_stand("https://www.card-corner.de/weg", "Card-Corner", "Weg", Status.AUSVERKAUFT, 1.0, START)
+    statusse = [Status.BESTELLBAR, Status.VORBESTELLBAR]
+    assert {z["url"] for z in speicher.verfuegbare(statusse)} == {alt, neu}
+    assert [z["url"] for z in speicher.verfuegbare(statusse, gesehen_seit=START - timedelta(hours=24))] == [neu]
+
+
+def test_unveraenderte_produkte_gelten_als_gesehen(speicher):
+    melder = FalscherMelder()
+    e = einstellungen(suche=FATALE, filter_=SET_FILTER)
+    lauf(e, speicher, suchseiten(), melder)
+    lauf(e, speicher, suchseiten(), melder, minuten=60 * 30)  # 30 Stunden später, nichts geändert
+    gesehen = speicher.verfuegbare([Status.BESTELLBAR], gesehen_seit=START + timedelta(hours=29))
+    assert gesehen  # die Produkte wurden beim zweiten Lauf wieder gesehen
+
+
+def test_kaputte_quelle_stoppt_nicht_den_ganzen_lauf(speicher, monkeypatch):
+    from bot.adapter.jtl import JtlShop
+
+    melder = FalscherMelder()
+    e = einstellungen(DELTA, kategorien=[("CC Neu", CC_NEU)])
+    original = JtlShop.erkenne_liste
+
+    def kaputt(self, html, url, heute=None):
+        if "card-corner" in url:
+            raise ValueError("völlig kaputte Seite")
+        return original(self, html, url, heute)
+
+    monkeypatch.setattr(JtlShop, "erkenne_liste", kaputt)
+    code, _ = lauf(e, speicher, {GTTG_PRODUKT: VORBESTELLBAR, CC_NEU: "<html></html>"}, melder)
+    assert code == 0
+    assert "🔵 VORBESTELLBAR – Delta Display" in melder.titel          # der Rest läuft weiter
+    assert "⚠️ Fehler beim Prüfen: CC Neu" in melder.titel
+    lauf(e, speicher, {GTTG_PRODUKT: VORBESTELLBAR, CC_NEU: "<html></html>"}, melder, minuten=20)
+    assert melder.titel.count("⚠️ Fehler beim Prüfen: CC Neu") == 1  # Warnung nur einmal
+
+
+def test_filter_aenderung_gibt_eine_uebersicht_statt_vieler_pings(speicher):
+    """Neue Wörter im Filter (z. B. Mini-Tins): Die Produkte sind schon lange im Shop – also keine
+    „Neu im Shop“-Pings, sondern EINE Übersicht. Danach ganz normal."""
+    melder = FalscherMelder()
+    nur_display = KategorieFilter(nur_mit=["Display"])
+    liste = html("gate_to_the_games/liste_vorverkauf.html")
+    lauf(einstellungen(kategorien=[("GTTG", GTTG_LISTE)], filter_=nur_display), speicher, {GTTG_LISTE: liste}, melder)
+    assert melder.titel == ["📋 Neu überwacht: GTTG"]
+
+    mehr = KategorieFilter(nur_mit=["Display", "Top Trainer", "Booster Bundle", "Kollektion"])
+    e = einstellungen(kategorien=[("GTTG", GTTG_LISTE)], filter_=mehr)
+    lauf(e, speicher, {GTTG_LISTE: liste}, melder, minuten=20)
+    zweiter = [k.titel for k in melder.nachrichten[-1]["kaesten"]]
+    assert len(zweiter) == 1 and zweiter[0].startswith("🔧 Filter geändert – ")
+    assert not any("Neu im Shop" in k.text for n in melder.nachrichten for k in n["kaesten"])
+
+    anzahl = len(melder.nachrichten)
+    lauf(e, speicher, {GTTG_LISTE: liste}, melder, minuten=40)   # gleicher Filter → still
+    assert len(melder.nachrichten) == anzahl
+
+
+def test_neues_produkt_nach_filter_aenderung_wird_wieder_einzeln_gemeldet(speicher):
+    melder = FalscherMelder()
+    e = einstellungen(kategorien=[("GTTG", GTTG_LISTE)], filter_=KategorieFilter(nur_mit=["Display"]))
+    liste = ohne_ausverkauft_markierung(html("gate_to_the_games/liste_vorverkauf.html"))
+    lauf(e, speicher, {GTTG_LISTE: liste}, melder)
+    # Ein verfügbares Produkt „verschwindet“ aus dem Speicher = taucht beim nächsten Lauf neu auf
+    zeile = speicher._db.execute("SELECT url FROM stand WHERE status IN ('BESTELLBAR', 'VORBESTELLBAR')").fetchone()
+    assert zeile is not None
+    speicher._db.execute("DELETE FROM stand WHERE url = ?", (zeile[0],))
+    speicher._db.commit()
+    lauf(e, speicher, {GTTG_LISTE: liste}, melder, minuten=20)   # Filter unverändert
+    assert any("Neu im Shop entdeckt" in k.text for k in melder.nachrichten[-1]["kaesten"])

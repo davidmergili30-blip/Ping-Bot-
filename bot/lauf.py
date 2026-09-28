@@ -4,7 +4,8 @@ Ablauf:
 1. Watchlist: feste Produkt-Links prüfen und Suchbegriffe (z. B. Set-Namen) in allen
    unterstützten Shops suchen – jedes passende Produkt wird beobachtet
 2. Jede überwachte Kategorie nach neuen Produkten und Vorbestellungen durchsuchen
-3. Alle Neuigkeiten in EINER Discord-Nachricht schicken
+3. Deal-Feeds (mydealz) nach neuen Deals durchsehen
+4. Neuigkeiten gebündelt schicken – getrennt nach Art: Kaufbares, Einladungen, Infos
 
 Wichtig: Der neue Stand wird erst gespeichert, wenn die Nachricht wirklich
 angekommen ist. Klappt der Versand nicht, versucht es der nächste Lauf nochmal –
@@ -13,6 +14,8 @@ so geht kein Ping verloren.
 
 from __future__ import annotations
 
+import hashlib
+import json
 import logging
 import re
 from datetime import date, datetime, timedelta
@@ -24,8 +27,8 @@ from bot.adapter.basis import CheckErgebnis, ListenEintrag, domain_von
 from bot.discord import DiscordWebhook, Kasten
 from bot.feeds import Deal, FeedFehler, lies_rss
 from bot.einstellungen import Einstellungen, Kategorie, Produkt, Regeln
-from bot.pings import (EMOJI, FARBE_INFO, FARBE_WARNUNG, euro, ping_grund, ping_kasten, preis_text,
-                       zusammenfassung)
+from bot.pings import (EMOJI, FARBE_INFO, FARBE_WARNUNG, als_link, euro, nach_art, ping_grund, ping_kasten,
+                       preis_text)
 from bot.speicher import Speicher
 from bot.status import Status
 
@@ -60,20 +63,39 @@ class Lauf:
         self._hinweise: set[str] = set()
         self._gesehen: set[str] = set()
         self._watchlist_links = {link for p in self.e.watchlist for link in p.links}
+        # Hat sich der Filter geändert (z. B. Mini-Tins dazu)? Dann tauchen in bekannten Listen plötzlich
+        # viele „neue“ Produkte auf, die in Wahrheit schon lange da sind → still aufnehmen + EINE Übersicht.
+        self._filter_stempel = _stempel(self.e.kategorie_filter.nur_mit, self.e.kategorie_filter.ohne)
+        self._filter_geaendert = self.speicher.meta("filter") != self._filter_stempel
+        self._durch_filter: list[tuple[ListenEintrag, Regeln]] = []
 
     def starten(self) -> int:
         log.info("Normaler Lauf: %d Watchlist-Eintrag/-Einträge, %d Kategorie(n)",
                  len(self.e.watchlist), len(self.e.kategorien))
         for produkt in self.e.watchlist:
             for link in produkt.links:
-                self._pruefe_produkt(produkt, link)
+                self._sicher(link, self._pruefe_produkt, produkt, link)
             if produkt.suche:
-                self._pruefe_suche(produkt)
+                self._sicher(f"Suche {produkt.name}", self._pruefe_suche, produkt)
         for kategorie in self.e.kategorien:
-            self._pruefe_kategorie(kategorie)
+            self._sicher(kategorie.name, self._pruefe_kategorie, kategorie)
         for feed in self.e.feeds:
-            self._pruefe_feed(feed)
+            self._sicher(feed.name, self._pruefe_feed, feed)
+        self._filter_uebersicht()
         return self._senden()
+
+    def _sicher(self, quelle: str, pruefen, *args) -> None:
+        """Ein unerwarteter Fehler bei EINER Quelle (z. B. völlig kaputte Seite) soll nicht den ganzen
+        Lauf stoppen – die anderen Shops werden trotzdem geprüft und gemeldet."""
+        try:
+            pruefen(*args)
+        except Exception:  # noqa: BLE001 – absichtlich breit, der Fehler landet im Protokoll
+            log.exception("Unerwarteter Fehler bei %s – diese Quelle wird diesmal übersprungen", quelle)
+            self._einmal_melden(f"fehler:{quelle}", Kasten(
+                titel=f"⚠️ Fehler beim Prüfen: {quelle}",
+                text="Diese Quelle wurde diesmal übersprungen, alles andere läuft normal weiter.\n"
+                     "Details stehen im Protokoll des Laufs (Actions → Preis-Bot). Diese Warnung kommt nur einmal.",
+                farbe=FARBE_WARNUNG))
 
     # --- Watchlist: feste Links ----------------------------------------------------
 
@@ -172,7 +194,7 @@ class Lauf:
             zeilen = [f"{len(passende)} aktuelle Deals passen zu deinem Filter. Ab jetzt meldet der Bot "
                       "neue Deals, sobald sie gepostet werden."]
             for deal in passende[:MAX_ZEILEN_UEBERSICHT]:
-                zeilen.append(f"• [{deal.titel}]({deal.link}) – {deal.haendler or '?'}"
+                zeilen.append(f"• {als_link(deal.titel, deal.link)} – {deal.haendler or '?'}"
                               + (f", {euro(deal.preis)}" if deal.preis else ""))
             self.kaesten.append(Kasten(titel=f"📋 Neu überwacht: {feed.name}", text="\n".join(zeilen),
                                        link=feed.link, farbe=FARBE_INFO))
@@ -192,7 +214,7 @@ class Lauf:
             rest = neue[MAX_DEALS_EINZELN:]
             self.kaesten.append(Kasten(
                 titel=f"📰 {len(rest)} weitere neue Deals: {feed.name}",
-                text="\n".join(f"• [{d.titel}]({d.link})" for d in rest[:MAX_ZEILEN_UEBERSICHT]),
+                text="\n".join(f"• {als_link(d.titel, d.link)}" for d in rest[:MAX_ZEILEN_UEBERSICHT]),
                 link=feed.link, farbe=FARBE_INFO))
         for deal in deals:  # auch unpassende merken, damit sie nie wieder geprüft werden
             if self.speicher.meta(f"deal:{deal.guid}") is None:
@@ -224,10 +246,18 @@ class Lauf:
             self._erster_blick(neu_in_diesem_lauf, shop, regeln, schluessel, ueberschrift, link)
             return
 
+        unbekannt = [e for e in neu_in_diesem_lauf if self.speicher.stand(e.url) is None]
+        if unbekannt and self._filter_geaendert:
+            # Filter wurde geändert: Diese Produkte sind nicht neu im Shop, nur neu für den Bot
+            for eintrag in unbekannt:
+                e = eintrag.ergebnis
+                self.bestaetigungen.append(partial(self.speicher.setze_stand, eintrag.url, shop, e.titel, e.status,
+                                                   e.preis, self.jetzt))
+                self._durch_filter.append((eintrag, regeln))
+            neu_in_diesem_lauf = [e for e in neu_in_diesem_lauf if e not in unbekannt]
         # Sicherung gegen eine Flut: Tauchen auf einmal viele unbekannte Produkte auf, hat meist
         # der Shop seine Liste umgestellt. Dann lieber EINE Sammelnachricht statt vieler Pings.
-        unbekannt = [e for e in neu_in_diesem_lauf if self.speicher.stand(e.url) is None]
-        if len(unbekannt) > MAX_NEU_EINZELN:
+        elif len(unbekannt) > MAX_NEU_EINZELN:
             self._sammelnachricht(unbekannt, shop, regeln, ueberschrift, link)
             neu_in_diesem_lauf = [e for e in neu_in_diesem_lauf if e not in unbekannt]
 
@@ -238,6 +268,30 @@ class Lauf:
                 # Verlauf für Listen-Produkte nur bei Änderungen speichern (spart Platz)
                 self.speicher.speichere_check(eintrag.url, shop, e.titel, e, self.jetzt)
             self._vergleiche(eintrag.url, shop, e.titel or "Unbekanntes Produkt", e, regeln, aus_kategorie=True)
+
+    def _filter_uebersicht(self) -> None:
+        """Nach einer Filter-Änderung: EINE Nachricht mit allem, was jetzt zusätzlich überwacht wird."""
+        if not self._filter_geaendert:
+            return
+        self.bestaetigungen.append(partial(self.speicher.setze_meta, "filter", self._filter_stempel))
+        if not self._durch_filter:
+            return
+        verfuegbar = [(eintrag, regeln) for eintrag, regeln in self._durch_filter
+                      if self._wuerde_pingen(eintrag, regeln)]
+        log.info("Filter geändert: %d Produkte neu überwacht, davon %d verfügbar", len(self._durch_filter),
+                 len(verfuegbar))
+        zeilen = [f"Durch deine Filter-Änderung überwacht der Bot jetzt {len(self._durch_filter)} weitere Produkte, "
+                  f"davon {len(verfuegbar)} gerade verfügbar. Die waren schon vorher im Shop – deshalb keine "
+                  "Einzel-Pings, nur diese Übersicht:"]
+        for eintrag, _ in verfuegbar[:MAX_ZEILEN_UEBERSICHT]:
+            e = eintrag.ergebnis
+            termin = f" · ab {e.liefertermin}" if e.liefertermin else ""
+            zeilen.append(f"{EMOJI[e.status]} {als_link(e.titel, eintrag.url)} – {preis_text(e)}{termin}")
+        if len(verfuegbar) > MAX_ZEILEN_UEBERSICHT:
+            zeilen.append(f"… und {len(verfuegbar) - MAX_ZEILEN_UEBERSICHT} weitere")
+        zeilen.append("Ab jetzt bekommst du für diese Produkte ganz normal Pings bei Änderungen.")
+        self.kaesten.append(Kasten(titel=f"🔧 Filter geändert – {len(self._durch_filter)} Produkte neu überwacht",
+                                   text="\n".join(zeilen), farbe=FARBE_INFO))
 
     def _sammelnachricht(self, unbekannt: list[ListenEintrag], shop: str, regeln: Regeln, ueberschrift: str,
                          link: str | None) -> None:
@@ -254,7 +308,7 @@ class Lauf:
                   "Vermutlich hat der Shop die Liste umgestellt – deshalb nur diese eine Nachricht:"]
         for eintrag in verfuegbar[:MAX_ZEILEN_UEBERSICHT]:
             e = eintrag.ergebnis
-            zeilen.append(f"{EMOJI[e.status]} [{e.titel}]({eintrag.url}) – {preis_text(e)}")
+            zeilen.append(f"{EMOJI[e.status]} {als_link(e.titel, eintrag.url)} – {preis_text(e)}")
         if len(verfuegbar) > MAX_ZEILEN_UEBERSICHT:
             zeilen.append(f"… und {len(verfuegbar) - MAX_ZEILEN_UEBERSICHT} weitere")
         self.kaesten.append(Kasten(titel=f"🗂️ Viele neue Einträge: {ueberschrift}", text="\n".join(zeilen),
@@ -262,11 +316,18 @@ class Lauf:
 
     def _erster_blick(self, passende: list[ListenEintrag], shop: str, regeln: Regeln, schluessel: str,
                       ueberschrift: str, link: str | None) -> None:
-        """Beim ersten Mal nicht jedes Produkt einzeln melden – nur eine Übersicht schicken."""
+        """Beim ersten Mal nicht jedes Produkt einzeln melden – nur eine Übersicht schicken.
+
+        Produkte, die der Bot schon kennt (z. B. aus einer anderen Liste), werden trotzdem ganz normal
+        verglichen – sonst ginge ein „wieder verfügbar“ verloren, wenn du ein Set neu hinzufügst.
+        """
         for eintrag in passende:
+            e = eintrag.ergebnis
             if self.speicher.stand(eintrag.url) is None:
-                self.speicher.setze_stand(eintrag.url, shop, eintrag.ergebnis.titel, eintrag.ergebnis.status,
-                                          eintrag.ergebnis.preis, self.jetzt)
+                self.speicher.setze_stand(eintrag.url, shop, e.titel, e.status, e.preis, self.jetzt)
+                self.speicher.speichere_check(eintrag.url, shop, e.titel, e, self.jetzt)
+            else:
+                self._vergleiche(eintrag.url, shop, e.titel or "Unbekanntes Produkt", e, regeln, aus_kategorie=True)
         interessant = [e for e in passende if self._wuerde_pingen(e, regeln)]
         if passende:
             zeilen = [f"{len(passende)} passende Produkte, davon {len(interessant)} gerade verfügbar."]
@@ -275,7 +336,7 @@ class Lauf:
         for eintrag in interessant[:MAX_ZEILEN_UEBERSICHT]:
             e = eintrag.ergebnis
             termin = f" · ab {e.liefertermin}" if e.liefertermin else ""
-            zeilen.append(f"{EMOJI[e.status]} [{e.titel}]({eintrag.url}) – {preis_text(e)}{termin}")
+            zeilen.append(f"{EMOJI[e.status]} {als_link(e.titel, eintrag.url)} – {preis_text(e)}{termin}")
         if len(interessant) > MAX_ZEILEN_UEBERSICHT:
             zeilen.append(f"… und {len(interessant) - MAX_ZEILEN_UEBERSICHT} weitere")
         zeilen.append("Ab jetzt bekommst du hier nur noch Neuigkeiten.")
@@ -389,7 +450,9 @@ class Lauf:
             for kasten in self.kaesten:
                 log.warning("  • %s", kasten.titel)
             return 0
-        self.melder.sende(text=zusammenfassung(self.kaesten), kaesten=self.kaesten)
+        # Kaufbares, Einladungen und Infos kommen als getrennte Nachrichten (je eine Mitteilung)
+        for text, kaesten in nach_art(self.kaesten):
+            self.melder.sende(text=text, kaesten=kaesten)
         for bestaetigen in self.bestaetigungen:
             bestaetigen()
         log.info("%d Neuigkeit(en) an Discord geschickt:", len(self.kaesten))
@@ -398,10 +461,19 @@ class Lauf:
         return 0
 
 
+def _stempel(*listen) -> str:
+    """Kurzer „Fingerabdruck“ des Filters, um Änderungen zu erkennen."""
+    daten = json.dumps([sorted(w.casefold() for w in liste) for liste in listen], ensure_ascii=False)
+    return hashlib.sha1(daten.encode("utf-8")).hexdigest()[:12]
+
+
 def _deal_kasten(deal: Deal, quelle: str) -> Kasten:
     zeilen = [f"**{deal.haendler or 'Händler unbekannt'}** · " + (euro(deal.preis) if deal.preis else "Preis im Deal")]
     if deal.mit_einladung:
         zeilen.append("🟡 Nur auf Einladung (z. B. bei Amazon „Einladung anfordern“)")
     zeilen.append(f"Gefunden über {quelle} – tipp auf die Überschrift, dort steht der Link zum Shop.")
-    return Kasten(titel=f"📰 {deal.titel}"[:256], text="\n".join(zeilen), link=deal.link,
-                  farbe=0xF1C40F if deal.mit_einladung else 0x2ECC71)
+    if deal.mit_einladung:
+        return Kasten(titel=f"🟡 EINLADUNG – {deal.titel}"[:256], text="\n".join(zeilen), link=deal.link,
+                      farbe=0xF1C40F, art="einladung")
+    return Kasten(titel=f"📰 DEAL – {deal.titel}"[:256], text="\n".join(zeilen), link=deal.link,
+                  farbe=0x2ECC71, art="kaufbar")

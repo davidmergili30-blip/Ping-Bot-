@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS stand (
     produkt TEXT,
     status TEXT NOT NULL,
     preis REAL,
-    seit TEXT NOT NULL
+    seit TEXT NOT NULL  -- wann der Bot das Produkt zuletzt gesehen hat
 );
 
 CREATE TABLE IF NOT EXISTS shops (
@@ -107,15 +107,23 @@ class Speicher:
         )
         self._db.commit()
 
-    def verfuegbare(self, statusse: list[Status]) -> list[sqlite3.Row]:
-        """Alle Produkte, deren letzter bekannter Status einer der genannten ist."""
+    def verfuegbare(self, statusse: list[Status], gesehen_seit: datetime | None = None) -> list[sqlite3.Row]:
+        """Alle Produkte, deren letzter bekannter Status einer der genannten ist.
+
+        gesehen_seit: nur Produkte, die der Bot seitdem noch gesehen hat. Verschwindet ein Produkt aus
+        einer Liste, ist sein letzter Stand sonst veraltet (es könnte längst ausverkauft sein).
+        """
         if not statusse:
             return []
         platzhalter = ",".join("?" * len(statusse))
+        bedingung, werte = "", [s.value for s in statusse]
+        if gesehen_seit is not None:
+            bedingung = " AND seit >= ?"
+            werte.append(gesehen_seit.astimezone(timezone.utc).isoformat())
         return self._db.execute(
-            f"SELECT url, shop, produkt, status, preis FROM stand WHERE status IN ({platzhalter})"
+            f"SELECT url, shop, produkt, status, preis FROM stand WHERE status IN ({platzhalter}){bedingung}"
             " ORDER BY shop, produkt",
-            [s.value for s in statusse],
+            werte,
         ).fetchall()
 
     # --- Shops: letzter Abruf und Blockaden ----------------------------------------

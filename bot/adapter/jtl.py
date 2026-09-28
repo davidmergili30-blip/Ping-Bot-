@@ -36,6 +36,8 @@ from bot.status import Status
 PRODUKT = '[itemtype*="schema.org/Product"]'
 BANNER = "[class*=ribbon]"
 AUSVERKAUFT_BANNER = "ribbon-7"  # Standard-Banner „Ausverkauft“ im JTL-Shop
+# Texte im Lieferstatus, die sicher „nicht bestellbar“ bedeuten
+AUSVERKAUFT_TEXTE = ("ausverkauft", "nicht verfügbar", "nicht lieferbar", "vergriffen")
 
 
 class JtlShop(ShopAdapter):
@@ -64,7 +66,7 @@ class JtlShop(ShopAdapter):
         lieferstatus = _eigenes(haupt, ".delivery-status")
         termin_el = _eigenes(haupt, ".coming_soon") or _eigenes(haupt, ".availablefrom")
         anzahl = _eigenes(haupt, "input[name=anzahl]")
-        banner = _eigenes(haupt, BANNER)
+        banner = _alle_eigenen(haupt, BANNER)
 
         termin = datum_aus_text(termin_el.get_text(" ") if termin_el else None)
         status = _status(
@@ -73,7 +75,7 @@ class JtlShop(ShopAdapter):
             termin=termin,
             heute=heute,
             ausverkauft_markiert=_ausverkauft_markiert(banner, lieferstatus),
-            banner_text=_text(banner),
+            banner_text=_banner_text(banner),
         )
         return CheckErgebnis(
             status=status,
@@ -97,14 +99,14 @@ class JtlShop(ShopAdapter):
                 continue
             lieferstatus = box.select_one(".delivery-status")
             termin = datum_aus_text(lieferstatus.get_text(" ") if lieferstatus else None)
-            banner = box.select_one(BANNER)
+            banner = box.select(BANNER)
             status = _status(
                 schema=schema_status(_wert(box.select_one("[itemprop=availability]"))),
                 klassen=_klassen(lieferstatus),
                 termin=termin,
                 heute=heute,
                 ausverkauft_markiert=_ausverkauft_markiert(banner, lieferstatus),
-                banner_text=_text(banner),
+                banner_text=_banner_text(banner),
             )
             name_el = box.select_one("[itemprop=name]")
             eintraege[link] = ListenEintrag(
@@ -154,24 +156,36 @@ def _status(schema: Status | None, klassen: set[str], termin: date | None, heute
     return Status.UNBEKANNT
 
 
-def _ausverkauft_markiert(banner: Tag | None, lieferstatus: Tag | None) -> bool:
-    """True, wenn der Shop das Produkt irgendwo sichtbar als ausverkauft kennzeichnet."""
-    if banner is not None and (AUSVERKAUFT_BANNER in _klassen(banner)
-                               or "ausverkauft" in banner.get_text(" ").lower()):
-        return True
-    if lieferstatus is not None and ("status-0" in _klassen(lieferstatus)
-                                     or "ausverkauft" in lieferstatus.get_text(" ").lower()):
-        return True
+def _ausverkauft_markiert(banner: list[Tag], lieferstatus: Tag | None) -> bool:
+    """True, wenn der Shop das Produkt irgendwo sichtbar als ausverkauft kennzeichnet.
+
+    Es zählen ALLE Banner am Produkt (z. B. „Neu“ UND „Ausverkauft“) – im Zweifel lieber
+    ausverkauft als ein falscher Ping.
+    """
+    for b in banner:
+        if AUSVERKAUFT_BANNER in _klassen(b) or "ausverkauft" in b.get_text(" ").lower():
+            return True
+    if lieferstatus is not None:
+        text = " ".join(lieferstatus.get_text(" ").split()).lower()
+        if "status-0" in _klassen(lieferstatus) or any(w in text for w in AUSVERKAUFT_TEXTE):
+            return True
     return False
 
 
 def _eigenes(haupt: Tag, auswahl: str) -> Tag | None:
     """Erstes passendes Element, das NICHT zu einem verschachtelten Produkt (Empfehlung) gehört."""
-    for el in haupt.select(auswahl):
-        besitzer = el.find_parent(attrs={"itemtype": lambda t: t and "schema.org/Product" in t})
-        if besitzer is haupt:
-            return el
-    return None
+    eigene = _alle_eigenen(haupt, auswahl)
+    return eigene[0] if eigene else None
+
+
+def _alle_eigenen(haupt: Tag, auswahl: str) -> list[Tag]:
+    """Alle passenden Elemente, die NICHT zu einem verschachtelten Produkt (Empfehlung) gehören."""
+    return [el for el in haupt.select(auswahl)
+            if el.find_parent(attrs={"itemtype": lambda t: t and "schema.org/Product" in t}) is haupt]
+
+
+def _banner_text(banner: list[Tag]) -> str | None:
+    return " ".join(filter(None, (_text(b) for b in banner))) or None
 
 
 def _wert(el: Tag | None) -> str | None:

@@ -35,6 +35,7 @@ class Kasten:
     text: str = ""
     link: str | None = None   # Titel wird antippbar und öffnet diesen Link
     farbe: int | None = None  # Randfarbe, z. B. 0x2ECC71 für Grün
+    art: str = "info"         # "kaufbar", "einladung" oder "info" – jede Art kommt als eigene Nachricht
 
     def als_embed(self) -> dict:
         embed = {"title": self.titel[:256], "description": self.text[:4000]}

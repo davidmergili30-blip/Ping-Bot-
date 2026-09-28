@@ -66,3 +66,41 @@ def test_preissturz_zeigt_alten_preis():
 def test_euro():
     assert euro(1234.5) == "1.234,50 €"
     assert euro(None) == "Preis noch offen"
+
+
+# --- Getrennte Nachrichten: kaufbar / Einladung / Info -------------------------------------
+
+def test_nachrichten_nach_art_getrennt():
+    from bot.discord import Kasten
+    from bot.pings import nach_art
+
+    kaesten = [
+        Kasten("📋 Neu überwacht: Liste"),                          # info (Standard)
+        Kasten("🟡 NUR AUF EINLADUNG – ETB", art="einladung"),
+        Kasten("🟢 BESTELLBAR – Display", art="kaufbar"),
+        Kasten("🔵 VORBESTELLBAR – Bundle", art="kaufbar"),
+        Kasten("Komisch", art="gibt-es-nicht"),                      # Unbekanntes landet bei den Infos
+    ]
+    nachrichten = nach_art(kaesten)
+    assert [text for text, _ in nachrichten] == [
+        "🛒 JETZT KAUFBAR – 🟢 BESTELLBAR – Display (+1 weitere)",
+        "🟡 NUR AUF EINLADUNG – 🟡 NUR AUF EINLADUNG – ETB",
+        "ℹ️ Übersicht & Hinweise – 📋 Neu überwacht: Liste (+1 weitere)",
+    ]
+    assert sum(len(k) for _, k in nachrichten) == len(kaesten)  # nichts geht verloren
+    assert nach_art([]) == []
+
+
+@pytest.mark.parametrize("status, art", [
+    (Status.BESTELLBAR, "kaufbar"), (Status.VORBESTELLBAR, "kaufbar"), (Status.NUR_MARKTPLATZ, "kaufbar"),
+    (Status.NUR_EINLADUNG, "einladung"), (Status.BALD, "info"), (Status.NUR_FILIALE, "info"),
+])
+def test_ping_kasten_bekommt_richtige_art(status, art):
+    kasten = ping_kasten("X", "Shop", "https://x.de/p", CheckErgebnis(status, preis=10.0), None, "neu", True)
+    assert kasten.art == art
+
+
+def test_link_mit_eckigen_klammern_bleibt_antippbar():
+    from bot.pings import als_link
+    assert als_link("[Amazon] Top Trainer Box [Prime]", "https://x.de/d") == "[(Amazon) Top Trainer Box (Prime)](https://x.de/d)"
+    assert als_link(None, "https://x.de/d") == "[Produkt](https://x.de/d)"

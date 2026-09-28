@@ -198,10 +198,15 @@ Bei einem roten ✗ schickt GitHub dir außerdem eine E-Mail. Das ist normal.
 
 ## Gut zu wissen
 
+**Drei Arten von Nachrichten** – jede kommt als eigene Mitteilung, du siehst also sofort, worum es geht:
+- 🛒 **JETZT KAUFBAR** – bestellbar oder vorbestellbar, dazu passende Deals. Hier lohnt es sich, schnell zu sein.
+- 🟡 **NUR AUF EINLADUNG** – z. B. bei Amazon: Du kannst nur eine Einladung anfordern, nicht sofort kaufen.
+- ℹ️ **Übersicht & Hinweise** – Übersichten über neue Listen, Warnungen (z. B. „Shop blockt“), Sammelmeldungen.
+
 **Zu den Quellen:**
-- 📰 **Kästen mit Zeitungs-Symbol** kommen vom **mydealz-Feed**. Dort posten Leute Angebote aus allen
-  möglichen Shops (auch Amazon, Netto, MediaMarkt). Tipp auf die Überschrift: Du landest beim Deal auf
-  mydealz, dort steht der Link zum Shop. 🟡 heißt „nur auf Einladung“ (z. B. bei Amazon).
+- 📰 **DEAL**-Kästen kommen vom **mydealz-Feed**. Dort posten Leute Angebote aus allen möglichen Shops
+  (auch Amazon, Netto, MediaMarkt). Tipp auf die Überschrift: Du landest beim Deal auf mydealz, dort
+  steht der Link zum Shop.
 - **Games Island** zeigt dem Bot keine Preise (das wünscht sich der Shop so). Im Ping steht dann
   „Preis im Shop“ – tipp auf die Überschrift, um ihn zu sehen.
 - Beim ersten Lauf nach einer Änderung bekommst du pro neuer Liste **einen** Übersichts-Kasten

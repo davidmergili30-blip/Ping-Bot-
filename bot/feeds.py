@@ -31,8 +31,10 @@ class Deal:
     @property
     def mit_einladung(self) -> bool:
         """Amazon & Co. verkaufen manche Produkte nur „auf Einladung“."""
-        text = self.titel.lower()
-        return "einladung" in text and "ohne einladung" not in text
+        text = " ".join(self.titel.lower().split())
+        if "einladung" not in text:
+            return False
+        return not any(w in text for w in ("ohne einladung", "keine einladung", "kein einladung"))
 
 
 def lies_rss(xml_text: str) -> list[Deal]:

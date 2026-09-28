@@ -36,6 +36,13 @@ FARBE = {
 FARBE_WARNUNG = 0xF39C12
 FARBE_INFO = 0x95A5A6
 
+# Jede Art kommt als eigene Discord-Nachricht (= eigene Mitteilung auf dem iPhone), in dieser Reihenfolge
+ARTEN = {
+    "kaufbar": "🛒 JETZT KAUFBAR",
+    "einladung": "🟡 NUR AUF EINLADUNG",
+    "info": "ℹ️ Übersicht & Hinweise",
+}
+
 LESBAR = {
     Status.NUR_EINLADUNG: "NUR AUF EINLADUNG",
     Status.NUR_MARKTPLATZ: "NUR MARKTPLATZ",
@@ -53,6 +60,13 @@ def euro(preis: float | None) -> str:
     if preis is None:
         return "Preis noch offen"
     return f"{preis:,.2f} €".replace(",", "X").replace(".", ",").replace("X", ".")
+
+
+def als_link(text: str | None, url: str) -> str:
+    """Antippbarer Link für Discord. Eckige Klammern im Namen (z. B. „[Amazon] …“) würden den Link
+    kaputt machen – deshalb werden sie durch runde ersetzt."""
+    sauber = (text or "Produkt").replace("[", "(").replace("]", ")")
+    return f"[{sauber}]({url})"
 
 
 def preis_text(e: CheckErgebnis) -> str:
@@ -123,7 +137,16 @@ def ping_kasten(produkt: str, shop: str, url: str, neu: CheckErgebnis, alt: tupl
     if not shop_vertraut:
         zeilen.append("⚠️ Shop ist nicht auf deiner Vertrauensliste")
     zeilen.append("👉 Tipp auf die Überschrift, um zum Shop zu gehen")
-    return Kasten(titel=titel, text="\n".join(zeilen), link=url, farbe=FARBE[neu.status])
+    return Kasten(titel=titel, text="\n".join(zeilen), link=url, farbe=FARBE[neu.status], art=art_von(neu.status))
+
+
+def art_von(status: Status) -> str:
+    """In welche Nachricht gehört ein Ping? Einladungen bekommen eine eigene."""
+    if status == Status.NUR_EINLADUNG:
+        return "einladung"
+    if status in (Status.BESTELLBAR, Status.VORBESTELLBAR, Status.NUR_MARKTPLATZ):
+        return "kaufbar"
+    return "info"
 
 
 def zusammenfassung(kaesten: list[Kasten]) -> str:
@@ -133,3 +156,16 @@ def zusammenfassung(kaesten: list[Kasten]) -> str:
     erste = kaesten[0].titel
     rest = len(kaesten) - 1
     return erste + (f" (+{rest} weitere)" if rest else "")
+
+
+def nach_art(kaesten: list[Kasten]) -> list[tuple[str, list[Kasten]]]:
+    """Teilt die Kästen in Nachrichten auf: erst Kaufbares, dann Einladungen, dann Infos.
+
+    Gibt (Text über den Kästen, Kästen) pro Nachricht zurück – leere Arten fallen weg.
+    """
+    nachrichten = []
+    for art, ueberschrift in ARTEN.items():
+        gruppe = [k for k in kaesten if (k.art if k.art in ARTEN else "info") == art]
+        if gruppe:
+            nachrichten.append((f"{ueberschrift} – {zusammenfassung(gruppe)}", gruppe))
+    return nachrichten
