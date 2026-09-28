@@ -143,6 +143,8 @@ from bot.produkte import PreisSchluessel, preis_schluessel  # noqa: E402
     ("Premium Poster Kollektion", PreisSchluessel("Kollektion", None, ("premium", "poster"))),
     ("18er Display DE", PreisSchluessel("Display", "DE", ("18er",))),
     ("Pokemon Center ETB EN", PreisSchluessel("Top-Trainer-Box", "EN", ("pokemon", "center"))),
+    ("Booster-Bundle-Display DE", PreisSchluessel("Display", "DE", ("bundle",))),
+    ("Mini-Tin-Display EN", PreisSchluessel("Mini-Tin-Display", "EN")),
     ("Booster", None),
     ("Pikachu", None),
 ])
@@ -169,3 +171,12 @@ SET = Produkt("Dunkelnacht", [], Regeln(max_preis=500), suche=["Dunkelnacht", "P
 def test_preis_und_chase_je_produkt(titel, max_preis, chase):
     regeln = regeln_fuer(titel, [SET], Regeln())
     assert (regeln.max_preis, regeln.chase_preis) == (max_preis, chase)
+
+
+def test_booster_bundle_display_ist_nicht_das_normale_display():
+    s = Produkt("Erhabene Helden", [], Regeln(), suche=["Erhabene Helden"],
+                preise={"Display DE": 180, "Booster-Bundle-Display DE": 600}, chase={"Display DE": 150})
+    karton = regeln_fuer("Pokemon Erhabene Helden Booster Bundle Display", [s], Regeln())
+    assert (karton.max_preis, karton.chase_preis) == (600, None)
+    normal = regeln_fuer("Pokemon Erhabene Helden Display", [s], Regeln())
+    assert (normal.max_preis, normal.chase_preis) == (180, 150)

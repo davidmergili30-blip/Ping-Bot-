@@ -122,10 +122,17 @@ def vergleichs_schluessel(titel: str | None, watchlist: list[Produkt]) -> tuple[
 
 SPRACHEN = {"de": "DE", "deutsch": "DE", "en": "EN", "englisch": "EN", "english": "EN",
             "jp": "JP", "japanisch": "JP", "japanese": "JP"}
-# Wörter, die nur die Produktart beschreiben (alles andere in einem Preis-Schlüssel muss im Namen stehen)
-_ART_WOERTER = {"display", "displays", "booster", "top", "trainer", "box", "boxen", "elite", "etb", "ttb", "bundle",
-                "bundles", "mini", "tin", "tins", "minitin", "minitins", "kollektion", "kollektionen", "collection",
-                "collections"}
+# Wörter, die nur die jeweilige Produktart beschreiben. Alle anderen Wörter eines Preis-Schlüssels müssen
+# im Produktnamen stehen – z. B. „bundle“ bei „Booster-Bundle-Display“ (≠ normales Display).
+_MINI_TIN = {"mini", "tin", "tins", "minitin", "minitins"}
+_ART_WOERTER = {
+    "Display": {"display", "displays", "booster"},
+    "Top-Trainer-Box": {"top", "trainer", "box", "boxen", "elite", "etb", "ttb"},
+    "Booster Bundle": {"booster", "bundle", "bundles"},
+    "Mini-Tin": _MINI_TIN,
+    "Mini-Tin-Display": _MINI_TIN | {"display", "displays"},
+    "Kollektion": {"kollektion", "kollektionen", "collection", "collections"},
+}
 
 
 @dataclass(frozen=True)
@@ -158,7 +165,7 @@ def preis_schluessel(text: str | None) -> PreisSchluessel | None:
     art = _EINGABEN.get(rest) or produktart(rest)
     if art is None:
         return None
-    zusatz = () if rest in _EINGABEN else tuple(w for w in worte if w not in _ART_WOERTER)
+    zusatz = () if rest in _EINGABEN else tuple(w for w in worte if w not in _ART_WOERTER[art])
     return PreisSchluessel(art=art, sprache=sprache_, woerter=zusatz)
 
 
