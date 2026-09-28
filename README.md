@@ -125,7 +125,7 @@ Ping-Bot-/
 - [ ] **Phase 4:** Mehr Quellen, Whitelist, Fake-Warnung – *begonnen: Games Island, mydealz-Feed*
 - [x] Maximalpreise je Set und Produktart, Preisvergleich zwischen Shops, neue Sets erkennen
 - [ ] **Phase 5:** Amazon und Einladungen
-- [ ] **Phase 6:** Regeln, Ruhezeiten, Marge
+- [ ] **Phase 6:** Regeln, Ruhezeiten, Marge – *Ruhezeit fertig (3–6 Uhr nur Dringendes)*
 - [ ] **Phase 7:** Neuheiten-Suche
 - [ ] **Phase 8:** Deep-Scan
 

@@ -20,6 +20,7 @@ import logging
 import re
 from datetime import date, datetime, timedelta
 from functools import partial
+from zoneinfo import ZoneInfo
 
 from bot.abruf import Abrufer, Seite
 from bot.adapter import ADAPTER, NICHT_ERLAUBT, adapter_fuer
@@ -43,6 +44,7 @@ def enthaelt_wort(text: str | None, wort: str) -> bool:
 
 MAX_ZEILEN_UEBERSICHT = 10
 VERGLEICH_STATUS = (Status.BESTELLBAR, Status.VORBESTELLBAR)  # was im Preisvergleich als „verfügbar“ zählt
+DRINGEND = ("kaufbar", "einladung")  # Nachrichten, die auch in der Ruhezeit sofort kommen
 MAX_SUCHSEITEN = 3   # höchstens so viele Ergebnisseiten pro Suchbegriff und Shop
 MAX_NEU_EINZELN = 5  # mehr „neue“ Produkte auf einmal → eine Sammelnachricht statt vieler Pings
 MAX_DEALS_EINZELN = 8  # mehr neue Deals auf einmal → Rest als Liste in einem Kasten
@@ -60,6 +62,10 @@ class Lauf:
         self.heute = heute
         self.kaesten: list[Kasten] = []
         self.bestaetigungen: list = []  # erst nach erfolgreichem Versand ausführen
+        # Was sich der Bot merken soll, SOBALD ein bestimmter Kasten verschickt ist. Hält die Ruhezeit
+        # einen Kasten zurück, wird das nicht gemerkt → der nächste Lauf nach der Ruhezeit schickt ihn.
+        self._zu_kasten: dict[int, list] = {}
+        self._filter_merken: list = []
         self._shop_frei: dict[str, bool] = {}
         self._gesperrt: set[str] = set()
         self._wieder_frei: set[str] = set()
@@ -211,28 +217,31 @@ class Lauf:
             for deal in passende[:MAX_ZEILEN_UEBERSICHT]:
                 zeilen.append(f"• {als_link(deal.titel, deal.link)} – {deal.haendler or '?'}"
                               + (f", {euro(deal.preis)}" if deal.preis else ""))
-            self.kaesten.append(Kasten(titel=f"📋 Neu überwacht: {feed.name}", text="\n".join(zeilen),
-                                       link=feed.link, farbe=FARBE_INFO))
-            for deal in deals:
-                self.bestaetigungen.append(partial(self.speicher.setze_meta, f"deal:{deal.guid}", "1"))
-            self.bestaetigungen.append(partial(self.speicher.setze_meta, schluessel, self.jetzt.isoformat()))
+            self._melde(Kasten(titel=f"📋 Neu überwacht: {feed.name}", text="\n".join(zeilen),
+                               link=feed.link, farbe=FARBE_INFO),
+                        *[partial(self.speicher.setze_meta, f"deal:{deal.guid}", "1") for deal in deals],
+                        partial(self.speicher.setze_meta, schluessel, self.jetzt.isoformat()))
             return
 
         neue = [d for d in passende if self.speicher.meta(f"deal:{d.guid}") is None]
+        gemeldet: set[str] = set()
         for deal in neue[:MAX_DEALS_EINZELN]:
             regeln = self._regeln_fuer(deal.titel)
             if regeln.max_preis is not None and deal.preis is not None and deal.preis > regeln.max_preis:
                 log.info("Deal über Maximalpreis, kein Ping: %s", deal.titel)
             else:
-                self.kaesten.append(_deal_kasten(deal, feed.name))
+                self._melde(_deal_kasten(deal, feed.name), partial(self.speicher.setze_meta, f"deal:{deal.guid}", "1"))
+                gemeldet.add(deal.guid)
         if len(neue) > MAX_DEALS_EINZELN:
             rest = neue[MAX_DEALS_EINZELN:]
-            self.kaesten.append(Kasten(
+            self._melde(Kasten(
                 titel=f"📰 {len(rest)} weitere neue Deals: {feed.name}",
                 text="\n".join(f"• {als_link(d.titel, d.link)}" for d in rest[:MAX_ZEILEN_UEBERSICHT]),
-                link=feed.link, farbe=FARBE_INFO))
+                link=feed.link, farbe=FARBE_INFO, art="kaufbar"),
+                *[partial(self.speicher.setze_meta, f"deal:{d.guid}", "1") for d in rest])
+            gemeldet.update(d.guid for d in rest)
         for deal in deals:  # auch unpassende merken, damit sie nie wieder geprüft werden
-            if self.speicher.meta(f"deal:{deal.guid}") is None:
+            if deal.guid not in gemeldet and self.speicher.meta(f"deal:{deal.guid}") is None:
                 self.bestaetigungen.append(partial(self.speicher.setze_meta, f"deal:{deal.guid}", "1"))
 
     def _regeln_fuer(self, titel: str | None, produkt: Produkt | None = None) -> Regeln:
@@ -266,7 +275,7 @@ class Lauf:
             # Filter wurde geändert: Diese Produkte sind nicht neu im Shop, nur neu für den Bot
             for eintrag in unbekannt:
                 e = eintrag.ergebnis
-                self.bestaetigungen.append(partial(self.speicher.setze_stand, eintrag.url, shop, e.titel, e.status,
+                self._filter_merken.append(partial(self.speicher.setze_stand, eintrag.url, shop, e.titel, e.status,
                                                    e.preis, self.jetzt))
                 self._durch_filter.append((eintrag, produkt))
             neu_in_diesem_lauf = [e for e in neu_in_diesem_lauf if e not in unbekannt]
@@ -342,25 +351,27 @@ class Lauf:
         if not neu:
             return
         zeilen = ["Diese Sets sind im Vorverkauf, stehen aber nicht auf deiner Watchlist:"]
+        merken = []
         for name, beispiele in list(neu.items())[:MAX_ZEILEN_UEBERSICHT]:
             shop, titel, url = beispiele[0]
             zeilen.append(f"• **{name}** – z. B. {als_link(titel, url)} bei {shop}"
                           + (f" (+{len(beispiele) - 1} weitere)" if len(beispiele) > 1 else ""))
-            self.bestaetigungen.append(partial(self.speicher.setze_meta, f"set_vorschlag:{vereinfacht(name)}",
-                                               self.jetzt.isoformat()))
+            merken.append(partial(self.speicher.setze_meta, f"set_vorschlag:{vereinfacht(name)}",
+                                  self.jetzt.isoformat()))
         zeilen.append("Beobachten? Actions → Preis-Bot → Run workflow → **set-hinzufuegen**, bei „name“ den "
                       "Set-Namen eintragen (englischen/japanischen Namen bei „suchbegriffe“). "
                       "Jedes Set wird nur einmal vorgeschlagen.")
-        self.kaesten.append(Kasten(titel=f"🆕 Neue Sets entdeckt: {', '.join(list(neu)[:3])}"
-                                         + (" …" if len(neu) > 3 else ""),
-                                   text="\n".join(zeilen), farbe=FARBE_INFO))
+        namen = ", ".join(list(neu)[:3]) + (" …" if len(neu) > 3 else "")
+        self._melde(Kasten(titel=f"🆕 Neue Sets entdeckt: {namen}",
+                           text="\n".join(zeilen), farbe=FARBE_INFO), *merken)
 
     def _filter_uebersicht(self) -> None:
         """Nach einer Filter-Änderung: EINE Nachricht mit allem, was jetzt zusätzlich überwacht wird."""
         if not self._filter_geaendert:
             return
-        self.bestaetigungen.append(partial(self.speicher.setze_meta, "filter", self._filter_stempel))
+        filter_merken = partial(self.speicher.setze_meta, "filter", self._filter_stempel)
         if not self._durch_filter:
+            self.bestaetigungen.append(filter_merken)
             return
         verfuegbar = [(eintrag, produkt) for eintrag, produkt in self._durch_filter
                       if self._wuerde_pingen(eintrag, produkt)]
@@ -376,19 +387,18 @@ class Lauf:
         if len(verfuegbar) > MAX_ZEILEN_UEBERSICHT:
             zeilen.append(f"… und {len(verfuegbar) - MAX_ZEILEN_UEBERSICHT} weitere")
         zeilen.append("Ab jetzt bekommst du für diese Produkte ganz normal Pings bei Änderungen.")
-        self.kaesten.append(Kasten(titel=f"🔧 Filter geändert – {len(self._durch_filter)} Produkte neu überwacht",
-                                   text="\n".join(zeilen), farbe=FARBE_INFO))
+        self._melde(Kasten(titel=f"🔧 Filter geändert – {len(self._durch_filter)} Produkte neu überwacht",
+                           text="\n".join(zeilen), farbe=FARBE_INFO), filter_merken, *self._filter_merken)
 
     def _sammelnachricht(self, unbekannt: list[ListenEintrag], shop: str, produkt: Produkt | None, ueberschrift: str,
                          link: str | None) -> None:
         verfuegbar = [e for e in unbekannt if self._wuerde_pingen(e, produkt)]
-        for eintrag in unbekannt:
-            e = eintrag.ergebnis
-            self.bestaetigungen.append(partial(self.speicher.setze_stand, eintrag.url, shop, e.titel, e.status,
-                                               e.preis, self.jetzt))
+        merken = [partial(self.speicher.setze_stand, eintrag.url, shop, eintrag.ergebnis.titel, eintrag.ergebnis.status,
+                          eintrag.ergebnis.preis, self.jetzt) for eintrag in unbekannt]
         log.info("%s: %d unbekannte Produkte auf einmal – Sammelnachricht statt Einzel-Pings",
                  ueberschrift, len(unbekannt))
         if not verfuegbar:
+            self.bestaetigungen.extend(merken)
             return
         zeilen = [f"{len(unbekannt)} Produkte tauchen neu in der Liste auf, davon {len(verfuegbar)} verfügbar. "
                   "Vermutlich hat der Shop die Liste umgestellt – deshalb nur diese eine Nachricht:"]
@@ -397,8 +407,8 @@ class Lauf:
             zeilen.append(f"{EMOJI[e.status]} {als_link(e.titel, eintrag.url)} – {preis_text(e)}")
         if len(verfuegbar) > MAX_ZEILEN_UEBERSICHT:
             zeilen.append(f"… und {len(verfuegbar) - MAX_ZEILEN_UEBERSICHT} weitere")
-        self.kaesten.append(Kasten(titel=f"🗂️ Viele neue Einträge: {ueberschrift}", text="\n".join(zeilen),
-                                   link=link, farbe=FARBE_INFO))
+        self._melde(Kasten(titel=f"🗂️ Viele neue Einträge: {ueberschrift}", text="\n".join(zeilen),
+                           link=link, farbe=FARBE_INFO), *merken)
 
     def _erster_blick(self, passende: list[ListenEintrag], shop: str, produkt: Produkt | None, schluessel: str,
                       ueberschrift: str, link: str | None) -> None:
@@ -427,9 +437,9 @@ class Lauf:
         if len(interessant) > MAX_ZEILEN_UEBERSICHT:
             zeilen.append(f"… und {len(interessant) - MAX_ZEILEN_UEBERSICHT} weitere")
         zeilen.append("Ab jetzt bekommst du hier nur noch Neuigkeiten.")
-        self.kaesten.append(Kasten(titel=f"📋 Neu überwacht: {ueberschrift}", text="\n".join(zeilen),
-                                   link=link, farbe=FARBE_INFO))
-        self.bestaetigungen.append(partial(self.speicher.setze_meta, schluessel, self.jetzt.isoformat()))
+        self._melde(Kasten(titel=f"📋 Neu überwacht: {ueberschrift}", text="\n".join(zeilen),
+                           link=link, farbe=FARBE_INFO),
+                    partial(self.speicher.setze_meta, schluessel, self.jetzt.isoformat()))
 
     def _wuerde_pingen(self, eintrag: ListenEintrag, produkt: Produkt | None) -> bool:
         """Gleiche Regeln wie beim Ping (Status, Maximalpreis des Produkts, Vertrauensliste …)."""
@@ -456,19 +466,21 @@ class Lauf:
         if grund:
             kasten = ping_kasten(name, shop, url, ergebnis, alt, grund, vertraut, aus_kategorie,
                                  max_preis=regeln.max_preis)
-            self.kaesten.append(kasten)
+            self._melde(kasten, merken)
             self._pings.append((kasten, url, titel or name))
-            self.bestaetigungen.append(merken)
         else:
             merken()
+
+    def _melde(self, kasten: Kasten, *merken) -> None:
+        """Kasten für Discord vormerken. „merken“ läuft erst, wenn GENAU dieser Kasten verschickt ist."""
+        self.kaesten.append(kasten)
+        self._zu_kasten[id(kasten)] = list(merken)
 
     def _einmal_melden(self, schluessel: str, kasten: Kasten) -> None:
         """Hinweise, die nur ein einziges Mal kommen sollen (z. B. „Link kaputt“)."""
         if schluessel not in self._hinweise and self.speicher.meta(f"hinweis:{schluessel}") is None:
             self._hinweise.add(schluessel)
-            self.kaesten.append(kasten)
-            self.bestaetigungen.append(partial(self.speicher.setze_meta, f"hinweis:{schluessel}",
-                                               self.jetzt.isoformat()))
+            self._melde(kasten, partial(self.speicher.setze_meta, f"hinweis:{schluessel}", self.jetzt.isoformat()))
 
     def _kein_adapter(self, url: str) -> None:
         domain = domain_von(url)
@@ -500,18 +512,17 @@ class Lauf:
             self._gesperrt.add(domain)
             log.warning("%s: %s", shop, seite.problem)
             if self.speicher.blockade(domain) is None:
-                self.kaesten.append(Kasten(
+                self._melde(Kasten(
                     titel=f"⚠️ {shop} blockt den Bot",
                     text=f"{seite.problem}.\nDer Bot umgeht das nicht. Der Status dort ist vorerst UNBEKANNT.\n"
                          "Du bekommst Bescheid, sobald es wieder klappt.",
-                    farbe=FARBE_WARNUNG))
-                self.bestaetigungen.append(partial(self.speicher.setze_blockade, domain, seite.problem))
+                    farbe=FARBE_WARNUNG), partial(self.speicher.setze_blockade, domain, seite.problem))
         elif (seite.text is not None and domain not in self._wieder_frei
               and self.speicher.blockade(domain) is not None):
             self._wieder_frei.add(domain)
-            self.kaesten.append(Kasten(titel=f"✅ {shop} ist wieder erreichbar",
-                                       text="Der Bot prüft dort wieder ganz normal.", farbe=0x2ECC71))
-            self.bestaetigungen.append(partial(self.speicher.setze_blockade, domain, None))
+            self._melde(Kasten(titel=f"✅ {shop} ist wieder erreichbar",
+                               text="Der Bot prüft dort wieder ganz normal.", farbe=0x2ECC71),
+                        partial(self.speicher.setze_blockade, domain, None))
         return seite
 
     def _shop_ist_frei(self, domain: str) -> bool:
@@ -531,25 +542,54 @@ class Lauf:
 
     def _senden(self) -> int:
         self.speicher.setze_meta("letzter_lauf", self.jetzt.isoformat())
-        if not self.kaesten:
+        jetzt, spaeter = self._nach_ruhezeit(self.kaesten)
+        if spaeter:
+            log.info("Ruhezeit %s: %d Nachricht(en) kommen erst danach:", self.e.standard_regeln.ruhezeit, len(spaeter))
+            for kasten in spaeter:
+                log.info("  ⏸ %s", kasten.titel)
+        if not jetzt:
             for bestaetigen in self.bestaetigungen:  # z. B. still gemerkte Produkte
                 bestaetigen()
-            log.info("Keine Neuigkeiten.")
+            if not spaeter:
+                log.info("Keine Neuigkeiten.")
             return 0
         if self.melder is None:
-            log.warning("%d Neuigkeit(en), aber Discord ist noch nicht eingerichtet:", len(self.kaesten))
-            for kasten in self.kaesten:
+            log.warning("%d Neuigkeit(en), aber Discord ist noch nicht eingerichtet:", len(jetzt))
+            for kasten in jetzt:
                 log.warning("  • %s", kasten.titel)
             return 0
         # Kaufbares, Einladungen und Infos kommen als getrennte Nachrichten (je eine Mitteilung)
-        for text, kaesten in nach_art(self.kaesten):
+        for text, kaesten in nach_art(jetzt):
             self.melder.sende(text=text, kaesten=kaesten)
-        for bestaetigen in self.bestaetigungen:
+        for bestaetigen in self.bestaetigungen + [b for k in jetzt for b in self._zu_kasten.get(id(k), [])]:
             bestaetigen()
-        log.info("%d Neuigkeit(en) an Discord geschickt:", len(self.kaesten))
-        for kasten in self.kaesten:
+        log.info("%d Neuigkeit(en) an Discord geschickt:", len(jetzt))
+        for kasten in jetzt:
             log.info("  • %s", kasten.titel)
         return 0
+
+    def _nach_ruhezeit(self, kaesten: list[Kasten]) -> tuple[list[Kasten], list[Kasten]]:
+        """Teilt in (jetzt schicken, nach der Ruhezeit schicken).
+
+        In der Ruhezeit kommt nur Dringendes (🛒 kaufbar, 🟡 Einladung) – oder mit
+        in_ruhezeit_nur_dringend: false gar nichts. Alles andere kommt beim ersten Lauf danach.
+        """
+        if not in_ruhezeit(self.e.standard_regeln.ruhezeit, self.jetzt, self.e.allgemein.zeitzone):
+            return kaesten, []
+        if not self.e.standard_regeln.in_ruhezeit_nur_dringend:
+            return [], kaesten
+        dringend = [k for k in kaesten if k.art in DRINGEND]
+        return dringend, [k for k in kaesten if k.art not in DRINGEND]
+
+def in_ruhezeit(ruhezeit: str | None, jetzt: datetime, zeitzone: str) -> bool:
+    """'03:00-06:00' → True zwischen 3 und 6 Uhr (Ortszeit). Geht auch über Mitternacht, z. B. '22:00-06:00'."""
+    if not ruhezeit:
+        return False
+    von, bis = ruhezeit.split("-")
+    uhrzeit = jetzt.astimezone(ZoneInfo(zeitzone)).strftime("%H:%M")
+    if von <= bis:
+        return von <= uhrzeit < bis
+    return uhrzeit >= von or uhrzeit < bis
 
 
 def _stempel(*listen) -> str:

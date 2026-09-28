@@ -232,6 +232,9 @@ Bei einem roten ✗ schickt GitHub dir außerdem eine E-Mail. Das ist normal.
 - 🟡 **NUR AUF EINLADUNG** – z. B. bei Amazon: Du kannst nur eine Einladung anfordern, nicht sofort kaufen.
 - ℹ️ **Übersicht & Hinweise** – Übersichten über neue Listen, Warnungen (z. B. „Shop blockt“), Sammelmeldungen.
 
+🌙 **Ruhezeit 3–6 Uhr:** In dieser Zeit kommen nur 🛒 und 🟡 – damit du keinen Drop verpasst. Übersichten und
+Hinweise kommen gesammelt beim ersten Lauf nach 6 Uhr. Ändern kannst du das in `config.yaml` bei `ruhezeit`.
+
 **Zu den Quellen:**
 - 📰 **DEAL**-Kästen kommen vom **mydealz-Feed**. Dort posten Leute Angebote aus allen möglichen Shops
   (auch Amazon, Netto, MediaMarkt). Tipp auf die Überschrift: Du landest beim Deal auf mydealz, dort

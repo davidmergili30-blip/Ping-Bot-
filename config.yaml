@@ -59,11 +59,12 @@ standard_regeln:
   # Nur Shops aus der Vertrauensliste unten melden?
   nur_vertrauenswuerdige_shops: false
 
-  # Ruhezeit, z. B. "22:00-06:00" (mit Anführungszeichen). null = keine  (kommt in Phase 6)
-  ruhezeit: null
+  # Ruhezeit (Ortszeit), z. B. "22:00-06:00" – mit Anführungszeichen. null = keine Ruhezeit
+  ruhezeit: "03:00-06:00"
 
-  # true  = in der Ruhezeit nur dringende Pings (z. B. BESTELLBAR unter Maximalpreis)
-  # false = in der Ruhezeit gar keine Pings
+  # true  = in der Ruhezeit nur Dringendes: 🛒 JETZT KAUFBAR und 🟡 EINLADUNG
+  #         (Übersichten und Hinweise kommen gesammelt beim ersten Lauf danach)
+  # false = in der Ruhezeit gar nichts – alles kommt beim ersten Lauf danach
   in_ruhezeit_nur_dringend: true
 
 
