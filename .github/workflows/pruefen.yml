@@ -1,0 +1,41 @@
+# Hilfs-Werkzeug (nur auf dem Branch "erkundung"): prüft die Status-Erkennung des Bots
+# (Code von main) mit echten, frischen Shop-Seiten gegen.
+name: Gegenprobe
+
+on:
+  push:
+    branches: [erkundung]
+    paths: ["erkundung/pruefen.py"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: erkundung
+
+jobs:
+  pruefen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Bot-Code von main holen
+        run: |
+          mkdir -p "$RUNNER_TEMP/main"
+          git archive origin/main bot config.yaml requirements.txt | tar -x -C "$RUNNER_TEMP/main"
+          pip install -r "$RUNNER_TEMP/main/requirements.txt"
+      - name: Gegenprobe
+        run: HAUPT="$RUNNER_TEMP/main" python erkundung/pruefen.py
+      - name: Ergebnisse speichern
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add erkundung/ergebnis
+          git commit -m "Gegenprobe: Ergebnisse" || echo "Nichts Neues"
+          git push
