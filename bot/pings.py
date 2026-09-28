@@ -34,10 +34,12 @@ FARBE = {
     Status.UNBEKANNT: 0x7F8C8D,      # dunkelgrau
 }
 FARBE_WARNUNG = 0xF39C12
+FARBE_CHASE = 0xFF0000  # knallrot
 FARBE_INFO = 0x95A5A6
 
 # Jede Art kommt als eigene Discord-Nachricht (= eigene Mitteilung auf dem iPhone), in dieser Reihenfolge
 ARTEN = {
+    "chase": "🚨 CHASEPREIS VERFÜGBAR",
     "kaufbar": "🛒 JETZT KAUFBAR",
     "einladung": "🟡 NUR AUF EINLADUNG",
     "info": "ℹ️ Übersicht & Hinweise",
@@ -76,11 +78,16 @@ def preis_text(e: CheckErgebnis) -> str:
     return euro(e.preis)
 
 
+def ist_chase(neu: CheckErgebnis, regeln: Regeln) -> bool:
+    """Liegt der Preis bei oder unter deinem Chasepreis? (Ohne bekannten Preis: nein.)"""
+    return regeln.chase_preis is not None and neu.preis is not None and neu.preis <= regeln.chase_preis
+
+
 def ping_grund(alt: tuple[Status, float | None] | None, neu: CheckErgebnis, regeln: Regeln,
                shop_vertraut: bool) -> str | None:
     """Gibt zurück, WARUM gepingt werden soll – oder None.
 
-    Mögliche Gründe: 'neu', 'status', 'unter_maximalpreis', 'preissturz'
+    Mögliche Gründe: 'neu', 'status', 'unter_chasepreis', 'unter_maximalpreis', 'preissturz'
     """
     if neu.status == Status.UNBEKANNT:
         return None  # Lieber nichts sagen als raten
@@ -97,6 +104,8 @@ def ping_grund(alt: tuple[Status, float | None] | None, neu: CheckErgebnis, rege
     alt_status, alt_preis = alt
     if alt_status != neu.status:
         return "status"
+    if ist_chase(neu, regeln) and alt_preis is not None and alt_preis > regeln.chase_preis:
+        return "unter_chasepreis"
     if (regeln.max_preis is not None and alt_preis is not None and neu.preis is not None
             and alt_preis > regeln.max_preis >= neu.preis):
         return "unter_maximalpreis"
@@ -108,9 +117,12 @@ def ping_grund(alt: tuple[Status, float | None] | None, neu: CheckErgebnis, rege
 
 def ping_kasten(produkt: str, shop: str, url: str, neu: CheckErgebnis, alt: tuple[Status, float | None] | None,
                 grund: str, shop_vertraut: bool, aus_kategorie: bool = False,
-                max_preis: float | None = None) -> Kasten:
+                max_preis: float | None = None, chase_preis: float | None = None) -> Kasten:
     """Baut den Discord-Kasten für einen Ping."""
-    if grund == "preissturz":
+    chase = chase_preis is not None and neu.preis is not None and neu.preis <= chase_preis
+    if chase:
+        titel = f"🚨 CHASEPREIS – {produkt}"
+    elif grund == "preissturz":
         titel = f"📉 PREISSTURZ – {produkt}"
     elif grund == "unter_maximalpreis":
         titel = f"💶 UNTER DEINEM MAXIMALPREIS – {produkt}"
@@ -118,6 +130,9 @@ def ping_kasten(produkt: str, shop: str, url: str, neu: CheckErgebnis, alt: tupl
         titel = f"{EMOJI[neu.status]} {lesbar(neu.status)} – {produkt}"
 
     zeilen = [f"**{shop}** · {preis_text(neu)}" + (" (Verkauf durch Shop)" if neu.verkaeufer == "Shop" else "")]
+    if chase:
+        zeilen.insert(0, f"🚨 **{euro(neu.preis)} – unter deinem Chasepreis von {euro(chase_preis)}!** 🚨")
+        zeilen.insert(1, f"{EMOJI[neu.status]} {lesbar(neu.status)}")
     if max_preis is not None:
         # Ohne Preis (z. B. Games Island) kann der Bot die Grenze nicht prüfen → lieber melden und dazusagen
         zeilen.append(f"💶 Dein Maximalpreis: {euro(max_preis)}"
@@ -129,7 +144,9 @@ def ping_kasten(produkt: str, shop: str, url: str, neu: CheckErgebnis, alt: tupl
     if neu.versand is not None:
         zeilen.append(f"🚚 Versand: {euro(neu.versand)}")
 
-    if grund in ("preissturz", "unter_maximalpreis") and alt and alt[1]:
+    if grund == "chasepreis":
+        pass  # Status unverändert – neu ist nur, dass der Preis jetzt unter deinem Chasepreis liegt
+    elif grund in ("preissturz", "unter_maximalpreis", "unter_chasepreis") and alt and alt[1]:
         prozent = round((1 - neu.preis / alt[1]) * 100)
         zeilen.append(f"Vorher: {euro(alt[1])} (−{prozent} %)")
     elif alt is not None:
@@ -142,6 +159,8 @@ def ping_kasten(produkt: str, shop: str, url: str, neu: CheckErgebnis, alt: tupl
     if not shop_vertraut:
         zeilen.append("⚠️ Shop ist nicht auf deiner Vertrauensliste")
     zeilen.append("👉 Tipp auf die Überschrift, um zum Shop zu gehen")
+    if chase:
+        return Kasten(titel=titel, text="\n".join(zeilen), link=url, farbe=FARBE_CHASE, art="chase")
     return Kasten(titel=titel, text="\n".join(zeilen), link=url, farbe=FARBE[neu.status], art=art_von(neu.status))
 
 

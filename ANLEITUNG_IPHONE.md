@@ -122,9 +122,10 @@ Unter **Actions** erscheinen automatisch Läufe von **Preis-Bot** mit dem Hinwei
 | deine Sets und Maximalpreise sehen | `watchlist` | – |
 | ein neues Set beobachten | `set-hinzufuegen` | **name**: z. B. `Stellarkrone` · **suchbegriffe** (optional): `Stellar Crown, Stella Miracle` |
 | ein Set nicht mehr beobachten | `set-entfernen` | **name**: z. B. `30 Jahre` |
-| einen Maximalpreis für **ein Produkt** setzen | `max-preis` | **name**: z. B. `Dunkelnacht` · **produkt**: z. B. `Display` · **preis**: z. B. `180` |
+| einen Maximalpreis für **ein Produkt** setzen | `max-preis` | **name**: z. B. `Dunkelnacht` · **produkt**: z. B. `Display` · **sprache**: z. B. `DE` (oder `alle`) · **preis**: z. B. `180` |
 | einen Maximalpreis fürs **ganze Set** setzen | `max-preis` | **name** · **produkt**: `ganzes Set` · **preis** |
-| einen Maximalpreis wieder aufheben | `max-preis` | **name** · **produkt** · **preis**: `aus` |
+| einen **Chasepreis** setzen (🚨-Sonderping) | `chase-preis` | **name** · **produkt** · **sprache** · **preis**: z. B. `150` |
+| einen Preis wieder aufheben | `max-preis` / `chase-preis` | wie beim Setzen, bei **preis**: `aus` |
 | den Bot kurz anhalten | `pause` | – |
 | den Bot wieder starten | `weiter` | – |
 | sofort prüfen lassen | `normaler-lauf` | – |
@@ -133,11 +134,18 @@ Unter **Actions** erscheinen automatisch Läufe von **Preis-Bot** mit dem Hinwei
 > z. B. `Pitch Black` statt `Dunkelnacht`. Tippst du etwas falsch, sagt dir der Bot in Discord,
 > welche Sets es gibt.
 
-### Maximalpreise – so funktioniert es
+### Maximalpreis und Chasepreis – so funktioniert es
 
-Liegt ein Produkt **über** deinem Maximalpreis, kommt **kein** Ping. Fällt der Preis darunter, meldet sich der Bot.
+Jedes Produkt kann zwei Preise haben:
+- **Maximalpreis:** Liegt ein Produkt **darüber**, kommt **kein** Ping. Darunter: normaler Ping „ist da“.
+- **Chasepreis:** Gibt es ein Produkt **so billig oder billiger**, kommt ein eigener, **roter 🚨-Ping**
+  „CHASEPREIS VERFÜGBAR“ – als eigene Nachricht ganz oben, auch in der Ruhezeit. Er kommt einmal; wird das
+  Produkt teurer oder ist ausverkauft und fällt dann wieder darunter, kommt er erneut.
+
 Bei **produkt** wählst du aus einer Liste: `Display`, `Top-Trainer-Box`, `Booster Bundle`, `Mini-Tin`,
-`Mini-Tin-Display`, `Kollektion` – oder `ganzes Set`.
+`Mini-Tin-Display`, `Kollektion` – oder `ganzes Set`. Bei **sprache**: `alle`, `DE`, `EN` oder `JP`.
+**Tipp:** Chasepreise immer mit Sprache setzen – japanische Displays sind viel billiger als deutsche.
+Eigene Preise für einzelne Kollektionen (z. B. „Poster Kollektion“) trägt Claude für dich ein.
 
 **Beispiel für Dunkelnacht** (jede Zeile ist ein eigener Knopfdruck):
 
@@ -148,8 +156,9 @@ Bei **produkt** wählst du aus einer Liste: `Display`, `Top-Trainer-Box`, `Boost
 | `Mini-Tin` | `15` | einzelne Mini-Tins über 15 € werden nicht gemeldet |
 | `ganzes Set` | `250` | gilt für alles, wofür du oben nichts eingestellt hast |
 
-- Der Preis gilt für **alle Sprachen** des Sets (deutsch, englisch, japanisch) und **alle Shops** –
+- Ohne Sprache gilt der Preis für **alle Sprachen** des Sets. Er gilt in **allen Shops** –
   auch für Games Island, die Listen und mydealz-Deals.
+- 18er-Displays, Pokémon-Center-Editionen, Cases usw. lösen nie einen Chase aus, außer sie haben einen eigenen Preis.
 - **Games Island** zeigt keine Preise. Dort meldet der Bot trotzdem und schreibt dazu:
   „💶 Dein Maximalpreis: 180 € – bitte den Preis im Shop prüfen“.
 - Mit `watchlist` siehst du jederzeit alle eingestellten Preise.

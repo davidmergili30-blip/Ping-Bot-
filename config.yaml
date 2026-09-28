@@ -91,14 +91,19 @@ vertrauenswuerdige_shops:
 #    kategorie_filter unten). Tipp: deutschen, englischen und japanischen Namen eintragen.
 #      - name: "Dunkelnacht"
 #        max_preis: 250            # optional: Grenze fürs ganze Set
-#        preise:                   # optional: eigene Grenze je Produktart (hat Vorrang)
-#          Display: 180
+#        preise:                   # optional: Maximalpreis je Produkt (darüber kein Ping)
+#          Display DE: 180         #   Sprache am Ende: DE, EN oder JP – ohne = alle Sprachen
+#          Display JP: 90
 #          Top-Trainer-Box: 60
+#          Poster Kollektion: 45   #   eigene Namen gehen auch: alle Wörter müssen im Produktnamen stehen
+#        chase:                    # optional: Chasepreis (so billig oder billiger → roter 🚨-Sonderping)
+#          Display DE: 150
 #        suche:
 #          - Dunkelnacht
 #          - Pitch Black
 #    Produktarten: Display, Top-Trainer-Box, Booster Bundle, Mini-Tin, Mini-Tin-Display, Kollektion
-#    Am einfachsten per GitHub-App: Run workflow → max-preis → Set-Name, Produkt, Preis
+#    Der genaueste passende Eintrag gewinnt („Display DE“ vor „Display“ vor max_preis).
+#    Per GitHub-App: Run workflow → max-preis bzw. chase-preis → Set-Name, Produkt, Sprache, Preis
 #
 #  Variante B – einzelne Produkte per Link:
 #      - name: "So soll es im Ping heißen"

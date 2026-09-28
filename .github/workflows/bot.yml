@@ -20,6 +20,7 @@ on:
           - set-hinzufuegen
           - set-entfernen
           - max-preis
+          - chase-preis
           - pause
           - weiter
           - test-nachricht
@@ -32,7 +33,7 @@ on:
         type: string
         required: false
       produkt:
-        description: "Nur max-preis: für welches Produkt des Sets?"
+        description: "Nur max-preis/chase-preis: für welches Produkt des Sets?"
         type: choice
         default: ganzes Set
         options:
@@ -43,8 +44,17 @@ on:
           - Mini-Tin
           - Mini-Tin-Display
           - Kollektion
+      sprache:
+        description: "Nur max-preis/chase-preis: für welche Sprache?"
+        type: choice
+        default: alle
+        options:
+          - alle
+          - DE
+          - EN
+          - JP
       preis:
-        description: "Nur max-preis: Preis in Euro, z. B. 180 – oder aus"
+        description: "Nur max-preis/chase-preis: Preis in Euro, z. B. 180 – oder aus"
         type: string
         required: false
 
@@ -92,8 +102,9 @@ jobs:
           SUCHBEGRIFFE: ${{ inputs.suchbegriffe }}
           PREIS: ${{ inputs.preis }}
           PRODUKT: ${{ inputs.produkt }}
+          SPRACHE: ${{ inputs.sprache }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: python -m bot "$AKTION" --name "$NAME" --suchbegriffe "$SUCHBEGRIFFE" --preis "$PREIS" --produkt "$PRODUKT"
+        run: python -m bot "$AKTION" --name "$NAME" --suchbegriffe "$SUCHBEGRIFFE" --preis "$PREIS" --produkt "$PRODUKT" --sprache "$SPRACHE"
 
       - name: Geänderte config.yaml speichern
         env:

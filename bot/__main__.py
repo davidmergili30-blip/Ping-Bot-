@@ -34,13 +34,14 @@ from bot.lauf import Lauf
 from bot.pings import EMOJI, FARBE_INFO, als_link, euro
 from bot.speicher import STANDARD_PFAD, Speicher
 from bot.status import Status
-from bot.steuerung import ConfigBearbeiter, SteuerFehler, art_aus_auswahl, beschreibe_max_preis, preis_aus_eingabe
+from bot.steuerung import (ConfigBearbeiter, SteuerFehler, art_aus_auswahl, beschreibe_max_preis, preis_aus_eingabe,
+                           sprache_aus_auswahl)
 
 log = logging.getLogger("bot")
 
 AKTIONEN = ("normaler-lauf", "status", "watchlist", "set-hinzufuegen", "set-entfernen", "max-preis",
-            "pause", "weiter", "test-nachricht")
-AENDERN = {"set-hinzufuegen", "set-entfernen", "max-preis", "pause", "weiter"}
+            "chase-preis", "pause", "weiter", "test-nachricht")
+AENDERN = {"set-hinzufuegen", "set-entfernen", "max-preis", "chase-preis", "pause", "weiter"}
 
 GRUEN, ROT = 0x2ECC71, 0xE74C3C
 MAX_ZEILEN = 20
@@ -59,6 +60,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--suchbegriffe", default="", help="weitere Suchbegriffe, mit Komma getrennt")
     parser.add_argument("--preis", default="", help="Maximalpreis in Euro oder „aus“")
     parser.add_argument("--produkt", default="", help="Produktart für max-preis, z. B. Display (leer = ganzes Set)")
+    parser.add_argument("--sprache", default="", help="Sprache für max-preis/chase-preis: DE, EN, JP (leer = alle)")
     args = parser.parse_args(argv)
     config_pfad = Path(os.environ.get("BOT_CONFIG") or CONFIG_PFAD)
 
@@ -139,11 +141,25 @@ def _fuehre_aus(bearbeiter: ConfigBearbeiter, args) -> Kasten:
         eintrag = bearbeiter.set_entfernen(args.name)
         return Kasten(titel=f"🗑️ Set entfernt: {eintrag['name']}",
                       text="Der Bot beobachtet dieses Set nicht mehr.", farbe=FARBE_INFO)
+    if args.aktion == "chase-preis":
+        preis = preis_aus_eingabe(args.preis)
+        art = art_aus_auswahl(args.produkt)
+        sprache = sprache_aus_auswahl(args.sprache)
+        eintrag = bearbeiter.max_preis(args.name, preis, art, sprache, tabelle="chase")
+        was = f"{eintrag['name']} – {art}" + (f" ({sprache})" if sprache else " (alle Sprachen)")
+        alle = f"\nAlle Preise dieses Sets: {beschreibe_max_preis(eintrag)}"
+        if preis is None:
+            return Kasten(titel=f"🚨 Chasepreis aufgehoben: {was}", text="Kein Sonder-Ping mehr." + alle,
+                          farbe=FARBE_INFO)
+        return Kasten(titel=f"🚨 Chasepreis für {was}: {euro(preis)}",
+                      text=f"Gibt es das für {euro(preis)} oder weniger, kommt ein eigener roter 🚨-Ping – "
+                           "auch in der Ruhezeit." + alle, farbe=GRUEN)
     if args.aktion == "max-preis":
         preis = preis_aus_eingabe(args.preis)
         art = art_aus_auswahl(args.produkt)
-        eintrag = bearbeiter.max_preis(args.name, preis, art)
-        was = f"{eintrag['name']} – {art}" if art else eintrag["name"]
+        sprache = sprache_aus_auswahl(args.sprache)
+        eintrag = bearbeiter.max_preis(args.name, preis, art, sprache)
+        was = f"{eintrag['name']} – {art}" + (f" ({sprache})" if sprache else "") if art else eintrag["name"]
         welche = f"{art}s von {eintrag['name']}" if art else f"Produkte von {eintrag['name']}"
         alle = f"\nAlle Preise dieses Sets: {beschreibe_max_preis(eintrag)}"
         if preis is None:
@@ -177,7 +193,7 @@ def watchlist(einstellungen: Einstellungen) -> int:
             teile.append(f"{len(produkt.links)} Link(s)")
         eigener = produkt.regeln.max_preis if produkt.regeln.max_preis != einstellungen.standard_regeln.max_preis \
             else None
-        teile.append(beschreibe_max_preis({"max_preis": eigener, "preise": produkt.preise}))
+        teile.append(beschreibe_max_preis({"max_preis": eigener, "preise": produkt.preise, "chase": produkt.chase}))
         zeilen.append(f"**{produkt.name}** – " + " · ".join(teile))
     if not zeilen:
         zeilen.append("Die Watchlist ist leer. Neues Set: Run workflow → set-hinzufuegen")

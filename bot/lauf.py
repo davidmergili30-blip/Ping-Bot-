@@ -30,7 +30,8 @@ from bot.feeds import Deal, FeedFehler, lies_rss
 from bot.einstellungen import Einstellungen, Kategorie, Produkt, Regeln
 from bot.produkte import (produktart, regeln_fuer, set_fuer, set_name_aus_titel, vereinfacht,
                           vergleichs_schluessel)
-from bot.pings import (EMOJI, FARBE_INFO, FARBE_WARNUNG, als_link, euro, nach_art, ping_grund, ping_kasten,
+from bot.pings import (EMOJI, FARBE_CHASE, FARBE_INFO, FARBE_WARNUNG, als_link, euro, ist_chase, nach_art,
+                       ping_grund, ping_kasten,
                        preis_text)
 from bot.speicher import Speicher
 from bot.status import Status
@@ -44,7 +45,7 @@ def enthaelt_wort(text: str | None, wort: str) -> bool:
 
 MAX_ZEILEN_UEBERSICHT = 10
 VERGLEICH_STATUS = (Status.BESTELLBAR, Status.VORBESTELLBAR)  # was im Preisvergleich als „verfügbar“ zählt
-DRINGEND = ("kaufbar", "einladung")  # Nachrichten, die auch in der Ruhezeit sofort kommen
+DRINGEND = ("chase", "kaufbar", "einladung")  # Nachrichten, die auch in der Ruhezeit sofort kommen
 MAX_SUCHSEITEN = 3   # höchstens so viele Ergebnisseiten pro Suchbegriff und Shop
 MAX_NEU_EINZELN = 5  # mehr „neue“ Produkte auf einmal → eine Sammelnachricht statt vieler Pings
 MAX_DEALS_EINZELN = 8  # mehr neue Deals auf einmal → Rest als Liste in einem Kasten
@@ -230,7 +231,8 @@ class Lauf:
             if regeln.max_preis is not None and deal.preis is not None and deal.preis > regeln.max_preis:
                 log.info("Deal über Maximalpreis, kein Ping: %s", deal.titel)
             else:
-                self._melde(_deal_kasten(deal, feed.name), partial(self.speicher.setze_meta, f"deal:{deal.guid}", "1"))
+                self._melde(_deal_kasten(deal, feed.name, regeln.chase_preis),
+                            partial(self.speicher.setze_meta, f"deal:{deal.guid}", "1"))
                 gemeldet.add(deal.guid)
         if len(neue) > MAX_DEALS_EINZELN:
             rest = neue[MAX_DEALS_EINZELN:]
@@ -422,9 +424,9 @@ class Lauf:
             if self.speicher.stand(eintrag.url) is None:
                 self.speicher.setze_stand(eintrag.url, shop, e.titel, e.status, e.preis, self.jetzt)
                 self.speicher.speichere_check(eintrag.url, shop, e.titel, e, self.jetzt)
-            else:
-                self._vergleiche(eintrag.url, shop, e.titel or "Unbekanntes Produkt", e,
-                                 self._regeln_fuer(e.titel, produkt), aus_kategorie=True)
+            # Bekannte Produkte normal vergleichen; bei neuen meldet das nur einen Chasepreis extra
+            self._vergleiche(eintrag.url, shop, e.titel or "Unbekanntes Produkt", e,
+                             self._regeln_fuer(e.titel, produkt), aus_kategorie=True)
         interessant = [e for e in passende if self._wuerde_pingen(e, produkt)]
         if passende:
             zeilen = [f"{len(passende)} passende Produkte, davon {len(interessant)} gerade verfügbar."]
@@ -462,14 +464,27 @@ class Lauf:
         alt = self.speicher.stand(url)
         vertraut = domain_von(url) in self.e.vertrauenswuerdige_shops
         grund = ping_grund(alt, ergebnis, regeln, vertraut)
-        merken = partial(self.speicher.setze_stand, url, shop, name, ergebnis.status, ergebnis.preis, self.jetzt)
+        merken = [partial(self.speicher.setze_stand, url, shop, name, ergebnis.status, ergebnis.preis, self.jetzt)]
+
+        # Chasepreis: einmal melden, solange das Produkt darunter bleibt – auch wenn sich sonst nichts
+        # geändert hat (z. B. weil du den Chasepreis gerade erst eingetragen hast)
+        chase_schluessel = f"chase:{url}"
+        chase_jetzt = ist_chase(ergebnis, regeln) and ping_grund(None, ergebnis, regeln, vertraut) is not None
+        if chase_jetzt:
+            if grund is None and self.speicher.meta(chase_schluessel) is None:
+                grund = "chasepreis"
+            merken.append(partial(self.speicher.setze_meta, chase_schluessel, str(ergebnis.preis)))
+        elif self.speicher.meta(chase_schluessel) is not None:
+            self.speicher.setze_meta(chase_schluessel, None)  # wieder teurer/weg → nächstes Mal neu melden
+
         if grund:
             kasten = ping_kasten(name, shop, url, ergebnis, alt, grund, vertraut, aus_kategorie,
-                                 max_preis=regeln.max_preis)
-            self._melde(kasten, merken)
+                                 max_preis=regeln.max_preis, chase_preis=regeln.chase_preis)
+            self._melde(kasten, *merken)
             self._pings.append((kasten, url, titel or name))
         else:
-            merken()
+            for m in merken:
+                m()
 
     def _melde(self, kasten: Kasten, *merken) -> None:
         """Kasten für Discord vormerken. „merken“ läuft erst, wenn GENAU dieser Kasten verschickt ist."""
@@ -598,8 +613,15 @@ def _stempel(*listen) -> str:
     return hashlib.sha1(daten.encode("utf-8")).hexdigest()[:12]
 
 
-def _deal_kasten(deal: Deal, quelle: str) -> Kasten:
+def _deal_kasten(deal: Deal, quelle: str, chase_preis: float | None = None) -> Kasten:
     zeilen = [f"**{deal.haendler or 'Händler unbekannt'}** · " + (euro(deal.preis) if deal.preis else "Preis im Deal")]
+    if chase_preis is not None and deal.preis is not None and deal.preis <= chase_preis:
+        zeilen.insert(0, f"🚨 **{euro(deal.preis)} – unter deinem Chasepreis von {euro(chase_preis)}!** 🚨")
+        if deal.mit_einladung:
+            zeilen.append("🟡 Nur auf Einladung (z. B. bei Amazon „Einladung anfordern“)")
+        zeilen.append(f"Gefunden über {quelle} – tipp auf die Überschrift, dort steht der Link zum Shop.")
+        return Kasten(titel=f"🚨 CHASEPREIS-DEAL – {deal.titel}"[:256], text="\n".join(zeilen), link=deal.link,
+                      farbe=FARBE_CHASE, art="chase")
     if deal.mit_einladung:
         zeilen.append("🟡 Nur auf Einladung (z. B. bei Amazon „Einladung anfordern“)")
     zeilen.append(f"Gefunden über {quelle} – tipp auf die Überschrift, dort steht der Link zum Shop.")

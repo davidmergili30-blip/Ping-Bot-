@@ -127,3 +127,45 @@ def test_maximalpreis_je_produktart():
 ])
 def test_set_name_aus_titel(titel, name):
     assert set_name_aus_titel(titel) == name
+
+
+# --- Preis-Schlüssel mit Sprache und eigenen Namen ------------------------------------------
+
+from bot.produkte import PreisSchluessel, preis_schluessel  # noqa: E402
+
+
+@pytest.mark.parametrize("text, erwartet", [
+    ("Display", PreisSchluessel("Display")),
+    ("Display DE", PreisSchluessel("Display", "DE")),
+    ("ttb en", PreisSchluessel("Top-Trainer-Box", "EN")),
+    ("Top-Trainer-Box JP", PreisSchluessel("Top-Trainer-Box", "JP")),
+    ("Booster Bundle deutsch", PreisSchluessel("Booster Bundle", "DE")),
+    ("Premium Poster Kollektion", PreisSchluessel("Kollektion", None, ("premium", "poster"))),
+    ("18er Display DE", PreisSchluessel("Display", "DE", ("18er",))),
+    ("Pokemon Center ETB EN", PreisSchluessel("Top-Trainer-Box", "EN", ("pokemon", "center"))),
+    ("Booster", None),
+    ("Pikachu", None),
+])
+def test_preis_schluessel(text, erwartet):
+    assert preis_schluessel(text) == erwartet
+
+
+SET = Produkt("Dunkelnacht", [], Regeln(max_preis=500), suche=["Dunkelnacht", "Pitch Black", "Abyss Eye"],
+              preise={"Display DE": 180, "Display JP": 90, "Top-Trainer-Box": 65, "18er Display DE": 100,
+                      "Pokemon Center ETB EN": 150},
+              chase={"Display DE": 150, "Display EN": 170})
+
+
+@pytest.mark.parametrize("titel, max_preis, chase", [
+    ("Mega-Entwicklung Dunkelnacht Display (36 Booster) (deutsch)", 180, 150),
+    ("Pokemon Dunkelnacht Display", 180, 150),                                  # Card-Corner, ohne Angabe = DE
+    ("Mega Evolution Pitch Black Display (36 Booster) (englisch)", 500, 170),   # kein Max für EN → Set-Preis
+    ("Pokemon Abyss Eye (M5) Display", 90, None),                               # JP: eigener Max, kein Chase
+    ("Pokemon Dunkelnacht 18er Display", 100, None),                            # halbes Display: nie Chase
+    ("Pokemon Pitch Black Elite Trainer Box", 65, None),                        # TTB für alle Sprachen
+    ("Pokemon Pitch Black Pokemon Center ETB", 150, None),                      # eigener, genauerer Preis
+    ("Mega-Entwicklung Dunkelnacht Booster Bundle (deutsch)", 500, None),
+])
+def test_preis_und_chase_je_produkt(titel, max_preis, chase):
+    regeln = regeln_fuer(titel, [SET], Regeln())
+    assert (regeln.max_preis, regeln.chase_preis) == (max_preis, chase)

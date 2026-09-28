@@ -93,3 +93,82 @@ def test_preisvergleich_nicht_bei_anderer_sprache_oder_ausverkauft(speicher):
     lauf(e, speicher, seiten, melder, minuten=20)
     kasten = next(k for k in melder.nachrichten[-1]["kaesten"] if k.titel.startswith("🟢 BESTELLBAR – Mega-Entw"))
     assert "Auch verfügbar" not in kasten.text
+
+
+# --- Chasepreis ---------------------------------------------------------------------------
+
+def mit_chase(chase, **extra):
+    e = einstellungen(suche=FATALE, filter_=SET_FILTER, **extra)
+    e.watchlist[0].chase = chase
+    return e
+
+
+def chase_kaesten(melder, nachricht=-1):
+    return [k for k in melder.nachrichten[nachricht]["kaesten"] if k.art == "chase"]
+
+
+def test_chasepreis_kommt_als_eigene_rote_nachricht_ganz_oben(speicher):
+    melder = FalscherMelder()
+    e = mit_chase({"Display DE": 450})                 # GTTG-Display kostet 399,90 € und ist bestellbar
+    lauf(e, speicher, suchseiten(), melder)
+    erste = melder.nachrichten[0]
+    assert erste["text"].startswith("🚨 CHASEPREIS VERFÜGBAR – 🚨 CHASEPREIS – Mega-Entwicklung Fatale Flammen Display")
+    (kasten,) = erste["kaesten"]
+    assert kasten.farbe == 0xFF0000
+    assert "🚨 **399,90 € – unter deinem Chasepreis von 450,00 €!** 🚨" in kasten.text
+    assert "🟢 BESTELLBAR" in kasten.text
+
+
+def test_chasepreis_nur_einmal_bis_es_wieder_teurer_ist(speicher):
+    melder = FalscherMelder()
+    lauf(mit_chase({"Display DE": 450}), speicher, suchseiten(), melder)
+    anzahl = len(melder.nachrichten)
+    lauf(mit_chase({"Display DE": 450}), speicher, suchseiten(), melder, minuten=20)
+    assert len(melder.nachrichten) == anzahl                           # gleicher Preis → kein zweites Mal
+    lauf(mit_chase({"Display DE": 300}), speicher, suchseiten(), melder, minuten=40)   # nicht mehr Chase
+    assert len(melder.nachrichten) == anzahl
+    lauf(mit_chase({"Display DE": 450}), speicher, suchseiten(), melder, minuten=60)   # wieder darunter
+    assert len(chase_kaesten(melder)) == 1
+
+
+def test_nachtraeglich_eingetragener_chasepreis_meldet_sich(speicher):
+    melder = FalscherMelder()
+    lauf(einstellungen(suche=FATALE, filter_=SET_FILTER), speicher, suchseiten(), melder)
+    assert not any(k.art == "chase" for n in melder.nachrichten for k in n["kaesten"])
+    # Du trägst später einen Chasepreis ein – das Display ist schon lange bestellbar
+    lauf(mit_chase({"Display DE": 450}), speicher, suchseiten(), melder, minuten=20)
+    (kasten,) = chase_kaesten(melder)
+    assert kasten.titel == "🚨 CHASEPREIS – Mega-Entwicklung Fatale Flammen Display (36 Booster) (deutsch)"
+    assert "Vorher" not in kasten.text
+
+
+def test_chasepreis_anderer_sprache_zaehlt_nicht(speicher):
+    melder = FalscherMelder()
+    lauf(mit_chase({"Display EN": 450}), speicher, suchseiten(), melder)   # nur englische Displays
+    assert not any(k.art == "chase" for n in melder.nachrichten for k in n["kaesten"])
+
+
+def test_chasepreis_kommt_auch_in_der_ruhezeit(speicher):
+    melder = FalscherMelder()
+    lauf(mit_chase({"Display DE": 450}, ruhezeit="03:00-06:00"), speicher, suchseiten(), melder,
+         minuten=13 * 60 + 30)                                             # 03:30 Uhr
+    # Nur der Chase-Ping – die Übersicht (Info) wartet bis nach der Ruhezeit
+    assert [n["text"].split(" – ")[0] for n in melder.nachrichten] == ["🚨 CHASEPREIS VERFÜGBAR"]
+
+
+def test_chase_deal_von_mydealz(speicher):
+    from tests.test_feeds import FEED, FEED_URL, mit_feed
+    melder = FalscherMelder()
+    e = mit_feed(suche=[("Fatale Flammen", ["Fatale Flammen"])])
+    e.watchlist[0].chase = {"Display": 250}
+    ohne_display = FEED.replace("pokemon-fatale-flammen-display-2844003</guid>", "x</guid>")
+    leer = "<html><body>Keine Treffer</body></html>"
+    such = {"https://www.gate-to-the-games.de/?suche=Fatale+Flammen&af=100": leer,
+            "https://www.card-corner.de/?suche=Fatale+Flammen&af=50": leer}
+    lauf(e, speicher, {FEED_URL: ohne_display, **such}, melder)            # erster Blick ohne das Display
+    speicher._db.execute("DELETE FROM meta WHERE schluessel LIKE 'deal:%fatale-flammen-display%'")
+    speicher._db.commit()
+    lauf(e, speicher, {FEED_URL: FEED, **such}, melder, minuten=20)
+    (kasten,) = chase_kaesten(melder)
+    assert kasten.titel.startswith("🚨 CHASEPREIS-DEAL – ")
+    assert "203,90 € – unter deinem Chasepreis von 250,00 €" in kasten.text

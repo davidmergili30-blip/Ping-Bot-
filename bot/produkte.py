@@ -12,7 +12,7 @@ Shops schreiben Namen sehr unterschiedlich („Top Trainer Box“, „Top-Traine
 from __future__ import annotations
 
 import re
-from dataclasses import replace
+from dataclasses import dataclass, replace
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:  # nur für die Typ-Angaben – vermeidet einen Kreis-Import mit einstellungen.py
@@ -118,21 +118,97 @@ def vergleichs_schluessel(titel: str | None, watchlist: list[Produkt]) -> tuple[
     return produkt.name, art, sprache(titel, begriff, produkt.name)
 
 
+# --- Preise je Produkt -------------------------------------------------------------------
+
+SPRACHEN = {"de": "DE", "deutsch": "DE", "en": "EN", "englisch": "EN", "english": "EN",
+            "jp": "JP", "japanisch": "JP", "japanese": "JP"}
+# Wörter, die nur die Produktart beschreiben (alles andere in einem Preis-Schlüssel muss im Namen stehen)
+_ART_WOERTER = {"display", "displays", "booster", "top", "trainer", "box", "boxen", "elite", "etb", "ttb", "bundle",
+                "bundles", "mini", "tin", "tins", "minitin", "minitins", "kollektion", "kollektionen", "collection",
+                "collections"}
+
+
+@dataclass(frozen=True)
+class PreisSchluessel:
+    """Für welche Produkte gilt ein Preis? z. B. „Display DE“, „Top-Trainer-Box“, „Poster Kollektion“, „18er Display“."""
+
+    art: str
+    sprache: str | None = None           # None = alle Sprachen
+    woerter: tuple[str, ...] = ()        # zusätzliche Wörter, die im Produktnamen stehen müssen
+
+    @property
+    def text(self) -> str:
+        """Einheitliche Schreibweise für config.yaml, z. B. „Display DE“."""
+        teile = [*self.woerter, self.art] if self.woerter else [self.art]
+        return " ".join(teile) + (f" {self.sprache}" if self.sprache else "")
+
+    @property
+    def genauigkeit(self) -> tuple[int, int]:
+        """Je genauer, desto mehr Vorrang: erst Zusatzwörter, dann Sprache."""
+        return len(self.woerter), 1 if self.sprache else 0
+
+
+def preis_schluessel(text: str | None) -> PreisSchluessel | None:
+    """„Display DE“ → (Display, DE); „Premium Poster Kollektion“ → (Kollektion, alle, premium+poster). Unklar → None."""
+    worte = vereinfacht(text).split()
+    sprache_ = SPRACHEN.get(worte[-1]) if worte else None
+    if sprache_:
+        worte = worte[:-1]
+    rest = " ".join(worte)
+    art = _EINGABEN.get(rest) or produktart(rest)
+    if art is None:
+        return None
+    zusatz = () if rest in _EINGABEN else tuple(w for w in worte if w not in _ART_WOERTER)
+    return PreisSchluessel(art=art, sprache=sprache_, woerter=zusatz)
+
+
+def _passender_preis(tabelle: dict[str, float], titel: str | None, art: str, sprache_: str,
+                     nur_genaue_bei_sonderform: bool) -> float | None:
+    """Der Preis aus der Tabelle, dessen Schlüssel am genauesten auf das Produkt passt."""
+    worte = set(vereinfacht(titel).split())
+    sonder = sonderform(titel)
+    beste: tuple[tuple[int, int], float] | None = None
+    for text, preis in tabelle.items():
+        s = preis_schluessel(text)
+        if s is None or s.art != art or (s.sprache and s.sprache != sprache_):
+            continue
+        if not set(s.woerter) <= worte:
+            continue
+        # Chasepreis: Sonderformen (18er-Display, Pokémon-Center-Edition, Case …) nur mit eigenem Schlüssel –
+        # sonst würde z. B. ein halbes Display wegen seines halben Preises als „Chase“ gemeldet
+        if nur_genaue_bei_sonderform and sonder and not s.woerter:
+            continue
+        if beste is None or s.genauigkeit > beste[0]:
+            beste = (s.genauigkeit, preis)
+    return beste[1] if beste else None
+
+
 def regeln_fuer(titel: str | None, watchlist: list[Produkt], standard: Regeln,
                 produkt: Produkt | None = None) -> Regeln:
-    """Regeln für genau dieses Produkt: Maximalpreis der Produktart im Set > Maximalpreis des Sets > Standard.
+    """Regeln für genau dieses Produkt.
 
+    Maximalpreis: genauester passender Eintrag bei „preise“ (z. B. „Display DE“) > Preis fürs ganze Set > Standard.
+    Chasepreis: genauester passender Eintrag bei „chase“ – sonst keiner.
     produkt: das Set, falls schon bekannt (bei der Set-Suche) – sonst wird es am Namen erkannt.
     """
+    treffer = set_fuer(titel, [produkt] if produkt is not None else watchlist)
     if produkt is None:
-        treffer = set_fuer(titel, watchlist)
         if treffer is None:
             return standard
         produkt = treffer[0]
     art = produktart(titel)
-    if art is not None and art in produkt.preise:
-        return replace(produkt.regeln, max_preis=produkt.preise[art])
-    return produkt.regeln
+    if art is None:
+        return produkt.regeln
+    begriff = treffer[1] if treffer else produkt.name
+    sprache_ = sprache(titel, begriff, produkt.name)
+    regeln = produkt.regeln
+    max_preis = _passender_preis(produkt.preise, titel, art, sprache_, nur_genaue_bei_sonderform=False)
+    if max_preis is not None:
+        regeln = replace(regeln, max_preis=max_preis)
+    chase = _passender_preis(produkt.chase, titel, art, sprache_, nur_genaue_bei_sonderform=True)
+    if chase is not None:
+        regeln = replace(regeln, chase_preis=chase)
+    return regeln
 
 
 # --- Neue Sets erkennen -------------------------------------------------------------------

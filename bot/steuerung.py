@@ -15,7 +15,7 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 from bot.einstellungen import ConfigFehler, lade_einstellungen
 from bot.pings import euro
-from bot.produkte import ARTEN, art_aus_eingabe
+from bot.produkte import ARTEN, SPRACHEN, PreisSchluessel, art_aus_eingabe, preis_schluessel
 
 GANZES_SET = ("", "ganzes set", "set", "alle", "alles")
 
@@ -86,10 +86,18 @@ class ConfigBearbeiter:
         self.watchlist.remove(eintrag)
         return eintrag
 
-    def max_preis(self, name: str, preis: float | None, art: str | None = None) -> dict:
-        """Maximalpreis fürs ganze Set (art=None) oder für eine Produktart, z. B. „Display“."""
+    def max_preis(self, name: str, preis: float | None, art: str | None = None, sprache: str | None = None,
+                  tabelle: str = "preise") -> dict:
+        """Maximalpreis (tabelle="preise") oder Chasepreis (tabelle="chase") setzen.
+
+        art=None: Maximalpreis fürs ganze Set. Sonst für eine Produktart, optional nur für eine Sprache.
+        """
         eintrag = self._finde(name)
         wert = None if preis is None else (int(preis) if float(preis).is_integer() else preis)
+        if art is None and (tabelle == "chase" or sprache):
+            raise SteuerFehler("Bitte bei „produkt“ ein Produkt auswählen (z. B. Display) – "
+                               + ("einen Chasepreis gibt es nur je Produkt, nicht fürs ganze Set."
+                                  if tabelle == "chase" else "die Sprache geht nur zusammen mit einem Produkt."))
         if art is None:
             if wert is None:
                 eintrag.pop("max_preis", None)
@@ -99,21 +107,24 @@ class ConfigBearbeiter:
                 eintrag.insert(1, "max_preis", wert)  # direkt unter den Namen
             return eintrag
 
-        preise = eintrag.get("preise")
+        ziel = PreisSchluessel(art=art, sprache=sprache)
+        gleich = [s for s in (eintrag.get(tabelle) or {}) if preis_schluessel(str(s)) == ziel]
+        preise = eintrag.get(tabelle)
         if wert is None:
-            if preise is not None:
-                for schluessel in [s for s in preise if art_aus_eingabe(str(s)) == art]:
-                    del preise[schluessel]
-                if not preise:
-                    del eintrag["preise"]
+            for schluessel in gleich:
+                del preise[schluessel]
+            if preise is not None and not preise:
+                del eintrag[tabelle]
             return eintrag
         if preise is None:
             preise = CommentedMap()
-            # unter den Namen (und ggf. unter den Maximalpreis fürs ganze Set)
-            eintrag.insert(2 if "max_preis" in eintrag else 1, "preise", preise)
-        for schluessel in [s for s in preise if art_aus_eingabe(str(s)) == art and s != art]:
-            del preise[schluessel]  # alte Schreibweise (z. B. „ttb“) durch die einheitliche ersetzen
-        preise[art] = wert
+            # unter den Namen, den Preis fürs ganze Set und (beim Chasepreis) die Maximalpreise
+            davor = 1 + sum(1 for k in ("max_preis", "preise") if k in eintrag and k != tabelle)
+            eintrag.insert(davor, tabelle, preise)
+        for schluessel in gleich:
+            if schluessel != ziel.text:
+                del preise[schluessel]  # alte Schreibweise (z. B. „ttb de“) durch die einheitliche ersetzen
+        preise[ziel.text] = wert
         return eintrag
 
     def pause(self, an: bool) -> None:
@@ -165,6 +176,16 @@ class ConfigBearbeiter:
         return eintrag
 
 
+def sprache_aus_auswahl(text: str | None) -> str | None:
+    """Auswahl „sprache“ aus der GitHub-App → DE/EN/JP, oder None für „alle“."""
+    sauber = (text or "").strip().lower()
+    if sauber in ("", "alle", "egal"):
+        return None
+    if sauber not in SPRACHEN:
+        raise SteuerFehler(f"„{text}“ kenne ich nicht. Möglich sind: alle, DE, EN, JP")
+    return SPRACHEN[sauber]
+
+
 def art_aus_auswahl(text: str | None) -> str | None:
     """Auswahl „produkt“ aus der GitHub-App → Produktart, oder None für „ganzes Set“."""
     if (text or "").strip().lower() in GANZES_SET:
@@ -176,10 +197,12 @@ def art_aus_auswahl(text: str | None) -> str | None:
 
 
 def beschreibe_max_preis(eintrag: dict) -> str:
-    """z. B. „ganzes Set 200,00 € · Display 180,00 € · Top-Trainer-Box 60,00 €“"""
+    """z. B. „Maximalpreis: ganzes Set 200,00 € · Display DE 180,00 € | 🚨 Chase: Display DE 150,00 €“"""
     teile = []
     if eintrag.get("max_preis") is not None:
         teile.append(f"ganzes Set {euro(float(eintrag['max_preis']))}")
-    for art, preis in (eintrag.get("preise") or {}).items():
-        teile.append(f"{art_aus_eingabe(str(art)) or art} {euro(float(preis))}")
-    return ("Maximalpreis: " + " · ".join(teile)) if teile else "kein Maximalpreis"
+    for schluessel, preis in (eintrag.get("preise") or {}).items():
+        teile.append(f"{schluessel} {euro(float(preis))}")
+    text = ("Maximalpreis: " + " · ".join(teile)) if teile else "kein Maximalpreis"
+    chase = [f"{schluessel} {euro(float(preis))}" for schluessel, preis in (eintrag.get("chase") or {}).items()]
+    return text + (" | 🚨 Chase: " + " · ".join(chase) if chase else "")

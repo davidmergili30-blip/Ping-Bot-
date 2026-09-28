@@ -227,8 +227,50 @@ def test_preise_in_config_werden_geprueft(tmp_path):
     from bot.einstellungen import ConfigFehler
     config = tmp_path / "config.yaml"
     config.write_text("watchlist:\n  - name: X\n    suche: [X]\n    preise:\n      Booster: 5\n", encoding="utf-8")
-    with pytest.raises(ConfigFehler, match="Unbekannte Produktart 'Booster'"):
+    with pytest.raises(ConfigFehler, match="Unbekanntes Produkt 'Booster'"):
         lade_einstellungen(config)
     config.write_text("watchlist:\n  - name: X\n    suche: [X]\n    preise:\n      ETB: billig\n", encoding="utf-8")
     with pytest.raises(ConfigFehler, match="muss eine Zahl sein"):
         lade_einstellungen(config)
+
+
+# --- Sprache und Chasepreis per App ---------------------------------------------------------
+
+def test_max_preis_mit_sprache(umgebung):
+    assert start.main(["max-preis", "--name", "Dunkelnacht", "--produkt", "Display", "--sprache", "DE",
+                       "--preis", "180"]) == 0
+    assert start.main(["max-preis", "--name", "Dunkelnacht", "--produkt", "Display", "--sprache", "JP",
+                       "--preis", "90"]) == 0
+    dunkel = next(p for p in lade_einstellungen(umgebung["config"]).watchlist if p.name == "Dunkelnacht")
+    assert dunkel.preise == {"Display DE": 180, "Display JP": 90}
+    assert titel(umgebung)[-1] == "💶 Maximalpreis für Dunkelnacht – Display (JP): 90,00 €"
+
+
+def test_chase_preis_setzen_und_aufheben(umgebung):
+    vorher = umgebung["config"].read_text(encoding="utf-8")
+    start.main(["max-preis", "--name", "Dunkelnacht", "--produkt", "Display", "--sprache", "DE", "--preis", "180"])
+    assert start.main(["chase-preis", "--name", "Dunkelnacht", "--produkt", "Display", "--sprache", "DE",
+                       "--preis", "150"]) == 0
+    dunkel = next(p for p in lade_einstellungen(umgebung["config"]).watchlist if p.name == "Dunkelnacht")
+    assert dunkel.chase == {"Display DE": 150}
+    assert titel(umgebung)[-1] == "🚨 Chasepreis für Dunkelnacht – Display (DE): 150,00 €"
+    zeilen = umgebung["config"].read_text(encoding="utf-8").splitlines()
+    i = zeilen.index('  - name: "Dunkelnacht"')
+    assert zeilen[i + 1:i + 5] == ["    preise:", "      Display DE: 180", "    chase:", "      Display DE: 150"]
+    text = umgebung["gesendet"][-1]["embeds"][0]["description"]
+    assert "Maximalpreis: Display DE 180,00 € | 🚨 Chase: Display DE 150,00 €" in text
+    # Beides wieder weg → config.yaml wie vorher
+    start.main(["chase-preis", "--name", "Dunkelnacht", "--produkt", "Display", "--sprache", "DE", "--preis", "aus"])
+    start.main(["max-preis", "--name", "Dunkelnacht", "--produkt", "Display", "--sprache", "DE", "--preis", "aus"])
+    assert umgebung["config"].read_text(encoding="utf-8") == vorher
+
+
+def test_chase_preis_braucht_ein_produkt(umgebung):
+    vorher = umgebung["config"].read_text(encoding="utf-8")
+    assert start.main(["chase-preis", "--name", "Dunkelnacht", "--produkt", "ganzes Set", "--preis", "150"]) == 1
+    assert start.main(["max-preis", "--name", "Dunkelnacht", "--sprache", "DE", "--preis", "150"]) == 1
+    assert start.main(["max-preis", "--name", "Dunkelnacht", "--produkt", "Display", "--sprache", "FR",
+                       "--preis", "150"]) == 1
+    assert umgebung["config"].read_text(encoding="utf-8") == vorher
+    assert titel(umgebung) == ["❌ chase-preis hat nicht geklappt", "❌ max-preis hat nicht geklappt",
+                               "❌ max-preis hat nicht geklappt"]

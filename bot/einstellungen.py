@@ -23,6 +23,10 @@ ERLAUBTE_SPRACHEN = ("DE", "EN", "JP", "egal")
 RUHEZEIT_MUSTER = re.compile(r"^([01]\d|2[0-3]):[0-5]\d-([01]\d|2[0-3]):[0-5]\d$")
 
 
+# Felder von Regeln, die man NICHT direkt in config.yaml setzen kann
+NICHT_EINSTELLBAR = {"chase_preis"}
+
+
 class ConfigFehler(Exception):
     """Etwas in config.yaml stimmt nicht. Die Meldung erklärt, was."""
 
@@ -50,6 +54,7 @@ class Regeln:
     ruhezeit: str | None = None
     in_ruhezeit_nur_dringend: bool = True
     preissturz_prozent: float | None = 10
+    chase_preis: float | None = None  # kommt aus „chase:“ beim Set (nicht direkt einstellbar)
 
 
 @dataclass
@@ -64,7 +69,8 @@ class Produkt:
     links: list[str]
     regeln: Regeln
     suche: list[str] = field(default_factory=list)
-    preise: dict[str, float] = field(default_factory=dict)  # Maximalpreis je Produktart, z. B. {"Display": 180}
+    preise: dict[str, float] = field(default_factory=dict)  # Maximalpreis je Produkt, z. B. {"Display DE": 180}
+    chase: dict[str, float] = field(default_factory=dict)   # Chasepreis je Produkt → 🚨-Sonderping
 
 
 @dataclass
@@ -209,7 +215,7 @@ def _lese_regeln(daten, bereich: str, basis: Regeln | None = None) -> Regeln:
     """Liest Regeln. Was fehlt, kommt aus 'basis' (bei Produkten: den Standard-Regeln)."""
     daten = _abschnitt(daten, bereich)
     standard = basis or Regeln()
-    _nur_bekannte(daten, set(vars(standard)), bereich)
+    _nur_bekannte(daten, set(vars(standard)) - NICHT_EINSTELLBAR, bereich)
 
     # Welche Status sollen einen Ping auslösen?
     roh_status = daten.get("ping_bei_status", [s.value for s in standard.ping_bei_status])
@@ -297,12 +303,12 @@ def _name(eintrag: dict, wo: str) -> str:
 def _lese_watchlist(daten, standard_regeln: Regeln) -> list[Produkt]:
     if not isinstance(daten, list) or not all(isinstance(p, dict) for p in daten):
         raise ConfigFehler("'watchlist' muss eine Liste von Produkten sein (jedes beginnt mit '- name: ').")
-    regel_felder = set(vars(standard_regeln))
+    regel_felder = set(vars(standard_regeln)) - NICHT_EINSTELLBAR
     produkte = []
     for nr, eintrag in enumerate(daten, start=1):
         name = _name(eintrag, f"Produkt Nr. {nr} der watchlist")
         wo = f"watchlist '{name}'"
-        _nur_bekannte(eintrag, {"name", "links", "suche", "preise"} | regel_felder, wo)
+        _nur_bekannte(eintrag, {"name", "links", "suche", "preise", "chase"} | regel_felder, wo)
         links = eintrag.get("links") or []
         suche = eintrag.get("suche") or []
         if not isinstance(links, list) or not isinstance(suche, list) or not (links or suche):
@@ -319,26 +325,29 @@ def _lese_watchlist(daten, standard_regeln: Regeln) -> list[Produkt]:
             links=[_link(link, wo) for link in links],
             regeln=_lese_regeln(eigene_regeln, wo, basis=standard_regeln),
             suche=[str(s).strip() for s in suche],
-            preise=_lese_preise(eintrag.get("preise"), wo),
+            preise=_lese_preise(eintrag.get("preise"), wo, "preise"),
+            chase=_lese_preise(eintrag.get("chase"), wo, "chase"),
         ))
     return produkte
 
 
-def _lese_preise(daten, wo: str) -> dict[str, float]:
-    """Maximalpreise je Produktart, z. B.  preise: {Display: 180, Top-Trainer-Box: 60}"""
-    from bot.produkte import ARTEN, art_aus_eingabe  # hier, weil produkte.py diese Datei nutzt
+def _lese_preise(daten, wo: str, abschnitt: str) -> dict[str, float]:
+    """Preise je Produkt, z. B.  preise: {Display DE: 180, Top-Trainer-Box: 60, Poster Kollektion EN: 50}"""
+    from bot.produkte import ARTEN, preis_schluessel  # hier, weil produkte.py diese Datei nutzt
 
     if daten is None:
         return {}
     if not isinstance(daten, dict):
-        raise ConfigFehler(f"{wo}: 'preise' muss so aussehen:  preise:  (neue Zeile)  Display: 180")
+        raise ConfigFehler(f"{wo}: '{abschnitt}' muss so aussehen:  {abschnitt}:  (neue Zeile)  Display DE: 180")
     preise = {}
     for schluessel, wert in daten.items():
-        art = art_aus_eingabe(str(schluessel))
-        if art is None:
-            raise ConfigFehler(f"{wo}: Unbekannte Produktart '{schluessel}' bei 'preise'. "
-                               f"Möglich sind: {', '.join(ARTEN)}")
-        preise[art] = _zahl(wert, f"preise → {schluessel}", wo, minimum=0.01)
+        s = preis_schluessel(str(schluessel))
+        if s is None:
+            raise ConfigFehler(f"{wo}: Unbekanntes Produkt '{schluessel}' bei '{abschnitt}'. Es muss eine "
+                               f"Produktart enthalten ({', '.join(ARTEN)}), optional mit Sprache DE/EN/JP am Ende.")
+        # Einfache Schlüssel einheitlich schreiben („ttb en“ → „Top-Trainer-Box EN“), eigene Namen so lassen
+        preise[str(schluessel).strip() if s.woerter else s.text] = _zahl(wert, f"{abschnitt} → {schluessel}", wo,
+                                                                         minimum=0.01)
     return preise
 
 
