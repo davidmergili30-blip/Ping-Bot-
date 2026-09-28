@@ -1,0 +1,5616 @@
+{
+ "abrufe": [
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=30+Jahre&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 1769396
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=30+Jahre&af=100&seite=2",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 1060316
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=30th+Celebration&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 338210
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=30+Jahre&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 1405559
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=30+Jahre&af=50&seite=2",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 1361630
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=30+Jahre&af=50&seite=3",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 1339836
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=30th+Celebration&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 954101
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Dunkelnacht&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 1744007
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Dunkelnacht&af=100&seite=2",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 681833
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Pitch+Black&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 406472
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Abyss+Eye&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 516509
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Dunkelnacht&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 783111
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Pitch+Black&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 751680
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Abyss+Eye&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 771506
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Erhabene+Helden&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 1779795
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Erhabene+Helden&af=100&seite=2",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 1781451
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Erhabene+Helden&af=100&seite=3",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 1784364
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Ascended+Heroes&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 338199
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Erhabene+Helden&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 837876
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Ascended+Heroes&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 824348
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Wachsendes+Chaos&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 1776860
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Wachsendes+Chaos&af=100&seite=2",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 725285
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Chaos+Rising&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 451214
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Ninja+Spinner&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 373564
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Wachsendes+Chaos&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 784604
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Chaos+Rising&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 766079
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Ninja+Spinner&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 696726
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Fatale+Flammen&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 1767571
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Fatale+Flammen&af=100&seite=2",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 856029
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Phantasmal+Flames&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 487808
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Inferno+X&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 1538399
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Fatale+Flammen&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 874092
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Phantasmal+Flames&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 895129
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Inferno+X&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 662216
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Optimale+Ordnung&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 417676
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Perfect+Order&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 501358
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/?suche=Nihil+Zero&af=100",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 371147
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Optimale+Ordnung&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 812278
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Perfect+Order&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 807857
+  },
+  {
+   "url": "https://www.card-corner.de/?suche=Nihil+Zero&af=50",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 744414
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 755498
+  },
+  {
+   "url": "https://www.card-corner.de/Neu-Eingetroffen",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 923045
+  },
+  {
+   "url": "https://games-island.eu/c/Pokemon/Tins",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 40508
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Mega-Evolution-Pitch-Black-Display-36-Booster-englisch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 418662
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Display-sealed-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 419196
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Piepi-Endivie-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 418877
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Riolu-Flampion-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 418988
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Togepi-Karnimani-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 418991
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Zorua-Urgldeutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 418877
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Erhabene-Helden-Tech-Sticker-Kollektion-Glumanda-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 420366
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Evolution-Chaos-Rising-Display-36-Booster-englisch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 418529
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Fatale-Flammen-Display-36-Booster-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 419229
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Fatale-Flammen-Top-Trainer-Box-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 422974
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Optimale-Ordnung-Booster-Bundle-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 419571
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Optimale-Ordnung-Display-36-Booster-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 422361
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Booster-Bundle-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 404379
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Ditto-Premium-Kollektion-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 404663
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Feelinara-ex-Kollektion-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 403377
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mew-Figuren-Kollektion-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 404585
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mewtu-Figuren-Kollektion-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 404142
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Display-sealed-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 404442
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Lapras-Famieps-Driftlon-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 405007
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Lavados-Arktos-deutsch",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 404404
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Pitch-Black-Booster-Bundle",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 738507
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Pitch-Black-Pokemon-Center-ETB",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 737971
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Pitch-Black-Elite-Trainer-Box",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 749415
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ascended-Heroes-Elite-Trainer-Box",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 789725
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Chaos-Rising-Elite-Trainer-Box",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 771221
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Chaos-Rising-Booster-Bundle",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 738757
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Chaos-Rising-Display",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 761603
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ninja-Spinner-M4-Display",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 768925
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Inferno-X-M2-Display",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 807211
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Perfect-Order-Elite-Trainer-Box",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 755852
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Nihil-Zero-M3-Display",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 797784
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Booster-Bundle",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 692285
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Ditto-Premium-Kollektion",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 701738
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-EX-Kollektion",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 714743
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Figuren-Kollektion",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 716292
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Mini-Tin",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 707273
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Ordner-Kollektion",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 699983
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Poster-Kollektion",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 707531
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Tech-Sticker-Kollektion",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 710356
+  },
+  {
+   "url": "https://www.mydealz.de/rss/gruppe/pokemon",
+   "http": 200,
+   "problem": null,
+   "gesperrt": false,
+   "laenge": 80734
+  }
+ ],
+ "listen_produkte": [
+  {
+   "url": "https://www.card-corner.de/Abyss-Eye-M5-Einzelkarten-Japanisch",
+   "shop": "Card-Corner",
+   "titel": "Abyss Eye (M5) Einzelkarten (Japanisch)",
+   "status": "BESTELLBAR",
+   "preis": 9.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Abyss Eye"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Card-Corner-Pokemon-Mystery-Box-Ass-Trainer-Edition",
+   "shop": "Card-Corner",
+   "titel": "Card-Corner Pokemon Mystery Box Ass-Trainer Edition",
+   "status": "BESTELLBAR",
+   "preis": 399.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Card-Corner-Pokemon-Mystery-Box-Starter-Edition",
+   "shop": "Card-Corner",
+   "titel": "Card-Corner Pokemon Mystery Box Starter Edition",
+   "status": "BESTELLBAR",
+   "preis": 64.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Card-Corner-Pokemon-Mystery-Box-Trainer-Edition",
+   "shop": "Card-Corner",
+   "titel": "Card-Corner Pokemon Mystery Box Trainer Edition",
+   "status": "BESTELLBAR",
+   "preis": 149.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Inferno-X-M2-Einzelkarten-Japanisch",
+   "shop": "Card-Corner",
+   "titel": "Inferno X (M2) Einzelkarten (Japanisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 16.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Inferno X"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Nihil-Zero-M3-Einzelkarten-Japanisch",
+   "shop": "Card-Corner",
+   "titel": "Nihil Zero (M3) Einzelkarten (Japanisch)",
+   "status": "BESTELLBAR",
+   "preis": 7.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Nihil Zero"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Ninja-Spinner-M4-Einzelkarten-Japanisch",
+   "shop": "Card-Corner",
+   "titel": "Ninja Spinner (M4) Einzelkarten (Japanisch)",
+   "status": "BESTELLBAR",
+   "preis": 4.49,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Ninja Spinner"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Booster Bundle",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Ditto-Premium-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Ditto Premium Kollektion",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-EX-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre EX Kollektion",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Figuren-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Figuren Kollektion",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Kampfdeck",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Kampfdeck",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Mini-Tin",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Mini Tin",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Ordner-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Ordner Kollektion",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Poster-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Poster Kollektion",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Tech-Sticker-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Tech Sticker Kollektion",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Tin-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Tin Box",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Top-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Top Trainer Box",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Ultra-Premium-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Ultra Premium Kollektion",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-M6a-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration (M6a) Display",
+   "status": "AUSVERKAUFT",
+   "preis": 177.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30th Celebration",
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-2-Pack-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration 2-Pack Blister",
+   "status": "AUSVERKAUFT",
+   "preis": 29.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Battle-Deck",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Battle Deck",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Binder-Collection",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Binder Collection",
+   "status": "AUSVERKAUFT",
+   "preis": 74.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Booster-Japanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Booster (Japanisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 9.49,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Booster-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Booster (Koreanisch)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30th Celebration",
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Booster Bundle",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Card-Set-JP",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Card Set (JP)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Collection-Futuristic-Box-JP",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Collection Futuristic Box (JP)",
+   "status": "AUSVERKAUFT",
+   "preis": 399.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Display (Koreanisch)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30th Celebration",
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Ditto-Premium-Collection",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Ditto Premium Collection",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-EX-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration EX Box",
+   "status": "AUSVERKAUFT",
+   "preis": 59.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Elite-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Elite Trainer Box",
+   "status": "AUSVERKAUFT",
+   "preis": 159.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Figure-Collection",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Figure Collection",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Knock-Out-Collection",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Knock Out Collection",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Mini-Tin",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Mini Tin",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Poster-Collection",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Poster Collection",
+   "status": "AUSVERKAUFT",
+   "preis": 44.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Premium-Deck-Espeon-Umbreon-JP",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Premium Deck Espeon & Umbreon (JP)",
+   "status": "AUSVERKAUFT",
+   "preis": 174.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30th Celebration",
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Tech-Sticker-Collection",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Tech Sticker Collection",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Tin-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Tin Box",
+   "status": "AUSVERKAUFT",
+   "preis": 54.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30th-Celebration-Ultra-Premium-Collection",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30th Celebration Ultra Premium Collection",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30th Celebration"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Abyss-Eye-M5-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Abyss Eye (M5) Display",
+   "status": "AUSVERKAUFT",
+   "preis": 68.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Abyss Eye"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Abyss-Eye-Booster-Japanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Abyss Eye Booster (Japanisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 2.79,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Abyss Eye"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Abyss-Eye-Booster-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Abyss Eye Booster (Koreanisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 1.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Abyss Eye"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Abyss-Eye-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Abyss Eye Display (Koreanisch)",
+   "status": "BESTELLBAR",
+   "preis": 45.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Abyss Eye",
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ascended-Heroes-2-Pack-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ascended Heroes - 2-Pack Blister",
+   "status": "AUSVERKAUFT",
+   "preis": 34.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Ascended Heroes"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ascended-Heroes-Mini-Tins",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ascended Heroes - Mini Tins",
+   "status": "AUSVERKAUFT",
+   "preis": 29.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Ascended Heroes"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ascended-Heroes-Premium-Poster-Collection",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ascended Heroes - Premium Poster Collection",
+   "status": "AUSVERKAUFT",
+   "preis": 169.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Ascended Heroes"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ascended-Heroes-Tech-Sticker-Collection-Charmander",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ascended Heroes - Tech Sticker Collection - Charmander",
+   "status": "AUSVERKAUFT",
+   "preis": 39.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Ascended Heroes"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ascended-Heroes-Tech-Sticker-Collection-Gastly",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ascended Heroes - Tech Sticker Collection - Gastly",
+   "status": "AUSVERKAUFT",
+   "preis": 44.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Ascended Heroes"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ascended-Heroes-Booster",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ascended Heroes Booster",
+   "status": "AUSVERKAUFT",
+   "preis": 16.49,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Ascended Heroes"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ascended-Heroes-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ascended Heroes Booster Bundle",
+   "status": "AUSVERKAUFT",
+   "preis": 96.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Ascended Heroes"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ascended-Heroes-Deluxe-Pin-Collection",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ascended Heroes Deluxe Pin Collection",
+   "status": "AUSVERKAUFT",
+   "preis": 69.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Ascended Heroes"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ascended-Heroes-Elite-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ascended Heroes Elite Trainer Box",
+   "status": "BESTELLBAR",
+   "preis": 189.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Ascended Heroes"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ascended-Heroes-Mega-EX-Box-Englisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ascended Heroes Mega EX Box (Englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 64.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Ascended Heroes"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ascended-Heroes-Pokemon-Center-ETB",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ascended Heroes Pokemon Center ETB",
+   "status": "AUSVERKAUFT",
+   "preis": 499.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Ascended Heroes"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Black-Bolt-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Black Bolt Display (Koreanisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 56.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Chaos-Rising-3-Pack-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Chaos Rising 3-Pack Blister",
+   "status": "AUSVERKAUFT",
+   "preis": 24.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Chaos Rising"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Chaos-Rising-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Chaos Rising Booster Bundle",
+   "status": "BESTELLBAR",
+   "preis": 41.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Chaos Rising"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Chaos-Rising-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Chaos Rising Display",
+   "status": "BESTELLBAR",
+   "preis": 199.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Chaos Rising"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Chaos-Rising-Elite-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Chaos Rising Elite Trainer Box",
+   "status": "BESTELLBAR",
+   "preis": 79.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Chaos Rising"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Chaos-Rising-Pokemon-Center-ETB",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Chaos Rising Pokemon Center ETB",
+   "status": "AUSVERKAUFT",
+   "preis": 149.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Chaos Rising"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Chaos-Rising-Sleeved-Booster",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Chaos Rising Sleeved Booster",
+   "status": "AUSVERKAUFT",
+   "preis": 7.49,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Chaos Rising"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Dunkelnacht-1-Pack-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Dunkelnacht 1-Pack Blister",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Dunkelnacht"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Dunkelnacht-3-Pack-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Dunkelnacht 3-Pack Blister",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Dunkelnacht"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Dunkelnacht-Booster",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Dunkelnacht Booster",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Dunkelnacht"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Dunkelnacht-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Dunkelnacht Booster Bundle",
+   "status": "AUSVERKAUFT",
+   "preis": 36.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Dunkelnacht"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Dunkelnacht-Checklane-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Dunkelnacht Checklane Blister",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Dunkelnacht"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Dunkelnacht-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Dunkelnacht Display",
+   "status": "AUSVERKAUFT",
+   "preis": 194.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Dunkelnacht"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Dunkelnacht-Premium-Checklane-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Dunkelnacht Premium Checklane Blister",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Dunkelnacht"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Dunkelnacht-Top-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Dunkelnacht Top Trainer Box",
+   "status": "AUSVERKAUFT",
+   "preis": 64.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Dunkelnacht"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Erhabene-Helden-2-Pack-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Erhabene Helden 2-Pack Blister",
+   "status": "AUSVERKAUFT",
+   "preis": 22.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Erhabene-Helden-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Erhabene Helden Booster Bundle",
+   "status": "AUSVERKAUFT",
+   "preis": 67.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Erhabene-Helden-Booster-Bundle-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Erhabene Helden Booster Bundle Display",
+   "status": "AUSVERKAUFT",
+   "preis": 799.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Erhabene-Helden-Deluxe-Pin-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Erhabene Helden Deluxe Pin Kollektion",
+   "status": "AUSVERKAUFT",
+   "preis": 49.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Erhabene-Helden-Mega-EX-Kollektion-Deutsch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Erhabene Helden Mega EX Kollektion (Deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 44.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Erhabene-Helden-Mini-Tin",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Erhabene Helden Mini Tin",
+   "status": "AUSVERKAUFT",
+   "preis": 21.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Erhabene-Helden-Pokemon-Center-Top-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Erhabene Helden Pokemon Center Top Trainer Box",
+   "status": "AUSVERKAUFT",
+   "preis": 179.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Erhabene-Helden-Premium-Poster-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Erhabene Helden Premium Poster Kollektion",
+   "status": "AUSVERKAUFT",
+   "preis": 119.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Erhabene-Helden-Tech-Sticker-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Erhabene Helden Tech Sticker Kollektion",
+   "status": "AUSVERKAUFT",
+   "preis": 32.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Erhabene-Helden-Top-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Erhabene Helden Top Trainer Box",
+   "status": "AUSVERKAUFT",
+   "preis": 129.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Fatale-Flammen-18er-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Fatale Flammen 18er Display",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Fatale-Flammen-3-Pack-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Fatale Flammen 3-Pack Blister",
+   "status": "AUSVERKAUFT",
+   "preis": 26.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Fatale-Flammen-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Fatale Flammen Booster Bundle",
+   "status": "AUSVERKAUFT",
+   "preis": 54.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Fatale-Flammen-Checklane-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Fatale Flammen Checklane Blister",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Fatale-Flammen-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Fatale Flammen Display",
+   "status": "AUSVERKAUFT",
+   "preis": 299.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Fatale-Flammen-Pokemon-Center-TTB",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Fatale Flammen Pokemon Center TTB",
+   "status": "AUSVERKAUFT",
+   "preis": 109.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Fatale-Flammen-Premium-Checklane-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Fatale Flammen Premium Checklane Blister",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Fatale-Flammen-Top-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Fatale Flammen Top Trainer Box",
+   "status": "AUSVERKAUFT",
+   "preis": 79.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Fatale-Flammen-Ultra-Premium-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Fatale Flammen Ultra Premium Kollektion",
+   "status": "AUSVERKAUFT",
+   "preis": 199.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Glaenzendes-Schicksal-Premium-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Glänzendes Schicksal Premium Kollektion",
+   "status": "AUSVERKAUFT",
+   "preis": 99.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Inferno-X-M2-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Inferno X (M2) Display",
+   "status": "BESTELLBAR",
+   "preis": 124.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Inferno X"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Inferno-X-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Inferno X Display (Koreanisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 56.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Inferno X",
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Mega-Brave-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Mega Brave Display (Koreanisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 46.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Mega-Symphonia-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Mega Symphonia Display (Koreanisch)",
+   "status": "BESTELLBAR",
+   "preis": 44.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Night-Wanderer-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Night Wanderer Display (Koreanisch)",
+   "status": "BESTELLBAR",
+   "preis": 43.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Nihil-Zero-M3-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Nihil Zero (M3) Display",
+   "status": "BESTELLBAR",
+   "preis": 63.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Nihil Zero"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Nihil-Zero-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Nihil Zero Display (Koreanisch)",
+   "status": "BESTELLBAR",
+   "preis": 39.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Nihil Zero",
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ninja-Spinner-M4-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ninja Spinner (M4) Display",
+   "status": "BESTELLBAR",
+   "preis": 72.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Ninja Spinner"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ninja-Spinner-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ninja Spinner Display (Koreanisch)",
+   "status": "BESTELLBAR",
+   "preis": 40.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Ninja Spinner",
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Optimale-Ordnung-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Optimale Ordnung Booster Bundle",
+   "status": "AUSVERKAUFT",
+   "preis": 34.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Optimale Ordnung"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Optimale-Ordnung-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Optimale Ordnung Display",
+   "status": "AUSVERKAUFT",
+   "preis": 169.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Optimale Ordnung"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Optimale-Ordnung-Top-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Optimale Ordnung Top Trainer Box",
+   "status": "AUSVERKAUFT",
+   "preis": 59.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Optimale Ordnung"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Paradise-Dragona-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Paradise Dragona Display (Koreanisch)",
+   "status": "BESTELLBAR",
+   "preis": 49.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Perfect-Order-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Perfect Order Display",
+   "status": "AUSVERKAUFT",
+   "preis": 199.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Perfect Order"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Perfect-Order-Elite-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Perfect Order Elite Trainer Box",
+   "status": "BESTELLBAR",
+   "preis": 83.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Perfect Order"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Perfect-Order-Pokemon-Center-ETB",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Perfect Order Pokemon Center ETB",
+   "status": "AUSVERKAUFT",
+   "preis": 139.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Perfect Order"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Phantasmal-Flames-Booster",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Phantasmal Flames - Booster",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Phantasmal-Flames-18er-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Phantasmal Flames 18er Display",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Phantasmal-Flames-3-Pack-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Phantasmal Flames 3-Pack Blister",
+   "status": "AUSVERKAUFT",
+   "preis": 24.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Phantasmal-Flames-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Phantasmal Flames Booster Bundle",
+   "status": "AUSVERKAUFT",
+   "preis": 79.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Phantasmal-Flames-Checklane-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Phantasmal Flames Checklane Blister",
+   "status": "AUSVERKAUFT",
+   "preis": 8.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Phantasmal-Flames-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Phantasmal Flames Display",
+   "status": "AUSVERKAUFT",
+   "preis": 379.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Phantasmal-Flames-Elite-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Phantasmal Flames Elite Trainer Box",
+   "status": "AUSVERKAUFT",
+   "preis": 135.0,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Phantasmal-Flames-Pokemon-Center-ETB",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Phantasmal Flames Pokemon Center ETB",
+   "status": "AUSVERKAUFT",
+   "preis": 339.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Phantasmal-Flames-Premium-Checklane-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Phantasmal Flames Premium Checklane Blister",
+   "status": "AUSVERKAUFT",
+   "preis": 9.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Phantasmal-Flames-Sleeved-Booster",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Phantasmal Flames Sleeved Booster",
+   "status": "AUSVERKAUFT",
+   "preis": 7.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Phantasmal-Flames-UPC-Promos",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Phantasmal Flames UPC Promos",
+   "status": "AUSVERKAUFT",
+   "preis": 59.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Phantasmal-Flames-Ultra-Premium-Collection",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Phantasmal Flames Ultra Premium Collection",
+   "status": "AUSVERKAUFT",
+   "preis": 249.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Pitch-Black-1-Pack-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Pitch Black 1-Pack Blister",
+   "status": "BESTELLBAR",
+   "preis": 9.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Pitch Black"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Pitch-Black-3-Pack-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Pitch Black 3-Pack Blister",
+   "status": "BESTELLBAR",
+   "preis": 24.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Pitch Black"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Pitch-Black-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Pitch Black Booster Bundle",
+   "status": "BESTELLBAR",
+   "preis": 41.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Pitch Black"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Pitch-Black-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Pitch Black Display",
+   "status": "AUSVERKAUFT",
+   "preis": 199.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Pitch Black"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Pitch-Black-Elite-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Pitch Black Elite Trainer Box",
+   "status": "BESTELLBAR",
+   "preis": 79.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Pitch Black"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Pitch-Black-Pokemon-Center-ETB",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Pitch Black Pokemon Center ETB",
+   "status": "BESTELLBAR",
+   "preis": 159.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Pitch Black"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Pitch-Black-Sleeved-Booster",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Pitch Black Sleeved Booster",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Pitch Black"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Storm-Emeralda-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Storm Emeralda Display (Koreanisch)",
+   "status": "BESTELLBAR",
+   "preis": 59.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Terastal-Festival-EX-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Terastal Festival EX Display (Koreanisch)",
+   "status": "BESTELLBAR",
+   "preis": 74.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Wachsendes-Chaos-3-Pack-Blister",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Wachsendes Chaos 3-Pack Blister",
+   "status": "AUSVERKAUFT",
+   "preis": 21.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Wachsendes Chaos"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Wachsendes-Chaos-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Wachsendes Chaos Booster Bundle",
+   "status": "AUSVERKAUFT",
+   "preis": 34.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Wachsendes Chaos"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Wachsendes-Chaos-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Wachsendes Chaos Display",
+   "status": "AUSVERKAUFT",
+   "preis": 169.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Wachsendes Chaos"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Wachsendes-Chaos-Top-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Wachsendes Chaos Top Trainer Box",
+   "status": "AUSVERKAUFT",
+   "preis": 59.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Wachsendes Chaos"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-White-Flare-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon White Flare Display (Koreanisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 58.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Wild-Force-Display-Koreanisch",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Wild Force Display (Koreanisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 45.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.card-corner.de/Neu-Eingetroffen"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-GO-Tin-Englisch-Blissey",
+   "shop": "Games Island",
+   "titel": "Pokemon GO Tin - Englisch - Blissey",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-GO-Tin-Englisch-Pikachu",
+   "shop": "Games Island",
+   "titel": "Pokemon GO Tin - Englisch - Pikachu",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-GO-Tin-Englisch-Set-alle-3-Tins",
+   "shop": "Games Island",
+   "titel": "Pokemon GO Tin - Englisch - Set (alle 3 Tins)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-GO-Tin-Englisch-Snorlax",
+   "shop": "Games Island",
+   "titel": "Pokemon GO Tin - Englisch - Snorlax",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-Glaenzendes-Schicksal-Mini-Tin-Set-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon Glänzendes Schicksal Mini-Tin Set (Deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Azur-Legenden-Tins-Deutsch-Xerneas-EX",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Azur-Legenden Tins - Deutsch - Xerneas EX",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Azure-Legends-ex-Tin-Box-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Azure Legends ex Tin Box - Englisch -",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Azure-Legends-ex-Tin-Box-Englisch-Dialga-ex",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Azure Legends ex Tin Box - Englisch - Dialga ex",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Azure-Legends-ex-Tin-Box-Englisch-Display-jede-Tin-2x",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Azure Legends ex Tin Box - Englisch - Display (jede Tin 2x)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Azure-Legends-ex-Tin-Box-Englisch-Kyogre-ex",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Azure Legends ex Tin Box - Englisch - Kyogre ex",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Azure-Legends-ex-Tin-Box-Englisch-Set-alle-3-Tins",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Azure Legends ex Tin Box - Englisch - Set (alle 3 Tins)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Azure-Legends-ex-Tin-Box-Englisch-Xerneas-ex",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Azure Legends ex Tin Box - Englisch - Xerneas ex",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Crown-Zenith-Mini-Tin-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Crown Zenith Mini-Tin - Englisch -",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Crown-Zenith-Mini-Tin-Englisch-Display-jede-Tin-2x",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Crown Zenith Mini-Tin - Englisch - Display (jede Tin 2x)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Crown-Zenith-Mini-Tin-Englisch-Set-jede-Tin-1x",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Crown Zenith Mini-Tin - Englisch - Set (jede Tin 1x)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Crown-Zenith-Tin-Box-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Crown Zenith Tin Box - Englisch -",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Crown-Zenith-Tin-Box-Englisch-Articuno",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Crown Zenith Tin Box - Englisch - Articuno",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Crown-Zenith-Tin-Box-Englisch-Moltres",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Crown Zenith Tin Box - Englisch - Moltres",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Crown-Zenith-Tin-Box-Englisch-Set-alle-3-Tins",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Crown Zenith Tin Box - Englisch - Set (alle 3 Tins)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Crown-Zenith-Tin-Box-Englisch-Zapdos",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Crown Zenith Tin Box - Englisch - Zapdos",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Fruehling-2025-Stapel-Tins-Deutsch-Set-alle-3-Tins",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Frühling 2025 Stapel Tins - Deutsch - Set (alle 3 Tins)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Illumina-City-Mini-Tin-Display-10-Tins-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Illumina City Mini Tin Display (10 Tins) - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Illumina-City-Mini-Tin-Display-10-Tins-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Illumina City Mini Tin Display (10 Tins) - Englisch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Karmesin-Purpur-105-Schwarze-Blitze-Weisse-Flammen-Mini-Tin-Display-8-Tins-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Karmesin & Purpur 10.5: Schwarze Blitze & Weiße Flammen Mini Tin Display (8 Tins) - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Karmesin-Purpur-85-Prismatische-Entwicklungen-Mini-Tin-Display-8-Tins-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Karmesin & Purpur 8.5: Prismatische Entwicklungen Mini Tin Display (8 Tins) - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Evolution-025-Ascended-Heroes-Mini-Tin-Display-10-Tins-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega Evolution 02.5: Ascended Heroes Mini Tin Display (10 Tins) - Englisch",
+   "status": "BESTELLBAR",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Evolution-Mega-Charizard-X-EX-Tin-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega Evolution: Mega Charizard X EX Tin - Englisch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Evolution-Mega-Charizard-Y-EX-Tin-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega Evolution: Mega Charizard Y EX Tin - Englisch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Evolution-Mini-Tin-Display-10-Tins-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega Evolution: Mini Tin Display (10 Tins) - Englisch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Moonlight-Mega-Gengar-EX-Tin-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega Moonlight - Mega Gengar EX Tin - Englisch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Moonlight-Mega-Pixi-EX-Tin-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega Moonlight - Mega Pixi EX Tin - Englisch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Entwicklung-025-Erhabene-Helden-Mini-Tin-Display-10-Tins-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega-Entwicklung 02.5: Erhabene Helden Mini Tin Display (10 Tins) - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Entwicklung-03-Optimale-Ordnung-Mega-Mondschein-Mega-Gengar-EX-Tin-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega-Entwicklung 03: Optimale Ordnung Mega Mondschein Mega-Gengar EX Tin - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Entwicklung-03-Optimale-Ordnung-Mega-Mondschein-Mega-Pixi-EX-Tin-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega-Entwicklung 03: Optimale Ordnung Mega Mondschein Mega-Pixi EX Tin - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Entwicklung-Mega-Glurak-X-EX-Tin-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega-Entwicklung: Mega Glurak X EX Tin - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Entwicklung-Mega-Glurak-Y-EX-Tin-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega-Entwicklung: Mega Glurak Y EX Tin - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Entwicklung-Mega-Darkrai-EX-Tin-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega-Entwicklung: Mega-Darkrai EX Tin - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Entwicklung-Mega-Dragoran-EX-Tin-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega-Entwicklung: Mega-Dragoran EX Tin - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Entwicklung-Mega-Zeraora-EX-Tin-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Mega-Entwicklung: Mega-Zeraora EX Tin - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Paldea-Partners-Tins-Englisch-Set-alle-3-Tins",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Paldea Partners Tins - Englisch - Set (alle 3 Tins)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Paldea-Legenden-Tins-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Paldea-Legenden Tins - Deutsch -",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Paldea-Legenden-Tins-Deutsch-Miraidon-EX",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Paldea-Legenden Tins - Deutsch - Miraidon EX",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Paldea-Legenden-Tins-Deutsch-Set-beide-Tins",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Paldea-Legenden Tins - Deutsch - Set (beide Tins)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Paradoxclash-Tins-Deutsch-Eisenblatt-EX",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Paradoxclash Tins - Deutsch - Eisenblatt EX",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Pokeball-Tin-Herbst-2025-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Pokeball Tin Herbst 2025 - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Pokeball-Tins-Fall-2025-Display-6-Tins-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Pokeball Tins Fall 2025 Display (6 Tins) - Englisch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Pokeball-Tins-Herbst-2024-Display-6-Tins-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Pokeball Tins Herbst 2024 Display (6 Tins) - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Pokeball-Tins-Herbst-2025-Display-6-Tins-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Pokeball Tins Herbst 2025 Display (6 Tins) - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Scarlet-Violet-105-Black-Bolt-White-Flair-Mini-Tin-1x-zufaellig-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Scarlet & Violet 10.5: Black Bolt & White Flair Mini Tin - 1x zufällig - Englisch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Scarlet-Violet-105-Black-Bolt-White-Flare-Mini-Tin-Display-8-Tins-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Scarlet & Violet 10.5: Black Bolt & White Flare Mini Tin Display (8 Tins) - Englisch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Scarlet-Violet-45-Paldean-Fates-Mini-Tin-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Scarlet & Violet 4.5: Paldean Fates Mini-Tin - Englisch -",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Scarlet-Violet-45-Paldean-Fates-Mini-Tin-Englisch-Display-jede-Tin-2x",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Scarlet & Violet 4.5: Paldean Fates Mini-Tin - Englisch - Display (jede Tin 2x)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Scarlet-Violet-45-Paldean-Fates-Mini-Tin-Englisch-Set-jede-Tin-1x",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Scarlet & Violet 4.5: Paldean Fates Mini-Tin - Englisch - Set (jede Tin 1x)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Scarlet-Violet-85-Prismatic-Evolutions-Mini-Tin-Englisch-1-zufaellige-Tin",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Scarlet & Violet 8.5: Prismatic Evolutions Mini Tin - Englisch - 1 zufällige Tin",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Scarlet-Violet-85-Prismatic-Evolutions-Mini-Tin-Display-8-Tins-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Scarlet & Violet 8.5: Prismatic Evolutions Mini Tin Display (8 Tins) Englisch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Scarlet-Violet-85-Prismatic-Evolutions-Mini-Tin-Set-8-Tins-Englisch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Scarlet & Violet 8.5: Prismatic Evolutions Mini Tin Set (8 Tins) - Englisch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Slashing-Legends-Tin-Englisch-Zacian-ex",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Slashing Legends Tin - Englisch - Zacian ex",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Slashing-Legends-Tins-Deutsch-Zacian-EX",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Slashing Legends Tins - Deutsch - Zacian EX",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Team-Rockets-Tin-Detusch-Snobilikat-EX",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Team Rockets Tin - Detusch - Snobilikat EX",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Zacian-EX-Tin-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG - Zacian EX Tin - Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Mega-Entwicklung-Mini-Tin-Display-10-Tins-Deutsch",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG – Mega-Entwicklung – Mini Tin Display (10 Tins) – Deutsch",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Team-Rockets-Tin-Deutsch-Mewtu-EX",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG – Team Rockets Tin – Deutsch – Mewtu EX",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Team-Rockets-Tin-Deutsch-Nidoking-EX",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG – Team Rockets Tin – Deutsch – Nidoking EX",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Team-Rockets-Tin-Englisch-Mewtwo-EX",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG – Team Rockets Tin – Englisch – Mewtwo EX",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Team-Rockets-Tin-Englisch-Nidoking-EX",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG – Team Rockets Tin – Englisch – Nidoking EX",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Team-Rockets-Tin-Englisch-Persian-EX",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG – Team Rockets Tin – Englisch – Persian EX",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://games-island.eu/Pokemon-TCG-Team-Rockets-Tin-Englisch-Set-alle-3-Tins",
+   "shop": "Games Island",
+   "titel": "Pokemon TCG – Team Rockets Tin – Englisch – Set (alle 3 Tins)",
+   "status": "AUSVERKAUFT",
+   "preis": null,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://games-island.eu/c/Pokemon/Tins"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Pokemon-Lego-Aktionsbundle-1",
+   "shop": "Gate to the Games",
+   "titel": "30 Jahre Pokemon & Lego Aktionsbundle 1",
+   "status": "AUSVERKAUFT",
+   "preis": 254.98,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Pokemon-Lego-Aktionsbundle-2",
+   "shop": "Gate to the Games",
+   "titel": "30 Jahre Pokemon & Lego Aktionsbundle 2",
+   "status": "AUSVERKAUFT",
+   "preis": 72.98,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Evolution-Perfect-Order-3-Pack-Blister-Chikorita-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega Evolution Perfect Order 3-Pack Blister - Chikorita (englisch)",
+   "status": "BESTELLBAR",
+   "preis": 24.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Perfect Order"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Evolution-Perfect-Order-Booster-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega Evolution Perfect Order Booster (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 6.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Perfect Order"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Evolution-Perfect-Order-Booster-Bundle-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega Evolution Perfect Order Booster Bundle (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 49.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Perfect Order"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Evolution-Perfect-Order-Checklane-Blister-Cinderace-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega Evolution Perfect Order Checklane Blister - Cinderace (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 8.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Perfect Order"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Evolution-Perfect-Order-Checklane-Blister-Makuhita-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega Evolution Perfect Order Checklane Blister - Makuhita (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 7.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Perfect Order"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Evolution-Perfect-Order-Checklane-Blister-Meganium-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega Evolution Perfect Order Checklane Blister - Meganium (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 8.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Perfect Order"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Evolution-Perfect-Order-Display-36-Booster-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega Evolution Perfect Order Display (36 Booster) (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 219.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Perfect Order"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Evolution-Perfect-Order-Elite-Trainer-Box-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega Evolution Perfect Order Elite Trainer Box (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 79.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Perfect Order"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Evolution-Phantasmal-Flames-Booster-Bundle-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega Evolution Phantasmal Flames Booster Bundle (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 49.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Mega-Evolution-Pitch-Black-Display-36-Booster-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega Evolution Pitch Black Display (36 Booster) (englisch)",
+   "status": "BESTELLBAR",
+   "preis": 249.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Pitch Black"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-3-Pack-Blister-Jurob-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Delta Herrschaft 3-Pack Blister - Jurob (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Delta Herrschaft Booster (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 5.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Booster-Bundle-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Delta Herrschaft Booster Bundle (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 39.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Display-36-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Delta Herrschaft Display (36 Booster) (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 199.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Delta-Herrschaft-Top-Trainer-Box-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Delta Herrschaft Top Trainer Box (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 79.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Dunkelnacht-3-Pack-Blister-Bithora-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Dunkelnacht 3-Pack Blister - Bithora (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 29.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Dunkelnacht"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Dunkelnacht-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Dunkelnacht Booster (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 6.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Dunkelnacht"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Dunkelnacht-Booster-Bundle-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Dunkelnacht Booster Bundle (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 44.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Dunkelnacht"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Dunkelnacht-Display-36-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Dunkelnacht Display (36 Booster) (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 209.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Dunkelnacht"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Dunkelnacht-Top-Trainer-Box-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Dunkelnacht Top Trainer Box (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 89.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Dunkelnacht"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-2-Pack-Blister-Aokis-Koalelu-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden 2-Pack Blister - Aokis Koalelu (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 24.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-2-Pack-Blister-Erikas-Tangela-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden 2-Pack Blister - Erika's Tangela (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 24.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Erhabene-Helden-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Booster (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 17.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Erhabene-Helden-Booster-Bundle-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Booster Bundle (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 109.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Erhabene-Helden-Deluxe-Pin-Kollektion-Erste-Partner-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Deluxe-Pin-Kollektion - Erste Partner (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 79.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Erhabene-Helden-Mega-Flambirex-EX-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mega-Flambirex-EX Kollektion (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 54.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Erhabene-Helden-Mega-Guardevoir-EX-Premium-Poster-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mega-Guardevoir-EX Premium Poster Kollektion (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 159.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Erhabene-Helden-Mega-Impergator-EX-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mega-Impergator-EX Kollektion (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 54.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Erhabene-Helden-Mega-Lucario-EX-Premium-Poster-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mega-Lucario-EX Premium Poster Kollektion (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 149.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Erhabene-Helden-Mega-Meganie-EX-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mega-Meganie-EX Kollektion (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 54.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Display-sealed-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mini Tin Display sealed (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 349.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Piepi-Endivie-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mini Tin Piepi & Endivie (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 37.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Pikachu-Floink-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mini Tin Pikachu & Floink (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 37.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Riolu-Flampion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mini Tin Riolu & Flampion (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 37.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Togepi-Karnimani-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mini Tin Togepi & Karnimani (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 37.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Zorua-Urgldeutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mini Tin Zorua & Urgl(deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 37.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Erhabene-Helden-Tech-Sticker-Kollektion-Glumanda-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Tech-Sticker-Kollektion - Glumanda (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 44.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Erhabene-Helden-Tech-Sticker-Kollektion-Nebulak-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Tech-Sticker-Kollektion - Nebulak (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 44.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Erhabene-Helden-Top-Trainer-Box-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Top Trainer Box (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 169.95,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Erhabene Helden"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Fatale-Flammen-3-Pack-Blister-Snibunna-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Fatale Flammen 3-Pack Blister - Snibunna (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 19.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Fatale-Flammen-3-Pack-Blister-Sniebel-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Fatale Flammen 3-Pack Blister - Sniebel (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 34.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Fatale-Flammen-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Fatale Flammen Booster (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 12.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Fatale-Flammen-Booster-Bundle-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Fatale Flammen Booster Bundle (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 79.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Fatale-Flammen-Display-36-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Fatale Flammen Display (36 Booster) (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 399.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Fatale-Flammen-Top-Trainer-Box-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Fatale Flammen Top Trainer Box (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 149.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Fatale Flammen"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Optimale-Ordnung-3-Pack-Blister-Endivie-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Optimale Ordnung 3-Pack Blister - Endivie (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Optimale Ordnung"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Optimale-Ordnung-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Optimale Ordnung Booster (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 5.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Optimale Ordnung"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Optimale-Ordnung-Booster-Bundle-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Optimale Ordnung Booster Bundle (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 49.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Optimale Ordnung"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Optimale-Ordnung-Display-36-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Optimale Ordnung Display (36 Booster) (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 219.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Optimale Ordnung"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Optimale-Ordnung-Top-Trainer-Box-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Optimale Ordnung Top Trainer Box (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 89.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Optimale Ordnung"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Wachsendes-Chaos-3-Pack-Blister-Glutexo-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Wachsendes Chaos 3-Pack Blister - Glutexo (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 19.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Wachsendes Chaos"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Wachsendes-Chaos-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Wachsendes Chaos Booster (deutsch)",
+   "status": "BESTELLBAR",
+   "preis": 5.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Wachsendes Chaos"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Wachsendes-Chaos-Booster-Bundle-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Wachsendes Chaos Booster Bundle (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 42.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Wachsendes Chaos"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Wachsendes-Chaos-Display-36-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Wachsendes Chaos Display (36 Booster) (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 199.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Wachsendes Chaos"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Wachsendes-Chaos-Top-Trainer-Box-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Wachsendes Chaos Top Trainer Box (deutsch)",
+   "status": "AUSVERKAUFT",
+   "preis": 89.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Wachsendes Chaos"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Evolution-Chaos-Rising-Booster-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Evolution Chaos Rising Booster (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 6.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Chaos Rising"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Evolution-Chaos-Rising-Display-36-Booster-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Evolution Chaos Rising Display (36 Booster) (englisch)",
+   "status": "BESTELLBAR",
+   "preis": 249.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Chaos Rising"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Phantasmal-Flames-Checklane-Cottonee-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Phantasmal Flames Checklane Cottonee (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 9.95,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Phantasmal-Flames-Checklane-Whimsicott-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Phantasmal Flames Checklane Whimsicott (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 9.95,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Phantasmal-Flames-Expansion-3-Pack-Blister-Sneazel-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Phantasmal Flames Expansion 3-Pack Blister Sneazel (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 29.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Phantasmal-Flames-Expansion-3-Pack-Blister-Weavile-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Phantasmal Flames Expansion 3-Pack Blister Weavile (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 29.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Phantasmal-Flames-Expansion-Booster-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Phantasmal Flames Expansion Booster (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 8.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Phantasmal-Flames-Expansion-Booster-Display-36-Booster-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Phantasmal Flames Expansion Booster Display (36 Booster) (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 299.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Phantasmal-Flames-Expansion-Elite-Trainer-Box-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Phantasmal Flames Expansion Elite Trainer Box (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 129.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Phantasmal-Flames-Expansion-Mega-Venusaur-EX-Premium-Collection-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Phantasmal Flames Expansion Mega Venusaur EX Premium Collection (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 79.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Phantasmal-Flames-Expansion-Premium-Checklane-Blister-Blaziken-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Phantasmal Flames Expansion Premium Checklane Blister Blaziken (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 11.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Phantasmal-Flames-Expansion-Premium-Checklane-Blister-Hydrapple-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Phantasmal Flames Expansion Premium Checklane Blister Hydrapple (englisch)",
+   "status": "AUSVERKAUFT",
+   "preis": 11.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Phantasmal Flames"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-2-Pack-Blister-Evoli-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre 2-Pack Blister - Evoli (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 12.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Booster (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 7.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Booster-Bundle-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Booster Bundle (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 59.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Ditto-Premium-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Ditto Premium-Kollektion (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 49.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Feelinara-ex-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Feelinara-ex Kollektion (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 24.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Feelinara-ex-Tin-Box-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Feelinara-ex Tin Box (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 24.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Kampfdeck-Nachtara-ex-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Kampfdeck Nachtara ex (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 29.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Kampfdeck-Psiana-ex-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Kampfdeck Psiana ex (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 29.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mew-Figuren-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mew Figuren-Kollektion (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 39.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mewtu-Figuren-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mewtu Figuren-Kollektion (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 39.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Display-sealed-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Display sealed (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 199.9,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Lapras-Famieps-Driftlon-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Lapras, Famieps & Driftlon (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Lavados-Arktos-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Lavados & Arktos (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Mew-Alola-Kokowei-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Mew & Alola-Kokowei (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Mewtu-Zurrokex-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Mewtu & Zurrokex (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Nachtara-Alola-Mauzi-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Nachtara & Alola-Mauzi (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Pikachu-Vivillon-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Pikachu & Vivillon (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Psiana-Mauzi-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Psiana & Mauzi (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Quajutsu-Illumise-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Quajutsu & Illumise (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Riffex-Pikachu-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Riffex & Pikachu (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre",
+    "kategorie:https://www.gate-to-the-games.de/Pokemon-Karten/Pokemon-Sammelkarten/"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Zapdos-Hisui-Zorua-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Zapdos & Hisui-Zorua (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Ordner-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Ordner-Kollektion (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 49.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Poster-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Poster-Kollektion (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 49.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Quajutsu-ex-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Quajutsu-ex Kollektion (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 24.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Quajutsu-ex-Tin-Box-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Quajutsu-ex Tin Box (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 24.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Tech-Sticker-Kollektion-Alola-Kokowei-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Tech-Sticker-Kollektion - Alola-Kokowei (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Tech-Sticker-Kollektion-Lucario-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Tech-Sticker-Kollektion - Lucario (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 19.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Top-Trainer-Box-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Top Trainer Box (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 79.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Ultra-Premium-Kollektion-Nacht-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Ultra-Premium-Kollektion Nacht (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 399.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Ultra-Premium-Kollektion-Tag-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Ultra-Premium-Kollektion Tag (deutsch) VORVERKAUF",
+   "status": "AUSVERKAUFT",
+   "preis": 399.99,
+   "liefertermin": null,
+   "passt": true,
+   "quellen": [
+    "suche:30 Jahre"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Japanese-Booster-M2-Inferno-X",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon Japanese Booster / M2 Inferno X",
+   "status": "BESTELLBAR",
+   "preis": 6.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Inferno X"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Japanese-Booster-M3-Nihil-Zero",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon Japanese Booster / M3 Nihil Zero",
+   "status": "AUSVERKAUFT",
+   "preis": 2.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Nihil Zero"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Japanese-Booster-M4-Ninja-Spinner",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon Japanese Booster / M4 Ninja Spinner",
+   "status": "AUSVERKAUFT",
+   "preis": 3.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Ninja Spinner"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Japanese-Booster-M5-Abyss-Eye",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon Japanese Booster / M5 Abyss Eye",
+   "status": "AUSVERKAUFT",
+   "preis": 3.99,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Abyss Eye"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Japanese-Booster-Box-M2-Inferno-X",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon Japanese Booster Box / M2 Inferno X",
+   "status": "BESTELLBAR",
+   "preis": 199.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Inferno X"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Japanese-Booster-Box-M3-Nihil-Zero",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon Japanese Booster Box / M3 Nihil Zero",
+   "status": "AUSVERKAUFT",
+   "preis": 89.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Nihil Zero"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Japanese-Booster-Box-M4-Ninja-Spinner",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon Japanese Booster Box / M4 Ninja Spinner",
+   "status": "BESTELLBAR",
+   "preis": 109.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Ninja Spinner"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Japanese-Booster-Box-M5-Abyss-Eye",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon Japanese Booster Box / M5 Abyss Eye",
+   "status": "BESTELLBAR",
+   "preis": 119.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Abyss Eye"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Ultra-Pro-Pokemon-4-Pocket-Album-Mega-Evolution-Pitch-Black",
+   "shop": "Gate to the Games",
+   "titel": "Ultra Pro - Pokemon 4-Pocket Album - Mega Evolution - Pitch Black",
+   "status": "BESTELLBAR",
+   "preis": 6.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Pitch Black"
+   ]
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Ultra-Pro-Pokemon-9-Pocket-Album-Mega-Evolution-Pitch-Black",
+   "shop": "Gate to the Games",
+   "titel": "Ultra Pro - Pokemon 9-Pocket Album - Mega Evolution - Pitch Black",
+   "status": "BESTELLBAR",
+   "preis": 8.9,
+   "liefertermin": null,
+   "passt": false,
+   "quellen": [
+    "suche:Pitch Black"
+   ]
+  }
+ ],
+ "vergleiche": [
+  {
+   "url": "https://www.gate-to-the-games.de/Mega-Evolution-Pitch-Black-Display-36-Booster-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega Evolution Pitch Black Display (36 Booster) (englisch)",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 249.9,
+   "preis_seite": 249.9,
+   "liefertermin": null,
+   "mengenlimit": 12,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "Sofort verfügbar Lieferzeit: 2 - 3 Werktage Ausland abweichend",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Display-sealed-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mini Tin Display sealed (deutsch)",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 349.99,
+   "preis_seite": 349.99,
+   "liefertermin": null,
+   "mengenlimit": 2,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "Sofort verfügbar Lieferzeit: 2 - 3 Werktage Ausland abweichend",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Piepi-Endivie-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mini Tin Piepi & Endivie (deutsch)",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 37.99,
+   "preis_seite": 37.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "Sofort verfügbar Lieferzeit: 2 - 3 Werktage Ausland abweichend",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Riolu-Flampion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mini Tin Riolu & Flampion (deutsch)",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 37.99,
+   "preis_seite": 37.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "Knapper Lagerbestand Lieferzeit: 2 - 3 Werktage Ausland abweichend",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Togepi-Karnimani-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mini Tin Togepi & Karnimani (deutsch)",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 37.99,
+   "preis_seite": 37.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "Knapper Lagerbestand Lieferzeit: 2 - 3 Werktage Ausland abweichend",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Mega-Entwicklung-Erhabene-Helden-Mini-Tin-Zorua-Urgldeutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Mini Tin Zorua & Urgl(deutsch)",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 37.99,
+   "preis_seite": 37.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "Sofort verfügbar Lieferzeit: 2 - 3 Werktage Ausland abweichend",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Erhabene-Helden-Tech-Sticker-Kollektion-Glumanda-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Erhabene Helden Tech-Sticker-Kollektion - Glumanda (deutsch)",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 44.99,
+   "preis_seite": 44.99,
+   "liefertermin": null,
+   "mengenlimit": 2,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "Knapper Lagerbestand Lieferzeit: 2 - 3 Werktage Ausland abweichend",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Evolution-Chaos-Rising-Display-36-Booster-englisch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Evolution Chaos Rising Display (36 Booster) (englisch)",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 249.9,
+   "preis_seite": 249.9,
+   "liefertermin": null,
+   "mengenlimit": 6,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "Sofort verfügbar Lieferzeit: 2 - 3 Werktage Ausland abweichend",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Fatale-Flammen-Display-36-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Fatale Flammen Display (36 Booster) (deutsch)",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 399.9,
+   "preis_seite": 399.9,
+   "liefertermin": null,
+   "mengenlimit": 2,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "Sofort verfügbar Lieferzeit: 2 - 3 Werktage Ausland abweichend",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Fatale-Flammen-Top-Trainer-Box-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Fatale Flammen Top Trainer Box (deutsch)",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 149.9,
+   "preis_seite": 149.9,
+   "liefertermin": null,
+   "mengenlimit": 2,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "Sofort verfügbar Lieferzeit: 2 - 3 Werktage Ausland abweichend",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Optimale-Ordnung-Booster-Bundle-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Optimale Ordnung Booster Bundle (deutsch)",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 49.9,
+   "preis_seite": 49.9,
+   "liefertermin": null,
+   "mengenlimit": 12,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "Sofort verfügbar Lieferzeit: 2 - 3 Werktage Ausland abweichend",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-Karten-Mega-Entwicklung-Optimale-Ordnung-Display-36-Booster-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Mega-Entwicklung Optimale Ordnung Display (36 Booster) (deutsch)",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 219.9,
+   "preis_seite": 219.9,
+   "liefertermin": null,
+   "mengenlimit": 12,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "Sofort verfügbar Lieferzeit: 2 - 3 Werktage Ausland abweichend",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Booster-Bundle-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Booster Bundle (deutsch) VORVERKAUF",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": 59.9,
+   "preis_seite": 59.9,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": true,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Ditto-Premium-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Ditto Premium-Kollektion (deutsch) VORVERKAUF",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": 49.99,
+   "preis_seite": 49.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": true,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Feelinara-ex-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Feelinara-ex Kollektion (deutsch) VORVERKAUF",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": 24.99,
+   "preis_seite": 24.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": true,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": true,
+    "status_0": true,
+    "lieferstatus_text": "Momentan nicht verfügbar",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mew-Figuren-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mew Figuren-Kollektion (deutsch) VORVERKAUF",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": 39.99,
+   "preis_seite": 39.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": true,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mewtu-Figuren-Kollektion-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mewtu Figuren-Kollektion (deutsch) VORVERKAUF",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": 39.99,
+   "preis_seite": 39.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": true,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Display-sealed-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Display sealed (deutsch) VORVERKAUF",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": 199.9,
+   "preis_seite": 199.9,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": true,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Lapras-Famieps-Driftlon-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Lapras, Famieps & Driftlon (deutsch) VORVERKAUF",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": 19.99,
+   "preis_seite": 19.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": true,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.gate-to-the-games.de/Pokemon-30-Jahre-Mini-Tin-Lavados-Arktos-deutsch",
+   "shop": "Gate to the Games",
+   "titel": "Pokemon 30 Jahre Mini Tin Lavados & Arktos (deutsch) VORVERKAUF",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": 19.99,
+   "preis_seite": 19.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": true,
+    "ribbon_7": true,
+    "status_0": false,
+    "lieferstatus_text": "",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Pitch-Black-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Pitch Black Booster Bundle",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 41.99,
+   "preis_seite": 41.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": false,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Auf Lager Lieferzeit: 1 - 2 Werktage (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Pitch-Black-Pokemon-Center-ETB",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Pitch Black Pokemon Center ETB",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 159.99,
+   "preis_seite": 159.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": false,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Auf Lager Lieferzeit: 1 - 2 Werktage (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Pitch-Black-Elite-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Pitch Black Elite Trainer Box",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 79.99,
+   "preis_seite": 79.99,
+   "liefertermin": null,
+   "mengenlimit": 2,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": false,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Wenig auf Lager Lieferzeit: 1 - 2 Werktage (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ascended-Heroes-Elite-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ascended Heroes Elite Trainer Box",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 189.99,
+   "preis_seite": 189.99,
+   "liefertermin": null,
+   "mengenlimit": 10,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Auf Lager Lieferzeit: 1 - 2 Werktage (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Chaos-Rising-Elite-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Chaos Rising Elite Trainer Box",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 79.99,
+   "preis_seite": 79.99,
+   "liefertermin": null,
+   "mengenlimit": 2,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": false,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Auf Lager Lieferzeit: 1 - 2 Werktage (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Chaos-Rising-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Chaos Rising Booster Bundle",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 41.99,
+   "preis_seite": 41.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": false,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Auf Lager Lieferzeit: 1 - 2 Werktage (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Chaos-Rising-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Chaos Rising Display",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 199.99,
+   "preis_seite": 199.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": false,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Auf Lager Lieferzeit: 1 - 2 Werktage (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Ninja-Spinner-M4-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ninja Spinner (M4) Display",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 72.99,
+   "preis_seite": 72.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": false,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Auf Lager Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Inferno-X-M2-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Inferno X (M2) Display",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 124.99,
+   "preis_seite": 124.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": false,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Auf Lager Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Perfect-Order-Elite-Trainer-Box",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Perfect Order Elite Trainer Box",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 83.99,
+   "preis_seite": 83.99,
+   "liefertermin": null,
+   "mengenlimit": 2,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": false,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": true,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Wenig auf Lager Lieferzeit: 1 - 2 Werktage (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": true
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-Nihil-Zero-M3-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Nihil Zero (M3) Display",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 63.99,
+   "preis_seite": 63.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": false,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Auf Lager Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Booster-Bundle",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Booster Bundle",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": null,
+   "preis_seite": null,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": true,
+    "lieferstatus_text": "Ausverkauft Benachrichtigen wenn verfügbar Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": true,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Ditto-Premium-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Ditto Premium Kollektion",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": null,
+   "preis_seite": null,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": true,
+    "lieferstatus_text": "Ausverkauft Benachrichtigen wenn verfügbar Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": true,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-EX-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre EX Kollektion",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": null,
+   "preis_seite": null,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": true,
+    "lieferstatus_text": "Ausverkauft Benachrichtigen wenn verfügbar Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": true,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Figuren-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Figuren Kollektion",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": null,
+   "preis_seite": null,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": true,
+    "lieferstatus_text": "Ausverkauft Benachrichtigen wenn verfügbar Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": true,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Mini-Tin",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Mini Tin",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": null,
+   "preis_seite": null,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": true,
+    "lieferstatus_text": "Ausverkauft Benachrichtigen wenn verfügbar Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": true,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Ordner-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Ordner Kollektion",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": null,
+   "preis_seite": null,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": true,
+    "lieferstatus_text": "Ausverkauft Benachrichtigen wenn verfügbar Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": true,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Poster-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Poster Kollektion",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": null,
+   "preis_seite": null,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": true,
+    "lieferstatus_text": "Ausverkauft Benachrichtigen wenn verfügbar Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": true,
+    "warenkorb_knopf_aktiv": false
+   }
+  },
+  {
+   "url": "https://www.card-corner.de/Pokemon-30-Jahre-Tech-Sticker-Kollektion",
+   "shop": "Card-Corner",
+   "titel": "Pokemon 30 Jahre Tech Sticker Kollektion",
+   "liste": "AUSVERKAUFT",
+   "produktseite": "AUSVERKAUFT",
+   "preis_liste": null,
+   "preis_seite": null,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": true,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": true,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": true,
+    "lieferstatus_text": "Ausverkauft Benachrichtigen wenn verfügbar Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": true,
+    "warenkorb_knopf_aktiv": false
+   }
+  }
+ ],
+ "feed": {
+  "anzahl": 30,
+  "deals": [
+   {
+    "titel": "[SB Lüning-App Neu-User ab 05.10] Pokemon Erste Partner Kollektion Versch.Ausführungen) für 13€/ Erhabene Helden Megaentwicklung für 24,99€",
+    "haendler": "sb LÜNING",
+    "preis": 13.0,
+    "passt": true,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/sb-luning-app-neukunden-ab-0510-pokemon-erste-partner-kollektion-verschausfuhrungen-fur-13eur-erhabene-helden-megaentwicklung-fur-2499eur-2844340",
+    "link": "https://www.mydealz.de/deals/sb-luning-app-neukunden-ab-0510-pokemon-erste-partner-kollektion-verschausfuhrungen-fur-13eur-erhabene-helden-megaentwicklung-fur-2499eur-2844340"
+   },
+   {
+    "titel": "Pokémon First Partner Illustration Collection Series 2 Englische Edition ohne Einladung / gratis Versand",
+    "haendler": "Netto Marken-Discount",
+    "preis": 37.99,
+    "passt": true,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/pokemon-first-partner-illustration-collection-series-2-englische-edition-ohne-einladung-gratis-versand-2841115",
+    "link": "https://www.mydealz.de/deals/pokemon-first-partner-illustration-collection-series-2-englische-edition-ohne-einladung-gratis-versand-2841115"
+   },
+   {
+    "titel": "[Netto MD Online] 20 € Filialgutschein auf TCG Bestellungen über 200€ (z. B. Pokemon Artikel effektiv leicht unter Marktpreis möglich)",
+    "haendler": "Netto Marken-Discount",
+    "preis": null,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/netto-md-online-20-eur-filialgutschein-auf-tcg-bestellungen-uber-200eur-z-b-pokemon-artikel-effektiv-leicht-unter-marktpreis-moglich-2844259",
+    "link": "https://www.mydealz.de/deals/netto-md-online-20-eur-filialgutschein-auf-tcg-bestellungen-uber-200eur-z-b-pokemon-artikel-effektiv-leicht-unter-marktpreis-moglich-2844259"
+   },
+   {
+    "titel": "LEGO Pokémon Evoli (72151) für 38,99 Euro [Coolblue]",
+    "haendler": "Coolblue",
+    "preis": 38.99,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/lego-pokemon-evoli-72151-fur-3899-euro-coolblue-2844158",
+    "link": "https://www.mydealz.de/deals/lego-pokemon-evoli-72151-fur-3899-euro-coolblue-2844158"
+   },
+   {
+    "titel": "Pokémon Sammelkartenspiel: Mini-Tin Box 30 Jahre | Sammeldeal mit 10 Versionen | Amazon Prime Einladung",
+    "haendler": "Amazon",
+    "preis": 13.99,
+    "passt": true,
+    "einladung": true,
+    "guid": "https://www.mydealz.de/deals/pokemon-sammelkartenspiel-mini-tin-box-30-jahre-sammeldeal-mit-10-versionen-amazon-prime-einladung-2844132",
+    "link": "https://www.mydealz.de/deals/pokemon-sammelkartenspiel-mini-tin-box-30-jahre-sammeldeal-mit-10-versionen-amazon-prime-einladung-2844132"
+   },
+   {
+    "titel": "Ravensburger Pokémon Celebration Journey Puzzle (40320 Teile, 10 Bildsegmente, insgesamt 6.8x1.92m)",
+    "haendler": "Hugendubel",
+    "preis": 343.39,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/ravensburger-pokemon-celebration-journey-puzzle-40320-teile-10-bildsegmente-insgesamt-68x192m-2844113",
+    "link": "https://www.mydealz.de/deals/ravensburger-pokemon-celebration-journey-puzzle-40320-teile-10-bildsegmente-insgesamt-68x192m-2844113"
+   },
+   {
+    "titel": "Pokemon Einladung Booster Bundle 30 jahre",
+    "haendler": "Amazon",
+    "preis": 29.94,
+    "passt": true,
+    "einladung": true,
+    "guid": "https://www.mydealz.de/deals/einladung-booster-budle-30-jahre-2844062",
+    "link": "https://www.mydealz.de/deals/einladung-booster-budle-30-jahre-2844062"
+   },
+   {
+    "titel": "Pokémon-Tonies 4er Bundle – Pikachu, Bisasam, Glumanda und Schiggy Pokemon Tonie 11,95 € je Pokemon-Tonie",
+    "haendler": null,
+    "preis": 51.75,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/pokemon-tonies-4er-bundle-pikachu-bisasam-glumanda-und-schiggy-pokemon-tonie-2843972",
+    "link": "https://www.mydealz.de/deals/pokemon-tonies-4er-bundle-pikachu-bisasam-glumanda-und-schiggy-pokemon-tonie-2843972"
+   },
+   {
+    "titel": "(Sb-Lüning App ab 05.10) Pokémon 30 Jahre Tech-Sticker-Kollektion ab 14€",
+    "haendler": "sb LÜNING",
+    "preis": 14.0,
+    "passt": true,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/sb-luning-app-ab-0310pokemon-30-jahre-tech-sticker-kollektion-ab-14eur-2843878",
+    "link": "https://www.mydealz.de/deals/sb-luning-app-ab-0310pokemon-30-jahre-tech-sticker-kollektion-ab-14eur-2843878"
+   },
+   {
+    "titel": "[Lokal Media Markt Hamburg] Nintendo Switch 2 & Pokémon Pokopia 444€",
+    "haendler": "MediaMarkt",
+    "preis": 444.0,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/lokal-media-markt-hamburg-nintendo-switch-2-pokemon-pokopia-444eur-2843226",
+    "link": "https://www.mydealz.de/deals/lokal-media-markt-hamburg-nintendo-switch-2-pokemon-pokopia-444eur-2843226"
+   },
+   {
+    "titel": "[Lieferando - Mediamarkt Lokal] LEGO Pokémon 72164 SMART Play: Trainingshaus mit Pikachu (mit Lieferando+ nur 31,98€)",
+    "haendler": "Lieferando",
+    "preis": 32.97,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/lieferando-mediamarkt-lokal-lego-pokemon-72164-smart-play-trainingshaus-mit-pikachu-mit-lieferando-nur-3198eur-2842969",
+    "link": "https://www.mydealz.de/deals/lieferando-mediamarkt-lokal-lego-pokemon-72164-smart-play-trainingshaus-mit-pikachu-mit-lieferando-nur-3198eur-2842969"
+   },
+   {
+    "titel": "Vodafone Young GigaKombi: Nintendo Switch 2 & Pokémon Pokopia im Allnet/SMS Flat 60GB 5G für 19,99€/Monat & 1€ | +120€ ohne GK/Young",
+    "haendler": "DEINHANDY",
+    "preis": 407.74,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/vodafone-young-gigakombi-nintendo-switch-2-pokemon-pokopia-im-allnetsms-flat-60gb-5g-fur-1999eurmonat-1eur-120eur-ohne-gkyoung-2834949",
+    "link": "https://www.mydealz.de/deals/vodafone-young-gigakombi-nintendo-switch-2-pokemon-pokopia-im-allnetsms-flat-60gb-5g-fur-1999eurmonat-1eur-120eur-ohne-gkyoung-2834949"
+   },
+   {
+    "titel": "Pokémon Schwert - [Nintendo Switch] 37,69€, Pokémon Schild - [Nintendo Switch] 38,99 €",
+    "haendler": "Joybuy",
+    "preis": 37.69,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/pokemon-schwert-nintendo-switch-3769eur-pokemon-schild-nintendo-switch-3899-eur-2842217",
+    "link": "https://www.mydealz.de/deals/pokemon-schwert-nintendo-switch-3769eur-pokemon-schild-nintendo-switch-3899-eur-2842217"
+   },
+   {
+    "titel": "Pokémon-Legenden: Z-A – Nintendo Switch 2 Edition PEGI",
+    "haendler": "Joybuy",
+    "preis": 29.99,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/pokemon-legenden-z-a-action-adventure-nintendo-switch-2-2842132",
+    "link": "https://www.mydealz.de/deals/pokemon-legenden-z-a-action-adventure-nintendo-switch-2-2842132"
+   },
+   {
+    "titel": "[Prime] CYPBRANDS Pokemon Kugelschreiber, Set mit Pikachu und Evoli",
+    "haendler": "Amazon",
+    "preis": 2.95,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/prime-cypbrands-pokemon-kugelschreiber-set-mit-pikachu-und-evoli-2841854",
+    "link": "https://www.mydealz.de/deals/prime-cypbrands-pokemon-kugelschreiber-set-mit-pikachu-und-evoli-2841854"
+   },
+   {
+    "titel": "Pokemon TCG Live 30th Celebration (30 Jahre) Code kostenlos",
+    "haendler": "Pokémon",
+    "preis": null,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/pokemon-tcg-live-30th-celebration-30-jahre-code-kostenlos-2841272",
+    "link": "https://www.mydealz.de/deals/pokemon-tcg-live-30th-celebration-30-jahre-code-kostenlos-2841272"
+   },
+   {
+    "titel": "Pokémon Illumina City Mini Tin Box",
+    "haendler": null,
+    "preis": 17.98,
+    "passt": true,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/pokemon-illumina-city-mini-tin-box-2841178",
+    "link": "https://www.mydealz.de/deals/pokemon-illumina-city-mini-tin-box-2841178"
+   },
+   {
+    "titel": "Pokémon: Tin-Box Mega-Glurak – Mega-Glurak Y-ex • 4 Boosterpacks und 1 holografische Promokarte • Prime + Einladung",
+    "haendler": "Amazon",
+    "preis": 24.99,
+    "passt": false,
+    "einladung": true,
+    "guid": "https://www.mydealz.de/deals/pokemon-tin-box-mega-glurak-mega-glurak-y-ex-4-boosterpacks-und-1-holografische-promokarte-prime-einladung-2841045",
+    "link": "https://www.mydealz.de/deals/pokemon-tin-box-mega-glurak-mega-glurak-y-ex-4-boosterpacks-und-1-holografische-promokarte-prime-einladung-2841045"
+   },
+   {
+    "titel": "[POKEMON GO] Kostenlose Forschung für Horizonte Event - Glumanda mit Brille",
+    "haendler": "Pokémon",
+    "preis": null,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/pokemon-go-kostenlose-forschung-fur-horizonte-event-glumanda-mit-brille-2841027",
+    "link": "https://www.mydealz.de/deals/pokemon-go-kostenlose-forschung-fur-horizonte-event-glumanda-mit-brille-2841027"
+   },
+   {
+    "titel": "Pokémon Legenden: Z-A - [Nintendo Switch] - Lieferung nach Hause kostenlos | Amazon - MediaMarkt & Saturn",
+    "haendler": "MediaMarkt",
+    "preis": 29.99,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/pokemon-legenden-z-a-nintendo-switch-lieferung-nach-hause-kostenlos-mediamarkt-saturn-2840727",
+    "link": "https://www.mydealz.de/deals/pokemon-legenden-z-a-nintendo-switch-lieferung-nach-hause-kostenlos-mediamarkt-saturn-2840727"
+   },
+   {
+    "titel": "Pokemon Top Trainer Box Wachsendes Chaos Englisch",
+    "haendler": "Galaxus",
+    "preis": 63.9,
+    "passt": true,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/top-trainer-box-wachsendes-chaos-englisch-2840097",
+    "link": "https://www.mydealz.de/deals/top-trainer-box-wachsendes-chaos-englisch-2840097"
+   },
+   {
+    "titel": "Pokémon-Sammelkartenspiel: Liga-Kampfdeck Mew-VMAX • Prime • OHNE Einladung",
+    "haendler": "Amazon",
+    "preis": 34.99,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/pokemon-sammelkartenspiel-liga-kampfdeck-mew-vmax-prime-ohne-einladung-2840073",
+    "link": "https://www.mydealz.de/deals/pokemon-sammelkartenspiel-liga-kampfdeck-mew-vmax-prime-ohne-einladung-2840073"
+   },
+   {
+    "titel": "[SB-Lüning ab 19.09-APP Willkommensgutschein] (Ohne Einladung) Pokémon Top Trainer Box in verschiedenen Ausführungen für 44€",
+    "haendler": null,
+    "preis": 44.0,
+    "passt": true,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/sb-luning-ab-1909-app-willkommensgutschein-ohne-einladung-pokemon-top-trainer-box-in-verschiedenen-ausfuhrungen-fur-44eur-2839229",
+    "link": "https://www.mydealz.de/deals/sb-luning-ab-1909-app-willkommensgutschein-ohne-einladung-pokemon-top-trainer-box-in-verschiedenen-ausfuhrungen-fur-44eur-2839229"
+   },
+   {
+    "titel": "Pokémon 30 Jahre – Top-Trainer-Box (deutsch) *LIMITIERT 1 pro Person",
+    "haendler": null,
+    "preis": 149.99,
+    "passt": true,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/pokemon-30-jahre-top-trainer-box-deutsch-limitiert-1-pro-person-2839072",
+    "link": "https://www.mydealz.de/deals/pokemon-30-jahre-top-trainer-box-deutsch-limitiert-1-pro-person-2839072"
+   },
+   {
+    "titel": "Prime - Ravensburger 3D Puzzle Utensilo Pokémon Pikachu - Stiftehalter ab 6 Jahre 54 Teile, Schreibtisch-Organizer",
+    "haendler": "Amazon",
+    "preis": 10.99,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/prime-ravensburger-3d-puzzle-utensilo-pokemon-pikachu-stiftehalter-ab-6-jahre-54-teile-schreibtisch-organizer-2839029",
+    "link": "https://www.mydealz.de/deals/prime-ravensburger-3d-puzzle-utensilo-pokemon-pikachu-stiftehalter-ab-6-jahre-54-teile-schreibtisch-organizer-2839029"
+   },
+   {
+    "titel": "LEGO Pokémon 72154 Pokéball mit Beeindruckenden Trainermomenten [Vorbestellerdeal 01.10.2026] @ Proshop/Alternate",
+    "haendler": "Proshop",
+    "preis": 203.9,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/lego-pokemon-72154-pokeball-mit-beeindruckenden-trainermomenten-vorbestellerdeal-01102026-at-proshopalternate-2838713",
+    "link": "https://www.mydealz.de/deals/lego-pokemon-72154-pokeball-mit-beeindruckenden-trainermomenten-vorbestellerdeal-01102026-at-proshopalternate-2838713"
+   },
+   {
+    "titel": "Verschiedene Codes (bald ablaufend) für Pokémon TCG-Live",
+    "haendler": null,
+    "preis": null,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/verschiedene-codes-bald-ablaufend-fur-pokemon-tcg-live-2838519",
+    "link": "https://www.mydealz.de/deals/verschiedene-codes-bald-ablaufend-fur-pokemon-tcg-live-2838519"
+   },
+   {
+    "titel": "Pokémon Sammelkartenspiel Top Trainer Box Dunkelnacht für 49,99€ (Prime / Einladung)",
+    "haendler": "Amazon",
+    "preis": 49.99,
+    "passt": true,
+    "einladung": true,
+    "guid": "https://www.mydealz.de/deals/pokemon-sammelkartenspiel-top-trainer-box-dunkelnacht-fur-4999eur-prime-einladung-2832760",
+    "link": "https://www.mydealz.de/deals/pokemon-sammelkartenspiel-top-trainer-box-dunkelnacht-fur-4999eur-prime-einladung-2832760"
+   },
+   {
+    "titel": "Pokemon Erhabene Helden Prismatische Entwicklungen Erste Partner Series 1 Marktkauf Sundern",
+    "haendler": "Marktkauf",
+    "preis": 29.99,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/pokemon-erhabene-helden-prismatische-entwicklungen-erste-partner-series-1-marktkauf-sundern-2838144",
+    "link": "https://www.mydealz.de/deals/pokemon-erhabene-helden-prismatische-entwicklungen-erste-partner-series-1-marktkauf-sundern-2838144"
+   },
+   {
+    "titel": "[Filialabholung Media Markt / Saturn] MEGA Bloks Klemmbausteine Waldspaß Pokémon-Center HNT93 | 648 Teile, u.a. mit Pikachu, Evoli & Togepi",
+    "haendler": "MediaMarkt",
+    "preis": 24.99,
+    "passt": false,
+    "einladung": false,
+    "guid": "https://www.mydealz.de/deals/filialabholung-media-markt-saturn-mega-bloks-klemmbausteine-waldspass-pokemon-center-hnt93-648-teile-ua-mit-pikachu-evoli-togepi-2838037",
+    "link": "https://www.mydealz.de/deals/filialabholung-media-markt-saturn-mega-bloks-klemmbausteine-waldspass-pokemon-center-hnt93-648-teile-ua-mit-pikachu-evoli-togepi-2838037"
+   }
+  ]
+ },
+ "auffaellig": [
+  {
+   "art": "verfügbar erkannt, aber kein sichtbarer Warenkorb-Knopf",
+   "url": "https://www.card-corner.de/Pokemon-Ninja-Spinner-M4-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Ninja Spinner (M4) Display",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 72.99,
+   "preis_seite": 72.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": false,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Auf Lager Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   },
+   "datei": "Pokemon_Ninja_Spinner_M4_Display.html"
+  },
+  {
+   "art": "verfügbar erkannt, aber kein sichtbarer Warenkorb-Knopf",
+   "url": "https://www.card-corner.de/Pokemon-Inferno-X-M2-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Inferno X (M2) Display",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 124.99,
+   "preis_seite": 124.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": false,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Auf Lager Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   },
+   "datei": "Pokemon_Inferno_X_M2_Display.html"
+  },
+  {
+   "art": "verfügbar erkannt, aber kein sichtbarer Warenkorb-Knopf",
+   "url": "https://www.card-corner.de/Pokemon-Nihil-Zero-M3-Display",
+   "shop": "Card-Corner",
+   "titel": "Pokemon Nihil Zero (M3) Display",
+   "liste": "BESTELLBAR",
+   "produktseite": "BESTELLBAR",
+   "preis_liste": 63.99,
+   "preis_seite": 63.99,
+   "liefertermin": null,
+   "mengenlimit": null,
+   "hinweis": null,
+   "signale": {
+    "ausverkauft": false,
+    "nicht_verfuegbar": false,
+    "benachrichtigen": false,
+    "warenkorb": false,
+    "vorbestellen": false,
+    "ribbon_7": false,
+    "status_0": false,
+    "lieferstatus_text": "Auf Lager Lieferzeit: (DE - Ausland abweichend)",
+    "ausverkauft_im_produkt": false,
+    "warenkorb_knopf_aktiv": false
+   },
+   "datei": "Pokemon_Nihil_Zero_M3_Display.html"
+  }
+ ]
+}
