@@ -102,6 +102,7 @@ Ping-Bot-/
 │   │   ├── jtl.py           ← JTL-Shops: Gate to the Games, Card-Corner
 │   │   └── games_island.py  ← Games Island (über crawlme.games-island.eu)
 │   ├── pings.py             ← wann gepingt wird und wie der Ping aussieht
+│   ├── produkte.py          ← Art, Set und Sprache aus dem Produktnamen (für Preise & Vergleich)
 │   ├── speicher.py          ← SQLite-Datenbank (Preis- und Statusverlauf)
 │   ├── einstellungen.py     ← liest und prüft config.yaml
 │   ├── discord.py           ← schickt Nachrichten über einen Discord-Webhook
@@ -122,6 +123,7 @@ Ping-Bot-/
       neue Vorbestellungen in Kategorien, Sets per Suchbegriff
 - [x] **Phase 3:** Steuerung über die GitHub-App (Status, Watchlist, Sets, Maximalpreise, Pause)
 - [ ] **Phase 4:** Mehr Quellen, Whitelist, Fake-Warnung – *begonnen: Games Island, mydealz-Feed*
+- [x] Maximalpreise je Set und Produktart, Preisvergleich zwischen Shops, neue Sets erkennen
 - [ ] **Phase 5:** Amazon und Einladungen
 - [ ] **Phase 6:** Regeln, Ruhezeiten, Marge
 - [ ] **Phase 7:** Neuheiten-Suche

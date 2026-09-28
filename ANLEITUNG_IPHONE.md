@@ -122,8 +122,9 @@ Unter **Actions** erscheinen automatisch Läufe von **Preis-Bot** mit dem Hinwei
 | deine Sets und Maximalpreise sehen | `watchlist` | – |
 | ein neues Set beobachten | `set-hinzufuegen` | **name**: z. B. `Stellarkrone` · **suchbegriffe** (optional): `Stellar Crown, Stella Miracle` |
 | ein Set nicht mehr beobachten | `set-entfernen` | **name**: z. B. `30 Jahre` |
-| einen Maximalpreis setzen | `max-preis` | **name**: z. B. `Dunkelnacht` · **preis**: z. B. `180` |
-| den Maximalpreis wieder aufheben | `max-preis` | **name** · **preis**: `aus` |
+| einen Maximalpreis für **ein Produkt** setzen | `max-preis` | **name**: z. B. `Dunkelnacht` · **produkt**: z. B. `Display` · **preis**: z. B. `180` |
+| einen Maximalpreis fürs **ganze Set** setzen | `max-preis` | **name** · **produkt**: `ganzes Set` · **preis** |
+| einen Maximalpreis wieder aufheben | `max-preis` | **name** · **produkt** · **preis**: `aus` |
 | den Bot kurz anhalten | `pause` | – |
 | den Bot wieder starten | `weiter` | – |
 | sofort prüfen lassen | `normaler-lauf` | – |
@@ -131,6 +132,34 @@ Unter **Actions** erscheinen automatisch Läufe von **Preis-Bot** mit dem Hinwei
 > Beim Namen ist Groß-/Kleinschreibung egal. Du kannst auch einen Suchbegriff angeben,
 > z. B. `Pitch Black` statt `Dunkelnacht`. Tippst du etwas falsch, sagt dir der Bot in Discord,
 > welche Sets es gibt.
+
+### Maximalpreise – so funktioniert es
+
+Liegt ein Produkt **über** deinem Maximalpreis, kommt **kein** Ping. Fällt der Preis darunter, meldet sich der Bot.
+Bei **produkt** wählst du aus einer Liste: `Display`, `Top-Trainer-Box`, `Booster Bundle`, `Mini-Tin`,
+`Mini-Tin-Display`, `Kollektion` – oder `ganzes Set`.
+
+**Beispiel für Dunkelnacht** (jede Zeile ist ein eigener Knopfdruck):
+
+| produkt | preis | Wirkung |
+|---|---|---|
+| `Display` | `180` | Dunkelnacht-Displays über 180 € werden nicht gemeldet |
+| `Top-Trainer-Box` | `60` | Top-Trainer-Boxen über 60 € werden nicht gemeldet |
+| `Mini-Tin` | `15` | einzelne Mini-Tins über 15 € werden nicht gemeldet |
+| `ganzes Set` | `250` | gilt für alles, wofür du oben nichts eingestellt hast |
+
+- Der Preis gilt für **alle Sprachen** des Sets (deutsch, englisch, japanisch) und **alle Shops** –
+  auch für Games Island, die Listen und mydealz-Deals.
+- **Games Island** zeigt keine Preise. Dort meldet der Bot trotzdem und schreibt dazu:
+  „💶 Dein Maximalpreis: 180 € – bitte den Preis im Shop prüfen“.
+- Mit `watchlist` siehst du jederzeit alle eingestellten Preise.
+
+### Was sonst noch in den Pings steht
+
+- 🔎 **Auch verfügbar:** Gibt es dasselbe Produkt (gleiches Set, gleiche Art, gleiche Sprache) gerade auch
+  in einem anderen Shop, steht es im Ping dabei – mit Preis und 💡, wenn es dort günstiger ist.
+- 🆕 **Neue Sets entdeckt:** Taucht im Vorverkauf ein Set auf, das nicht auf deiner Watchlist steht, kommt
+  einmalig ein Hinweis. Hinzufügen geht dann mit `set-hinzufuegen`.
 
 ---
 

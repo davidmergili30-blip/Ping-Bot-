@@ -68,6 +68,11 @@ class FalscherMelder:
         return [k.titel for n in self.nachrichten for k in n["kaesten"]]
 
 
+def ohne_set_vorschlaege(titel):
+    """Titel ohne den Hinweis „🆕 Neue Sets entdeckt“ (die Test-Watchlists sind meist leer)."""
+    return [t for t in titel if not t.startswith("🆕 Neue Sets")]
+
+
 def einstellungen(watchlist=None, kategorien=None, filter_=None, suche=None, **regeln):
     standard = Regeln(**regeln)
     return Einstellungen(
@@ -192,8 +197,8 @@ def test_kategorie_erster_blick_schickt_uebersicht(speicher):
                       filter_=KategorieFilter(nur_mit=["Display", "Top Trainer"]))
     liste = ohne_ausverkauft_markierung(html("gate_to_the_games/liste_vorverkauf.html"))
     lauf(e, speicher, {GTTG_LISTE: liste}, melder)
-    assert melder.titel == ["📋 Neu überwacht: GTTG Vorverkauf"]
-    text = melder.nachrichten[0]["kaesten"][0].text
+    assert ohne_set_vorschlaege(melder.titel) == ["📋 Neu überwacht: GTTG Vorverkauf"]
+    text = next(k for n in melder.nachrichten for k in n["kaesten"] if k.titel.startswith("📋")).text
     assert "Delta Herrschaft Display" in text
     assert "Booster (deutsch)" not in text  # vom Filter aussortiert
     # Zweiter Lauf, nichts Neues → still
@@ -410,12 +415,12 @@ def test_filter_aenderung_gibt_eine_uebersicht_statt_vieler_pings(speicher):
     nur_display = KategorieFilter(nur_mit=["Display"])
     liste = html("gate_to_the_games/liste_vorverkauf.html")
     lauf(einstellungen(kategorien=[("GTTG", GTTG_LISTE)], filter_=nur_display), speicher, {GTTG_LISTE: liste}, melder)
-    assert melder.titel == ["📋 Neu überwacht: GTTG"]
+    assert ohne_set_vorschlaege(melder.titel) == ["📋 Neu überwacht: GTTG"]
 
     mehr = KategorieFilter(nur_mit=["Display", "Top Trainer", "Booster Bundle", "Kollektion"])
     e = einstellungen(kategorien=[("GTTG", GTTG_LISTE)], filter_=mehr)
     lauf(e, speicher, {GTTG_LISTE: liste}, melder, minuten=20)
-    zweiter = [k.titel for k in melder.nachrichten[-1]["kaesten"]]
+    zweiter = ohne_set_vorschlaege([k.titel for k in melder.nachrichten[-1]["kaesten"]])
     assert len(zweiter) == 1 and zweiter[0].startswith("🔧 Filter geändert – ")
     assert not any("Neu im Shop" in k.text for n in melder.nachrichten for k in n["kaesten"])
 
@@ -436,3 +441,18 @@ def test_neues_produkt_nach_filter_aenderung_wird_wieder_einzeln_gemeldet(speich
     speicher._db.commit()
     lauf(e, speicher, {GTTG_LISTE: liste}, melder, minuten=20)   # Filter unverändert
     assert any("Neu im Shop entdeckt" in k.text for k in melder.nachrichten[-1]["kaesten"])
+
+
+def test_neue_sets_im_vorverkauf_werden_einmal_vorgeschlagen(speicher):
+    melder = FalscherMelder()
+    e = einstellungen(kategorien=[("GTTG Vorverkauf", GTTG_LISTE)], suche=[("30 Jahre", ["30 Jahre"])],
+                      filter_=KategorieFilter(nur_mit=["Display", "Top Trainer", "Booster Bundle"]))
+    liste = html("gate_to_the_games/liste_vorverkauf.html")
+    seiten = {GTTG_LISTE: liste, GTTG_SUCHE.format("30+Jahre"): LEER, CC_SUCHE.format("30+Jahre"): LEER}
+    lauf(e, speicher, seiten, melder)
+    vorschlag = [k for n in melder.nachrichten for k in n["kaesten"] if k.titel.startswith("🆕")]
+    assert [k.titel for k in vorschlag] == ["🆕 Neue Sets entdeckt: Delta Herrschaft"]   # 30 Jahre steht schon drauf
+    assert "set-hinzufuegen" in vorschlag[0].text
+    assert vorschlag[0].art == "info"
+    lauf(e, speicher, seiten, melder, minuten=20)
+    assert not [t for t in melder.titel if t.startswith("🆕")][1:]                       # nur einmal

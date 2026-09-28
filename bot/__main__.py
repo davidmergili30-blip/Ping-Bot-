@@ -34,7 +34,7 @@ from bot.lauf import Lauf
 from bot.pings import EMOJI, FARBE_INFO, als_link, euro
 from bot.speicher import STANDARD_PFAD, Speicher
 from bot.status import Status
-from bot.steuerung import ConfigBearbeiter, SteuerFehler, beschreibe_max_preis, preis_aus_eingabe
+from bot.steuerung import ConfigBearbeiter, SteuerFehler, art_aus_auswahl, beschreibe_max_preis, preis_aus_eingabe
 
 log = logging.getLogger("bot")
 
@@ -58,6 +58,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--name", default="", help="Set-Name")
     parser.add_argument("--suchbegriffe", default="", help="weitere Suchbegriffe, mit Komma getrennt")
     parser.add_argument("--preis", default="", help="Maximalpreis in Euro oder „aus“")
+    parser.add_argument("--produkt", default="", help="Produktart für max-preis, z. B. Display (leer = ganzes Set)")
     args = parser.parse_args(argv)
     config_pfad = Path(os.environ.get("BOT_CONFIG") or CONFIG_PFAD)
 
@@ -140,13 +141,19 @@ def _fuehre_aus(bearbeiter: ConfigBearbeiter, args) -> Kasten:
                       text="Der Bot beobachtet dieses Set nicht mehr.", farbe=FARBE_INFO)
     if args.aktion == "max-preis":
         preis = preis_aus_eingabe(args.preis)
-        eintrag = bearbeiter.max_preis(args.name, preis)
+        art = art_aus_auswahl(args.produkt)
+        eintrag = bearbeiter.max_preis(args.name, preis, art)
+        was = f"{eintrag['name']} – {art}" if art else eintrag["name"]
+        welche = f"{art}s von {eintrag['name']}" if art else f"Produkte von {eintrag['name']}"
+        alle = f"\nAlle Preise dieses Sets: {beschreibe_max_preis(eintrag)}"
         if preis is None:
-            return Kasten(titel=f"💶 Maximalpreis aufgehoben: {eintrag['name']}",
-                          text="Du bekommst wieder Pings, egal wie teuer.", farbe=FARBE_INFO)
-        return Kasten(titel=f"💶 Maximalpreis für {eintrag['name']}: {euro(preis)}",
-                      text=f"Produkte dieses Sets über {euro(preis)} lösen keinen Ping mehr aus.\n"
-                           "Fällt ein Preis unter diese Grenze, bekommst du Bescheid.", farbe=GRUEN)
+            return Kasten(titel=f"💶 Maximalpreis aufgehoben: {was}",
+                          text=f"{welche} werden wieder gemeldet, egal wie teuer"
+                               + (" (außer ein Preis fürs ganze Set greift)." if art else ".") + alle,
+                          farbe=FARBE_INFO)
+        return Kasten(titel=f"💶 Maximalpreis für {was}: {euro(preis)}",
+                      text=f"{welche} über {euro(preis)} lösen keinen Ping mehr aus.\n"
+                           "Fällt ein Preis unter diese Grenze, bekommst du Bescheid." + alle, farbe=GRUEN)
     if args.aktion == "pause":
         bearbeiter.pause(True)
         return Kasten(titel="⏸️ Bot pausiert",
@@ -168,7 +175,9 @@ def watchlist(einstellungen: Einstellungen) -> int:
             teile.append("Suche: " + ", ".join(produkt.suche))
         if produkt.links:
             teile.append(f"{len(produkt.links)} Link(s)")
-        teile.append(beschreibe_max_preis({"max_preis": produkt.regeln.max_preis}))
+        eigener = produkt.regeln.max_preis if produkt.regeln.max_preis != einstellungen.standard_regeln.max_preis \
+            else None
+        teile.append(beschreibe_max_preis({"max_preis": eigener, "preise": produkt.preise}))
         zeilen.append(f"**{produkt.name}** – " + " · ".join(teile))
     if not zeilen:
         zeilen.append("Die Watchlist ist leer. Neues Set: Run workflow → set-hinzufuegen")

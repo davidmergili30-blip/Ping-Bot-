@@ -15,6 +15,9 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 from bot.einstellungen import ConfigFehler, lade_einstellungen
 from bot.pings import euro
+from bot.produkte import ARTEN, art_aus_eingabe
+
+GANZES_SET = ("", "ganzes set", "set", "alle", "alles")
 
 
 class SteuerFehler(Exception):
@@ -83,16 +86,34 @@ class ConfigBearbeiter:
         self.watchlist.remove(eintrag)
         return eintrag
 
-    def max_preis(self, name: str, preis: float | None) -> dict:
+    def max_preis(self, name: str, preis: float | None, art: str | None = None) -> dict:
+        """Maximalpreis fürs ganze Set (art=None) oder für eine Produktart, z. B. „Display“."""
         eintrag = self._finde(name)
-        if preis is None:
-            eintrag.pop("max_preis", None)
+        wert = None if preis is None else (int(preis) if float(preis).is_integer() else preis)
+        if art is None:
+            if wert is None:
+                eintrag.pop("max_preis", None)
+            elif "max_preis" in eintrag:
+                eintrag["max_preis"] = wert
+            else:
+                eintrag.insert(1, "max_preis", wert)  # direkt unter den Namen
             return eintrag
-        wert = int(preis) if float(preis).is_integer() else preis
-        if "max_preis" in eintrag:
-            eintrag["max_preis"] = wert
-        else:
-            eintrag.insert(1, "max_preis", wert)  # direkt unter den Namen
+
+        preise = eintrag.get("preise")
+        if wert is None:
+            if preise is not None:
+                for schluessel in [s for s in preise if art_aus_eingabe(str(s)) == art]:
+                    del preise[schluessel]
+                if not preise:
+                    del eintrag["preise"]
+            return eintrag
+        if preise is None:
+            preise = CommentedMap()
+            # unter den Namen (und ggf. unter den Maximalpreis fürs ganze Set)
+            eintrag.insert(2 if "max_preis" in eintrag else 1, "preise", preise)
+        for schluessel in [s for s in preise if art_aus_eingabe(str(s)) == art and s != art]:
+            del preise[schluessel]  # alte Schreibweise (z. B. „ttb“) durch die einheitliche ersetzen
+        preise[art] = wert
         return eintrag
 
     def pause(self, an: bool) -> None:
@@ -144,6 +165,21 @@ class ConfigBearbeiter:
         return eintrag
 
 
+def art_aus_auswahl(text: str | None) -> str | None:
+    """Auswahl „produkt“ aus der GitHub-App → Produktart, oder None für „ganzes Set“."""
+    if (text or "").strip().lower() in GANZES_SET:
+        return None
+    art = art_aus_eingabe(text)
+    if art is None:
+        raise SteuerFehler(f"„{text}“ kenne ich nicht. Möglich sind: ganzes Set, {', '.join(ARTEN)}")
+    return art
+
+
 def beschreibe_max_preis(eintrag: dict) -> str:
-    preis = eintrag.get("max_preis")
-    return euro(float(preis)) if preis is not None else "kein Maximalpreis"
+    """z. B. „ganzes Set 200,00 € · Display 180,00 € · Top-Trainer-Box 60,00 €“"""
+    teile = []
+    if eintrag.get("max_preis") is not None:
+        teile.append(f"ganzes Set {euro(float(eintrag['max_preis']))}")
+    for art, preis in (eintrag.get("preise") or {}).items():
+        teile.append(f"{art_aus_eingabe(str(art)) or art} {euro(float(preis))}")
+    return ("Maximalpreis: " + " · ".join(teile)) if teile else "kein Maximalpreis"

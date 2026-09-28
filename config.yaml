@@ -89,9 +89,15 @@ vertrauenswuerdige_shops:
 #    JEDES passende Produkt (Displays, Trainer-Boxen, Bundles, Kollektionen – siehe
 #    kategorie_filter unten). Tipp: deutschen, englischen und japanischen Namen eintragen.
 #      - name: "Dunkelnacht"
+#        max_preis: 250            # optional: Grenze fürs ganze Set
+#        preise:                   # optional: eigene Grenze je Produktart (hat Vorrang)
+#          Display: 180
+#          Top-Trainer-Box: 60
 #        suche:
 #          - Dunkelnacht
 #          - Pitch Black
+#    Produktarten: Display, Top-Trainer-Box, Booster Bundle, Mini-Tin, Mini-Tin-Display, Kollektion
+#    Am einfachsten per GitHub-App: Run workflow → max-preis → Set-Name, Produkt, Preis
 #
 #  Variante B – einzelne Produkte per Link:
 #      - name: "So soll es im Ping heißen"
@@ -99,8 +105,9 @@ vertrauenswuerdige_shops:
 #          - https://link-zum-produkt
 #        max_preis: 180          # optional: eigene Regel nur für dieses Produkt
 #
-#  Unterstützte Shops: gate-to-the-games.de, card-corner.de
-#  (games-island.eu verbietet automatisches Abfragen – dafür gibt es ihren Discord)
+#  Set-Suche in: gate-to-the-games.de, card-corner.de
+#  Games Island hat keine Suche – deren Listen stehen unten bei „kategorien“.
+#  Die Preise gelten auch dort und bei mydealz (das Set wird am Namen erkannt).
 # ---------------------------------------------------------------------
 watchlist:
   - name: "30 Jahre"

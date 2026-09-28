@@ -107,7 +107,8 @@ def ping_grund(alt: tuple[Status, float | None] | None, neu: CheckErgebnis, rege
 
 
 def ping_kasten(produkt: str, shop: str, url: str, neu: CheckErgebnis, alt: tuple[Status, float | None] | None,
-                grund: str, shop_vertraut: bool, aus_kategorie: bool = False) -> Kasten:
+                grund: str, shop_vertraut: bool, aus_kategorie: bool = False,
+                max_preis: float | None = None) -> Kasten:
     """Baut den Discord-Kasten für einen Ping."""
     if grund == "preissturz":
         titel = f"📉 PREISSTURZ – {produkt}"
@@ -117,6 +118,10 @@ def ping_kasten(produkt: str, shop: str, url: str, neu: CheckErgebnis, alt: tupl
         titel = f"{EMOJI[neu.status]} {lesbar(neu.status)} – {produkt}"
 
     zeilen = [f"**{shop}** · {preis_text(neu)}" + (" (Verkauf durch Shop)" if neu.verkaeufer == "Shop" else "")]
+    if max_preis is not None:
+        # Ohne Preis (z. B. Games Island) kann der Bot die Grenze nicht prüfen → lieber melden und dazusagen
+        zeilen.append(f"💶 Dein Maximalpreis: {euro(max_preis)}"
+                      + (" – bitte den Preis im Shop prüfen" if neu.preis is None else ""))
     if neu.liefertermin:
         zeilen.append(f"📅 Liefertermin: {neu.liefertermin}")
     if neu.mengenlimit:

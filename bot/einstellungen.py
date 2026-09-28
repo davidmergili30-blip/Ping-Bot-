@@ -64,6 +64,7 @@ class Produkt:
     links: list[str]
     regeln: Regeln
     suche: list[str] = field(default_factory=list)
+    preise: dict[str, float] = field(default_factory=dict)  # Maximalpreis je Produktart, z. B. {"Display": 180}
 
 
 @dataclass
@@ -301,7 +302,7 @@ def _lese_watchlist(daten, standard_regeln: Regeln) -> list[Produkt]:
     for nr, eintrag in enumerate(daten, start=1):
         name = _name(eintrag, f"Produkt Nr. {nr} der watchlist")
         wo = f"watchlist '{name}'"
-        _nur_bekannte(eintrag, {"name", "links", "suche"} | regel_felder, wo)
+        _nur_bekannte(eintrag, {"name", "links", "suche", "preise"} | regel_felder, wo)
         links = eintrag.get("links") or []
         suche = eintrag.get("suche") or []
         if not isinstance(links, list) or not isinstance(suche, list) or not (links or suche):
@@ -311,15 +312,34 @@ def _lese_watchlist(daten, standard_regeln: Regeln) -> list[Produkt]:
             )
         if not all(isinstance(s, (str, int)) and str(s).strip() for s in suche):
             raise ConfigFehler(f"{wo}: Jeder Suchbegriff muss ein Text sein, z. B.  - Dunkelnacht")
-        # Alles außer name/links/suche sind Regeln, die nur für dieses Produkt gelten
+        # Alles außer name/links/suche/preise sind Regeln, die nur für dieses Produkt gelten
         eigene_regeln = {k: v for k, v in eintrag.items() if k in regel_felder}
         produkte.append(Produkt(
             name=name,
             links=[_link(link, wo) for link in links],
             regeln=_lese_regeln(eigene_regeln, wo, basis=standard_regeln),
             suche=[str(s).strip() for s in suche],
+            preise=_lese_preise(eintrag.get("preise"), wo),
         ))
     return produkte
+
+
+def _lese_preise(daten, wo: str) -> dict[str, float]:
+    """Maximalpreise je Produktart, z. B.  preise: {Display: 180, Top-Trainer-Box: 60}"""
+    from bot.produkte import ARTEN, art_aus_eingabe  # hier, weil produkte.py diese Datei nutzt
+
+    if daten is None:
+        return {}
+    if not isinstance(daten, dict):
+        raise ConfigFehler(f"{wo}: 'preise' muss so aussehen:  preise:  (neue Zeile)  Display: 180")
+    preise = {}
+    for schluessel, wert in daten.items():
+        art = art_aus_eingabe(str(schluessel))
+        if art is None:
+            raise ConfigFehler(f"{wo}: Unbekannte Produktart '{schluessel}' bei 'preise'. "
+                               f"Möglich sind: {', '.join(ARTEN)}")
+        preise[art] = _zahl(wert, f"preise → {schluessel}", wo, minimum=0.01)
+    return preise
 
 
 def _lese_kategorien(daten, abschnitt: str = "kategorien", art: str = "Kategorie") -> list[Kategorie]:

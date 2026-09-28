@@ -111,7 +111,7 @@ def test_watchlist_anzeigen(umgebung):
     umgebung["gesendet"].clear()
     assert start.main(["watchlist"]) == 0
     text = umgebung["gesendet"][0]["embeds"][0]["description"]
-    assert "**Dunkelnacht** – Suche: Dunkelnacht, Pitch Black, Abyss Eye · 180,00 €" in text
+    assert "**Dunkelnacht** – Suche: Dunkelnacht, Pitch Black, Abyss Eye · Maximalpreis: ganzes Set 180,00 €" in text
     assert "**Fatale Flammen**" in text and "kein Maximalpreis" in text
 
 
@@ -174,3 +174,61 @@ def test_pause_aendert_nur_eine_zeile(umgebung):
     nachher = umgebung["config"].read_text(encoding="utf-8").splitlines()
     assert [z for z in nachher if z not in vorher] == ["  pausiert: true"]
     assert len(nachher) == len(vorher)
+
+
+# --- Maximalpreis je Produktart ------------------------------------------------------------
+
+def test_max_preis_je_produktart(umgebung):
+    assert start.main(["max-preis", "--name", "Dunkelnacht", "--produkt", "Display", "--preis", "180"]) == 0
+    assert start.main(["max-preis", "--name", "Pitch Black", "--produkt", "ttb", "--preis", "59,99"]) == 0
+    dunkel = next(p for p in lade_einstellungen(umgebung["config"]).watchlist if p.name == "Dunkelnacht")
+    assert dunkel.preise == {"Display": 180, "Top-Trainer-Box": 59.99}
+    assert dunkel.regeln.max_preis is None                     # das ganze Set bleibt ohne Grenze
+    assert titel(umgebung)[-1] == "💶 Maximalpreis für Dunkelnacht – Top-Trainer-Box: 59,99 €"
+    # Direkt unter dem Set-Namen, sauber eingerückt
+    zeilen = umgebung["config"].read_text(encoding="utf-8").splitlines()
+    i = zeilen.index('  - name: "Dunkelnacht"')
+    assert zeilen[i + 1:i + 4] == ["    preise:", "      Display: 180", "      Top-Trainer-Box: 59.99"]
+
+
+def test_max_preis_je_produktart_und_ganzes_set(umgebung):
+    start.main(["max-preis", "--name", "Dunkelnacht", "--preis", "250"])
+    start.main(["max-preis", "--name", "Dunkelnacht", "--produkt", "Mini-Tin", "--preis", "15"])
+    zeilen = umgebung["config"].read_text(encoding="utf-8").splitlines()
+    i = zeilen.index('  - name: "Dunkelnacht"')
+    assert zeilen[i + 1:i + 4] == ["    max_preis: 250", "    preise:", "      Mini-Tin: 15"]
+    text = umgebung["gesendet"][-1]["embeds"][0]["description"]
+    assert "Alle Preise dieses Sets: Maximalpreis: ganzes Set 250,00 € · Mini-Tin 15,00 €" in text
+
+
+def test_max_preis_je_produktart_aufheben(umgebung):
+    vorher = umgebung["config"].read_text(encoding="utf-8")
+    start.main(["max-preis", "--name", "Dunkelnacht", "--produkt", "Display", "--preis", "180"])
+    start.main(["max-preis", "--name", "Dunkelnacht", "--produkt", "Display", "--preis", "aus"])
+    assert umgebung["config"].read_text(encoding="utf-8") == vorher   # alles wieder wie vorher
+    assert titel(umgebung)[-1] == "💶 Maximalpreis aufgehoben: Dunkelnacht – Display"
+
+
+def test_unbekannte_produktart(umgebung):
+    vorher = umgebung["config"].read_text(encoding="utf-8")
+    assert start.main(["max-preis", "--name", "Dunkelnacht", "--produkt", "Booster", "--preis", "5"]) == 1
+    assert umgebung["config"].read_text(encoding="utf-8") == vorher
+    assert titel(umgebung) == ["❌ max-preis hat nicht geklappt"]
+
+
+def test_ganzes_set_aus_der_app(umgebung):
+    # Die App schickt „ganzes Set“, wenn nichts ausgewählt wurde
+    assert start.main(["max-preis", "--name", "Dunkelnacht", "--produkt", "ganzes Set", "--preis", "200"]) == 0
+    dunkel = next(p for p in lade_einstellungen(umgebung["config"]).watchlist if p.name == "Dunkelnacht")
+    assert dunkel.regeln.max_preis == 200 and dunkel.preise == {}
+
+
+def test_preise_in_config_werden_geprueft(tmp_path):
+    from bot.einstellungen import ConfigFehler
+    config = tmp_path / "config.yaml"
+    config.write_text("watchlist:\n  - name: X\n    suche: [X]\n    preise:\n      Booster: 5\n", encoding="utf-8")
+    with pytest.raises(ConfigFehler, match="Unbekannte Produktart 'Booster'"):
+        lade_einstellungen(config)
+    config.write_text("watchlist:\n  - name: X\n    suche: [X]\n    preise:\n      ETB: billig\n", encoding="utf-8")
+    with pytest.raises(ConfigFehler, match="muss eine Zahl sein"):
+        lade_einstellungen(config)

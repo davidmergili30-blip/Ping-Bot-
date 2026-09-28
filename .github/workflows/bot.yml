@@ -31,6 +31,18 @@ on:
         description: "Nur set-hinzufuegen: weitere Namen mit Komma, z. B. Pitch Black, Abyss Eye"
         type: string
         required: false
+      produkt:
+        description: "Nur max-preis: für welches Produkt des Sets?"
+        type: choice
+        default: ganzes Set
+        options:
+          - ganzes Set
+          - Display
+          - Top-Trainer-Box
+          - Booster Bundle
+          - Mini-Tin
+          - Mini-Tin-Display
+          - Kollektion
       preis:
         description: "Nur max-preis: Preis in Euro, z. B. 180 – oder aus"
         type: string
@@ -79,8 +91,9 @@ jobs:
           NAME: ${{ inputs.name }}
           SUCHBEGRIFFE: ${{ inputs.suchbegriffe }}
           PREIS: ${{ inputs.preis }}
+          PRODUKT: ${{ inputs.produkt }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: python -m bot "$AKTION" --name "$NAME" --suchbegriffe "$SUCHBEGRIFFE" --preis "$PREIS"
+        run: python -m bot "$AKTION" --name "$NAME" --suchbegriffe "$SUCHBEGRIFFE" --preis "$PREIS" --produkt "$PRODUKT"
 
       - name: Geänderte config.yaml speichern
         env:

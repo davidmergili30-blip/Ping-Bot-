@@ -27,6 +27,8 @@ from bot.adapter.basis import CheckErgebnis, ListenEintrag, domain_von
 from bot.discord import DiscordWebhook, Kasten
 from bot.feeds import Deal, FeedFehler, lies_rss
 from bot.einstellungen import Einstellungen, Kategorie, Produkt, Regeln
+from bot.produkte import (produktart, regeln_fuer, set_fuer, set_name_aus_titel, vereinfacht,
+                          vergleichs_schluessel)
 from bot.pings import (EMOJI, FARBE_INFO, FARBE_WARNUNG, als_link, euro, nach_art, ping_grund, ping_kasten,
                        preis_text)
 from bot.speicher import Speicher
@@ -40,6 +42,7 @@ def enthaelt_wort(text: str | None, wort: str) -> bool:
     return re.search(rf"(?<!\w){re.escape(wort)}(?!\w)", text or "", re.IGNORECASE) is not None
 
 MAX_ZEILEN_UEBERSICHT = 10
+VERGLEICH_STATUS = (Status.BESTELLBAR, Status.VORBESTELLBAR)  # was im Preisvergleich als „verfügbar“ zählt
 MAX_SUCHSEITEN = 3   # höchstens so viele Ergebnisseiten pro Suchbegriff und Shop
 MAX_NEU_EINZELN = 5  # mehr „neue“ Produkte auf einmal → eine Sammelnachricht statt vieler Pings
 MAX_DEALS_EINZELN = 8  # mehr neue Deals auf einmal → Rest als Liste in einem Kasten
@@ -67,7 +70,12 @@ class Lauf:
         # viele „neue“ Produkte auf, die in Wahrheit schon lange da sind → still aufnehmen + EINE Übersicht.
         self._filter_stempel = _stempel(self.e.kategorie_filter.nur_mit, self.e.kategorie_filter.ohne)
         self._filter_geaendert = self.speicher.meta("filter") != self._filter_stempel
-        self._durch_filter: list[tuple[ListenEintrag, Regeln]] = []
+        self._durch_filter: list[tuple[ListenEintrag, Produkt | None]] = []
+        # Für den Preisvergleich: alle Pings und alles, was in diesem Lauf gesehen wurde
+        self._pings: list[tuple[Kasten, str, str | None]] = []
+        self._beobachtet: dict[str, tuple[str, str | None, CheckErgebnis]] = {}
+        # Neue Sets im Vorverkauf, die (noch) nicht auf der Watchlist stehen: Name → Beispiele
+        self._neue_sets: dict[str, list[tuple[str, str | None, str]]] = {}
 
     def starten(self) -> int:
         log.info("Normaler Lauf: %d Watchlist-Eintrag/-Einträge, %d Kategorie(n)",
@@ -81,6 +89,8 @@ class Lauf:
             self._sicher(kategorie.name, self._pruefe_kategorie, kategorie)
         for feed in self.e.feeds:
             self._sicher(feed.name, self._pruefe_feed, feed)
+        self._preisvergleich()
+        self._neue_sets_melden()
         self._filter_uebersicht()
         return self._senden()
 
@@ -120,7 +130,11 @@ class Lauf:
         self.speicher.speichere_check(url, adapter.name, produkt.name, ergebnis, self.jetzt)
         log.info("%s | %s | %s | %s%s", adapter.name, produkt.name, ergebnis.status.value, euro(ergebnis.preis),
                  f" | {ergebnis.hinweis}" if ergebnis.hinweis else "")
-        self._vergleiche(url, adapter.name, produkt.name, ergebnis, produkt.regeln, aus_kategorie=False)
+        regeln = self._regeln_fuer(ergebnis.titel, produkt)
+        if ergebnis.status != Status.UNBEKANNT:
+            self._beobachtet[url] = (adapter.name, ergebnis.titel, ergebnis)
+        self._vergleiche(url, adapter.name, produkt.name, ergebnis, regeln, aus_kategorie=False,
+                         titel=ergebnis.titel)
 
     # --- Watchlist: Suchbegriffe (z. B. Set-Namen) ------------------------------------
 
@@ -147,7 +161,7 @@ class Lauf:
             passende = self._nur_passende(list(gefunden.values()))
             log.info("Suche %s bei %s: %d Treffer mit dem Namen, %d passen zum Filter",
                      produkt.name, adapter.name, len(gefunden), len(passende))
-            self._verarbeite(passende, shop=adapter.name, regeln=produkt.regeln,
+            self._verarbeite(passende, shop=adapter.name, produkt=produkt,
                              schluessel=f"suche:{produkt.name}:{adapter.name}",
                              ueberschrift=f"{produkt.name} bei {adapter.name}", link=adapter.such_url(produkt.suche[0]))
 
@@ -169,7 +183,8 @@ class Lauf:
             return
         passende = self._nur_passende(eintraege)
         log.info("Kategorie %s: %d Produkte, %d passen zum Filter", kategorie.name, len(eintraege), len(passende))
-        self._verarbeite(passende, shop=adapter.name, regeln=self.e.standard_regeln,
+        self._neue_sets_suchen(passende, adapter.name, pokemon_liste="pokemon" in kategorie.link.lower())
+        self._verarbeite(passende, shop=adapter.name, produkt=None,
                          schluessel=f"kategorie:{kategorie.link}", ueberschrift=kategorie.name, link=kategorie.link)
 
     # --- Deal-Feeds (mydealz) --------------------------------------------------------------
@@ -220,12 +235,10 @@ class Lauf:
             if self.speicher.meta(f"deal:{deal.guid}") is None:
                 self.bestaetigungen.append(partial(self.speicher.setze_meta, f"deal:{deal.guid}", "1"))
 
-    def _regeln_fuer(self, titel: str) -> Regeln:
-        """Regeln des Sets, zu dem der Titel passt (z. B. dessen Maximalpreis) – sonst die Standard-Regeln."""
-        for produkt in self.e.watchlist:
-            if any(enthaelt_wort(titel, begriff) for begriff in produkt.suche):
-                return produkt.regeln
-        return self.e.standard_regeln
+    def _regeln_fuer(self, titel: str | None, produkt: Produkt | None = None) -> Regeln:
+        """Regeln für genau dieses Produkt: Maximalpreis der Produktart im Set (z. B. „Dunkelnacht – Display“)
+        > Maximalpreis des ganzen Sets > Standard-Regeln. Das Set wird notfalls am Namen erkannt."""
+        return regeln_fuer(titel, self.e.watchlist, self.e.standard_regeln, produkt)
 
     # --- Gemeinsam für Suche und Kategorien ---------------------------------------------
 
@@ -236,14 +249,16 @@ class Lauf:
                 and e.url not in self._watchlist_links
                 and e.ergebnis.status != Status.UNBEKANNT]
 
-    def _verarbeite(self, passende: list[ListenEintrag], shop: str, regeln: Regeln, schluessel: str,
+    def _verarbeite(self, passende: list[ListenEintrag], shop: str, produkt: Produkt | None, schluessel: str,
                     ueberschrift: str, link: str | None) -> None:
         # Steht ein Produkt in mehreren Listen (z. B. Suche UND Kategorie), zählt nur das erste Vorkommen
         neu_in_diesem_lauf = [e for e in passende if e.url not in self._gesehen]
         self._gesehen.update(e.url for e in neu_in_diesem_lauf)
+        for eintrag in neu_in_diesem_lauf:
+            self._beobachtet[eintrag.url] = (shop, eintrag.ergebnis.titel, eintrag.ergebnis)
 
         if self.speicher.meta(schluessel) is None:
-            self._erster_blick(neu_in_diesem_lauf, shop, regeln, schluessel, ueberschrift, link)
+            self._erster_blick(neu_in_diesem_lauf, shop, produkt, schluessel, ueberschrift, link)
             return
 
         unbekannt = [e for e in neu_in_diesem_lauf if self.speicher.stand(e.url) is None]
@@ -253,12 +268,12 @@ class Lauf:
                 e = eintrag.ergebnis
                 self.bestaetigungen.append(partial(self.speicher.setze_stand, eintrag.url, shop, e.titel, e.status,
                                                    e.preis, self.jetzt))
-                self._durch_filter.append((eintrag, regeln))
+                self._durch_filter.append((eintrag, produkt))
             neu_in_diesem_lauf = [e for e in neu_in_diesem_lauf if e not in unbekannt]
         # Sicherung gegen eine Flut: Tauchen auf einmal viele unbekannte Produkte auf, hat meist
         # der Shop seine Liste umgestellt. Dann lieber EINE Sammelnachricht statt vieler Pings.
         elif len(unbekannt) > MAX_NEU_EINZELN:
-            self._sammelnachricht(unbekannt, shop, regeln, ueberschrift, link)
+            self._sammelnachricht(unbekannt, shop, produkt, ueberschrift, link)
             neu_in_diesem_lauf = [e for e in neu_in_diesem_lauf if e not in unbekannt]
 
         for eintrag in neu_in_diesem_lauf:
@@ -267,7 +282,78 @@ class Lauf:
             if alt is None or alt != (e.status, e.preis):
                 # Verlauf für Listen-Produkte nur bei Änderungen speichern (spart Platz)
                 self.speicher.speichere_check(eintrag.url, shop, e.titel, e, self.jetzt)
-            self._vergleiche(eintrag.url, shop, e.titel or "Unbekanntes Produkt", e, regeln, aus_kategorie=True)
+            self._vergleiche(eintrag.url, shop, e.titel or "Unbekanntes Produkt", e,
+                             self._regeln_fuer(e.titel, produkt), aus_kategorie=True)
+
+    def _preisvergleich(self) -> None:
+        """Gibt es dasselbe Produkt (Set + Art + Sprache) gerade auch in einem anderen Shop? Dann steht es
+        im Ping dabei. Wird erst am Ende gemacht, damit auch Shops aus demselben Lauf mitzählen."""
+        if not self._pings:
+            return
+        angebote: dict[str, tuple[str, str | None, Status, float | None]] = {}
+        # Ältere Stände (in den letzten 24 Stunden gesehen) aus der Datenbank …
+        for zeile in self.speicher.verfuegbare(list(VERGLEICH_STATUS), gesehen_seit=self.jetzt - timedelta(hours=24)):
+            angebote[zeile["url"]] = (zeile["shop"], zeile["produkt"], Status(zeile["status"]), zeile["preis"])
+        # … überschrieben von dem, was dieser Lauf gerade gesehen hat
+        for url, (shop, titel, ergebnis) in self._beobachtet.items():
+            angebote[url] = (shop, titel, ergebnis.status, ergebnis.preis)
+
+        for kasten, url, titel in self._pings:
+            schluessel = vergleichs_schluessel(titel, self.e.watchlist)
+            if schluessel is None:
+                continue
+            andere = [(shop, u, preis) for u, (shop, t, status, preis) in angebote.items()
+                      if u != url and status in VERGLEICH_STATUS
+                      and vergleichs_schluessel(t, self.e.watchlist) == schluessel]
+            if not andere:
+                continue
+            andere.sort(key=lambda a: (a[2] is None, a[2] or 0))
+            eigener = angebote.get(url, (None, None, None, None))[3]
+            teile = []
+            for shop, u, preis in andere[:3]:
+                guenstiger = " 💡 günstiger" if preis is not None and eigener is not None and preis < eigener else ""
+                teile.append(f"[{shop}]({u}) {euro(preis) if preis is not None else 'Preis im Shop'}{guenstiger}")
+            kasten.text += "\n🔎 Auch verfügbar: " + " · ".join(teile)
+
+    def _neue_sets_suchen(self, eintraege: list[ListenEintrag], shop: str, pokemon_liste: bool) -> None:
+        """Vorbestellungen/Vorverkauf von Sets, die nicht auf der Watchlist stehen, merken.
+
+        pokemon_liste: Die Liste enthält nur Pokémon (z. B. …/Pokemon-Karten/…). Sonst muss „Pokémon“ im
+        Namen stehen – Listen wie „Neu eingetroffen“ enthalten auch andere Kartenspiele."""
+        for eintrag in eintraege:
+            titel = eintrag.ergebnis.titel
+            if not pokemon_liste and not re.search(r"pok[eé]mon", titel or "", re.I):
+                continue
+            # Nur an den Grundprodukten jedes Sets erkennen – Kollektionen & Mini-Tins tragen Pokémon-Namen im Titel
+            if produktart(titel) not in ("Display", "Top-Trainer-Box", "Booster Bundle"):
+                continue
+            vorverkauf = eintrag.ergebnis.status in (Status.VORBESTELLBAR, Status.BALD) or "vorverkauf" in (
+                titel or "").lower()
+            if not vorverkauf or set_fuer(titel, self.e.watchlist) is not None:
+                continue
+            name = set_name_aus_titel(titel)
+            if name:
+                self._neue_sets.setdefault(name, []).append((shop, titel, eintrag.url))
+
+    def _neue_sets_melden(self) -> None:
+        """Jedes neue Set wird nur EINMAL gemeldet – mit Anleitung zum Hinzufügen."""
+        neu = {name: beispiele for name, beispiele in self._neue_sets.items()
+               if self.speicher.meta(f"set_vorschlag:{vereinfacht(name)}") is None}
+        if not neu:
+            return
+        zeilen = ["Diese Sets sind im Vorverkauf, stehen aber nicht auf deiner Watchlist:"]
+        for name, beispiele in list(neu.items())[:MAX_ZEILEN_UEBERSICHT]:
+            shop, titel, url = beispiele[0]
+            zeilen.append(f"• **{name}** – z. B. {als_link(titel, url)} bei {shop}"
+                          + (f" (+{len(beispiele) - 1} weitere)" if len(beispiele) > 1 else ""))
+            self.bestaetigungen.append(partial(self.speicher.setze_meta, f"set_vorschlag:{vereinfacht(name)}",
+                                               self.jetzt.isoformat()))
+        zeilen.append("Beobachten? Actions → Preis-Bot → Run workflow → **set-hinzufuegen**, bei „name“ den "
+                      "Set-Namen eintragen (englischen/japanischen Namen bei „suchbegriffe“). "
+                      "Jedes Set wird nur einmal vorgeschlagen.")
+        self.kaesten.append(Kasten(titel=f"🆕 Neue Sets entdeckt: {', '.join(list(neu)[:3])}"
+                                         + (" …" if len(neu) > 3 else ""),
+                                   text="\n".join(zeilen), farbe=FARBE_INFO))
 
     def _filter_uebersicht(self) -> None:
         """Nach einer Filter-Änderung: EINE Nachricht mit allem, was jetzt zusätzlich überwacht wird."""
@@ -276,8 +362,8 @@ class Lauf:
         self.bestaetigungen.append(partial(self.speicher.setze_meta, "filter", self._filter_stempel))
         if not self._durch_filter:
             return
-        verfuegbar = [(eintrag, regeln) for eintrag, regeln in self._durch_filter
-                      if self._wuerde_pingen(eintrag, regeln)]
+        verfuegbar = [(eintrag, produkt) for eintrag, produkt in self._durch_filter
+                      if self._wuerde_pingen(eintrag, produkt)]
         log.info("Filter geändert: %d Produkte neu überwacht, davon %d verfügbar", len(self._durch_filter),
                  len(verfuegbar))
         zeilen = [f"Durch deine Filter-Änderung überwacht der Bot jetzt {len(self._durch_filter)} weitere Produkte, "
@@ -293,9 +379,9 @@ class Lauf:
         self.kaesten.append(Kasten(titel=f"🔧 Filter geändert – {len(self._durch_filter)} Produkte neu überwacht",
                                    text="\n".join(zeilen), farbe=FARBE_INFO))
 
-    def _sammelnachricht(self, unbekannt: list[ListenEintrag], shop: str, regeln: Regeln, ueberschrift: str,
+    def _sammelnachricht(self, unbekannt: list[ListenEintrag], shop: str, produkt: Produkt | None, ueberschrift: str,
                          link: str | None) -> None:
-        verfuegbar = [e for e in unbekannt if self._wuerde_pingen(e, regeln)]
+        verfuegbar = [e for e in unbekannt if self._wuerde_pingen(e, produkt)]
         for eintrag in unbekannt:
             e = eintrag.ergebnis
             self.bestaetigungen.append(partial(self.speicher.setze_stand, eintrag.url, shop, e.titel, e.status,
@@ -314,7 +400,7 @@ class Lauf:
         self.kaesten.append(Kasten(titel=f"🗂️ Viele neue Einträge: {ueberschrift}", text="\n".join(zeilen),
                                    link=link, farbe=FARBE_INFO))
 
-    def _erster_blick(self, passende: list[ListenEintrag], shop: str, regeln: Regeln, schluessel: str,
+    def _erster_blick(self, passende: list[ListenEintrag], shop: str, produkt: Produkt | None, schluessel: str,
                       ueberschrift: str, link: str | None) -> None:
         """Beim ersten Mal nicht jedes Produkt einzeln melden – nur eine Übersicht schicken.
 
@@ -327,8 +413,9 @@ class Lauf:
                 self.speicher.setze_stand(eintrag.url, shop, e.titel, e.status, e.preis, self.jetzt)
                 self.speicher.speichere_check(eintrag.url, shop, e.titel, e, self.jetzt)
             else:
-                self._vergleiche(eintrag.url, shop, e.titel or "Unbekanntes Produkt", e, regeln, aus_kategorie=True)
-        interessant = [e for e in passende if self._wuerde_pingen(e, regeln)]
+                self._vergleiche(eintrag.url, shop, e.titel or "Unbekanntes Produkt", e,
+                                 self._regeln_fuer(e.titel, produkt), aus_kategorie=True)
+        interessant = [e for e in passende if self._wuerde_pingen(e, produkt)]
         if passende:
             zeilen = [f"{len(passende)} passende Produkte, davon {len(interessant)} gerade verfügbar."]
         else:
@@ -344,9 +431,10 @@ class Lauf:
                                    link=link, farbe=FARBE_INFO))
         self.bestaetigungen.append(partial(self.speicher.setze_meta, schluessel, self.jetzt.isoformat()))
 
-    def _wuerde_pingen(self, eintrag: ListenEintrag, regeln: Regeln) -> bool:
-        """Gleiche Regeln wie beim Ping (Status, Maximalpreis, Vertrauensliste …)."""
+    def _wuerde_pingen(self, eintrag: ListenEintrag, produkt: Produkt | None) -> bool:
+        """Gleiche Regeln wie beim Ping (Status, Maximalpreis des Produkts, Vertrauensliste …)."""
         vertraut = domain_von(eintrag.url) in self.e.vertrauenswuerdige_shops
+        regeln = self._regeln_fuer(eintrag.ergebnis.titel, produkt)
         return ping_grund(None, eintrag.ergebnis, regeln, vertraut) is not None
 
     def _passt_filter(self, titel: str | None) -> bool:
@@ -358,7 +446,7 @@ class Lauf:
     # --- Vergleichen und Melden -------------------------------------------------------
 
     def _vergleiche(self, url: str, shop: str, name: str, ergebnis: CheckErgebnis, regeln: Regeln,
-                    aus_kategorie: bool) -> None:
+                    aus_kategorie: bool, titel: str | None = None) -> None:
         if ergebnis.status == Status.UNBEKANNT:
             return  # letzten bekannten Stand behalten
         alt = self.speicher.stand(url)
@@ -366,7 +454,10 @@ class Lauf:
         grund = ping_grund(alt, ergebnis, regeln, vertraut)
         merken = partial(self.speicher.setze_stand, url, shop, name, ergebnis.status, ergebnis.preis, self.jetzt)
         if grund:
-            self.kaesten.append(ping_kasten(name, shop, url, ergebnis, alt, grund, vertraut, aus_kategorie))
+            kasten = ping_kasten(name, shop, url, ergebnis, alt, grund, vertraut, aus_kategorie,
+                                 max_preis=regeln.max_preis)
+            self.kaesten.append(kasten)
+            self._pings.append((kasten, url, titel or name))
             self.bestaetigungen.append(merken)
         else:
             merken()

@@ -113,7 +113,8 @@ def test_lauf_holt_kategorie_ueber_crawlme(speicher):
     e.vertrauenswuerdige_shops.append("games-island.eu")
     _, abrufer = lauf(e, speicher, {KATEGORIE_ABRUF: LISTE}, melder)
     assert abrufer.abgerufen == [KATEGORIE_ABRUF]
-    (kasten,) = [k for n in melder.nachrichten for k in n["kaesten"]]
+    kaesten = [k for n in melder.nachrichten for k in n["kaesten"]]
+    (kasten,) = [k for k in kaesten if k.titel.startswith("📋")]
     assert kasten.titel == "📋 Neu überwacht: Games Island – Booster Displays"
     assert "Pitch Black" in kasten.text and "Preis im Shop" in kasten.text
     assert "Koreanisch" not in kasten.text
