@@ -1,0 +1,13 @@
+HTTP 200
+
+User-agent: *
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: Googlebot
+Disallow: /
+
+User-agent: bingbot
+Disallow: /

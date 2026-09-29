@@ -1,0 +1,5 @@
+HTTP 200
+
+User-agent: *
+Disallow: 
+Sitemap: https://www.lotticards.de/sitemap_index.xml

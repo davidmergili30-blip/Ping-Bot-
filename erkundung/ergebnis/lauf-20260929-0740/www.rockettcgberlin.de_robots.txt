@@ -1,0 +1,3 @@
+HTTP 200
+
+Sitemap: https://www.rockettcgberlin.de/sitemap.xml

@@ -1,0 +1,45 @@
+HTTP 200
+
+# Standard-Einstellung fÃ¼r alle Bots
+User-agent: *
+Disallow: /compare/
+Disallow: /checkout/
+Disallow: /register/
+Disallow: /account/
+Disallow: /address/
+Disallow: /note/
+Disallow: /widgets/
+Disallow: /listing/
+Disallow: /ticket/
+Disallow: /tracking/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /search
+Disallow: /*?filter=
+Disallow: /*?sort=
+Disallow: /*?page=
+Disallow: /*?order=
+Disallow: /*?category=
+Disallow: /*?price=
+Disallow: /*?manufacturer=
+Disallow: /*?c=
+Disallow: /*?
+ 
+Allow: /widgets/emotion
+Allow: /widgets/index/refreshStatistic
+Allow: /impressum
+Allow: /datenschutz
+ 
+# Bilder und Medien immer indexieren lassen
+User-agent: Googlebot-Image
+Allow: /media/
+ 
+User-agent: Bingbot-Image
+Allow: /media/
+ 
+# Spezielle Regel fÃ¼r Googlebot
+User-agent: Googlebot
+Allow: /
+ 
+# Sitemap einbinden
+Sitemap: https://www.bb-spiele.de/sitemap.xml

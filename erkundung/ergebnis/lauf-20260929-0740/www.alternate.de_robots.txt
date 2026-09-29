@@ -1,0 +1,25 @@
+HTTP 200
+
+# robots.txt for alternate
+# 17. November 2025
+# access allowed
+User-agent: *
+Allow: /llms.txt
+Disallow: *.pdf
+Disallow: *.json
+Disallow: /rest/
+Disallow: /productShareModal.xhtml
+Disallow: /addQuestion.xhtml
+Disallow: /addAnswer.xhtml
+
+Sitemap: https://fr.alternate.be/sitemap.xml.gz
+Sitemap: https://www.alternate.at/sitemap.xml.gz
+Sitemap: https://www.alternate.be/sitemap.xml.gz
+Sitemap: https://www.alternate.ch/sitemap.xml.gz
+Sitemap: https://www.alternate.de/sitemap.xml.gz
+Sitemap: https://www.alternate.dk/sitemap.xml.gz
+Sitemap: https://www.alternate.es/sitemap.xml.gz
+Sitemap: https://www.alternate.fr/sitemap.xml.gz
+Sitemap: https://www.alternate.it/sitemap.xml.gz
+Sitemap: https://www.alternate.lu/sitemap.xml.gz
+Sitemap: https://www.alternate.nl/sitemap.xml.gz

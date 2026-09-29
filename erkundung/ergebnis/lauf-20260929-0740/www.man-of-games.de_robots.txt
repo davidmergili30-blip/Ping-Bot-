@@ -1,0 +1,35 @@
+HTTP 200
+
+#
+# robots.txt for epages
+#
+# applies to all robots
+# disallow TBO, PBO
+# prevent mass indexing of search pages
+User-agent: *
+Disallow: /epages/Site.admin/
+Disallow: /epages/*ViewAction=FacetedSearchProducts
+Disallow: /epages/*ViewAction=MobileSF-DetailFacetedSearchProducts
+Disallow: /epages/*ViewAction=ViewFaceted
+Disallow: /epages/*ViewAction=DetailSearchProducts
+Disallow: /epages/*ViewAction=MobileSF-DetailSearchProducts
+Disallow: /epages/*ViewAction=ViewDetailSearchProducts
+Disallow: /epages/*ViewAction=MobileSF-ViewDetailSearchProducts
+Disallow: /epages/*ViewAction=ViewContentSearchMask
+Disallow: /epages/*ViewAction=ContentSearch
+
+Disallow: /epages/*ViewAction=UnityViewFacebookBusinessPixelCode
+Disallow: /epages/*ViewAction=UnityViewRatenkaufBannerScript
+Disallow: /epages/*ViewAction=UnitySF-ViewGoogleAdWordsScript
+Disallow: /epages/*ViewAction=UnityViewGoogleSmartShoppingScript
+Disallow: /epages/*ViewAction=UnityViewPayPalPPCPScript
+Disallow: /epages/*ViewAction=ViewPayPalPPCPScript
+Disallow: /rs/*
+
+User-agent: pricebot
+Crawl-delay: 10
+
+User-agent: BLEXBot
+Crawl-delay: 60
+
+Sitemap: https://www.man-of-games.de/sitemap.xml

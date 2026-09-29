@@ -1,0 +1,929 @@
+{
+  "seiten": [
+    {
+      "nr": 1,
+      "kuerzel": "tcgcheck",
+      "url": "https://www.tcgcheck.de/pokemon/set/de/dunkelnacht/dunkelnacht-display",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.tcgcheck.de/pokemon/set/de/dunkelnacht/dunkelnacht-display",
+      "groesse": 244057,
+      "datei": "01_tcgcheck.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a42957077e3779d9-ORD"
+      },
+      "system_hinweise": [
+        "captcha"
+      ],
+      "sozial": [
+        "https://discord.gg/KYWMakKDez",
+        "https://www.instagram.com/tcgcheck.de",
+        "https://www.tiktok.com/@tcgcheck.de",
+        "https://x.com/TCGCHECKde"
+      ],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [
+        "/login?next=/pokemon/set/de/dunkelnacht/dunkelnacht-display",
+        "/pokemon/display/36er-display/index",
+        "/pokemon/einzelkarten/index",
+        "/pokemon/index",
+        "/pokemon/kategorie/index",
+        "/pokemon/releases/index",
+        "/pokemon/set/de/dunkelnacht/dunkelnacht-booster",
+        "/pokemon/set/de/dunkelnacht/index",
+        "/pokemon/set/en/pitch-black/pitch-black-display",
+        "/pokemon/sets/index",
+        "/registrieren?type=Sammler&next=/pokemon/set/de/dunkelnacht/dunkelnacht-display",
+        "https://www.tcgcheck.de/pokemon/set/de/dunkelnacht/dunkelnacht-display",
+        "https://www.tcgcheck.de/pokemon/set/de/dunkelnacht/index",
+        "https://www.tcgcheck.de/pokemon/set/de/dunkelnacht/kartenliste/index"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 2,
+      "kuerzel": "tcgcheck",
+      "url": "https://www.tcgcheck.de/pokemon/set/de/dunkelnacht/index",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.tcgcheck.de/pokemon/set/de/dunkelnacht/index",
+      "groesse": 232382,
+      "datei": "02_tcgcheck.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a429572e0829000a-ORD"
+      },
+      "system_hinweise": [],
+      "sozial": [
+        "https://discord.gg/KYWMakKDez",
+        "https://www.instagram.com/tcgcheck.de",
+        "https://www.tiktok.com/@tcgcheck.de",
+        "https://x.com/TCGCHECKde"
+      ],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [
+        "/login?next=/pokemon/set/de/dunkelnacht/index",
+        "/pokemon/einzelkarten/index",
+        "/pokemon/index",
+        "/pokemon/kategorie/index",
+        "/pokemon/produkt/vault-x-binder-dunkelnacht-me5-12-pocket",
+        "/pokemon/produkt/vault-x-binder-dunkelnacht-me5-9-pocket",
+        "/pokemon/releases/index",
+        "/pokemon/set/de/dunkelnacht/dunkelnacht-18er-display",
+        "/pokemon/set/de/dunkelnacht/dunkelnacht-blister-bithora",
+        "/pokemon/set/de/dunkelnacht/dunkelnacht-booster",
+        "/pokemon/set/de/dunkelnacht/dunkelnacht-booster-box-case",
+        "/pokemon/set/de/dunkelnacht/dunkelnacht-booster-bundle",
+        "/pokemon/set/de/dunkelnacht/dunkelnacht-build-battle-kit",
+        "/pokemon/set/de/dunkelnacht/dunkelnacht-build-battle-kit-display",
+        "/pokemon/set/de/dunkelnacht/dunkelnacht-display",
+        "/pokemon/set/de/dunkelnacht/dunkelnacht-elite-trainer-box-case",
+        "/pokemon/set/de/dunkelnacht/dunkelnacht-top-trainer-box",
+        "/pokemon/set/de/dunkelnacht/index",
+        "/pokemon/set/de/dunkelnacht/kartenliste/index",
+        "/pokemon/set/en/pitch-black/index",
+        "/pokemon/set/en/pitch-black/kartenliste/index",
+        "/pokemon/sets/index",
+        "https://www.tcgcheck.de/pokemon/set/de/dunkelnacht/index"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 3,
+      "kuerzel": "geizhals",
+      "url": "https://geizhals.de/pok-mon-mega-entwicklung-dunkelnacht-top-trainer-box-a3875403.html",
+      "robots_erlaubt": false,
+      "http": 403,
+      "end_url": "https://geizhals.de/pok-mon-mega-entwicklung-dunkelnacht-top-trainer-box-a3875403.html",
+      "groesse": 10940,
+      "datei": "03_geizhals.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a4295773998122b9-ORD"
+      },
+      "system_hinweise": [],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 4,
+      "kuerzel": "idealo",
+      "url": "https://www.idealo.de/preisvergleich/MainSearchProductCategory.html?q=pokemon+dunkelnacht+display",
+      "robots_erlaubt": false,
+      "http": 403,
+      "end_url": "https://www.idealo.de/preisvergleich/MainSearchProductCategory.html?q=pokemon+dunkelnacht+display",
+      "groesse": 3888,
+      "datei": "04_idealo.html",
+      "kopfzeilen": {
+        "Server": "AkamaiGHost",
+        "Content-Type": "text/html"
+      },
+      "system_hinweise": [],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 5,
+      "kuerzel": "pcgh",
+      "url": "https://www.pcgameshardware.de/Pokemon-Serie-204702/News/Sammelkarten-TCG-Dunkelnacht-Trainer-Box-Booster-Blister-Scalper-UVP-guenstig-1548307/",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.pcgameshardware.de/Pokemon-Serie-204702/News/Sammelkarten-TCG-Dunkelnacht-Trainer-Box-Booster-Blister-Scalper-UVP-guenstig-1548307/",
+      "groesse": 269831,
+      "datei": "05_pcgh.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html;charset=UTF-8",
+        "CF-Ray": "a42957f64ba75624-ORD",
+        "Server": "cloudflare"
+      },
+      "system_hinweise": [],
+      "sozial": [
+        "https://www.facebook.com/pcgameshardware",
+        "https://www.instagram.com/pcgh.de/",
+        "https://www.tiktok.com/@pcgh.de/",
+        "https://www.whatsapp.com/channel/0029VajIV1s8V0tnku29g82X",
+        "https://www.youtube.com/user/PCGamesHardware",
+        "https://www.youtube.com/user/pcgameshardware/featured",
+        "https://x.com/PCGH_Redaktion"
+      ],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [
+        "/Pokemon-Serie-204702/News/30-jahre-pokemon-sammelkarten-tcg-pikachu-booster-trainer-box-scalper-angebot-1554708/",
+        "/Pokemon-Serie-204702/News/Ameisen-sollen-nach-Pokemon-benannt-werden-1266623/",
+        "/Pokemon-Serie-204702/News/Sammelkarten-TCG-Dunkelnacht-Trainer-Box-Booster-Blister-Scalper-UVP-guenstig-1548307/2/",
+        "/Pokemon-Serie-204702/News/Sammelkarten-TCG-Dunkelnacht-Trainer-Box-Booster-Blister-Scalper-UVP-guenstig-1548307/galerie/4280628/",
+        "/commoncfm/sharer.php?iSiteID=24&iSocialTypeID=1&iObjectID=1548307&sURL=https%3A%2F%2Fwww%2Epcgameshardware%2Ede%2FPokemon%2DSerie%2D204702%2FNews%2FSammelkarten%2DTCG%2DDunkelnacht%2DTrainer%2DBox%2DBooster%2DBlister%2DScalper%2DUVP%2Dguenstig%2D1548307%2F%3Futm_source%3Dfacebook.com%26utm_campaign%3Dsharebutton%26utm_medium%3Dsocial",
+        "/commoncfm/sharer.php?iSiteID=24&iSocialTypeID=2&iObjectID=1548307&sURL=https%3A%2F%2Fwww%2Epcgameshardware%2Ede%2FPokemon%2DSerie%2D204702%2FNews%2FSammelkarten%2DTCG%2DDunkelnacht%2DTrainer%2DBox%2DBooster%2DBlister%2DScalper%2DUVP%2Dguenstig%2D1548307%2F%3Futm_source%3Dx.com%26utm_campaign%3Dsharebutton%26utm_medium%3Dsocial&sText=via%20%40PCGH%5FRedaktion%20%2D%20%23Pok%C3%A9mon%3A%20Erste%20H%C3%A4ndler%20mit%20%C3%BCber%20100%20%25%20Aufschlag%3A%20Pok%C3%A9mon%2DDunkelnacht%2DSammelkarten%20ab%2015%2C99%20Euro%20zur%20UVP",
+        "/commoncfm/sharer.php?iSiteID=24&iSocialTypeID=4&iObjectID=1548307&sURL=https%3A%2F%2Fwww%2Epcgameshardware%2Ede%2FPokemon%2DSerie%2D204702%2FNews%2FSammelkarten%2DTCG%2DDunkelnacht%2DTrainer%2DBox%2DBooster%2DBlister%2DScalper%2DUVP%2Dguenstig%2D1548307%2F%3Futm_source%3Dpinterest.com%26utm_campaign%3Dsharebutton%26utm_medium%3Dsocial&sTitle=Erste%20H%C3%A4ndler%20mit%20%C3%BCber%20100%20%25%20Aufschlag%3A%20Pok%C3%A9mon%2DDunkelnacht%2DSammelkarten%20ab%2015%2C99%20Euro%20zur%20UVP&sImageURL=https%3A%2F%2Fwww%2Epcgameshardware%2Ede%2Fscreenshots%2F970x546%2F2026%2F07%2FPokemon%2DSammelkartenspiel%2DTCG%2DMega%2DEntwicklung%2DDunkelnacht%2DScalper%2DUVP%2DGuenstig%2Dpcgh%2Ejpg",
+        "/commoncfm/sharer.php?iSiteID=24&iSocialTypeID=6&iObjectID=1548307&sURL=https%3A%2F%2Fwww%2Epcgameshardware%2Ede%2FPokemon%2DSerie%2D204702%2FNews%2FSammelkarten%2DTCG%2DDunkelnacht%2DTrainer%2DBox%2DBooster%2DBlister%2DScalper%2DUVP%2Dguenstig%2D1548307%2F%3Futm_source%3Dreddit.com%26utm_campaign%3Dsharebutton%26utm_medium%3Dsocial&title=Erste%20H%C3%A4ndler%20mit%20%C3%BCber%20100%20%25%20Aufschlag%3A%20Pok%C3%A9mon%2DDunkelnacht%2DSammelkarten%20ab%2015%2C99%20Euro%20zur%20UVP",
+        "/commoncfm/sharer.php?iSiteID=24&iSocialTypeID=7&iObjectID=1548307&sURL=https%3A%2F%2Fwww%2Epcgameshardware%2Ede%2FPokemon%2DSerie%2D204702%2FNews%2FSammelkarten%2DTCG%2DDunkelnacht%2DTrainer%2DBox%2DBooster%2DBlister%2DScalper%2DUVP%2Dguenstig%2D1548307%2F%3Futm_source%3Dwhatsapp.com%26utm_campaign%3Dsharebutton%26utm_medium%3Dsocial&title=Erste%20H%C3%A4ndler%20mit%20%C3%BCber%20100%20%25%20Aufschlag%3A%20Pok%C3%A9mon%2DDunkelnacht%2DSammelkarten%20ab%2015%2C99%20Euro%20zur%20UVP",
+        "https://www.pcgameshardware.de/Pokemon-Serie-204702/",
+        "https://www.pcgameshardware.de/Pokemon-Serie-204702/News/Sammelkarten-TCG-Dunkelnacht-Trainer-Box-Booster-Blister-Scalper-UVP-guenstig-1548307/",
+        "https://www.pcgameshardware.de/webservices/aref/?a=https%3A%2F%2Fwww.amazon.de%2FPok%25C3%25A9mon-Sammelkartenspiel-Boosterpack-Display-Mega-Entwicklung-Dunkelnacht-Boosterpacks%2Fdp%2FB0GZLF7S4B%3Fcrid%3DVBT3RJI0DGMG%26dib%3DeyJ2IjoiMSJ9.82s-BT0JRfGnQV2XuK766aUSi2N_QauSKiqbg0Oh8gRCcnA7Ut0erFUAL2spegzN_6zvH_4TFMZj-qRGTQtJuUy7gYd4Ezh1Fz1jkUB3q0v0sJDi1qagH2q4iiq9wJW2DVUb4R9hDh1EiZjDUQqBwVvFOtXTz5ZxQio1gHX1UqXhq-vv_x0uovBV2NUquXzkKK0PiMuNTnxYdfdGFTHQVzvZqTfDbeDzIPhFRyXwecaRPoAT2Git4iPk1ofpTUmTyni_6rgliOCC6kwSW8U7UO6CiZvz4jdEgRgIH_hi0GA.29aTk0e7lLg_Uru1GXecy27GAwWAnQWv52j7iCOe71o%26dib_tag%3Dse%26keywords%3Dpokemon%2Bdunkelnacht%26qid%3D1784097115%26sprefix%3Dpokemon%2Bdunkel%252Caps%252C106%26sr%3D8-1%26linkCode%3Dll2%26tag%3Dpcgh-tb-21%26linkId%3Db10dc0673c357e1a63a2f5a8e12f2b7c%26ref_%3Das_li_ss_tl&s=CM24S1P1A1548307Z",
+        "https://www.pcgameshardware.de/webservices/aref/?a=https%3A%2F%2Fwww.amazon.de%2FPok%25C3%25A9mon-Sammelkartenspiel-Boosterpack-Display-Mega-Entwicklung-Dunkelnacht-Boosterpacks%2Fdp%2FB0GZLF7S4B%3Fcrid%3DVBT3RJI0DGMG%26dib%3DeyJ2IjoiMSJ9.82s-BT0JRfGnQV2XuK766aUSi2N_QauSKiqbg0Oh8gRCcnA7Ut0erFUAL2spegzN_6zvH_4TFMZj-qRGTQtJuUy7gYd4Ezh1Fz1jkUB3q0v0sJDi1qagH2q4iiq9wJW2DVUb4R9hDh1EiZjDUQqBwVvFOtXTz5ZxQio1gHX1UqXhq-vv_x0uovBV2NUquXzkKK0PiMuNTnxYdfdGFTHQVzvZqTfDbeDzIPhFRyXwecaRPoAT2Git4iPk1ofpTUmTyni_6rgliOCC6kwSW8U7UO6CiZvz4jdEgRgIH_hi0GA.29aTk0e7lLg_Uru1GXecy27GAwWAnQWv52j7iCOe71o%26dib_tag%3Dse%26keywords%3Dpokemon%2Bdunkelnacht%26qid%3D1784097115%26sprefix%3Dpokemon%2Bdunkel%252Caps%252C106%26sr%3D8-1%26linkCode%3Dll2%26tag%3Dpcgh-tb-21%26linkId%3Db10dc0673c357e1a63a2f5a8e12f2b7c%26ref_%3Das_li_ss_tl&s=CM24S1P21A1548307Z",
+        "https://www.pcgameshardware.de/webservices/aref/?a=https%3A%2F%2Fwww.amazon.de%2FPok%25C3%25A9mon-Sammelkartenspiel-PKM-ME05-Top-Trainer-Box%2Fdp%2FB0GZKYYQ16%3Fcrid%3DVBT3RJI0DGMG%26dib%3DeyJ2IjoiMSJ9.82s-BT0JRfGnQV2XuK766aUSi2N_QauSKiqbg0Oh8gRCcnA7Ut0erFUAL2spegzN_6zvH_4TFMZj-qRGTQtJuUy7gYd4Ezh1Fz1jkUB3q0v0sJDi1qagH2q4iiq9wJW2DVUb4R9hDh1EiZjDUQqBwVvFOtXTz5ZxQio1gHX1UqXhq-vv_x0uovBV2NUquXzkKK0PiMuNTnxYdfdGFTHQVzvZqTfDbeDzIPhFRyXwecaRPoAT2Git4iPk1ofpTUmTyni_6rgliOCC6kwSW8U7UO6CiZvz4jdEgRgIH_hi0GA.29aTk0e7lLg_Uru1GXecy27GAwWAnQWv52j7iCOe71o%26dib_tag%3Dse%26keywords%3Dpokemon%2Bdunkelnacht%26qid%3D1784097115%26sprefix%3Dpokemon%2Bdunkel%252Caps%252C106%26sr%3D8-2%26linkCode%3Dll2%26tag%3Dpcgh-tb-21%26linkId%3D0f84b1b737f837cc37607c332d27e848%26ref_%3Das_li_ss_tl&s=CM24S1P1A1548307Z",
+        "https://www.pcgameshardware.de/webservices/aref/?a=https%3A%2F%2Fwww.amazon.de%2FPok%25C3%25A9mon-Sammelkartenspiel-PKM-ME05-Top-Trainer-Box%2Fdp%2FB0GZKYYQ16%3Fcrid%3DVBT3RJI0DGMG%26dib%3DeyJ2IjoiMSJ9.82s-BT0JRfGnQV2XuK766aUSi2N_QauSKiqbg0Oh8gRCcnA7Ut0erFUAL2spegzN_6zvH_4TFMZj-qRGTQtJuUy7gYd4Ezh1Fz1jkUB3q0v0sJDi1qagH2q4iiq9wJW2DVUb4R9hDh1EiZjDUQqBwVvFOtXTz5ZxQio1gHX1UqXhq-vv_x0uovBV2NUquXzkKK0PiMuNTnxYdfdGFTHQVzvZqTfDbeDzIPhFRyXwecaRPoAT2Git4iPk1ofpTUmTyni_6rgliOCC6kwSW8U7UO6CiZvz4jdEgRgIH_hi0GA.29aTk0e7lLg_Uru1GXecy27GAwWAnQWv52j7iCOe71o%26dib_tag%3Dse%26keywords%3Dpokemon%2Bdunkelnacht%26qid%3D1784097115%26sprefix%3Dpokemon%2Bdunkel%252Caps%252C106%26sr%3D8-2%26linkCode%3Dll2%26tag%3Dpcgh-tb-21%26linkId%3D0f84b1b737f837cc37607c332d27e848%26ref_%3Das_li_ss_tl&s=CM24S1P21A1548307Z",
+        "https://www.pcgameshardware.de/webservices/aref/?a=https%3A%2F%2Fwww.amazon.de%2Fgp%2Fproduct%2FB0GZKYYQ16%3Fcrid%3DVBT3RJI0DGMG%26dib%3DeyJ2IjoiMSJ9.82s-BT0JRfGnQV2XuK766aUSi2N_QauSKiqbg0Oh8gRCcnA7Ut0erFUAL2spegzN_6zvH_4TFMZj-qRGTQtJuUy7gYd4Ezh1Fz1jkUB3q0v0sJDi1qagH2q4iiq9wJW2DVUb4R9hDh1EiZjDUQqBwVvFOtXTz5ZxQio1gHX1UqXhq-vv_x0uovBV2NUquXzkKK0PiMuNTnxYdfdGFTHQVzvZqTfDbeDzIPhFRyXwecaRPoAT2Git4iPk1ofpTUmTyni_6rgliOCC6kwSW8U7UO6CiZvz4jdEgRgIH_hi0GA.29aTk0e7lLg_Uru1GXecy27GAwWAnQWv52j7iCOe71o%26dib_tag%3Dse%26keywords%3Dpokemon%252Bdunkelnacht%26qid%3D1784097115%26sprefix%3Dpokemon%252Bdunkel%25252Caps%25252C106%26sr%3D8-2%26ascsubtag%3DCM24S1P3Z%26linkCode%3Dll2%26tag%3Dpcgh-tb-21%26linkId%3D2788a3bab19b06d0e6e7a8601ae7d450%26ref_%3Das_li_ss_tl&s=CM24S1P22A1548307Z",
+        "https://www.pcgameshardware.de/webservices/aref/?a=https%3A%2F%2Fwww.amazon.de%2Fstores%2Fpage%2FAE4893D1-1FF1-4857-A02E-8A3953D7A06C%3Fingress%3D2%26lp_context_asin%3DB0GZLF7S4B%26lp_context_query%3Dpokemon%252Bdunkelnacht%26visitId%3D0fd24c67-5487-4775-a280-e58e25b38e86%26store_ref%3Dbl_ast_dp_brandlogo_sto%26ascsubtag%3DCM24S1P3Z%26linkCode%3Dll2%26tag%3Dpcgh-tb-21%26linkId%3De5279e8d932815c58f99b6e7b503c422%26ref_%3Das_li_ss_tl&s=CM24S1P1A1548307Z",
+        "https://www.pcgameshardware.de/webservices/aref/?a=https%3A%2F%2Fwww.amazon.de%2Fstores%2Fpage%2FAE4893D1-1FF1-4857-A02E-8A3953D7A06C%3Fingress%3D2%26lp_context_asin%3DB0GZLF7S4B%26lp_context_query%3Dpokemon%2Bdunkelnacht%26visitId%3D0fd24c67-5487-4775-a280-e58e25b38e86%26store_ref%3Dbl_ast_dp_brandlogo_sto%26linkCode%3Dll2%26tag%3Dpcgh-tb-21%26linkId%3D5cb464a9c3ce76c283324c1526291465%26ref_%3Das_li_ss_tl&s=CM24S1P21A1548307Z",
+        "mailto:?subject=Erste%20H%C3%A4ndler%20mit%20%C3%BCber%20100%20%25%20Aufschlag%3A%20Pok%C3%A9mon%2DDunkelnacht%2DSammelkarten%20ab%2015%2C99%20Euro%20zur%20UVP&body=https://www.pcgameshardware.de/Pokemon-Serie-204702/News/Sammelkarten-TCG-Dunkelnacht-Trainer-Box-Booster-Blister-Scalper-UVP-guenstig-1548307/",
+        "mailto:deals@pcgh.de?subject=Lesermeldung%20zu%20Deal%2DArtikel%20%22Statt%20%C3%BCber%20100%20%25%20Aufschlag%3A%20Pok%C3%A9mon%20Dunkelnacht%20Booster%2C%20Trainer%2DBoxen%20und%20mehr%20zur%20UVP%20bei%20Amazon%22&body=Hinweis%20zum%20Deal%3A%0D%0A%5BIhr%20Hinweis%5D%0D%0A%0D%0ABetroffener%20Artikel%3A%0D%0Ahttps%3A%2F%2Fwww%2Epcgameshardware%2Ede%2FPokemon%2DSerie%2D204702%2FNews%2FSammelkarten%2DTCG%2DDunkelnacht%2DTrainer%2DBox%2DBooster%2DBlister%2DScalper%2DUVP%2Dguenstig%2D1548307%2F%0D%0A%0D%0A"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 6,
+      "kuerzel": "cardcosmos",
+      "url": "https://cardcosmos.de/search?q=dunkelnacht&type=product",
+      "robots_erlaubt": false,
+      "http": 200,
+      "end_url": "https://cardcosmos.de/search?q=dunkelnacht&type=product",
+      "groesse": 1615785,
+      "datei": "06_cardcosmos.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a429583fda4e3f2a-ORD"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "shopify",
+        "shopify-section",
+        "sw-",
+        "wix"
+      ],
+      "sozial": [
+        "https://www.facebook.com/cardcosmos.de/",
+        "https://www.instagram.com/cardcosmos.de/",
+        "https://www.tiktok.com/@cardcosmos",
+        "https://x.com/cardcosmos_de"
+      ],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [
+        "/collections/pokemon-30th-celebration",
+        "/collections/pokemon-blister",
+        "/collections/pokemon-booster-bundle",
+        "/collections/pokemon-booster-displays",
+        "/collections/pokemon-booster-kaufen",
+        "/collections/pokemon-display-japanisch",
+        "/collections/pokemon-dunkelnacht-kaufen",
+        "/collections/pokemon-elite-trainer-boxen",
+        "/collections/pokemon-gegradete-karten-kaufen",
+        "/collections/pokemon-graded-karten-deutsch",
+        "/collections/pokemon-kampfdeck",
+        "/collections/pokemon-karten-kaufen",
+        "/collections/pokemon-kollektionen",
+        "/collections/pokemon-release-kalender-2026",
+        "/collections/pokemon-storm-emerald",
+        "/collections/pokemon-tins",
+        "/products/cardcosmos-pokemon-booster-box-acrylic-case",
+        "/products/pokemon-30-jahre-2er-pack-blister-evoli-deutsch",
+        "/products/pokemon-30-jahre-feelinara-ex-kollektion-deutsch",
+        "/products/pokemon-30-jahre-quajutsu-ex-kollektion-deutsch",
+        "/products/pokemon-30-jahre-tech-sticker-kollektion-deutsch",
+        "/products/pokemon-30-jahre-tin-box-nacht-quajutsu-ex-deutsch",
+        "/products/pokemon-30-jahre-tin-box-tag-feelinara-ex-deutsch",
+        "/products/pokemon-30-jahre-top-trainer-box-deutsch",
+        "/products/pokemon-abyss-eye-jpn-bundle-mit-9-pocket-binder-lila",
+        "/products/pokemon-abyss-eye-jpn-bundle-mit-9-pocket-binder-lila#shopify-product-reviews",
+        "/products/pokemon-dunkelnacht-3-pack-blister-deutsch?_pos=7&_sid=98bfbda0a&_ss=r",
+        "/products/pokemon-dunkelnacht-booster-bundle-deutsch?_pos=4&_sid=98bfbda0a&_ss=r",
+        "/products/pokemon-dunkelnacht-booster-display-deutsch?_pos=5&_sid=98bfbda0a&_ss=r",
+        "/products/pokemon-dunkelnacht-booster-display-deutsch?_pos=5&_sid=98bfbda0a&_ss=r#shopify-product-reviews",
+        "/products/pokemon-dunkelnacht-top-trainer-box-deutsch?_pos=6&_sid=98bfbda0a&_ss=r",
+        "/products/pokemon-eeveelutions-sleeping-series-blind-box-evoli-entwicklungen-sammelfigur",
+        "/products/pokemon-gem-pack-vol-4-booster-box-chinesisch-sammler-edition",
+        "/products/pokemon-gem-pack-vol-4-booster-box-chinesisch-sammler-edition#shopify-product-reviews",
+        "/products/pokemon-illumina-city-mini-tin-display-deutsch",
+        "/products/pokemon-mega-darkrai-ex-120-084-dunkelnacht-aog-9-5-gem-mint?_pos=8&_sid=98bfbda0a&_ss=r",
+        "/products/pokemon-mega-dream-ex-display-japanisch",
+        "/products/pokemon-mega-dream-ex-display-japanisch#shopify-product-reviews",
+        "/products/pokemon-mega-entwicklung-delta-herrschaft-3-pack-blister-jurob-deutsch",
+        "/products/pokemon-mega-entwicklung-delta-herrschaft-booster-bundle-deutsch"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 7,
+      "kuerzel": "cardknights",
+      "url": "https://www.card-knights.de/search?q=dunkelnacht&type=product",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.card-knights.de/search?q=dunkelnacht&type=product",
+      "groesse": 742302,
+      "datei": "07_cardknights.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a429588b4ebee82e-ORD"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "shopify",
+        "shopify-section",
+        "sw-",
+        "wix"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [
+        "/collections/pokemon-30-jahre-anniversary",
+        "/collections/pokemon-me01-mega-entwicklung",
+        "/collections/pokemon-me04-wachsendes-chaos",
+        "/collections/pokemon-me05-dunkelnacht",
+        "/collections/pokemon-sammelkarten-decks-zubehoer",
+        "/collections/pokemon-schwert-und-schild",
+        "/products/11-07-2026-10-30-pokemon-me05-prerelease-dunkelnacht?_pos=4&_sid=a83ee8d51&_ss=r",
+        "/products/pokemon-karmesin-purpur-30-jahre-ultra-premium-kollektion-nacht-de?_pos=8&_sid=a83ee8d51&_ss=r",
+        "/products/pokemon-me05-dunkelnacht-3-pack-blister-bithora-de?_pos=6&_sid=a83ee8d51&_ss=r",
+        "/products/pokemon-me05-dunkelnacht-booster-bundle-de?_pos=2&_sid=a83ee8d51&_ss=r",
+        "/products/pokemon-me05-dunkelnacht-booster-display-de?_pos=5&_sid=a83ee8d51&_ss=r",
+        "/products/pokemon-me05-dunkelnacht-booster-pack-de?_pos=3&_sid=a83ee8d51&_ss=r",
+        "/products/pokemon-me05-dunkelnacht-prerelease-04-07-2026?_pos=7&_sid=a83ee8d51&_ss=r",
+        "/products/pokemon-me05-dunkelnacht-top-trainer-box-de?_pos=1&_sid=a83ee8d51&_ss=r"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 8,
+      "kuerzel": "lootcave",
+      "url": "https://lootcave.de/?s=dunkelnacht&post_type=product",
+      "robots_erlaubt": false,
+      "http": 403,
+      "end_url": "https://lootcave.de/?s=dunkelnacht&post_type=product",
+      "groesse": 5813,
+      "datei": "08_lootcave.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a42958d9989b9327-ORD"
+      },
+      "system_hinweise": [
+        "cloudflare"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 9,
+      "kuerzel": "rocket",
+      "url": "https://www.rockettcgberlin.de/",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.rockettcgberlin.de/",
+      "groesse": 58169,
+      "datei": "09_rocket.html",
+      "kopfzeilen": {
+        "server": "nginx",
+        "content-type": "text/html; charset=UTF-8"
+      },
+      "system_hinweise": [
+        "captcha"
+      ],
+      "sozial": [
+        "https://tiktok.com/@rockettcgberlin"
+      ],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 10,
+      "kuerzel": "bbspiele",
+      "url": "https://www.bb-spiele.de/pokemontop-trainer",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.bb-spiele.de/pokemontop-trainer",
+      "groesse": 230990,
+      "datei": "10_bbspiele.html",
+      "kopfzeilen": {
+        "Server": "Apache",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "system_hinweise": [
+        "captcha",
+        "shopware"
+      ],
+      "sozial": [
+        "https://www.facebook.com/bbspiele/",
+        "https://www.instagram.com/bb_spiele/",
+        "https://www.youtube.com/channel/UCHUy2MH52GCLlepfnzZt6Xg"
+      ],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [
+        "https://www.bb-spiele.de/pokemon",
+        "https://www.bb-spiele.de/pokemonblister",
+        "https://www.bb-spiele.de/pokemonbooster",
+        "https://www.bb-spiele.de/pokemonbox-kollektion",
+        "https://www.bb-spiele.de/pokemondisplay",
+        "https://www.bb-spiele.de/pokemonfruehverkauf",
+        "https://www.bb-spiele.de/pokemonjapanisch",
+        "https://www.bb-spiele.de/pokemonmerchandise",
+        "https://www.bb-spiele.de/pokemonsammelkoffer",
+        "https://www.bb-spiele.de/pokemonspezial",
+        "https://www.bb-spiele.de/pokemonthemendecks",
+        "https://www.bb-spiele.de/pokemontins",
+        "https://www.bb-spiele.de/pokemontop-trainer",
+        "https://www.bb-spiele.de/pokemontop-trainer/pokemon-mega-evolution-chaos-rising-elite-trainer-box-en"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 11,
+      "kuerzel": "collectit",
+      "url": "https://www.collect-it.de/pokemon/booster-displays",
+      "robots_erlaubt": false,
+      "http": 503,
+      "end_url": "https://www.collect-it.de/pokemon/booster-displays",
+      "groesse": 11203,
+      "datei": "11_collectit.html",
+      "kopfzeilen": {
+        "Server": "nginx",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 12,
+      "kuerzel": "lotti",
+      "url": "https://www.lotticards.de/pokemon-booster-displays",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.lotticards.de/pokemon-booster-displays",
+      "groesse": 12686,
+      "datei": "12_lotti.html",
+      "kopfzeilen": {
+        "Server": "Apache",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [
+        "/pokemon-booster-displays"
+      ],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 13,
+      "kuerzel": "playmaniac",
+      "url": "https://www.play-maniac.de/",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.play-maniac.de/",
+      "groesse": 809955,
+      "datei": "13_playmaniac.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a4295a3eea9ae82e-ORD"
+      },
+      "system_hinweise": [
+        "captcha",
+        "shopify",
+        "shopify-section"
+      ],
+      "sozial": [
+        "https://whatsapp.com/channel/0029VbDm2dg3rZZZrEn1ZI1o",
+        "https://www.facebook.com/playmaniac20",
+        "https://www.instagram.com/play_maniac20/"
+      ],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [
+        "/collections/alle-pokemon-artikel",
+        "/collections/alle-pokemon-artikel/products/acryl-case-pokemon-booster-bundle-10-retail-display-v2",
+        "/collections/alle-pokemon-artikel/products/acryl-case-pokemon-booster-bundle-retail-display-v1-the-acrylic-box",
+        "/collections/alle-pokemon-artikel/products/acryl-case-pokemon-booster-display",
+        "/collections/alle-pokemon-artikel/products/acryl-case-pokemon-booster-display-sealed-case-carton-blue-tape",
+        "/collections/alle-pokemon-artikel/products/acryl-case-pokemon-mini-tin-display-10-englisch",
+        "/collections/alle-pokemon-artikel/products/acryl-case-pokemon-mini-tin-display-englisch",
+        "/collections/alle-pokemon-artikel/products/acryl-case-schutzhuelle-fuer-pokemon-japan-display-the-acrylic-box",
+        "/collections/alle-pokemon-artikel/products/play-maniac-acryl-case-fuer-pokemon-36-booster-display",
+        "/collections/alle-pokemon-artikel/products/play-maniac-acryl-case-fuer-pokemon-japan-display",
+        "/collections/alle-pokemon-artikel/products/play-maniac-acryl-case-fuer-pokemon-japan-special-display",
+        "/collections/alle-pokemon-artikel/products/play-maniac-acryl-case-fuer-pokemon-top-trainer-elite-trainer-boxen",
+        "/collections/alle-pokemon-artikel/products/play-maniac-acryl-case-schutzh-lle-f-r-pokemon-booster-bundle-display-case-10",
+        "/collections/alle-pokemon-artikel/products/play-maniac-acryl-case-schutzhulle-fur-3-pokemon-tin",
+        "/collections/alle-pokemon-artikel/products/play-maniac-acryl-case-schutzhulle-fur-4-pokemon-36-booster-display-vorverkauf-april-2024",
+        "/collections/alle-pokemon-artikel/products/play-maniac-acryl-case-schutzhulle-fur-pokemon-celebrations-koffer-vorverkauf-25-02-2022",
+        "/collections/alle-pokemon-artikel/products/play-maniac-acryl-case-schutzhulle-fur-pokemon-mini-tin-5er-artwork-set",
+        "/collections/alle-pokemon-artikel/products/pokemon-2-booster-blister-enhanced-genie-trio-englisch",
+        "/collections/alle-pokemon-artikel/products/pokemon-2-booster-pack-galarian-birds-enhanced-blister-englisch",
+        "/collections/alle-pokemon-artikel/products/pokemon-30th-anniversary-first-partner-card-set-vol-1-chinesisch",
+        "/collections/alle-pokemon-artikel/products/pokemon-cbb4c-gem-pack-vol-4-booster-display-chinesisch",
+        "/collections/alle-pokemon-artikel/products/pokemon-center-fukuoka-special-box",
+        "/collections/alle-pokemon-artikel/products/pokemon-center-hiroshima-special-box-japanisch",
+        "/collections/alle-pokemon-artikel/products/pokemon-center-tohoku-special-box",
+        "/collections/alle-pokemon-artikel/products/pokemon-collect-151-gathering-coin-set-chinesisch",
+        "/collections/alle-pokemon-artikel/products/pokemon-destined-rivals-sleeved-booster-englisch2",
+        "/collections/alle-pokemon-artikel/products/pokemon-einzelkarte-glurak-gx-bus-150-nacht-in-flammen-englisch-pgs-8-5",
+        "/collections/alle-pokemon-artikel/products/pokemon-enhanced-2-booster-blister-zarude-deutsch",
+        "/collections/alle-pokemon-artikel/products/pokemon-enhanced-giflor-2-pack-blister-deutsch",
+        "/collections/alle-pokemon-artikel/products/pokemon-frosted-forest-alcove-flip-deck-box",
+        "/collections/alle-pokemon-artikel/products/pokemon-gem-pack-vol1-cbb1-booster-display-chinesisch",
+        "/collections/alle-pokemon-artikel/products/pokemon-go-v-kampf-deck-melmetal-v-englisch-vorverkauf-01-07-2022",
+        "/collections/alle-pokemon-artikel/products/pokemon-illumina-city-mini-tin-deutsch",
+        "/collections/alle-pokemon-artikel/products/pokemon-mega-entwicklung-dunkelnacht-3-pack-blister-bithora-deutsch",
+        "/collections/alle-pokemon-artikel/products/pokemon-mega-kraefte-tin-set-3-deutsch",
+        "/collections/alle-pokemon-artikel/products/pokemon-mega-zygarde-ex-premium-collection",
+        "/collections/alle-pokemon-artikel/products/pokemon-mega-zygarde-ex-premium-kollektion-deutsch",
+        "/collections/alle-pokemon-artikel/products/pokemon-morpeko-v-union-spezial-kollektion-englisch",
+        "/collections/alle-pokemon-artikel/products/pokemon-return-of-the-dragon-duraludon-box-chinesisch",
+        "/collections/alle-pokemon-artikel/products/pokemon-scarlet-violet-6-5-shrouded-fable-mini-tin-display-10tins-englisch-vorverkauf-02-08-2024"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 14,
+      "kuerzel": "manofgames",
+      "url": "https://www.man-of-games.de/en/c/pokemon",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.man-of-games.de/en/c/pokemon",
+      "groesse": 190286,
+      "datei": "14_manofgames.html",
+      "kopfzeilen": {
+        "Server": "Apache",
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "system_hinweise": [
+        "sw-"
+      ],
+      "sozial": [
+        "https://www.facebook.com/manofgames.de",
+        "https://www.facebook.com/manofgames.de\\",
+        "https://www.instagram.com/manofgamesofficial/",
+        "https://www.instagram.com/manofgamesofficial/\\"
+      ],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [
+        "/en/c/pokemon",
+        "/storage/images/Kategorien_Pokemon_01_Booster.png?hash=89c694111f2637b83246cbc000b5c436c3126dfc&amp;shop=90905896&amp;width=600&amp;height=2560",
+        "/storage/images/Kategorien_Pokemon_02_Displays.png?hash=e9262e06fe2a66857e311a6b450933656ad7d97d&amp;shop=90905896&amp;width=600&amp;height=2560",
+        "/storage/images/Kategorien_Pokemon_03_CollBoxes.png?hash=ca86aa47fb0bc8bee15222b2d5814883b204450a&amp;shop=90905896&amp;width=600&amp;height=2560",
+        "/storage/images/Kategorien_Pokemon_04_MysteryBoxes.png?hash=b9fc94d23712d7e0fcf634c3e6c91a98115b3920&amp;shop=90905896&amp;width=600&amp;height=2560",
+        "/storage/images/Kategorien_Pokemon_05_Decks.png?hash=59b8e3792c38ea05fd4629bc4fb4436c94776f62&amp;shop=90905896&amp;width=600&amp;height=2560",
+        "/storage/images/Kategorien_Pokemon_06_Einzelk.png?hash=112337297966e7ad0c80daf0ffd2843cfb3e72c5&amp;shop=90905896&amp;width=600&amp;height=2560",
+        "/storage/images/Kategorien_Pokemon_07_Figuren.png?hash=a4bc7d8fef07dd54b149a4173122fd2806c3db01&amp;shop=90905896&amp;width=600&amp;height=2560",
+        "/storage/images/Kategorien_Pokemon_08_Merch.png?hash=4ce693bd38cc609073770bcfd2de330176b91cdf&amp;shop=90905896&amp;width=600&amp;height=2560",
+        "/storage/images/Kategorien_Pokemon_09_Seltenes.png?hash=396bc73642cb8b6e68f766136f413509478ceda9&amp;shop=90905896&amp;width=600&amp;height=2560",
+        "/storage/images/Kategorien_Pokemon_10_Accessoires.png?hash=2f68ae29612b99af4de8299a7420566f963a3068&amp;shop=90905896&amp;width=600&amp;height=2560",
+        "https://www.man-of-games.de/c/pokemon",
+        "https://www.man-of-games.de/en/c/pokemon",
+        "https://www.man-of-games.de/en/c/pokemon/accessoires",
+        "https://www.man-of-games.de/en/c/pokemon/battle-decks",
+        "https://www.man-of-games.de/en/c/pokemon/booster-packs",
+        "https://www.man-of-games.de/en/c/pokemon/collections-and-boxes",
+        "https://www.man-of-games.de/en/c/pokemon/displays",
+        "https://www.man-of-games.de/en/c/pokemon/figures",
+        "https://www.man-of-games.de/en/c/pokemon/mystery-boxes",
+        "https://www.man-of-games.de/en/c/pokemon/plush-and-merch",
+        "https://www.man-of-games.de/en/c/pokemon/product-calendar-pokemon-tcg",
+        "https://www.man-of-games.de/en/c/pokemon/rarities",
+        "https://www.man-of-games.de/en/c/pokemon/singles"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 15,
+      "kuerzel": "tcgviert",
+      "url": "https://tcgviert.com/search?q=dunkelnacht&type=product",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://tcgviert.com/search?q=dunkelnacht&type=product",
+      "groesse": 457635,
+      "datei": "15_tcgviert.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a4295ac94d7c60e0-ORD"
+      },
+      "system_hinweise": [
+        "captcha",
+        "shopify",
+        "shopify-section",
+        "wix"
+      ],
+      "sozial": [
+        "https://twitter.com/PokeViert",
+        "https://www.facebook.com/pokeviert-101766885509757/",
+        "https://www.instagram.com/pokeviert/",
+        "https://www.youtube.com/channel/UCuxL_zWOlSAsejBdQyqFDjQ"
+      ],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [
+        "/collections/%F0%9F%8E%8C-japanische-displays/pokemon-display-japanisch",
+        "/collections/%F0%9F%93%A6-deutsche-displays/pokemon-display-deutsch",
+        "/collections/%F0%9F%93%A6-englische-displays/pokemon-display-englisch",
+        "/collections/chinesische-displays/pokemon-display-chinesisch",
+        "/collections/geschirr-kuchenaccessoires%E2%98%95-pokemon/k%C3%BCche-pokemon",
+        "/collections/koreanische-displays/pokemon-display-koreanisch",
+        "/collections/merchandise-pokemon/merchandising-pokemon",
+        "/collections/pokemon",
+        "/collections/pokemon-blister-tins-deutsch/pokemon-tin-%2F-blister-deutsch",
+        "/collections/pokemon-boxen-chinesisch/pokemon-boxen-chinesisch",
+        "/collections/pokemon-boxen-japanisch/pokemon-boxen-japanisch",
+        "/collections/pokemon-chinesisch",
+        "/collections/pokemon-deck-englisch/pokemon-deck-englisch",
+        "/collections/pokemon-decks-deutsch/pokemon-deck-deutsch",
+        "/collections/pokemon-decks-japanisch/pokemon-deck-japanisch",
+        "/collections/pokemon-deko-wandgestaltung-%F0%9F%96%BC%EF%B8%8F/deko-pokemon",
+        "/collections/pokemon-deutsch",
+        "/collections/pokemon-einzelbooster-chinesisch/pokemon-booster-chinesisch",
+        "/collections/pokemon-einzelbooster-deutsch/pokemon-booster-deutsch",
+        "/collections/pokemon-einzelbooster-englisch/pokemon-booster-englisch",
+        "/collections/pokemon-einzelbooster-japanisch/pokemon-booster-japanisch",
+        "/collections/pokemon-einzelbooster-koreanisch/pokemon-booster-koreanisch",
+        "/collections/pokemon-einzelkarten-japanisch%F0%9F%83%8F/pokemon-single-japanisch",
+        "/collections/pokemon-englisch",
+        "/collections/pokemon-geschenksets-%F0%9F%8E%81/geschenke-pokemon",
+        "/collections/pokemon-japanisch",
+        "/collections/pokemon-kollektionen-spezialkollektionen-deutsch/pokemon-kollektionen-deutsch",
+        "/collections/pokemon-kollektionen-spezialkollektionen-englisch/pokemon-kollektionen-englisch",
+        "/collections/pokemon-koreanisch",
+        "/collections/pokemon-schreibwaren-buro%E2%9C%8D%EF%B8%8F%F0%9F%93%92/b%C3%BCro-pokemon",
+        "/collections/pokemon-tins-blister-englisch/pokemon-tin-%2F-blister-englisch",
+        "/collections/pokemon-top-trainer-boxen-deutsch/pokemon-TTB-deutsch",
+        "/collections/pokemon-top-trainer-boxen-englisch/pokemon-etb-englisch",
+        "/collections/pokemon-unterwegs-alltag-%F0%9F%8E%92%F0%9F%8C%82/unterwegs-pokemon",
+        "/collections/pokemon-wohlfuhlwelt-%F0%9F%9B%8F%EF%B8%8F/kuscheln-pokemon"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 16,
+      "kuerzel": "fantasywelt",
+      "url": "https://www.fantasywelt.de/",
+      "robots_erlaubt": true,
+      "http": 403,
+      "end_url": "https://www.fantasywelt.de/",
+      "groesse": 5665,
+      "datei": "16_fantasywelt.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a4295b0cdf8de263-ORD"
+      },
+      "system_hinweise": [
+        "cloudflare"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 17,
+      "kuerzel": "trader",
+      "url": "https://www.trader-online.de/",
+      "robots_erlaubt": true,
+      "http": 403,
+      "end_url": "https://www.trader-online.de/",
+      "groesse": 5646,
+      "datei": "17_trader.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a4295b4ffa10e80c-ORD"
+      },
+      "system_hinweise": [
+        "cloudflare"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 18,
+      "kuerzel": "spieleoff",
+      "url": "https://www.spiele-offensive.de/",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.spiele-offensive.de/",
+      "groesse": 75531,
+      "datei": "18_spieleoff.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=ISO-8859-1",
+        "Server": "cloudflare",
+        "X-Powered-By": "PleskLin",
+        "CF-RAY": "a4295b908f05356f-ORD"
+      },
+      "system_hinweise": [
+        "captcha"
+      ],
+      "sozial": [
+        "https://whatsapp.com/channel/0029VaMUhIz5K3zUaFBfMp2e"
+      ],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 19,
+      "kuerzel": "milan",
+      "url": "https://www.milan-spiele.de/",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.milan-spiele.de/",
+      "groesse": 125342,
+      "datei": "19_milan.html",
+      "kopfzeilen": {
+        "Server": "Apache",
+        "X-Powered-By": "PHP/8.3.33",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "system_hinweise": [],
+      "sozial": [
+        "https://www.facebook.com/MilanSpiele",
+        "https://www.instagram.com/milanspiele/"
+      ],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 20,
+      "kuerzel": "proshop",
+      "url": "https://www.proshop.de/?s=pokemon+dunkelnacht",
+      "robots_erlaubt": false,
+      "http": 403,
+      "end_url": "https://www.proshop.de/?s=pokemon+dunkelnacht",
+      "groesse": 5785,
+      "datei": "20_proshop.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a4295c1e5ca58f51-ORD"
+      },
+      "system_hinweise": [
+        "cloudflare"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 21,
+      "kuerzel": "alternate",
+      "url": "https://www.alternate.de/listing.xhtml?q=pokemon+dunkelnacht",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.alternate.de/listing.xhtml?q=pokemon+dunkelnacht",
+      "groesse": 165524,
+      "datei": "21_alternate.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html;charset=UTF-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a4295c617d7d9765-FRA"
+      },
+      "system_hinweise": [],
+      "sozial": [
+        "https://www.facebook.com/alternate.de/",
+        "https://www.instagram.com/alternate.de/",
+        "https://www.tiktok.com/@alternate.de",
+        "https://www.youtube.com/c/Alternate",
+        "https://www.youtube.com/watch?v=i16xCxTgE4I",
+        "https://x.com/alternate_de"
+      ],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [
+        "/listing.xhtml?listing=0&amp;q=pokemon+dunkelnacht&amp;page=1",
+        "/listing.xhtml?listing=1&amp;q=pokemon+dunkelnacht&amp;page=1",
+        "/listing.xhtml?q=pokemon+dunkelnacht&amp;page=1",
+        "/listing.xhtml?q=pokemon+dunkelnacht&amp;page=2",
+        "/listing.xhtml?q=pokemon+dunkelnacht&amp;page=3",
+        "/listing.xhtml?q=pokemon+dunkelnacht&amp;page=40"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 22,
+      "kuerzel": "jokers",
+      "url": "https://www.jokers.de/",
+      "robots_erlaubt": false,
+      "ergebnis": "FEHLER ConnectionError"
+    },
+    {
+      "nr": 23,
+      "kuerzel": "buecher",
+      "url": "https://www.buecher.de/",
+      "robots_erlaubt": false,
+      "http": 403,
+      "end_url": "https://www.buecher.de/",
+      "groesse": 13504,
+      "datei": "23_buecher.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a4295cec4bccacab-ORD"
+      },
+      "system_hinweise": [],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 24,
+      "kuerzel": "gamestop",
+      "url": "https://www.gamestop.de/",
+      "robots_erlaubt": false,
+      "http": 200,
+      "end_url": "https://www.gamestop.de/",
+      "groesse": 2101,
+      "datei": "24_gamestop.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html",
+        "Server": "AmazonS3",
+        "X-Cache": "Hit from cloudfront"
+      },
+      "system_hinweise": [],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 25,
+      "kuerzel": "konsolenkost",
+      "url": "https://www.konsolenkost.de/",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.konsolenkost.de/",
+      "groesse": 972729,
+      "datei": "25_konsolenkost.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Cache": "Miss from cloudfront"
+      },
+      "system_hinweise": [
+        "captcha",
+        "jtl",
+        "plentymarkets"
+      ],
+      "sozial": [
+        "https://instagram.com/konsolenkost.de/",
+        "https://twitter.com/Konsolenkost",
+        "https://www.facebook.com/konsolenkost",
+        "https://www.instagram.com/embed.js",
+        "https://www.instagram.com/reel/C397RFrok3i/?utm_source=ig_embed&amp;utm_campaign=loading",
+        "https://www.instagram.com/reel/C5QNXKjIWn_/?utm_source=ig_embed&amp;utm_campaign=loading",
+        "https://www.instagram.com/reel/C5nZBeLIpnh/",
+        "https://www.instagram.com/reel/C5yb978IQcK/?utm_source=ig_embed&amp;utm_campaign=loading",
+        "https://www.instagram.com/reel/C639U_pIBUd/?utm_source=ig_embed&amp;utm_campaign=loading",
+        "https://www.instagram.com/reel/C6gCHdaozb_/",
+        "https://www.instagram.com/reel/C6yElWlIZRq/",
+        "https://www.instagram.com/reel/C7EFL-doSYV/?utm_source=ig_embed&amp;utm_campaign=loading",
+        "https://www.instagram.com/reel/C7gaZocoD7e/",
+        "https://www.instagram.com/reel/C7zLjXpoE4T/?utm_source=ig_embed&amp;utm_campaign=loading",
+        "https://www.instagram.com/reel/C82IonLI9Dq/",
+        "https://www.instagram.com/reel/C8ADkIkor2W/?utm_source=ig_embed&amp;utm_campaign=loading",
+        "https://www.instagram.com/reel/C8FNi01oV5z/?utm_source=ig_embed&amp;utm_campaign=loading",
+        "https://www.instagram.com/reel/C8KWzOPoRUk/",
+        "https://www.instagram.com/reel/C8Z0i2pIL8S/?utm_source=ig_embed&amp;utm_campaign=loading",
+        "https://www.instagram.com/reel/C8ohf6couCX/",
+        "https://www.tiktok.com/@konsolenkost",
+        "https://www.youtube.com/iframe_api",
+        "https://youtube.com/@konsolenkost_de"
+      ],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [
+        "/suche/?query=Pokemon"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 26,
+      "kuerzel": "otto",
+      "url": "https://www.otto.de/suche/pokemon%20dunkelnacht/",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.otto.de/suche/pokemon%20dunkelnacht/",
+      "groesse": 553153,
+      "datei": "26_otto.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html;charset=UTF-8",
+        "Server": "Edge Proxy"
+      },
+      "system_hinweise": [
+        "wix"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": true,
+      "pokemon_links": [
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-30-jahre-top-trainer-box-deutsch-CS00KD0EV/",
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-kp10-ewige-rivalen-booster-deutsch-CS03F608Y/",
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-me05-dunkelnacht-booster-deutsch-CS0HK10RJ/",
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-mega-entwicklung-ex-kollektion-3-fach-sortiert-CS02K30DV/",
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-premium-poster-kollektion-mega-entwicklung-erhabene-helden-CS0CGP0MF/",
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-reisegefaehrten-build-battle-box-deutsch-S00JV0YW/",
+        "/p/amigo-spiel-plus-freizeit-gmbh-sammelkarte-pokemon-wachsendes-chaos-booster-deutsch-CS08J10DU/",
+        "/p/boti-adventskalender-pokemon-deluxe-mit-24-spielzeug-ueberraschungen-fuer-kinder-ab-3-jahren-CS00F60RA/",
+        "/p/cardcosmos-sammelkarte-cardcosmos-booster-box-acrylic-case-schutz-fuer-pokemon-display-S01CR0L1/",
+        "/p/dragoncollect-sammelkarte-acryl-case-fuer-pokemon-display-booster-box-36er-schutz-made-in-germany-S0WF30EO/",
+        "/p/jazwares-spielzeug-adventskalender-adventskalender-pokemon-battle-figure-1-tlg-CS06CV0MU/",
+        "/p/lego-evoli-72151-lego-pokemon-konstruktionsspielsteine-587-st-2021196078/",
+        "/p/lego-evoli-72151-lego-pokemon-konstruktionsspielsteine-587-st-C2021196078/",
+        "/p/lego-smart-playtm-beerenfete-mit-bisasam-und-bidiza-72155-lego-pokemon-konstruktionsspielsteine-240-st-mit-smart-brick-kompatibel-nicht-im-lieferumfang-enthalten-C2079370121/",
+        "/p/lego-smart-playtm-glumandas-und-kleinsteins-hoehlenduell-72157-konstruktionsspielsteine-198-st-lego-pokemon-mit-smart-brick-kompatibel-nicht-enthalten-2079370123/",
+        "/p/lego-smart-playtm-glumandas-und-kleinsteins-hoehlenduell-72157-konstruktionsspielsteine-198-st-lego-pokemon-mit-smart-brick-kompatibel-nicht-enthalten-C2079370123/",
+        "/p/lego-smart-playtm-trainingshaus-mit-pikachu-72164-lego-pokemon-konstruktionsspielsteine-400-st-inklusive-smart-brick-mit-licht-und-soundeffekten-C2079370128/",
+        "/p/lego-smart-playtm-ultimativer-showdown-zwischen-glurak-und-blitza-72167-konstruktionsspielsteine-751-st-lego-pokemon-inklusive-smart-brick-mit-licht-und-soundeffekten-2079370131/",
+        "/p/name-it-rundhalsshirt-nkmjis-pokemon-ss-nreg-top-box-sky-baumwollmischung-regular-fit-2091811295/",
+        "/p/next-kapuzenpullover-hoodie-mit-grafik-pokemon-1-tlg-S06FM0QC/",
+        "/p/odisey-sammelkarte-50-original-pokemon-karten-deutsch-mit-1-ex-v-vmax-oder-vstar-S0DCT0VR/",
+        "/p/odisey-sammelkarte-50-verschiedene-original-pokemon-karten-und-1-holo-garantiert-S0S9T06I/",
+        "/p/odisey-sammelkarte-50-verschiedene-original-pokemon-karten-und-10-holos-garantiert-S0S9T0EG/",
+        "/p/odisey-sammelkarte-50-verschiedene-original-pokemon-karten-und-5-holos-garantiert-S0S9T0BV/",
+        "/p/pokemon-feuerrote-edition-download-code-nintendo-switch-2151360502/",
+        "/p/pokemon-juego-de-cartas-adventskalender-pokemon-tcg-holiday-calendar-adventskalender-mit-25-ueberraschungen-1-tlg-S0SFP0V6/",
+        "/p/pokemon-juego-de-cartas-sammelkarte-booster-me03-optimale-ordnung-S0BH10GC/",
+        "/p/pokemon-juego-de-cartas-sammelkarte-pkm-mega-entwicklung-optimale-ordnung-booster-deutsch-CS06H40MJ/",
+        "/p/pokemon-juego-de-cartas-sammelkarte-pokemon-mega-entwicklung-2-pack-blister-zarude-deutsch-CS02JT0C7/",
+        "/p/pokemon-kapuzenpullover-kapuzenpulli-kinder-hoodie-mit-motiv-S0QFR07A/",
+        "/p/pokemon-pokopia-code-in-a-box-nintendo-switch-2-C2042915245/",
+        "/p/pokemon-sammelkarte-booster-bundle-pokemon-sammel-karten-deutsch-dunkelnacht-CS03JM0WZ/",
+        "/p/pokemon-sammelkarte-booster-bundle-pokemon-sammel-karten-deutsch-erhabene-helden-CS00JG0ZA/",
+        "/p/pokemon-sammelkarte-booster-bundle-pokemon-sammel-karten-deutsch-optimale-ordnung-CS04GQ06X/",
+        "/p/pokemon-sammelkarte-dunkelnacht-3-booster-packs-pokemon-sammel-karten-deutsch-CS01K20DP/",
+        "/p/pokemon-sammelkarte-einzelbooster-japanisch-zufaellige-auswahl-S0E3P07T/",
+        "/p/pokemon-sammelkarte-erste-partner-pokemon-serie-3-illustrations-kollektion-deutsch-CS02JT0C5/",
+        "/p/pokemon-sammelkarte-glurak-ex-spezial-kollektion-pokemon-sammel-karten-deutsch-CS00FW0T5/",
+        "/p/pokemon-sammelkarte-glurak-schlapor-sammel-album-a4-fuer-252-karten-pokemon-CS00GE0A8/",
+        "/p/pokemon-sammelkarte-karmesin-purpur-prismatische-entwicklungen-booster-bundle-deutsch-enthaelt-6-booster-packs-CS00DY0OB/"
+      ],
+      "roh_gespeichert": false
+    }
+  ],
+  "discord": [
+    {
+      "code": "KYWMakKDez",
+      "http": 200,
+      "server": "TCGCHECK",
+      "mitglieder": 4202,
+      "kanal": "📕┋server-regeln"
+    }
+  ]
+}
