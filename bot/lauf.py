@@ -576,6 +576,7 @@ class Lauf:
                 log.info("Keine Neuigkeiten.")
             if self.manuell and self.melder is not None:
                 self.melder.sende(text="✅ Prüfung fertig – nichts Neues", kaesten=[self._rueckmeldung(len(spaeter))])
+                log.info("Von Hand gestartet → Rückmeldung „Prüfung fertig – nichts Neues“ an Discord geschickt.")
             return 0
         if self.melder is None:
             log.warning("%d Neuigkeit(en), aber Discord ist noch nicht eingerichtet:", len(jetzt))
