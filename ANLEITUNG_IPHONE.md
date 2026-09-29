@@ -114,7 +114,9 @@ Unter **Actions** erscheinen automatisch Läufe von **Preis-Bot** mit dem Hinwei
 1. Öffne die **GitHub-App** → dein Repo **Ping-Bot-** → **Actions** → **Preis-Bot**.
 2. Tipp auf **Run workflow**.
 3. Wähl bei „Was soll der Bot tun?“ eine Aktion und füll – falls nötig – die Felder darunter aus.
-4. Tipp auf **Run workflow**. Nach ca. 1 Minute kommt die Antwort in Discord.
+4. Tipp auf **Run workflow**. Nach ca. 1 Minute kommt die Antwort in Discord – beim `normaler-lauf` nach
+   ca. **7 Minuten** (der Bot macht Pausen zwischen den Abfragen, vor allem bei Games Island).
+   Gibt es nichts Neues, kommt trotzdem eine kurze Nachricht: „✅ Prüfung fertig – nichts Neues“.
 
 | Du willst … | Aktion | Felder |
 |---|---|---|

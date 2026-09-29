@@ -54,8 +54,12 @@ TOLERANZ_MINUTEN = 3  # GitHub startet Läufe manchmal etwas zu früh/spät
 
 class Lauf:
     def __init__(self, einstellungen: Einstellungen, speicher: Speicher, abrufer: Abrufer,
-                 melder: DiscordWebhook | None, jetzt: datetime, heute: date):
+                 melder: DiscordWebhook | None, jetzt: datetime, heute: date, manuell: bool = False):
         self.e = einstellungen
+        # Von Hand gestartet (Run workflow)? Dann gibt es immer eine Rückmeldung – auch ohne Neuigkeiten
+        self.manuell = manuell
+        self._erreicht: set[str] = set()     # Shops/Quellen, die geantwortet haben
+        self._ausgelassen: set[str] = set()  # vor Kurzem erst geprüft → diesmal übersprungen
         self.speicher = speicher
         self.abrufer = abrufer
         self.melder = melder
@@ -522,6 +526,8 @@ class Lauf:
             return None
         seite = self.abrufer.hole(abruf)
         shop = adapter.name if adapter else domain
+        if seite.text is not None:
+            self._erreicht.add(shop)
         if seite.gesperrt:
             # Nicht weiter anfragen und NICHT umgehen – nur einmal Bescheid geben
             self._gesperrt.add(domain)
@@ -550,6 +556,7 @@ class Lauf:
                 self.speicher.setze_abruf(domain, self.jetzt)
             else:
                 log.info("%s wurde vor Kurzem erst abgefragt – diesmal ausgelassen.", domain)
+                self._ausgelassen.add(domain)
             self._shop_frei[domain] = frei
         return self._shop_frei[domain]
 
@@ -567,6 +574,8 @@ class Lauf:
                 bestaetigen()
             if not spaeter:
                 log.info("Keine Neuigkeiten.")
+            if self.manuell and self.melder is not None:
+                self.melder.sende(text="✅ Prüfung fertig – nichts Neues", kaesten=[self._rueckmeldung(len(spaeter))])
             return 0
         if self.melder is None:
             log.warning("%d Neuigkeit(en), aber Discord ist noch nicht eingerichtet:", len(jetzt))
@@ -582,6 +591,22 @@ class Lauf:
         for kasten in jetzt:
             log.info("  • %s", kasten.titel)
         return 0
+
+    def _rueckmeldung(self, zurueckgehalten: int) -> Kasten:
+        """Kurze Bestätigung nach einem Start von Hand, wenn es nichts zu melden gibt."""
+        zeilen = [f"Geprüft: {len(self._beobachtet)} passende Produkte"
+                  + (f" bei {', '.join(sorted(self._erreicht))}" if self._erreicht else "") + "."]
+        if self._ausgelassen:
+            zeilen.append(f"⏭️ Übersprungen, weil erst vor Kurzem geprüft: {', '.join(sorted(self._ausgelassen))} "
+                          f"(höchstens alle {self.e.allgemein.min_minuten_pro_shop} Minuten pro Shop).")
+        if self._gesperrt:
+            zeilen.append(f"⚠️ Blockt gerade: {', '.join(sorted(self._gesperrt))}")
+        if zurueckgehalten:
+            zeilen.append(f"🌙 Ruhezeit: {zurueckgehalten} Hinweis(e) kommen nach "
+                          f"{self.e.standard_regeln.ruhezeit.split('-')[1]} Uhr.")
+        zeilen.append("Nichts ist neu verfügbar, nichts ist unter deinen Preis gefallen. "
+                      "Sobald sich etwas tut, meldet sich der Bot von selbst.")
+        return Kasten(titel="✅ Prüfung fertig – nichts Neues", text="\n".join(zeilen), farbe=FARBE_INFO)
 
     def _nach_ruhezeit(self, kaesten: list[Kasten]) -> tuple[list[Kasten], list[Kasten]]:
         """Teilt in (jetzt schicken, nach der Ruhezeit schicken).

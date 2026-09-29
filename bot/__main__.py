@@ -106,6 +106,8 @@ def normaler_lauf(einstellungen: Einstellungen) -> int:
             einstellungen, speicher, abrufer, melder,
             jetzt=datetime.now(timezone.utc),
             heute=datetime.now(ZoneInfo(einstellungen.allgemein.zeitzone)).date(),
+            # GitHub setzt das automatisch: „workflow_dispatch“ = per Run workflow von Hand gestartet
+            manuell=os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch",
         ).starten()
     finally:
         speicher.schliessen()

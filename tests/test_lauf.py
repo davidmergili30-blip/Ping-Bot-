@@ -86,10 +86,11 @@ def einstellungen(watchlist=None, kategorien=None, filter_=None, suche=None, **r
     )
 
 
-def lauf(e, speicher, seiten, melder, minuten=0):
-    """Führt einen Lauf aus – 'minuten' nach dem ersten Lauf."""
+def lauf(e, speicher, seiten, melder, minuten=0, manuell=False):
+    """Führt einen Lauf aus – 'minuten' nach dem ersten Lauf. manuell=True: wie „Run workflow“."""
     abrufer = FalscherAbrufer(seiten)
-    ergebnis = Lauf(e, speicher, abrufer, melder, jetzt=START + timedelta(minutes=minuten), heute=HEUTE).starten()
+    ergebnis = Lauf(e, speicher, abrufer, melder, jetzt=START + timedelta(minutes=minuten), heute=HEUTE,
+                    manuell=manuell).starten()
     return ergebnis, abrufer
 
 
@@ -456,3 +457,31 @@ def test_neue_sets_im_vorverkauf_werden_einmal_vorgeschlagen(speicher):
     assert vorschlag[0].art == "info"
     lauf(e, speicher, seiten, melder, minuten=20)
     assert not [t for t in melder.titel if t.startswith("🆕")][1:]                       # nur einmal
+
+
+def test_manueller_start_ohne_neuigkeiten_gibt_rueckmeldung(speicher):
+    melder = FalscherMelder()
+    e = einstellungen(DELTA)
+    lauf(e, speicher, {GTTG_PRODUKT: VORBESTELLBAR}, melder)                      # erster Lauf: Ping
+    anzahl = len(melder.nachrichten)
+    lauf(e, speicher, {GTTG_PRODUKT: VORBESTELLBAR}, melder, minuten=60)          # automatisch: still
+    assert len(melder.nachrichten) == anzahl
+    lauf(e, speicher, {GTTG_PRODUKT: VORBESTELLBAR}, melder, minuten=120, manuell=True)
+    letzte = melder.nachrichten[-1]
+    assert letzte["text"] == "✅ Prüfung fertig – nichts Neues"
+    assert "Gate to the Games" in letzte["kaesten"][0].text
+
+
+def test_manueller_start_zeigt_uebersprungene_shops(speicher):
+    melder = FalscherMelder()
+    e = einstellungen(DELTA)
+    lauf(e, speicher, {GTTG_PRODUKT: VORBESTELLBAR}, melder)
+    lauf(e, speicher, {GTTG_PRODUKT: VORBESTELLBAR}, melder, minuten=5, manuell=True)   # zu früh
+    text = melder.nachrichten[-1]["kaesten"][0].text
+    assert "⏭️ Übersprungen, weil erst vor Kurzem geprüft: gate-to-the-games.de" in text
+
+
+def test_manueller_start_mit_neuigkeiten_ohne_extra_rueckmeldung(speicher):
+    melder = FalscherMelder()
+    lauf(einstellungen(DELTA), speicher, {GTTG_PRODUKT: VORBESTELLBAR}, melder, manuell=True)
+    assert melder.titel == ["🔵 VORBESTELLBAR – Delta Display"]
