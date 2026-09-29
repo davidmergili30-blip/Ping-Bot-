@@ -1,8 +1,18 @@
-# Runde 13: TCGCHECK-Setliste, Shopify-Produktlisten (JSON) der vier Shops
-tcgcheck https://www.tcgcheck.de/pokemon/sets/index
-cardcosmos https://cardcosmos.de/collections/pokemon-karten-kaufen/products.json?limit=250
-cardknights https://www.card-knights.de/collections/pokemon-sammelkarten-decks-zubehoer/products.json?limit=250
-playmaniac https://www.play-maniac.de/collections/alle-pokemon-artikel/products.json?limit=250
-playmaniac https://www.play-maniac.de/collections/alle-pokemon-vorverkauf/products.json?limit=250
-tcgviert https://tcgviert.com/collections/pokemon/products.json?limit=250
-cardcosmos https://cardcosmos.de/search/suggest.json?q=dunkelnacht&resources[type]=product&resources[limit]=10
+# Runde 14: TCGCHECK-Setseiten (abgeleitete Adressen prüfen) + Card-Knights-Setabteilungen (JSON)
+tcgcheck https://www.tcgcheck.de/pokemon/set/de/30-jahre/index
+tcgcheck https://www.tcgcheck.de/pokemon/set/de/erhabene-helden/index
+tcgcheck https://www.tcgcheck.de/pokemon/set/de/wachsendes-chaos/index
+tcgcheck https://www.tcgcheck.de/pokemon/set/de/fatale-flammen/index
+tcgcheck https://www.tcgcheck.de/pokemon/set/de/optimale-ordnung/index
+tcgcheck https://www.tcgcheck.de/pokemon/set/en/30th-celebration/index
+tcgcheck https://www.tcgcheck.de/pokemon/set/en/ascended-heroes/index
+tcgcheck https://www.tcgcheck.de/pokemon/set/en/chaos-rising/index
+tcgcheck https://www.tcgcheck.de/pokemon/set/en/phantasmal-flames/index
+tcgcheck https://www.tcgcheck.de/pokemon/set/en/perfect-order/index
+tcgcheck https://www.tcgcheck.de/pokemon/set/jp/abyss-eye/index
+tcgcheck https://www.tcgcheck.de/pokemon/set/jp/ninja-spinner/index
+cardknights https://www.card-knights.de/collections/pokemon-me05-dunkelnacht/products.json?limit=250
+cardknights https://www.card-knights.de/collections/pokemon-30-jahre-anniversary/products.json?limit=250
+cardknights https://www.card-knights.de/collections/pokemon-me04-wachsendes-chaos/products.json?limit=250
+cardcosmos https://cardcosmos.de/collections/pokemon-release-kalender-2026/products.json?limit=250
+playmaniac https://www.play-maniac.de/collections/bald-im-shop/products.json?limit=250
