@@ -1,0 +1,187 @@
+{
+  "seiten": [
+    {
+      "nr": 1,
+      "kuerzel": "tcgcheck",
+      "url": "https://www.tcgcheck.de/pokemon/sets/index",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.tcgcheck.de/pokemon/sets/index",
+      "groesse": 189320,
+      "datei": "01_tcgcheck.html",
+      "kopfzeilen": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "cloudflare",
+        "CF-RAY": "a42dc29ad87deb3a-SEA"
+      },
+      "system_hinweise": [],
+      "sozial": [
+        "https://discord.gg/KYWMakKDez",
+        "https://www.instagram.com/tcgcheck.de",
+        "https://www.tiktok.com/@tcgcheck.de",
+        "https://x.com/TCGCHECKde"
+      ],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [
+        "/pokemon/einzelkarten/index",
+        "/pokemon/index",
+        "/pokemon/kategorie/index",
+        "/pokemon/releases/index",
+        "/pokemon/sets/index",
+        "https://www.tcgcheck.de/pokemon/kategorie/index",
+        "https://www.tcgcheck.de/pokemon/set/de/celebrations/index",
+        "https://www.tcgcheck.de/pokemon/set/de/glaenzendes-schicksal/index",
+        "https://www.tcgcheck.de/pokemon/set/de/pokemon-go/index",
+        "https://www.tcgcheck.de/pokemon/set/de/weg-des-champs/index",
+        "https://www.tcgcheck.de/pokemon/set/de/zenit-der-koenige/index",
+        "https://www.tcgcheck.de/pokemon/sets/index"
+      ],
+      "roh_gespeichert": false
+    },
+    {
+      "nr": 2,
+      "kuerzel": "cardcosmos",
+      "url": "https://cardcosmos.de/collections/pokemon-karten-kaufen/products.json?limit=250",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://cardcosmos.de/collections/pokemon-karten-kaufen/products.json?limit=250",
+      "groesse": 1048539,
+      "datei": "02_cardcosmos.json",
+      "kopfzeilen": {
+        "Content-Type": "application/json; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a42dc2e2d8362b03-SEA"
+      },
+      "system_hinweise": [
+        "shopify"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 3,
+      "kuerzel": "cardknights",
+      "url": "https://www.card-knights.de/collections/pokemon-sammelkarten-decks-zubehoer/products.json?limit=250",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.card-knights.de/collections/pokemon-sammelkarten-decks-zubehoer/products.json?limit=250",
+      "groesse": 155276,
+      "datei": "03_cardknights.json",
+      "kopfzeilen": {
+        "Content-Type": "application/json; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a42dc32929169b79-SEA"
+      },
+      "system_hinweise": [
+        "shopify"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 4,
+      "kuerzel": "playmaniac",
+      "url": "https://www.play-maniac.de/collections/alle-pokemon-artikel/products.json?limit=250",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.play-maniac.de/collections/alle-pokemon-artikel/products.json?limit=250",
+      "groesse": 140201,
+      "datei": "04_playmaniac.json",
+      "kopfzeilen": {
+        "Content-Type": "application/json; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a42dc36c593476a8-SEA"
+      },
+      "system_hinweise": [
+        "shopify"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 5,
+      "kuerzel": "playmaniac",
+      "url": "https://www.play-maniac.de/collections/alle-pokemon-vorverkauf/products.json?limit=250",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://www.play-maniac.de/collections/alle-pokemon-vorverkauf/products.json?limit=250",
+      "groesse": 15,
+      "datei": "05_playmaniac.json",
+      "kopfzeilen": {
+        "Content-Type": "application/json; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a42dc38ebf29a373-SEA"
+      },
+      "system_hinweise": [],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 6,
+      "kuerzel": "tcgviert",
+      "url": "https://tcgviert.com/collections/pokemon/products.json?limit=250",
+      "robots_erlaubt": true,
+      "http": 200,
+      "end_url": "https://tcgviert.com/collections/pokemon/products.json?limit=250",
+      "groesse": 273963,
+      "datei": "06_tcgviert.json",
+      "kopfzeilen": {
+        "Content-Type": "application/json; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a42dc3cfe8a62b03-SEA"
+      },
+      "system_hinweise": [
+        "shopify"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    },
+    {
+      "nr": 7,
+      "kuerzel": "cardcosmos",
+      "url": "https://cardcosmos.de/search/suggest.json?q=dunkelnacht&resources[type]=product&resources[limit]=10",
+      "robots_erlaubt": false,
+      "http": 200,
+      "end_url": "https://cardcosmos.de/search/suggest.json?q=dunkelnacht&resources%5Btype%5D=product&resources%5Blimit%5D=10",
+      "groesse": 29147,
+      "datei": "07_cardcosmos.json",
+      "kopfzeilen": {
+        "Content-Type": "application/json; charset=utf-8",
+        "powered-by": "Shopify",
+        "server": "cloudflare",
+        "CF-RAY": "a42dc3f08b09b9bc-SEA"
+      },
+      "system_hinweise": [
+        "shopify"
+      ],
+      "sozial": [],
+      "newsletter_erwaehnt": false,
+      "pokemon_links": [],
+      "roh_gespeichert": true
+    }
+  ],
+  "discord": [
+    {
+      "code": "KYWMakKDez",
+      "http": 200,
+      "server": "TCGCHECK",
+      "mitglieder": 4204,
+      "kanal": "📕┋server-regeln"
+    }
+  ]
+}

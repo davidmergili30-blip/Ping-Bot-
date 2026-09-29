@@ -1,0 +1,189 @@
+HTTP 200
+
+# ================================
+# Blockierte AI-Crawler / Scrapers
+# ================================
+
+# OpenAI
+User-agent: GPTBot
+Disallow: /
+User-agent: OAI-SearchBot
+Disallow: /
+User-agent: ChatGPT-User
+Disallow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Claude-Web
+Disallow: /
+User-agent: anthropic-ai
+Disallow: /
+
+# Google AI (Gemini/Bard)
+User-agent: Google-Extended
+Disallow: /
+
+# Meta AI
+User-agent: FacebookBot
+Disallow: /
+User-agent: Meta-ExternalAgent
+Disallow: /
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+# Apple
+User-agent: Applebot-Extended
+Disallow: /
+
+# Common Crawl (Trainingsdaten für viele LLMs)
+User-agent: CCBot
+Disallow: /
+
+# Weitere AI-Crawler
+User-agent: Bytespider
+Disallow: /
+User-agent: Diffbot
+Disallow: /
+User-agent: ImagesiftBot
+Disallow: /
+User-agent: Omgilibot
+Disallow: /
+User-agent: Omgili
+Disallow: /
+User-agent: PetalBot
+Disallow: /
+User-agent: Scrapy
+Disallow: /
+User-agent: TurnitinBot
+Disallow: /
+User-agent: YouBot
+Disallow: /
+User-agent: PerplexityBot
+Disallow: /
+User-agent: cohere-ai
+Disallow: /
+User-agent: AI2Bot
+Disallow: /
+User-agent: Amazonbot
+Disallow: /
+User-agent: DataForSeoBot
+Disallow: /
+User-agent: magpie-crawler
+Disallow: /
+User-agent: Meltwater
+Disallow: /
+
+# ================================
+# Erlaubte Suchmaschinen
+# ================================
+
+User-agent: Googlebot
+Allow: /inc/cm-link-melden
+Allow: /
+Disallow: /inc/
+Disallow: /api/
+Disallow: /link/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /interface/
+Disallow: /_internal/
+Disallow: /oauth/
+Disallow: /*?page=
+Disallow: /*&page=
+Disallow: /*?sort=
+Disallow: /*&sort=
+Disallow: /*?shop=
+Disallow: /*&shop=
+Disallow: /*?neukunden=
+Disallow: /*&neukunden=
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: bingbot
+Allow: /inc/cm-link-melden
+Allow: /
+Disallow: /inc/
+Disallow: /api/
+Disallow: /link/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /interface/
+Disallow: /_internal/
+Disallow: /oauth/
+Disallow: /*?page=
+Disallow: /*&page=
+Disallow: /*?sort=
+Disallow: /*&sort=
+Disallow: /*?shop=
+Disallow: /*&shop=
+Disallow: /*?neukunden=
+Disallow: /*&neukunden=
+
+User-agent: Slurp
+Allow: /inc/cm-link-melden
+Allow: /
+Disallow: /inc/
+Disallow: /api/
+Disallow: /link/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /interface/
+Disallow: /_internal/
+Disallow: /oauth/
+
+User-agent: DuckDuckBot
+Allow: /inc/cm-link-melden
+Allow: /
+Disallow: /inc/
+Disallow: /api/
+Disallow: /link/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /interface/
+Disallow: /_internal/
+Disallow: /oauth/
+
+User-agent: Baiduspider
+Allow: /inc/cm-link-melden
+Allow: /
+Disallow: /inc/
+Disallow: /api/
+Disallow: /link/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /interface/
+Disallow: /_internal/
+Disallow: /oauth/
+
+# ================================
+# Alle anderen: blockierte Pfade
+# ================================
+
+User-agent: *
+Allow: /inc/cm-link-melden
+Disallow: /inc/
+Disallow: /api/
+Disallow: /link/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /interface/
+Disallow: /_internal/
+Disallow: /oauth/
+Disallow: /*?page=
+Disallow: /*&page=
+Disallow: /*?sort=
+Disallow: /*&sort=
+Disallow: /*?shop=
+Disallow: /*&shop=
+Disallow: /*?neukunden=
+Disallow: /*&neukunden=
+Allow: /
+Crawl-delay: 10
+
+# ================================
+# Sitemaps
+# ================================
+
+Sitemap: https://www.tcgcheck.de/sitemap.xml
