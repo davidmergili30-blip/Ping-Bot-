@@ -107,7 +107,8 @@ def main():
             continue
         datei = ZIEL / f"{nr:02d}_{kuerzel}.{'json' if 'json' in r.headers.get('content-type', '') else 'html'}"
         # Kleine Seiten roh speichern (um zu sehen, was da ist), große aufgeräumt
-        roh = len(r.text) < 20000
+        # JSON/XML nie „aufräumen“ (das würde sie kaputt machen) – nur Schlüssel unkenntlich machen
+        roh = len(r.text) < 20000 or any(x in r.headers.get("content-type", "") for x in ("json", "xml"))
         datei.write_text(SCHLUESSEL.sub("[entfernt]", r.text) if roh else aufraeumen(r.text), encoding="utf-8")
         klein = r.text.lower()
         eintrag.update({
