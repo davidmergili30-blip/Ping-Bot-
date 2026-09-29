@@ -1,5 +1,27 @@
-# Runde 11: Games Island (Format), Elbenwald (Shopify-Suche)
-gi https://crawlme.games-island.eu/?products=all
-gi https://crawlme.games-island.eu/c/Pokemon/Booster-Displays
-elbenwald https://elbenwald.com/search?q=pokemon+top+trainer+box&type=product
-elbenwald https://elbenwald.com/search/suggest.json?q=pokemon%20top%20trainer%20box&resources[type]=product&resources[limit]=10
+# Runde 12: Preisvergleiche (viele Shops auf einmal) + weitere Shops für mehr Abdeckung
+tcgcheck https://www.tcgcheck.de/pokemon/set/de/dunkelnacht/dunkelnacht-display
+tcgcheck https://www.tcgcheck.de/pokemon/set/de/dunkelnacht/index
+geizhals https://geizhals.de/pok-mon-mega-entwicklung-dunkelnacht-top-trainer-box-a3875403.html
+idealo https://www.idealo.de/preisvergleich/MainSearchProductCategory.html?q=pokemon+dunkelnacht+display
+pcgh https://www.pcgameshardware.de/Pokemon-Serie-204702/News/Sammelkarten-TCG-Dunkelnacht-Trainer-Box-Booster-Blister-Scalper-UVP-guenstig-1548307/
+cardcosmos https://cardcosmos.de/search?q=dunkelnacht&type=product
+cardknights https://www.card-knights.de/search?q=dunkelnacht&type=product
+lootcave https://lootcave.de/?s=dunkelnacht&post_type=product
+rocket https://www.rockettcgberlin.de/
+bbspiele https://www.bb-spiele.de/pokemontop-trainer
+collectit https://www.collect-it.de/pokemon/booster-displays
+lotti https://www.lotticards.de/pokemon-booster-displays
+playmaniac https://www.play-maniac.de/
+manofgames https://www.man-of-games.de/en/c/pokemon
+tcgviert https://tcgviert.com/search?q=dunkelnacht&type=product
+fantasywelt https://www.fantasywelt.de/
+trader https://www.trader-online.de/
+spieleoff https://www.spiele-offensive.de/
+milan https://www.milan-spiele.de/
+proshop https://www.proshop.de/?s=pokemon+dunkelnacht
+alternate https://www.alternate.de/listing.xhtml?q=pokemon+dunkelnacht
+jokers https://www.jokers.de/
+buecher https://www.buecher.de/
+gamestop https://www.gamestop.de/
+konsolenkost https://www.konsolenkost.de/
+otto https://www.otto.de/suche/pokemon%20dunkelnacht/
