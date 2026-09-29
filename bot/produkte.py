@@ -100,12 +100,12 @@ def sprache(titel: str | None, begriff: str, set_name: str) -> str:
     """DE, EN oder JP – aus dem Namen. Ohne Angabe: deutscher Set-Name = DE, sonst EN."""
     roh = (titel or "").lower()
     t = f" {vereinfacht(titel)} "
-    if re.search(r" (koreanisch|korean|kr) ", t):
+    if re.search(r" (koreanisch|korean|kr|kor) ", t):
         return "KR"
-    if re.search(r" (chinesisch|chinese|cn|s chinese|t chinese) ", t):
+    if re.search(r" (chinesisch|chinese|cn|chn|s chinese|t chinese) ", t):
         return "CN"
     # Japanische Sets haben bei manchen Shops nur ein Kürzel wie (M5) oder (M6a)
-    if re.search(r" (japanisch|japanese|japan|jp|jap) ", t) or re.search(r"\(m\d+[a-z]?\)", roh):
+    if re.search(r" (japanisch|japanese|japan|jp|jpn|jap) ", t) or re.search(r"\(m\d+[a-z]?\)", roh):
         return "JP"
     if re.search(r" (englisch|english|en|eng) ", t):
         return "EN"

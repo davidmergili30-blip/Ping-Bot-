@@ -29,6 +29,8 @@ class CheckErgebnis:
     liefertermin: str | None = None   # z. B. "06.11.2026" bei Vorbestellungen
     hinweis: str | None = None        # z. B. warum der Status UNBEKANNT ist
     ohne_preis: bool = False          # Quelle nennt keine Preise → im Ping steht „Preis im Shop“
+    uvp: float | None = None          # unverbindliche Preisempfehlung, falls die Quelle sie nennt
+    info: str | None = None           # Zusatzzeile für den Ping (z. B. „günstigster Preis über alle Shops“)
 
 
 @dataclass
@@ -52,6 +54,10 @@ class ShopAdapter(ABC):
     def abruf_url(self, url: str) -> str:
         """Adresse, die wirklich geladen wird. Normalerweise dieselbe wie der Link im Shop."""
         return url
+
+    def naechste_seite(self, url: str, anzahl: int) -> str | None:
+        """Bei Listen über mehrere Seiten: Adresse der nächsten Seite – sonst None."""
+        return None
 
     def passt_zu(self, url: str) -> bool:
         return domain_von(url) in self.domains

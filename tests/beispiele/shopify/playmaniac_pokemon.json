@@ -1,0 +1,214 @@
+{
+ "products": [
+  {
+   "id": 8568208687368,
+   "title": "Pokémon Scarlet & Violet 6.5 Shrouded Fable Mini Tin Display (10Tins) (Englisch)",
+   "handle": "pokemon-scarlet-violet-6-5-shrouded-fable-mini-tin-display-10tins-englisch-vorverkauf-02-08-2024",
+   "published_at": "2026-05-17T18:31:10+02:00",
+   "created_at": "2024-05-18T03:01:01+02:00",
+   "updated_at": "2026-09-29T22:33:31+02:00",
+   "vendor": "Nintendo",
+   "product_type": "Sammelkarten",
+   "tags": [],
+   "variants": [
+    {
+     "id": 45621171421448,
+     "title": "Default Title",
+     "sku": "",
+     "available": true,
+     "price": "159.99"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 7603667140832,
+   "title": "Pokémon Morpeko V Union Spezial-Kollektion Englisch",
+   "handle": "pokemon-morpeko-v-union-spezial-kollektion-englisch",
+   "published_at": "2025-09-23T11:29:12+02:00",
+   "created_at": "2022-03-26T12:48:46+01:00",
+   "updated_at": "2026-09-29T22:33:31+02:00",
+   "vendor": "Nintendo",
+   "product_type": "Sammelkarten",
+   "tags": [],
+   "variants": [
+    {
+     "id": 42588288221408,
+     "title": "Default Title",
+     "sku": "",
+     "available": false,
+     "price": "59.99"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 8445690806536,
+   "title": "Play-Maniac Acryl Case Schutzhülle für 4 Pokemon 36 Booster Display",
+   "handle": "play-maniac-acryl-case-schutzhulle-fur-4-pokemon-36-booster-display-vorverkauf-april-2024",
+   "published_at": "2024-02-08T14:26:38+01:00",
+   "created_at": "2024-02-08T14:26:38+01:00",
+   "updated_at": "2026-09-29T22:33:31+02:00",
+   "vendor": "Play-Maniac",
+   "product_type": "Schutzcase",
+   "tags": [],
+   "variants": [
+    {
+     "id": 45175027073288,
+     "title": "Default Title",
+     "sku": "",
+     "available": true,
+     "price": "29.99"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 11956946731272,
+   "title": "Pokémon Mega Zygarde ex Premium Collection Englisch",
+   "handle": "pokemon-mega-zygarde-ex-premium-collection",
+   "published_at": "2026-05-05T23:03:27+02:00",
+   "created_at": "2026-05-05T23:03:26+02:00",
+   "updated_at": "2026-09-29T22:33:31+02:00",
+   "vendor": "Play-Maniac",
+   "product_type": "",
+   "tags": [],
+   "variants": [
+    {
+     "id": 57773110526216,
+     "title": "Default Title",
+     "sku": null,
+     "available": true,
+     "price": "48.99"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 11976080097544,
+   "title": "Pokémon CBB1C: Gem Pack Vol.1 Booster Display Chinesisch",
+   "handle": "pokemon-gem-pack-vol1-cbb1-booster-display-chinesisch",
+   "published_at": "2026-05-18T18:32:36+02:00",
+   "created_at": "2026-05-18T18:32:35+02:00",
+   "updated_at": "2026-09-29T22:33:31+02:00",
+   "vendor": "Nintendo",
+   "product_type": "Sammelkarten",
+   "tags": [],
+   "variants": [
+    {
+     "id": 57841879679240,
+     "title": "Default Title",
+     "sku": null,
+     "available": true,
+     "price": "68.99"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 11984826892552,
+   "title": "Pokémon Mega Zygarde ex Premium Kollektion Deutsch",
+   "handle": "pokemon-mega-zygarde-ex-premium-kollektion-deutsch",
+   "published_at": "2026-05-25T16:59:37+02:00",
+   "created_at": "2026-05-25T16:59:36+02:00",
+   "updated_at": "2026-09-29T22:33:31+02:00",
+   "vendor": "Nintendo",
+   "product_type": "Sammelkarten",
+   "tags": [],
+   "variants": [
+    {
+     "id": 57886723637512,
+     "title": "Default Title",
+     "sku": null,
+     "available": false,
+     "price": "44.99"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 12120250155272,
+   "title": "Pokémon Dunkelnacht Bithora 3-Pack Blister Deutsch",
+   "handle": "pokemon-mega-entwicklung-dunkelnacht-3-pack-blister-bithora-deutsch",
+   "published_at": "2026-07-21T23:58:55+02:00",
+   "created_at": "2026-07-21T23:58:55+02:00",
+   "updated_at": "2026-09-29T22:33:31+02:00",
+   "vendor": "Nintendo",
+   "product_type": "Sammelkarten",
+   "tags": [],
+   "variants": [
+    {
+     "id": 58277703614728,
+     "title": "Default Title",
+     "sku": null,
+     "available": false,
+     "price": "18.99"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,169 @@
+{
+ "products": [
+  {
+   "id": 15541801779540,
+   "title": "Pokémon ME05 Dunkelnacht Booster Pack (DE)",
+   "handle": "pokemon-me05-dunkelnacht-booster-pack-de",
+   "published_at": "2026-06-24T09:30:14+02:00",
+   "created_at": "2026-06-24T09:30:14+02:00",
+   "updated_at": "2026-09-29T22:37:34+02:00",
+   "vendor": "Pokémon",
+   "product_type": "Booster",
+   "tags": [
+    "ME05",
+    "Pokemon"
+   ],
+   "variants": [
+    {
+     "id": 56214810591572,
+     "title": "Default Title",
+     "sku": "0196214142923",
+     "available": false,
+     "price": "5.00"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 15541247902036,
+   "title": "Pokémon ME05 Dunkelnacht Top-Trainer-Box (DE)",
+   "handle": "pokemon-me05-dunkelnacht-top-trainer-box-de",
+   "published_at": "2026-06-24T08:29:02+02:00",
+   "created_at": "2026-06-24T08:29:02+02:00",
+   "updated_at": "2026-09-29T22:37:34+02:00",
+   "vendor": "Pokémon",
+   "product_type": "Top Trainer Box",
+   "tags": [
+    "ME05",
+    "Pokemon"
+   ],
+   "variants": [
+    {
+     "id": 56214102442324,
+     "title": "Default Title",
+     "sku": "0196214142152",
+     "available": false,
+     "price": "60.00"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 15542279962964,
+   "title": "Pokémon ME05 Dunkelnacht Booster Bundle (DE)",
+   "handle": "pokemon-me05-dunkelnacht-booster-bundle-de",
+   "published_at": "2026-06-24T11:29:53+02:00",
+   "created_at": "2026-06-24T11:29:53+02:00",
+   "updated_at": "2026-09-29T22:37:34+02:00",
+   "vendor": "Pokémon",
+   "product_type": "Bundle",
+   "tags": [
+    "ME05",
+    "Pokemon"
+   ],
+   "variants": [
+    {
+     "id": 56215806443860,
+     "title": "Default Title",
+     "sku": "0196214142695",
+     "available": false,
+     "price": "35.00"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 15542217474388,
+   "title": "Pokémon ME05 Dunkelnacht 3-Pack Blister Bithora (DE)",
+   "handle": "pokemon-me05-dunkelnacht-3-pack-blister-bithora-de",
+   "published_at": "2026-06-24T10:20:58+02:00",
+   "created_at": "2026-06-24T10:20:58+02:00",
+   "updated_at": "2026-09-29T22:37:34+02:00",
+   "vendor": "Pokémon",
+   "product_type": "Blister",
+   "tags": [
+    "ME05",
+    "Pokemon"
+   ],
+   "variants": [
+    {
+     "id": 56215474209108,
+     "title": "Default Title",
+     "sku": "0196214142428",
+     "available": false,
+     "price": "18.50"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 15542211772756,
+   "title": "Pokémon ME05 Dunkelnacht Booster Display (DE)",
+   "handle": "pokemon-me05-dunkelnacht-booster-display-de",
+   "published_at": "2026-06-24T10:19:05+02:00",
+   "created_at": "2026-06-24T10:14:12+02:00",
+   "updated_at": "2026-09-29T22:37:34+02:00",
+   "vendor": "Amigo",
+   "product_type": "Display",
+   "tags": [
+    "ME05",
+    "Pokemon"
+   ],
+   "variants": [
+    {
+     "id": 56215457431892,
+     "title": "Default Title",
+     "sku": "0196214142923",
+     "available": false,
+     "price": "180.00"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  }
+ ]
+}

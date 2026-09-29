@@ -57,6 +57,10 @@ Die Neuigkeiten eines Laufs kommen gebündelt, getrennt nach Art: 🛒 **Jetzt k
 | Card-Corner | ✅ Set-Suche + Kategorie „Neu eingetroffen“ |
 | Games Island | ✅ über ihre offizielle Datenliste für Programme (crawlme.games-island.eu): Displays, Top-Trainer-Boxen, Kollektionen. Höchstens 5 Anfragen in 5 Minuten, keine Preise (Wunsch von Games Island) → im Ping steht „Preis im Shop“ |
 | mydealz (Pokémon-Gruppe) | ✅ RSS-Feed – deckt indirekt Amazon, Netto, MediaMarkt, Kaufland, Galaxus usw. ab |
+| TCGCHECK (Preisvergleich) | ✅ günstigster Preis über 200+ Shops je Produkt, mit UVP → 🚨 „ZUR UVP“ (eine Seite je Set und Sprache) |
+| cardcosmos, Card-Knights, Play-Maniac | ✅ Shopify-Shops über ihre maschinenlesbaren Produktlisten |
+| TCGViert | ➖ meldet jedes Produkt als verfügbar (Verkauf ohne Lager) → würde falsche Pings erzeugen |
+| Geizhals, idealo, Fantasywelt, Trader-Online, Proshop, buecher.de, Lootcave, LottiCards | 🚫 Bot-Schutz (Cloudflare/Akamai) |
 | Pokémon Center | 🚫 Bot-Schutz (Incapsula) |
 | Kaufland, Thalia, MediaMarkt/Saturn | 🚫 Bot-Schutz (Cloudflare, HTTP 403) → Deals kommen über mydealz |
 | Rossmann | 🚫 Bot-Schutz („Client Challenge“) |
@@ -100,7 +104,9 @@ Ping-Bot-/
 │   ├── adapter/             ← ein „Übersetzer“ pro Shop-System
 │   │   ├── basis.py         ← gemeinsame Bausteine (Preis, Datum, schema.org)
 │   │   ├── jtl.py           ← JTL-Shops: Gate to the Games, Card-Corner
-│   │   └── games_island.py  ← Games Island (über crawlme.games-island.eu)
+│   │   ├── games_island.py  ← Games Island (über crawlme.games-island.eu)
+│   │   ├── shopify.py       ← Shopify-Shops: cardcosmos, Card-Knights, Play-Maniac
+│   │   └── tcgcheck.py      ← TCGCHECK: günstigster Preis über 200+ Shops
 │   ├── pings.py             ← wann gepingt wird und wie der Ping aussieht
 │   ├── produkte.py          ← Art, Set und Sprache aus dem Produktnamen (für Preise & Vergleich)
 │   ├── speicher.py          ← SQLite-Datenbank (Preis- und Statusverlauf)

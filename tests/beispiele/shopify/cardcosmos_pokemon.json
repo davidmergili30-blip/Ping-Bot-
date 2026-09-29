@@ -1,0 +1,464 @@
+{
+ "products": [
+  {
+   "id": 11082332242263,
+   "title": "Pokémon - Mega Evolution: Phantasmal Flames - EN",
+   "handle": "pokemon-mega-evolution-phantasmal-flames-englisch",
+   "published_at": "2026-08-20T14:24:46+02:00",
+   "created_at": "2026-08-20T14:21:55+02:00",
+   "updated_at": "2026-09-29T22:33:09+02:00",
+   "vendor": "The Pokémon Company International",
+   "product_type": "",
+   "tags": [
+    "Display",
+    "fatale flammen",
+    "OVP",
+    "Pokemon"
+   ],
+   "variants": [
+    {
+     "id": 54391476420951,
+     "title": "Default Title",
+     "sku": "PKM ME02 Phantasmal BB EN DIF",
+     "available": true,
+     "price": "549.90"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10766430470487,
+   "title": "Pokémon - Storm Emeralda 30er Display - JPN",
+   "handle": "pokemon-storm-emerald-30er-display-japanisch",
+   "published_at": "2026-04-20T12:06:06+02:00",
+   "created_at": "2026-04-20T11:45:35+02:00",
+   "updated_at": "2026-09-29T22:33:09+02:00",
+   "vendor": "The Pokémon Company International",
+   "product_type": "Pokémon Booster Display",
+   "tags": [
+    "Display",
+    "KEIN RABATT",
+    "OVP",
+    "Pokemon",
+    "shoptok",
+    "Storm Emeralda"
+   ],
+   "variants": [
+    {
+     "id": 53352189264215,
+     "title": "Default Title",
+     "sku": "PKM Storm Emerald BB JPN",
+     "available": true,
+     "price": "109.99"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10392817566039,
+   "title": "Pokémon - Mega Dream EX Booster Display M2a - JPN",
+   "handle": "pokemon-mega-dream-ex-display-japanisch",
+   "published_at": "2025-11-10T10:00:20+01:00",
+   "created_at": "2025-11-10T09:33:07+01:00",
+   "updated_at": "2026-09-29T22:33:09+02:00",
+   "vendor": "The Pokémon Company International",
+   "product_type": "",
+   "tags": [
+    "Display",
+    "KEIN RABATT",
+    "OVP",
+    "Pokemon",
+    "shoptok"
+   ],
+   "variants": [
+    {
+     "id": 52130674999639,
+     "title": "Default Title",
+     "sku": "PKM High Class Mega Dream ex BB JPN",
+     "available": true,
+     "price": "104.90"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10451766575447,
+   "title": "Pokémon - Mega Inferno X Booster Display - KOR",
+   "handle": "pokemon-mega-inferno-x-booster-display-koreanisch",
+   "published_at": "2025-12-16T16:43:26+01:00",
+   "created_at": "2025-12-16T15:27:55+01:00",
+   "updated_at": "2026-09-29T22:33:09+02:00",
+   "vendor": "The Pokémon Company International",
+   "product_type": "",
+   "tags": [
+    "Display",
+    "OVP",
+    "Pokemon",
+    "shoptok"
+   ],
+   "variants": [
+    {
+     "id": 52357473141079,
+     "title": "Default Title",
+     "sku": "PKM Inferno X BB KOR",
+     "available": true,
+     "price": "54.90"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10504165851479,
+   "title": "Pokémon - Nihil Zero 30er Display - JPN",
+   "handle": "pokemon-nihil-zero-display-japanisch",
+   "published_at": "2026-01-23T10:04:04+01:00",
+   "created_at": "2026-01-23T09:41:14+01:00",
+   "updated_at": "2026-09-29T22:33:09+02:00",
+   "vendor": "The Pokémon Company International",
+   "product_type": "Pokémon Booster Display",
+   "tags": [
+    "Display",
+    "KEIN RABATT",
+    "Nihil",
+    "OVP",
+    "Pokemon",
+    "shoptok"
+   ],
+   "variants": [
+    {
+     "id": 52613752062295,
+     "title": "Default Title",
+     "sku": "PKM Nihil Zero BB JPN",
+     "available": true,
+     "price": "69.90"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10766339932503,
+   "title": "Pokémon - Ninja Spinner Booster Display - KOR",
+   "handle": "pokemon-ninja-spinner-booster-display-koreanisch",
+   "published_at": "2026-04-20T12:03:46+02:00",
+   "created_at": "2026-04-20T10:50:26+02:00",
+   "updated_at": "2026-09-29T22:33:09+02:00",
+   "vendor": "The Pokémon Company International",
+   "product_type": "",
+   "tags": [
+    "Display",
+    "KEIN RABATT",
+    "Ninja Spinner",
+    "OVP",
+    "Pokemon",
+    "shoptok"
+   ],
+   "variants": [
+    {
+     "id": 53351881539927,
+     "title": "Default Title",
+     "sku": "PKM Ninja Spinner BB KOR",
+     "available": true,
+     "price": "39.90"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10200847941975,
+   "title": "Pokémon - Mega Brave 30er Display - JPN",
+   "handle": "pokemon-mega-brave-display-japanisch",
+   "published_at": "2025-07-29T14:38:13+02:00",
+   "created_at": "2025-07-29T14:33:30+02:00",
+   "updated_at": "2026-09-29T22:33:09+02:00",
+   "vendor": "The Pokémon Company International",
+   "product_type": "",
+   "tags": [
+    "Display",
+    "mega",
+    "OVP",
+    "Pokemon",
+    "shoptok"
+   ],
+   "variants": [
+    {
+     "id": 51323727708503,
+     "title": "Default Title",
+     "sku": "PKM Mega Brave BB JPN",
+     "available": true,
+     "price": "94.90"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10948672848215,
+   "title": "Pokémon - Stellar Crystal Slim Booster Display - CHN",
+   "handle": "pokemon-stellar-crystal-slim-booster-display-chinesisch",
+   "published_at": "2026-06-29T08:56:10+02:00",
+   "created_at": "2026-06-29T08:49:51+02:00",
+   "updated_at": "2026-09-29T22:33:09+02:00",
+   "vendor": "The Pokémon Company International",
+   "product_type": "",
+   "tags": [
+    "Display",
+    "OVP",
+    "Pokemon"
+   ],
+   "variants": [
+    {
+     "id": 53890596405591,
+     "title": "Default Title",
+     "sku": "PKM CSV9C Stellar Crystal Slim BB CHN",
+     "available": true,
+     "price": "27.90"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10200859017559,
+   "title": "Pokémon - Mega Symphonia 30er Display - JPN",
+   "handle": "pokemon-mega-symphonia-30er-display-japanisch",
+   "published_at": "2025-07-29T14:42:38+02:00",
+   "created_at": "2025-07-29T14:39:41+02:00",
+   "updated_at": "2026-09-29T22:33:09+02:00",
+   "vendor": "The Pokémon Company International",
+   "product_type": "",
+   "tags": [
+    "Display",
+    "mega",
+    "OVP",
+    "Pokemon",
+    "shoptok"
+   ],
+   "variants": [
+    {
+     "id": 51323771879767,
+     "title": "Default Title",
+     "sku": "PKM Mega Symphonia BB JPN",
+     "available": true,
+     "price": "84.99"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10980011082071,
+   "title": "Pokémon Gem Pack Vol. 4 Booster Box CHN + 16 Pocket XXL Binder Mint Bundle",
+   "handle": "pokemon-gem-pack-vol-4-booster-box-chn-16-pocket-xxl-binder-mint-bundle",
+   "published_at": "2026-07-10T16:02:27+02:00",
+   "created_at": "2026-07-10T08:03:06+02:00",
+   "updated_at": "2026-09-29T22:33:09+02:00",
+   "vendor": "cardcosmos",
+   "product_type": "",
+   "tags": [
+    "OVP",
+    "Pokemon",
+    "Sets"
+   ],
+   "variants": [
+    {
+     "id": 53983319589207,
+     "title": "Default Title",
+     "sku": null,
+     "available": true,
+     "price": "59.90"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 8981216297303,
+   "title": "Pokémon - 151 20er Display - JPN",
+   "handle": "pokemon-151-20er-display-japanisch",
+   "published_at": "2024-04-13T15:58:19+02:00",
+   "created_at": "2024-04-13T15:58:19+02:00",
+   "updated_at": "2026-09-29T22:33:09+02:00",
+   "vendor": "The Pokémon Company International",
+   "product_type": "",
+   "tags": [
+    "Display",
+    "OVP",
+    "Pokemon",
+    "shoptok"
+   ],
+   "variants": [
+    {
+     "id": 48048674439511,
+     "title": "Default Title",
+     "sku": "PKM 151 BB JPN",
+     "available": true,
+     "price": "449.90"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10979970056535,
+   "title": "cardcosmos 9 Pocket Binder Mint + Pokémon Sleeping Eeveelutions Blind Box Bundle",
+   "handle": "cardcosmos-9-pocket-binder-mint-pokemon-eeveelutions-sleeping-blind-box-bundle",
+   "published_at": "2026-07-10T14:33:34+02:00",
+   "created_at": "2026-07-10T07:54:49+02:00",
+   "updated_at": "2026-09-29T22:33:09+02:00",
+   "vendor": "cardcosmos",
+   "product_type": "",
+   "tags": [
+    "OVP",
+    "Pokemon",
+    "Sets"
+   ],
+   "variants": [
+    {
+     "id": 53983260311895,
+     "title": "Default Title",
+     "sku": null,
+     "available": true,
+     "price": "29.90"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10978220179799,
+   "title": "Pokémon Gem Pack Vol. 4 Booster Box CHN + Eeveelutions Sleeping Blind Box Bundle",
+   "handle": "pokemon-gem-pack-vol-4-booster-box-chn-eeveelutions-sleeping-blind-box-bundle",
+   "published_at": "2026-07-10T14:32:14+02:00",
+   "created_at": "2026-07-09T21:42:10+02:00",
+   "updated_at": "2026-09-29T22:33:09+02:00",
+   "vendor": "cardcosmos",
+   "product_type": "",
+   "tags": [
+    "OVP",
+    "Pokemon",
+    "Sets"
+   ],
+   "variants": [
+    {
+     "id": 53980468216151,
+     "title": "Default Title",
+     "sku": null,
+     "available": true,
+     "price": "42.90"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  }
+ ]
+}

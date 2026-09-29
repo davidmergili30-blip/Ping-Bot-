@@ -178,6 +178,81 @@ kategorien:
     link: https://games-island.eu/c/Pokemon/Tins
 
 
+  # TCGCHECK: Preisvergleich mit über 200 Shops – je Set und Sprache eine Seite. Der Bot sieht den
+  # GÜNSTIGSTEN Preis aller Shops (welcher Shop, steht auf der Seite hinter dem Link im Ping).
+  # Ohne eigenen Chasepreis kommt ein 🚨 „ZUR UVP“, sobald es irgendwo zur UVP oder günstiger gibt.
+  - name: "TCGCHECK – 30 Jahre (DE)"
+    link: https://www.tcgcheck.de/pokemon/set/de/30-jahre/index
+
+  - name: "TCGCHECK – Dunkelnacht (DE)"
+    link: https://www.tcgcheck.de/pokemon/set/de/dunkelnacht/index
+
+  - name: "TCGCHECK – Erhabene Helden (DE)"
+    link: https://www.tcgcheck.de/pokemon/set/de/erhabene-helden/index
+
+  - name: "TCGCHECK – Wachsendes Chaos (DE)"
+    link: https://www.tcgcheck.de/pokemon/set/de/wachsendes-chaos/index
+
+  - name: "TCGCHECK – Fatale Flammen (DE)"
+    link: https://www.tcgcheck.de/pokemon/set/de/fatale-flammen/index
+
+  - name: "TCGCHECK – Optimale Ordnung (DE)"
+    link: https://www.tcgcheck.de/pokemon/set/de/optimale-ordnung/index
+
+  - name: "TCGCHECK – 30th Celebration (EN)"
+    link: https://www.tcgcheck.de/pokemon/set/en/30th-celebration/index
+
+  - name: "TCGCHECK – Pitch Black (EN)"
+    link: https://www.tcgcheck.de/pokemon/set/en/pitch-black/index
+
+  - name: "TCGCHECK – Ascended Heroes (EN)"
+    link: https://www.tcgcheck.de/pokemon/set/en/ascended-heroes/index
+
+  - name: "TCGCHECK – Chaos Rising (EN)"
+    link: https://www.tcgcheck.de/pokemon/set/en/chaos-rising/index
+
+  - name: "TCGCHECK – Phantasmal Flames (EN)"
+    link: https://www.tcgcheck.de/pokemon/set/en/phantasmal-flames/index
+
+  - name: "TCGCHECK – Perfect Order (EN)"
+    link: https://www.tcgcheck.de/pokemon/set/en/perfect-order/index
+
+  - name: "TCGCHECK – Abyss Eye (JP)"
+    link: https://www.tcgcheck.de/pokemon/set/jp/abyss-eye/index
+
+  - name: "TCGCHECK – Ninja Spinner (JP)"
+    link: https://www.tcgcheck.de/pokemon/set/jp/ninja-spinner/index
+
+  # Shopify-Shops: maschinenlesbare Produktlisten mit „verfügbar ja/nein“
+  - name: "cardcosmos – Displays"
+    link: https://cardcosmos.de/collections/pokemon-booster-displays
+
+  - name: "cardcosmos – Top-Trainer-Boxen"
+    link: https://cardcosmos.de/collections/pokemon-elite-trainer-boxen
+
+  - name: "cardcosmos – Booster Bundles"
+    link: https://cardcosmos.de/collections/pokemon-booster-bundle
+
+  - name: "cardcosmos – Kollektionen"
+    link: https://cardcosmos.de/collections/pokemon-kollektionen
+
+  - name: "cardcosmos – Tins"
+    link: https://cardcosmos.de/collections/pokemon-tins
+
+  - name: "cardcosmos – Vorbestellungen"
+    link: https://cardcosmos.de/collections/pokemon-release-kalender-2026
+
+  # Card-Knights: ganzes Sortiment (enthält auch andere Spiele – gemeldet wird nur Pokémon)
+  - name: "Card-Knights – Sortiment"
+    link: https://www.card-knights.de/collections/all
+
+  - name: "Play-Maniac – Pokémon"
+    link: https://www.play-maniac.de/collections/alle-pokemon-artikel
+
+  - name: "Play-Maniac – Vorverkauf"
+    link: https://www.play-maniac.de/collections/bald-im-shop
+
+
 # ---------------------------------------------------------------------
 #  Deal-Feeds: Hier posten Leute Angebote, sobald sie irgendwo auftauchen –
 #  auch bei Shops, die der Bot selbst nicht abfragen kann (Amazon, Netto,
@@ -225,3 +300,9 @@ kategorie_filter:
     - Blister
     - B-Ware
     - Sleeves
+    - KOR
+    - CHN
+    - Acryl
+    - Case
+    - Schutzhülle
+    - Prerelease

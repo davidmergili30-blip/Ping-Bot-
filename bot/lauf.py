@@ -19,6 +19,7 @@ import json
 import logging
 import re
 from datetime import date, datetime, timedelta
+from dataclasses import replace
 from functools import partial
 from zoneinfo import ZoneInfo
 
@@ -44,6 +45,8 @@ def enthaelt_wort(text: str | None, wort: str) -> bool:
     return re.search(rf"(?<!\w){re.escape(wort)}(?!\w)", text or "", re.IGNORECASE) is not None
 
 MAX_ZEILEN_UEBERSICHT = 10
+MAX_UEBERSICHTEN_EINZELN = 5   # mehr neue Listen auf einmal → eine gemeinsame Übersicht
+MAX_ZEILEN_BUENDEL = 30
 VERGLEICH_STATUS = (Status.BESTELLBAR, Status.VORBESTELLBAR)  # was im Preisvergleich als „verfügbar“ zählt
 DRINGEND = ("chase", "kaufbar", "einladung")  # Nachrichten, die auch in der Ruhezeit sofort kommen
 MAX_SUCHSEITEN = 3   # höchstens so viele Ergebnisseiten pro Suchbegriff und Shop
@@ -87,6 +90,8 @@ class Lauf:
         self._beobachtet: dict[str, tuple[str, str | None, CheckErgebnis]] = {}
         # Neue Sets im Vorverkauf, die (noch) nicht auf der Watchlist stehen: Name → Beispiele
         self._neue_sets: dict[str, list[tuple[str, str | None, str]]] = {}
+        # Übersichten neuer Listen – bei vielen auf einmal werden sie zu EINEM Kasten zusammengefasst
+        self._uebersichten: list[tuple[Kasten, str]] = []
 
     def starten(self) -> int:
         log.info("Normaler Lauf: %d Watchlist-Eintrag/-Einträge, %d Kategorie(n)",
@@ -100,6 +105,7 @@ class Lauf:
             self._sicher(kategorie.name, self._pruefe_kategorie, kategorie)
         for feed in self.e.feeds:
             self._sicher(feed.name, self._pruefe_feed, feed)
+        self._uebersichten_buendeln()
         self._preisvergleich()
         self._neue_sets_melden()
         self._filter_uebersicht()
@@ -183,12 +189,19 @@ class Lauf:
         if adapter is None:
             self._kein_adapter(kategorie.link)
             return
-        seite = self._hole(kategorie.link)
-        if seite is None or seite.text is None:
-            if seite is not None:
-                log.warning("Kategorie %s: %s", kategorie.name, seite.problem)
-            return
-        eintraege = adapter.erkenne_liste(seite.text, kategorie.link, self.heute)
+        eintraege: list[ListenEintrag] = []
+        seiten_url: str | None = kategorie.link
+        while seiten_url:  # manche Listen gehen über mehrere Seiten (z. B. Shopify: 250 Produkte je Seite)
+            seite = self._hole(seiten_url)
+            if seite is None or seite.text is None:
+                if seite is not None:
+                    log.warning("Kategorie %s: %s", kategorie.name, seite.problem)
+                if not eintraege:
+                    return
+                break
+            neue = adapter.erkenne_liste(seite.text, seiten_url, self.heute)
+            eintraege += neue
+            seiten_url = adapter.naechste_seite(seiten_url, len(neue))
         if not eintraege:
             log.warning("Kategorie %s: keine Produkte erkannt – hat der Shop sein Layout geändert?", kategorie.name)
             return
@@ -302,6 +315,22 @@ class Lauf:
                 self.speicher.speichere_check(eintrag.url, shop, e.titel, e, self.jetzt)
             self._vergleiche(eintrag.url, shop, e.titel or "Unbekanntes Produkt", e,
                              self._regeln_fuer(e.titel, produkt), aus_kategorie=True)
+
+    def _uebersichten_buendeln(self) -> None:
+        """Viele neue Listen auf einmal (z. B. nach dem Hinzufügen neuer Shops) → EIN Kasten statt vieler."""
+        if len(self._uebersichten) <= MAX_UEBERSICHTEN_EINZELN:
+            return
+        merken = []
+        for kasten, _ in self._uebersichten:
+            self.kaesten.remove(kasten)
+            merken += self._zu_kasten.pop(id(kasten), [])
+        zeilen = [f"{len(self._uebersichten)} Listen werden ab jetzt überwacht:"]
+        zeilen += [kurz for _, kurz in self._uebersichten[:MAX_ZEILEN_BUENDEL]]
+        if len(self._uebersichten) > MAX_ZEILEN_BUENDEL:
+            zeilen.append(f"… und {len(self._uebersichten) - MAX_ZEILEN_BUENDEL} weitere")
+        zeilen.append("Ab jetzt bekommst du nur noch Neuigkeiten.")
+        self._melde(Kasten(titel=f"📋 {len(self._uebersichten)} Listen neu überwacht", text="\n".join(zeilen),
+                           farbe=FARBE_INFO), *merken)
 
     def _preisvergleich(self) -> None:
         """Gibt es dasselbe Produkt (Set + Art + Sprache) gerade auch in einem anderen Shop? Dann steht es
@@ -433,7 +462,7 @@ class Lauf:
                 self.speicher.speichere_check(eintrag.url, shop, e.titel, e, self.jetzt)
             # Bekannte Produkte normal vergleichen; bei neuen meldet das nur einen Chasepreis extra
             self._vergleiche(eintrag.url, shop, e.titel or "Unbekanntes Produkt", e,
-                             self._regeln_fuer(e.titel, produkt), aus_kategorie=True)
+                             self._regeln_fuer(e.titel, produkt), aus_kategorie=True, erster_blick=True)
         interessant = [e for e in passende if self._wuerde_pingen(e, produkt)]
         if passende:
             zeilen = [f"{len(passende)} passende Produkte, davon {len(interessant)} gerade verfügbar."]
@@ -442,13 +471,18 @@ class Lauf:
         for eintrag in interessant[:MAX_ZEILEN_UEBERSICHT]:
             e = eintrag.ergebnis
             termin = f" · ab {e.liefertermin}" if e.liefertermin else ""
-            zeilen.append(f"{EMOJI[e.status]} {als_link(e.titel, eintrag.url)} – {preis_text(e)}{termin}")
+            uvp = " · 💎 zur UVP" if e.uvp is not None and e.preis is not None and e.preis <= e.uvp else ""
+            zeilen.append(f"{EMOJI[e.status]} {als_link(e.titel, eintrag.url)} – {preis_text(e)}{termin}{uvp}")
         if len(interessant) > MAX_ZEILEN_UEBERSICHT:
             zeilen.append(f"… und {len(interessant) - MAX_ZEILEN_UEBERSICHT} weitere")
         zeilen.append("Ab jetzt bekommst du hier nur noch Neuigkeiten.")
-        self._melde(Kasten(titel=f"📋 Neu überwacht: {ueberschrift}", text="\n".join(zeilen),
-                           link=link, farbe=FARBE_INFO),
-                    partial(self.speicher.setze_meta, schluessel, self.jetzt.isoformat()))
+        kasten = Kasten(titel=f"📋 Neu überwacht: {ueberschrift}", text="\n".join(zeilen), link=link, farbe=FARBE_INFO)
+        self._melde(kasten, partial(self.speicher.setze_meta, schluessel, self.jetzt.isoformat()))
+        zur_uvp = sum(1 for e in interessant if e.ergebnis.uvp is not None and e.ergebnis.preis is not None
+                      and e.ergebnis.preis <= e.ergebnis.uvp)
+        kurz = (f"• {als_link(ueberschrift, link) if link else ueberschrift}: {len(passende)} passend, "
+                f"{len(interessant)} verfügbar" + (f", 💎 {zur_uvp} zur UVP" if zur_uvp else ""))
+        self._uebersichten.append((kasten, kurz))
 
     def _wuerde_pingen(self, eintrag: ListenEintrag, produkt: Produkt | None) -> bool:
         """Gleiche Regeln wie beim Ping (Status, Maximalpreis des Produkts, Vertrauensliste …)."""
@@ -465,7 +499,7 @@ class Lauf:
     # --- Vergleichen und Melden -------------------------------------------------------
 
     def _vergleiche(self, url: str, shop: str, name: str, ergebnis: CheckErgebnis, regeln: Regeln,
-                    aus_kategorie: bool, titel: str | None = None) -> None:
+                    aus_kategorie: bool, titel: str | None = None, erster_blick: bool = False) -> None:
         if ergebnis.status == Status.UNBEKANNT:
             return  # letzten bekannten Stand behalten
         alt = self.speicher.stand(url)
@@ -473,12 +507,20 @@ class Lauf:
         grund = ping_grund(alt, ergebnis, regeln, vertraut)
         merken = [partial(self.speicher.setze_stand, url, shop, name, ergebnis.status, ergebnis.preis, self.jetzt)]
 
+        # Ohne eigenen Chasepreis: bei Quellen mit UVP (TCGCHECK) gilt „zur UVP oder günstiger“
+        chase_ist_uvp = regeln.chase_preis is None and ergebnis.uvp is not None
+        if chase_ist_uvp:
+            regeln = replace(regeln, chase_preis=ergebnis.uvp)
+            grund = ping_grund(alt, ergebnis, regeln, vertraut)  # z. B. „unter_chasepreis“ = unter die UVP gefallen
         # Chasepreis: einmal melden, solange das Produkt darunter bleibt – auch wenn sich sonst nichts
         # geändert hat (z. B. weil du den Chasepreis gerade erst eingetragen hast)
         chase_schluessel = f"chase:{url}"
         chase_jetzt = ist_chase(ergebnis, regeln) and ping_grund(None, ergebnis, regeln, vertraut) is not None
         if chase_jetzt:
-            if grund is None and self.speicher.meta(chase_schluessel) is None:
+            # Beim ersten Blick auf eine Liste nicht jedes Produkt melden, das schon zur UVP da ist
+            # (sonst kommen beim ersten Lauf Dutzende Pings) – es steht dann in der Übersicht
+            still = erster_blick and chase_ist_uvp
+            if grund is None and self.speicher.meta(chase_schluessel) is None and not still:
                 grund = "chasepreis"
             merken.append(partial(self.speicher.setze_meta, chase_schluessel, str(ergebnis.preis)))
         elif self.speicher.meta(chase_schluessel) is not None:

@@ -9,11 +9,18 @@ from __future__ import annotations
 from bot.adapter.basis import CheckErgebnis, ListenEintrag, ShopAdapter, domain_von
 from bot.adapter.games_island import GamesIsland
 from bot.adapter.jtl import JtlShop
+from bot.adapter.shopify import ShopifyShop
+from bot.adapter.tcgcheck import TcgCheck
 
 ADAPTER: list[ShopAdapter] = [
     JtlShop("Gate to the Games", ("gate-to-the-games.de",), treffer_pro_seite=100),
     JtlShop("Card-Corner", ("card-corner.de",), treffer_pro_seite=50),
     GamesIsland(),  # über crawlme.games-island.eu, die offizielle Datenquelle für Programme
+    TcgCheck(),     # Preisvergleich: günstigster Preis über 200+ Shops je Produkt
+    # Shopify-Shops (maschinenlesbare Produktlisten). Neue Shopify-Shops einfach hier ergänzen.
+    ShopifyShop("cardcosmos", ("cardcosmos.de",)),
+    ShopifyShop("Card-Knights", ("card-knights.de",)),
+    ShopifyShop("Play-Maniac", ("play-maniac.de",)),
 ]
 
 # Shops, die automatisches Abfragen ausdrücklich verbieten – hier fragt der Bot nie an.

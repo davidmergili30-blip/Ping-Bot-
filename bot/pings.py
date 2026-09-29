@@ -120,7 +120,11 @@ def ping_kasten(produkt: str, shop: str, url: str, neu: CheckErgebnis, alt: tupl
                 max_preis: float | None = None, chase_preis: float | None = None) -> Kasten:
     """Baut den Discord-Kasten für einen Ping."""
     chase = chase_preis is not None and neu.preis is not None and neu.preis <= chase_preis
-    if chase:
+    # Ohne eigenen Chasepreis gilt bei Quellen mit UVP (TCGCHECK) die UVP als Grenze
+    zur_uvp = chase and neu.uvp is not None and chase_preis == neu.uvp
+    if zur_uvp:
+        titel = f"🚨 ZUR UVP – {produkt}"
+    elif chase:
         titel = f"🚨 CHASEPREIS – {produkt}"
     elif grund == "preissturz":
         titel = f"📉 PREISSTURZ – {produkt}"
@@ -130,13 +134,21 @@ def ping_kasten(produkt: str, shop: str, url: str, neu: CheckErgebnis, alt: tupl
         titel = f"{EMOJI[neu.status]} {lesbar(neu.status)} – {produkt}"
 
     zeilen = [f"**{shop}** · {preis_text(neu)}" + (" (Verkauf durch Shop)" if neu.verkaeufer == "Shop" else "")]
-    if chase:
+    if zur_uvp:
+        zeilen.insert(0, f"🚨 **{euro(neu.preis)} – zur UVP ({euro(neu.uvp)}) oder günstiger!** 🚨")
+        zeilen.insert(1, f"{EMOJI[neu.status]} {lesbar(neu.status)}")
+    elif chase:
         zeilen.insert(0, f"🚨 **{euro(neu.preis)} – unter deinem Chasepreis von {euro(chase_preis)}!** 🚨")
         zeilen.insert(1, f"{EMOJI[neu.status]} {lesbar(neu.status)}")
     if max_preis is not None:
         # Ohne Preis (z. B. Games Island) kann der Bot die Grenze nicht prüfen → lieber melden und dazusagen
         zeilen.append(f"💶 Dein Maximalpreis: {euro(max_preis)}"
                       + (" – bitte den Preis im Shop prüfen" if neu.preis is None else ""))
+    if neu.uvp is not None and neu.preis is not None:
+        abstand = round((neu.preis / neu.uvp - 1) * 100) if neu.uvp else 0
+        zeilen.append(f"🏷️ UVP {euro(neu.uvp)}" + (f" ({'+' if abstand > 0 else ''}{abstand} %)" if abstand else " – genau UVP"))
+    if neu.info:
+        zeilen.append(neu.info)
     if neu.liefertermin:
         zeilen.append(f"📅 Liefertermin: {neu.liefertermin}")
     if neu.mengenlimit:

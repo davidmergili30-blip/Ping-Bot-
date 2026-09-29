@@ -1,0 +1,124 @@
+{
+ "products": [
+  {
+   "id": 10376349942024,
+   "title": "Hololive OFFICIAL CARD GAME Quintet Spectrum REPRINT Booster Display (12 packs) Englisch *VORVERKAUF* Soft Release",
+   "handle": "hololive-quintet-spectrum-reprint-booster-display",
+   "published_at": "2025-06-27T16:03:58+02:00",
+   "created_at": "2025-06-27T16:03:57+02:00",
+   "updated_at": "2026-09-29T22:38:06+02:00",
+   "vendor": "Bushiroad",
+   "product_type": "Sammelkarten",
+   "tags": [],
+   "variants": [
+    {
+     "id": 51840151945480,
+     "title": "Default Title",
+     "sku": "",
+     "available": false,
+     "price": "63.99"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10074818150664,
+   "title": "Hololive OFFICIAL CARD GAME Blooming Radiance REPRINT Booster Display (12 Packs) Englisch *VORVERKAUF* Soft Release",
+   "handle": "hololive-blooming-radiance-reprint-booster-display",
+   "published_at": "2026-05-03T12:55:37+02:00",
+   "created_at": "2025-03-18T12:18:04+01:00",
+   "updated_at": "2026-09-29T22:38:06+02:00",
+   "vendor": "Bushiroad",
+   "product_type": "Sammelkarten",
+   "tags": [],
+   "variants": [
+    {
+     "id": 51014378586376,
+     "title": "Default Title",
+     "sku": "",
+     "available": false,
+     "price": "68.99"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10561411711240,
+   "title": "Hololive OFFICIAL CARD GAME Curious Universe REPRINT Booster Display (12 packs) Englisch Soft Release",
+   "handle": "hololive-curious-universe-reprint-booster-display",
+   "published_at": "2025-10-18T14:13:12+02:00",
+   "created_at": "2025-10-18T14:13:10+02:00",
+   "updated_at": "2026-09-29T22:38:06+02:00",
+   "vendor": "Bushiroad",
+   "product_type": "Sammelkarten",
+   "tags": [],
+   "variants": [
+    {
+     "id": 52648144142600,
+     "title": "Default Title",
+     "sku": null,
+     "available": false,
+     "price": "63.99"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10484798357768,
+   "title": "Hololive OFFICIAL CARD GAME Elite Spark REPRINT Booster Display (12 packs) Englisch *VORVERKAUF* Soft Release",
+   "handle": "hololive-elite-spark-reprint-booster-display",
+   "published_at": "2025-08-29T16:29:20+02:00",
+   "created_at": "2025-08-29T16:29:18+02:00",
+   "updated_at": "2026-09-29T22:38:06+02:00",
+   "vendor": "Bushiroad",
+   "product_type": "Sammelkarten",
+   "tags": [],
+   "variants": [
+    {
+     "id": 52297341927688,
+     "title": "Default Title",
+     "sku": null,
+     "available": false,
+     "price": "63.99"
+    }
+   ],
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  }
+ ]
+}

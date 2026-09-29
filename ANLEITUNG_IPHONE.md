@@ -247,6 +247,10 @@ Bei einem roten ✗ schickt GitHub dir außerdem eine E-Mail. Das ist normal.
 Hinweise kommen gesammelt beim ersten Lauf nach 6 Uhr. Ändern kannst du das in `config.yaml` bei `ruhezeit`.
 
 **Zu den Quellen:**
+- 🔎 **TCGCHECK** ist ein Preisvergleich mit über 200 Shops. Der Bot sieht dort den **günstigsten Preis aller
+  Shops** und die **UVP**. Gibt es ein Produkt irgendwo zur UVP oder günstiger, kommt ein 🚨 **„ZUR UVP“**
+  (außer du hast einen eigenen Chasepreis gesetzt – dann gilt deiner). Welcher Shop es ist, siehst du nach
+  einem Tipp auf die Überschrift. Achtung: Manchmal ist das günstigste Angebot „nur auf Einladung“ (Amazon).
 - 📰 **DEAL**-Kästen kommen vom **mydealz-Feed**. Dort posten Leute Angebote aus allen möglichen Shops
   (auch Amazon, Netto, MediaMarkt). Tipp auf die Überschrift: Du landest beim Deal auf mydealz, dort
   steht der Link zum Shop.
