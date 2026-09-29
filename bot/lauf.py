@@ -28,7 +28,7 @@ from bot.adapter.basis import CheckErgebnis, ListenEintrag, domain_von
 from bot.discord import DiscordWebhook, Kasten
 from bot.feeds import Deal, FeedFehler, lies_rss
 from bot.einstellungen import Einstellungen, Kategorie, Produkt, Regeln
-from bot.produkte import (produktart, regeln_fuer, set_fuer, set_name_aus_titel, vereinfacht,
+from bot.produkte import (ist_pokemon, produktart, regeln_fuer, set_fuer, set_name_aus_titel, vereinfacht,
                           vergleichs_schluessel)
 from bot.pings import (EMOJI, FARBE_CHASE, FARBE_INFO, FARBE_WARNUNG, als_link, euro, ist_chase, nach_art,
                        ping_grund, ping_kasten,
@@ -192,6 +192,9 @@ class Lauf:
         if not eintraege:
             log.warning("Kategorie %s: keine Produkte erkannt – hat der Shop sein Layout geändert?", kategorie.name)
             return
+        if "pokemon" not in kategorie.link.lower():
+            # Listen wie „Neu eingetroffen“ enthalten alle Kartenspiele (Yu-Gi-Oh, Magic …) → nur Pokémon
+            eintraege = [e for e in eintraege if ist_pokemon(e.ergebnis.titel, self.e.watchlist)]
         passende = self._nur_passende(eintraege)
         log.info("Kategorie %s: %d Produkte, %d passen zum Filter", kategorie.name, len(eintraege), len(passende))
         self._neue_sets_suchen(passende, adapter.name, pokemon_liste="pokemon" in kategorie.link.lower())

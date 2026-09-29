@@ -89,6 +89,13 @@ def set_fuer(titel: str | None, watchlist: list[Produkt]) -> tuple[Produkt, str]
     return None
 
 
+def ist_pokemon(titel: str | None, watchlist: list[Produkt]) -> bool:
+    """Steht „Pokémon“ im Namen oder ein Set der Watchlist? (Für Listen mit allen Kartenspielen.)"""
+    if _ANDERE_SPIELE.search(titel or ""):
+        return False
+    return re.search(r"pok[eé]mon", titel or "", re.I) is not None or set_fuer(titel, watchlist) is not None
+
+
 def sprache(titel: str | None, begriff: str, set_name: str) -> str:
     """DE, EN oder JP – aus dem Namen. Ohne Angabe: deutscher Set-Name = DE, sonst EN."""
     roh = (titel or "").lower()

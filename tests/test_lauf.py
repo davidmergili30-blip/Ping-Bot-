@@ -485,3 +485,16 @@ def test_manueller_start_mit_neuigkeiten_ohne_extra_rueckmeldung(speicher):
     melder = FalscherMelder()
     lauf(einstellungen(DELTA), speicher, {GTTG_PRODUKT: VORBESTELLBAR}, melder, manuell=True)
     assert melder.titel == ["🔵 VORBESTELLBAR – Delta Display"]
+
+
+def test_gemischte_liste_meldet_nur_pokemon(speicher):
+    """„Neu eingetroffen“ bei Card-Corner enthält alle Kartenspiele – Yu-Gi-Oh darf nie gemeldet werden."""
+    melder = FalscherMelder()
+    e = einstellungen(kategorien=[("CC Neu", CC_NEU)], filter_=KategorieFilter(nur_mit=["Display"]))
+    liste = html("card_corner/liste_neu_eingetroffen.html").replace(
+        "Pokemon Abyss Eye Display (Koreanisch)", "Yugioh Original Artwork Collection Display")
+    assert "Yugioh Original Artwork Collection Display" in liste
+    lauf(e, speicher, {CC_NEU: liste}, melder)
+    text = " ".join(k.titel + k.text for n in melder.nachrichten for k in n["kaesten"])
+    assert "Yugioh" not in text
+    assert "Pokemon Inferno X Display" in text          # Pokémon kommt weiter durch
